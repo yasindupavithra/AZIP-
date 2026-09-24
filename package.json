@@ -1,0 +1,38 @@
+{
+  "name": "azip-store",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^26.4.1",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "bcryptjs": "^3.0.3",
+    "cloudinary": "^2.11.0",
+    "clsx": "^2.1.1",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.3.4",
+    "framer-motion": "^13.2.0",
+    "jose": "^6.2.12",
+    "lucide-react": "^1.41.0",
+    "mongoose": "^9.9.5",
+    "next": "^16.3.4",
+    "postcss": "^8.5.28",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "tailwind-merge": "^3.6.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^6.0.3",
+    "zustand": "^5.0.15"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "kranna": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6"
+  }
+}
