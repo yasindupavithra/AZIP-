@@ -267,20 +267,20 @@ export default function Navbar() {
       {/* ── Sub-Navigation Bar ────────────────────────────── */}
       <div className="border-t border-gray-100 bg-white shadow-xs">
         <div className={`container mx-auto px-4 flex items-center justify-between overflow-x-auto no-scrollbar transition-all duration-300 ${
-          isScrolled ? 'py-1' : 'py-2'
+          isScrolled ? 'py-2' : 'py-3'
         }`}>
           
           {/* Left Nav Links */}
-          <nav className="flex items-center gap-2 shrink-0 text-xs font-semibold text-gray-700">
+          <nav className="flex items-center gap-3 shrink-0 text-sm font-semibold text-gray-800">
             {/* Products Dropdown */}
             <div ref={productsRef} className="relative">
               <button
                 onClick={() => setIsProductsDropdownOpen(!isProductsDropdownOpen)}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-50 hover:bg-red-100 text-[#DC2626] font-bold border border-red-100 transition-all cursor-pointer text-xs"
+                className="flex items-center gap-2 px-4 py-2 rounded-xl bg-red-50 hover:bg-red-100 text-[#DC2626] font-bold border border-red-200/80 transition-all cursor-pointer text-sm shadow-2xs"
               >
-                <LayoutGrid size={14} className="text-[#DC2626]" />
+                <LayoutGrid size={16} className="text-[#DC2626]" />
                 <span>All Products</span>
-                <ChevronDown size={13} className={`transition-transform duration-200 ${isProductsDropdownOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown size={14} className={`transition-transform duration-200 ${isProductsDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
 
               {isProductsDropdownOpen && (
@@ -313,11 +313,11 @@ export default function Navbar() {
             <div ref={brandsRef} className="relative">
               <button
                 onClick={() => setIsBrandsDropdownOpen(!isBrandsDropdownOpen)}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg hover:bg-gray-100 text-gray-700 font-semibold transition-all cursor-pointer border border-transparent text-xs"
+                className="flex items-center gap-2 px-4 py-2 rounded-xl hover:bg-gray-100 text-gray-800 font-bold transition-all cursor-pointer border border-transparent text-sm"
               >
-                <Tag size={13} className="text-gray-400" />
+                <Tag size={15} className="text-gray-500" />
                 <span>Top Brands</span>
-                <ChevronDown size={13} className={`text-gray-400 transition-transform duration-200 ${isBrandsDropdownOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown size={14} className={`text-gray-500 transition-transform duration-200 ${isBrandsDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
 
               {isBrandsDropdownOpen && (
@@ -338,19 +338,19 @@ export default function Navbar() {
             </div>
 
             {/* Divider */}
-            <div className="h-4 w-px bg-gray-200 mx-1 hidden sm:block" />
+            <div className="h-5 w-px bg-gray-200 mx-1 hidden sm:block" />
 
             {/* Direct Category Shortcuts */}
-            <Link href="/products?category=books" className="px-3 py-1.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-[#DC2626] transition-all whitespace-nowrap font-medium hidden lg:block">
+            <Link href="/products?category=books" className="px-3.5 py-2 rounded-xl text-gray-700 hover:bg-red-50/70 hover:text-[#DC2626] transition-all whitespace-nowrap font-bold text-[14px] hidden lg:block">
               School Books
             </Link>
-            <Link href="/products?category=writing-instruments" className="px-3 py-1.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-[#DC2626] transition-all whitespace-nowrap font-medium hidden lg:block">
+            <Link href="/products?category=writing-instruments" className="px-3.5 py-2 rounded-xl text-gray-700 hover:bg-red-50/70 hover:text-[#DC2626] transition-all whitespace-nowrap font-bold text-[14px] hidden lg:block">
               Stationery
             </Link>
-            <Link href="/products?category=art-craft" className="px-3 py-1.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-[#DC2626] transition-all whitespace-nowrap font-medium hidden xl:block">
+            <Link href="/products?category=art-craft" className="px-3.5 py-2 rounded-xl text-gray-700 hover:bg-red-50/70 hover:text-[#DC2626] transition-all whitespace-nowrap font-bold text-[14px] hidden xl:block">
               Art &amp; Craft
             </Link>
-            <Link href="/products?category=electronics" className="px-3 py-1.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-[#DC2626] transition-all whitespace-nowrap font-medium hidden xl:block">
+            <Link href="/products?category=electronics" className="px-3.5 py-2 rounded-xl text-gray-700 hover:bg-red-50/70 hover:text-[#DC2626] transition-all whitespace-nowrap font-bold text-[14px] hidden xl:block">
               Calculators
             </Link>
           </nav>
@@ -359,11 +359,11 @@ export default function Navbar() {
           <div className="flex items-center gap-2 shrink-0 pl-4">
             <Link
               href="/offers"
-              className={`inline-flex items-center gap-1.5 bg-[#DC2626] hover:bg-[#B91C1C] text-white font-bold rounded-full shadow-xs transition-all duration-200 hover:shadow-md ${
-                isScrolled ? 'px-3 py-1 text-[11px]' : 'px-4 py-1.5 text-xs'
+              className={`inline-flex items-center gap-2 bg-[#DC2626] hover:bg-[#B91C1C] text-white font-bold rounded-full shadow-xs transition-all duration-200 hover:shadow-md ${
+                isScrolled ? 'px-3.5 py-1.5 text-xs' : 'px-5 py-2 text-xs sm:text-sm'
               }`}
             >
-              <Flame size={13} className="fill-amber-300 text-amber-300" />
+              <Flame size={15} className="fill-amber-300 text-amber-300" />
               Hot Offers
             </Link>
           </div>
