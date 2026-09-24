@@ -212,9 +212,9 @@ function ProductsContent() {
       {/* 2. Singer-style Breadcrumb */}
       <div className="bg-white border-b border-gray-200 py-2.5">
         <div className="container mx-auto px-4 flex items-center gap-2 text-[12px] text-gray-500 font-medium">
-          <Link href="/" className="hover:text-[#e3004f] transition-colors">Home</Link>
+          <Link href="/" className="hover:text-[#DC2626] transition-colors">Home</Link>
           <span className="text-gray-300">/</span>
-          <Link href="/products" className="hover:text-[#e3004f] transition-colors">Products</Link>
+          <Link href="/products" className="hover:text-[#DC2626] transition-colors">Products</Link>
           {selectedCategory !== 'all' && (
             <>
               <span className="text-gray-300">/</span>
@@ -236,7 +236,7 @@ function ProductsContent() {
               }`}
             >
               <div className={`w-16 h-16 rounded-full border-2 p-1 bg-gray-50 flex items-center justify-center transition-all ${
-                selectedCategory === 'all' ? 'border-[#e3004f] shadow-md bg-red-50' : 'border-gray-200 group-hover:border-[#e3004f]'
+                selectedCategory === 'all' ? 'border-[#DC2626] shadow-md bg-red-50' : 'border-gray-200 group-hover:border-[#DC2626]'
               }`}>
                 <img
                   src="/categories/cat_stationery.jpg"
@@ -245,7 +245,7 @@ function ProductsContent() {
                 />
               </div>
               <span className={`text-[12px] mt-2 text-center leading-tight line-clamp-2 transition-colors ${
-                selectedCategory === 'all' ? 'font-bold text-[#e3004f]' : 'text-gray-700 font-medium group-hover:text-[#e3004f]'
+                selectedCategory === 'all' ? 'font-bold text-[#DC2626]' : 'text-gray-700 font-medium group-hover:text-[#DC2626]'
               }`}>
                 All Products
               </span>
@@ -262,7 +262,7 @@ function ProductsContent() {
                   }`}
                 >
                   <div className={`w-16 h-16 rounded-full border-2 p-1 bg-gray-50 flex items-center justify-center transition-all ${
-                    isSelected ? 'border-[#e3004f] shadow-md bg-red-50' : 'border-gray-200 group-hover:border-[#e3004f]'
+                    isSelected ? 'border-[#DC2626] shadow-md bg-red-50' : 'border-gray-200 group-hover:border-[#DC2626]'
                   }`}>
                     <img
                       src={getCategoryImage(cat.slug)}
@@ -271,7 +271,7 @@ function ProductsContent() {
                     />
                   </div>
                   <span className={`text-[12px] mt-2 text-center leading-tight line-clamp-2 transition-colors ${
-                    isSelected ? 'font-bold text-[#e3004f]' : 'text-gray-700 font-medium group-hover:text-[#e3004f]'
+                    isSelected ? 'font-bold text-[#DC2626]' : 'text-gray-700 font-medium group-hover:text-[#DC2626]'
                   }`}>
                     {cat.label}
                   </span>
@@ -296,7 +296,7 @@ function ProductsContent() {
               <span className="text-[15px] font-bold text-gray-900 tracking-tight">Filter</span>
               <button
                 onClick={handleClearAll}
-                className="text-[11px] font-bold uppercase tracking-wider text-[#e3004f] hover:underline bg-transparent border-none cursor-pointer p-0"
+                className="text-[11px] font-bold uppercase tracking-wider text-[#DC2626] hover:underline bg-transparent border-none cursor-pointer p-0"
               >
                 CLEAR ALL
               </button>
@@ -305,7 +305,7 @@ function ProductsContent() {
             {/* Singer-style Big 'Filter Now' Button */}
             <button
               onClick={handleApplyFilter}
-              className="w-full py-2.5 px-4 bg-[#e3004f] hover:bg-[#cc0043] text-white text-[13px] font-bold rounded-md shadow-xs transition-colors cursor-pointer border-none mb-5 flex items-center justify-center gap-2 uppercase tracking-wider"
+              className="w-full py-2.5 px-4 bg-[#DC2626] hover:bg-[#cc0043] text-white text-[13px] font-bold rounded-md shadow-xs transition-colors cursor-pointer border-none mb-5 flex items-center justify-center gap-2 uppercase tracking-wider"
             >
               Filter Now
             </button>
@@ -314,7 +314,7 @@ function ProductsContent() {
             <div className="border-b border-gray-200 pb-4 mb-4">
               <button
                 onClick={() => setIsPriceOpen(!isPriceOpen)}
-                className="w-full flex items-center justify-between text-left text-[13px] font-bold text-gray-900 hover:text-[#e3004f] cursor-pointer bg-transparent border-none p-0 mb-3"
+                className="w-full flex items-center justify-between text-left text-[13px] font-bold text-gray-900 hover:text-[#DC2626] cursor-pointer bg-transparent border-none p-0 mb-3"
               >
                 <span>Price range (LKR)</span>
                 {isPriceOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
@@ -329,7 +329,7 @@ function ProductsContent() {
                         type="number"
                         value={minPrice}
                         onChange={(e) => setMinPrice(Number(e.target.value))}
-                        className="w-full px-2.5 py-1.5 border border-gray-300 rounded text-xs focus:outline-none focus:border-[#e3004f]"
+                        className="w-full px-2.5 py-1.5 border border-gray-300 rounded text-xs focus:outline-none focus:border-[#DC2626]"
                       />
                     </div>
                     <span className="text-gray-400 mt-4">-</span>
@@ -339,7 +339,7 @@ function ProductsContent() {
                         type="number"
                         value={maxPrice}
                         onChange={(e) => setMaxPrice(Number(e.target.value))}
-                        className="w-full px-2.5 py-1.5 border border-gray-300 rounded text-xs focus:outline-none focus:border-[#e3004f]"
+                        className="w-full px-2.5 py-1.5 border border-gray-300 rounded text-xs focus:outline-none focus:border-[#DC2626]"
                       />
                     </div>
                   </div>
@@ -351,7 +351,7 @@ function ProductsContent() {
                     step={250}
                     value={maxPrice}
                     onChange={(e) => setMaxPrice(Number(e.target.value))}
-                    className="w-full accent-[#e3004f] cursor-pointer"
+                    className="w-full accent-[#DC2626] cursor-pointer"
                   />
                   <div className="text-[11px] text-gray-500 flex justify-between font-medium">
                     <span>Rs. {minPrice.toLocaleString()}</span>
@@ -365,7 +365,7 @@ function ProductsContent() {
             <div className="border-b border-gray-200 pb-4 mb-4">
               <button
                 onClick={() => setIsCatOpen(!isCatOpen)}
-                className="w-full flex items-center justify-between text-left text-[13px] font-bold text-gray-900 hover:text-[#e3004f] cursor-pointer bg-transparent border-none p-0 mb-3"
+                className="w-full flex items-center justify-between text-left text-[13px] font-bold text-gray-900 hover:text-[#DC2626] cursor-pointer bg-transparent border-none p-0 mb-3"
               >
                 <span>Categories</span>
                 {isCatOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
@@ -376,13 +376,13 @@ function ProductsContent() {
                   {/* Singer-style Parent Category with Checkbox */}
                   <label
                     onClick={() => setSelectedCategory('all')}
-                    className="flex items-start gap-2.5 text-xs text-gray-800 py-1 hover:text-[#e3004f] cursor-pointer font-bold border-b border-gray-100 pb-2 mb-1"
+                    className="flex items-start gap-2.5 text-xs text-gray-800 py-1 hover:text-[#DC2626] cursor-pointer font-bold border-b border-gray-100 pb-2 mb-1"
                   >
                     <input
                       type="checkbox"
                       checked={selectedCategory === 'all'}
                       onChange={() => {}}
-                      className="accent-[#e3004f] mt-0.5 rounded cursor-pointer"
+                      className="accent-[#DC2626] mt-0.5 rounded cursor-pointer"
                     />
                     <span>Educational Materials, Books &amp; Stationery</span>
                   </label>
@@ -393,15 +393,15 @@ function ProductsContent() {
                       <label
                         key={cat.slug}
                         onClick={() => setSelectedCategory(cat.slug)}
-                        className="flex items-center gap-2 text-xs text-gray-600 py-1 hover:text-[#e3004f] cursor-pointer transition-colors"
+                        className="flex items-center gap-2 text-xs text-gray-600 py-1 hover:text-[#DC2626] cursor-pointer transition-colors"
                       >
                         <input
                           type="checkbox"
                           checked={selectedCategory === cat.slug}
                           onChange={() => {}}
-                          className="accent-[#e3004f] rounded cursor-pointer"
+                          className="accent-[#DC2626] rounded cursor-pointer"
                         />
-                        <span className={selectedCategory === cat.slug ? 'font-bold text-[#e3004f]' : ''}>
+                        <span className={selectedCategory === cat.slug ? 'font-bold text-[#DC2626]' : ''}>
                           {cat.label}
                         </span>
                       </label>
@@ -415,7 +415,7 @@ function ProductsContent() {
             <div className="border-b border-gray-200 pb-4 mb-4">
               <button
                 onClick={() => setIsBrandOpen(!isBrandOpen)}
-                className="w-full flex items-center justify-between text-left text-[13px] font-bold text-gray-900 hover:text-[#e3004f] cursor-pointer bg-transparent border-none p-0 mb-3"
+                className="w-full flex items-center justify-between text-left text-[13px] font-bold text-gray-900 hover:text-[#DC2626] cursor-pointer bg-transparent border-none p-0 mb-3"
               >
                 <span>Brands</span>
                 {isBrandOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
@@ -427,15 +427,15 @@ function ProductsContent() {
                     <label
                       key={b}
                       onClick={() => toggleBrand(b)}
-                      className="flex items-center gap-2.5 text-xs text-gray-700 py-1 hover:text-[#e3004f] cursor-pointer"
+                      className="flex items-center gap-2.5 text-xs text-gray-700 py-1 hover:text-[#DC2626] cursor-pointer"
                     >
                       <input
                         type="checkbox"
                         checked={selectedBrands.includes(b)}
                         onChange={() => {}}
-                        className="accent-[#e3004f] rounded cursor-pointer"
+                        className="accent-[#DC2626] rounded cursor-pointer"
                       />
-                      <span className={selectedBrands.includes(b) ? 'font-bold text-[#e3004f]' : ''}>
+                      <span className={selectedBrands.includes(b) ? 'font-bold text-[#DC2626]' : ''}>
                         {b}
                       </span>
                     </label>
@@ -448,7 +448,7 @@ function ProductsContent() {
             <div>
               <button
                 onClick={() => setIsAvailOpen(!isAvailOpen)}
-                className="w-full flex items-center justify-between text-left text-[13px] font-bold text-gray-900 hover:text-[#e3004f] cursor-pointer bg-transparent border-none p-0 mb-3"
+                className="w-full flex items-center justify-between text-left text-[13px] font-bold text-gray-900 hover:text-[#DC2626] cursor-pointer bg-transparent border-none p-0 mb-3"
               >
                 <span>Availability</span>
                 {isAvailOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
@@ -457,15 +457,15 @@ function ProductsContent() {
               {isAvailOpen && (
                 <label
                   onClick={() => setInStockOnly(!inStockOnly)}
-                  className="flex items-center gap-2.5 text-xs text-gray-700 py-1 hover:text-[#e3004f] cursor-pointer"
+                  className="flex items-center gap-2.5 text-xs text-gray-700 py-1 hover:text-[#DC2626] cursor-pointer"
                 >
                   <input
                     type="checkbox"
                     checked={inStockOnly}
                     onChange={() => {}}
-                    className="accent-[#e3004f] rounded cursor-pointer"
+                    className="accent-[#DC2626] rounded cursor-pointer"
                   />
-                  <span className={inStockOnly ? 'font-bold text-[#e3004f]' : ''}>In Stock Only</span>
+                  <span className={inStockOnly ? 'font-bold text-[#DC2626]' : ''}>In Stock Only</span>
                 </label>
               )}
             </div>
@@ -487,7 +487,7 @@ function ProductsContent() {
                   <select
                     value={itemsPerPage}
                     onChange={(e) => setItemsPerPage(e.target.value)}
-                    className="px-2 py-1 border border-gray-300 rounded bg-white text-xs font-semibold focus:outline-none focus:border-[#e3004f]"
+                    className="px-2 py-1 border border-gray-300 rounded bg-white text-xs font-semibold focus:outline-none focus:border-[#DC2626]"
                   >
                     <option value="20">20</option>
                     <option value="40">40</option>
@@ -499,14 +499,14 @@ function ProductsContent() {
                 <div className="flex items-center gap-1 border-l border-gray-200 pl-3">
                   <button
                     onClick={() => setViewMode('grid')}
-                    className={`p-1.5 rounded ${viewMode === 'grid' ? 'bg-gray-100 text-[#e3004f]' : 'text-gray-400 hover:text-gray-700'}`}
+                    className={`p-1.5 rounded ${viewMode === 'grid' ? 'bg-gray-100 text-[#DC2626]' : 'text-gray-400 hover:text-gray-700'}`}
                     title="Grid View"
                   >
                     <LayoutGrid size={16} />
                   </button>
                   <button
                     onClick={() => setViewMode('list')}
-                    className={`p-1.5 rounded ${viewMode === 'list' ? 'bg-gray-100 text-[#e3004f]' : 'text-gray-400 hover:text-gray-700'}`}
+                    className={`p-1.5 rounded ${viewMode === 'list' ? 'bg-gray-100 text-[#DC2626]' : 'text-gray-400 hover:text-gray-700'}`}
                     title="List View"
                   >
                     <List size={16} />
@@ -539,7 +539,7 @@ function ProductsContent() {
                   <select
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value)}
-                    className="px-3 py-1.5 border border-gray-300 rounded bg-white text-xs font-semibold focus:outline-none focus:border-[#e3004f]"
+                    className="px-3 py-1.5 border border-gray-300 rounded bg-white text-xs font-semibold focus:outline-none focus:border-[#DC2626]"
                   >
                     <option value="popularity">Popularity</option>
                     <option value="price-low">Price: Low to High</option>
@@ -564,7 +564,7 @@ function ProductsContent() {
                     <span
                       key={b}
                       onClick={() => toggleBrand(b)}
-                      className="bg-red-50 text-[#e3004f] border border-red-200 px-2 py-0.5 rounded-full font-bold flex items-center gap-1 cursor-pointer hover:bg-red-100"
+                      className="bg-red-50 text-[#DC2626] border border-red-200 px-2 py-0.5 rounded-full font-bold flex items-center gap-1 cursor-pointer hover:bg-red-100"
                     >
                       {b} <span className="text-[10px]">×</span>
                     </span>
@@ -576,12 +576,12 @@ function ProductsContent() {
             {/* Products Grid State */}
             {loading ? (
               <div className="py-24 text-center bg-white rounded-lg border border-gray-200">
-                <div className="w-8 h-8 border-3 border-[#e3004f] border-t-transparent rounded-full animate-spin mx-auto mb-3" />
+                <div className="w-8 h-8 border-3 border-[#DC2626] border-t-transparent rounded-full animate-spin mx-auto mb-3" />
                 <p className="text-xs font-semibold text-gray-500">Loading products from catalog...</p>
               </div>
             ) : sortedProducts.length === 0 ? (
               <div className="py-20 text-center bg-white rounded-lg border border-gray-200 px-6">
-                <div className="w-14 h-14 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-3 text-[#e3004f]">
+                <div className="w-14 h-14 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-3 text-[#DC2626]">
                   <Search size={24} />
                 </div>
                 <h3 className="text-base font-bold text-gray-900 mb-1">No products found</h3>
@@ -590,7 +590,7 @@ function ProductsContent() {
                 </p>
                 <button
                   onClick={handleClearAll}
-                  className="px-6 py-2.5 bg-[#e3004f] text-white text-xs font-bold rounded-md uppercase tracking-wider cursor-pointer border-none"
+                  className="px-6 py-2.5 bg-[#DC2626] text-white text-xs font-bold rounded-md uppercase tracking-wider cursor-pointer border-none"
                 >
                   Clear All Filters
                 </button>
@@ -624,7 +624,7 @@ function ProductsContent() {
                     <button className="px-3 py-1.5 border border-gray-300 rounded bg-white font-medium hover:bg-gray-50 text-gray-700 cursor-pointer transition-colors">
                       Previous
                     </button>
-                    <button className="w-8 h-8 rounded bg-[#e3004f] text-white font-bold flex items-center justify-center cursor-pointer shadow-xs">
+                    <button className="w-8 h-8 rounded bg-[#DC2626] text-white font-bold flex items-center justify-center cursor-pointer shadow-xs">
                       1
                     </button>
                     <button className="px-3 py-1.5 border border-gray-300 rounded bg-white font-medium hover:bg-gray-50 text-gray-700 cursor-pointer transition-colors">
