@@ -2,7 +2,13 @@ export type StoreCategory = {
   slug: string;
   label: string;
   description: string;
+  iconName?: string;
 };
+
+export interface ProductVariant {
+  name: string; // e.g. "Page Count" or "Ink Color"
+  options: string[]; // e.g. ["80 Pages", "120 Pages", "200 Pages"]
+}
 
 export interface CatalogProduct {
   _id: string;
@@ -21,24 +27,350 @@ export interface CatalogProduct {
   rating?: number;
   reviewsCount?: number;
   badge?: string;
+  brand?: string;
+  grade?: string; // e.g. "Grade 1-5", "Grade 6-9", "Grade 10-11 (O/L)", "Grade 12-13 (A/L)"
+  language?: string; // e.g. "Sinhala", "English", "Tamil"
+  rulingType?: string; // e.g. "Single Ruled", "Square Grid", "Blank / Plain", "CR Hardcover", "Practical"
+  variants?: ProductVariant[];
   specifications?: Record<string, string>;
 }
 
+export interface MegaCategorySubItem {
+  label: string;
+  href: string;
+  badge?: string;
+}
+
+export interface MegaCategoryColumn {
+  title: string;
+  items: MegaCategorySubItem[];
+}
+
+export interface MegaCategoryPillar {
+  id: string;
+  title: string;
+  slug: string;
+  iconName: string;
+  description: string;
+  columns: MegaCategoryColumn[];
+  featuredImage: string;
+  featuredTitle: string;
+  featuredSubtitle: string;
+}
+
+export const MEGA_MENU_TREE: MegaCategoryPillar[] = [
+  {
+    id: 'school-education',
+    title: 'School Education',
+    slug: 'school-books',
+    iconName: 'GraduationCap',
+    description: 'Grade-wise textbooks, revision guides, term papers & scholarship packs.',
+    columns: [
+      {
+        title: 'By Grade / Level',
+        items: [
+          { label: 'Grade 1 - 5 (Primary)', href: '/products?category=school-books&grade=Grade+1-5' },
+          { label: 'Grade 6 - 9 (Junior Secondary)', href: '/products?category=school-books&grade=Grade+6-9' },
+          { label: 'Grade 10 - 11 (O/L Exam)', href: '/products?category=school-books&grade=Grade+10-11+(O%2FL)', badge: 'Hot' },
+          { label: 'Grade 12 - 13 (A/L Science & Maths)', href: '/products?category=school-books&grade=Grade+12-13+(A%2FL)' },
+          { label: 'Grade 12 - 13 (A/L Commerce & Arts)', href: '/products?category=school-books&grade=Grade+12-13+(A%2FL)' },
+        ]
+      },
+      {
+        title: 'Exams & Revision',
+        items: [
+          { label: 'Grade 5 Scholarship Packs', href: '/products?category=school-books&search=scholarship', badge: 'Top Seller' },
+          { label: 'O/L Past Papers & Model Papers', href: '/products?category=school-books&search=past+papers' },
+          { label: 'A/L Resource Books & Revision', href: '/products?category=school-books&search=revision' },
+          { label: 'Term Test Question Papers', href: '/products?category=school-books&search=term+papers' },
+        ]
+      },
+      {
+        title: 'Medium of Study',
+        items: [
+          { label: 'Sinhala Medium Textbooks', href: '/products?category=school-books&language=Sinhala' },
+          { label: 'English Medium Textbooks', href: '/products?category=school-books&language=English' },
+          { label: 'Tamil Medium Textbooks', href: '/products?category=school-books&language=Tamil' },
+        ]
+      }
+    ],
+    featuredImage: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80',
+    featuredTitle: 'School Booklist Direct Upload',
+    featuredSubtitle: 'Upload your syllabus booklist and get instant home delivery!'
+  },
+  {
+    id: 'exercise-notebooks',
+    title: 'Exercise & Note Books',
+    slug: 'exercise-books',
+    iconName: 'BookOpen',
+    description: 'CR, single ruled, square grid, blank, practical and spiral notebooks.',
+    columns: [
+      {
+        title: 'CR Hardcover Books',
+        items: [
+          { label: 'CR 80 Pages Single Ruled', href: '/products?category=exercise-books&ruling=CR+Hardcover&search=80' },
+          { label: 'CR 120 Pages Single Ruled', href: '/products?category=exercise-books&ruling=CR+Hardcover&search=120' },
+          { label: 'CR 160 Pages Single Ruled', href: '/products?category=exercise-books&ruling=CR+Hardcover&search=160' },
+          { label: 'CR 200 Pages Single Ruled', href: '/products?category=exercise-books&ruling=CR+Hardcover&search=200', badge: 'Popular' },
+          { label: 'CR 400 Pages Heavy Duty', href: '/products?category=exercise-books&ruling=CR+Hardcover&search=400' },
+        ]
+      },
+      {
+        title: 'Standard Exercise Books',
+        items: [
+          { label: 'Single Ruled Exercise Books', href: '/products?category=exercise-books&ruling=Single+Ruled' },
+          { label: 'Square Grid (Maths / Primary)', href: '/products?category=exercise-books&ruling=Square+Grid' },
+          { label: 'Blank / Plain Drawing Books', href: '/products?category=exercise-books&ruling=Blank+%2F+Plain' },
+          { label: 'Science Practical Lab Books', href: '/products?category=exercise-books&ruling=Practical' },
+          { label: 'Spiral Note Books & Wirebound', href: '/products?category=exercise-books&search=spiral' },
+        ]
+      },
+      {
+        title: 'Popular Brands',
+        items: [
+          { label: 'Atlas CR & Exercise Books', href: '/products?category=exercise-books&search=atlas' },
+          { label: 'Mango & Zebra Notebooks', href: '/products?category=exercise-books&search=mango' },
+          { label: 'Oxford Premium Binders', href: '/products?category=exercise-books&search=oxford' },
+        ]
+      }
+    ],
+    featuredImage: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80',
+    featuredTitle: 'Atlas & Premium Notebooks',
+    featuredSubtitle: '80gsm high-whiteness smooth paper for effortless handwriting.'
+  },
+  {
+    id: 'general-books',
+    title: 'General Books',
+    slug: 'books',
+    iconName: 'Book',
+    description: 'Novels, storybooks, dictionaries, Sinhala/English/Tamil literature.',
+    columns: [
+      {
+        title: 'Fiction & Novels',
+        items: [
+          { label: 'Sinhala Novels & Classics', href: '/products?category=books&language=Sinhala' },
+          { label: 'English Fiction & Bestsellers', href: '/products?category=books&language=English' },
+          { label: 'Tamil Literature & Poems', href: '/products?category=books&language=Tamil' },
+          { label: 'Youth & Teen Fiction', href: '/products?category=books&search=teen' },
+        ]
+      },
+      {
+        title: 'Dictionaries & Reference',
+        items: [
+          { label: 'Oxford Trilingual Dictionaries', href: '/products?category=books&search=oxford', badge: 'Essential' },
+          { label: 'Sinhala-English Dictionaries', href: '/products?category=books&search=dictionary' },
+          { label: 'Grammar & Spoken English', href: '/products?category=books&search=grammar' },
+          { label: 'General Knowledge & Encyclopedias', href: '/products?category=books&search=knowledge' },
+        ]
+      },
+      {
+        title: 'Children & Preschool',
+        items: [
+          { label: 'Alphabet & Counting Books', href: '/products?category=books&search=preschool' },
+          { label: 'Coloring & Activity Storybooks', href: '/products?category=books&search=coloring' },
+          { label: 'Bedtime Fairytales & Fables', href: '/products?category=books&search=story' },
+        ]
+      }
+    ],
+    featuredImage: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80',
+    featuredTitle: 'Oxford & Literature Corner',
+    featuredSubtitle: 'Explore over 5,000 titles in Sinhala, English & Tamil.'
+  },
+  {
+    id: 'writing-instruments',
+    title: 'Writing & Math Instruments',
+    slug: 'writing-instruments',
+    iconName: 'PenTool',
+    description: 'Pens, pencils, geometry sets, protractors and scientific calculators.',
+    columns: [
+      {
+        title: 'Pens & Markers',
+        items: [
+          { label: 'Pilot G2 & Gel Pens', href: '/products?category=writing-instruments&search=pilot', badge: 'Top Brand' },
+          { label: 'Atlas Fine Ballpoint Pens', href: '/products?category=writing-instruments&search=atlas' },
+          { label: 'Stabilo Pastel Highlighters', href: '/products?category=writing-instruments&search=stabilo' },
+          { label: 'Whiteboard & Permanent Markers', href: '/products?category=writing-instruments&search=marker' },
+          { label: 'Correction Tapes & Liquid Refills', href: '/products?category=writing-instruments&search=correction' },
+        ]
+      },
+      {
+        title: 'Mathematical Instruments',
+        items: [
+          { label: 'Casio ClassWiz FX-991CW Calculator', href: '/products?category=electronics&search=casio', badge: 'Approved' },
+          { label: 'Helix Oxford Geometry Box (9-Pc)', href: '/products?category=mathematical-instruments&search=helix' },
+          { label: 'Steel Rulers & Protractors', href: '/products?category=mathematical-instruments&search=ruler' },
+          { label: 'Precision Metal Compasses', href: '/products?category=mathematical-instruments&search=compass' },
+        ]
+      },
+      {
+        title: 'Pencils & Drawing',
+        items: [
+          { label: '2B Exam Pencils & Mechanical Pencils', href: '/products?category=writing-instruments&search=pencil' },
+          { label: 'Dust-Free Erasers & Metal Sharpeners', href: '/products?category=writing-instruments&search=eraser' },
+        ]
+      }
+    ],
+    featuredImage: 'https://images.unsplash.com/photo-1611125832047-1d7ad1e8e48f?auto=format&fit=crop&w=600&q=80',
+    featuredTitle: 'Casio & Pilot Genuine Store',
+    featuredSubtitle: 'Authorized Sri Lankan distributor warranty & genuine guarantee.'
+  },
+  {
+    id: 'art-craft-office',
+    title: 'Art, Craft & Office Supplies',
+    slug: 'art-craft',
+    iconName: 'Palette',
+    description: 'Paints, brushes, papers, display files, and office desk supplies.',
+    columns: [
+      {
+        title: 'Art & Fine Craft',
+        items: [
+          { label: 'Faber-Castell Watercolour Pencils', href: '/products?category=art-craft&search=faber', badge: 'Top Pick' },
+          { label: 'Mont Marte Acrylic & Poster Paints', href: '/products?category=art-craft&search=paint' },
+          { label: 'Artist Brushes & Canvas Boards', href: '/products?category=art-craft&search=brush' },
+          { label: 'A3 & A4 Drawing Pads', href: '/products?category=art-craft&search=pad' },
+          { label: 'Glues, Glue Guns & Craft Scissors', href: '/products?category=art-craft&search=glue' },
+        ]
+      },
+      {
+        title: 'Office & Filing Systems',
+        items: [
+          { label: 'Atlas A4 Copier Paper (80 GSM)', href: '/products?category=office-supplies&search=paper' },
+          { label: 'Clear Display Files (40/60 Pockets)', href: '/products?category=files-organization' },
+          { label: 'Box Files & Document Binders', href: '/products?category=files-organization&search=binder' },
+          { label: 'Heavy Duty Staplers & Punchers', href: '/products?category=office-supplies&search=stapler' },
+        ]
+      },
+      {
+        title: 'School Accessories',
+        items: [
+          { label: 'Waterproof Ergonomic Backpacks', href: '/products?category=school-accessories&search=backpack' },
+          { label: 'Stainless Steel Water Bottles', href: '/products?category=school-accessories&search=bottle' },
+          { label: 'BPA-Free School Lunch Boxes', href: '/products?category=school-accessories&search=lunch' },
+        ]
+      }
+    ],
+    featuredImage: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80',
+    featuredTitle: 'Faber-Castell & Mont Marte',
+    featuredSubtitle: 'Vibrant artist pigments, craft papers & premium office tools.'
+  }
+];
+
+export const GRADES_LIST = [
+  'Grade 1-5',
+  'Grade 6-9',
+  'Grade 10-11 (O/L)',
+  'Grade 12-13 (A/L)'
+];
+
+export const LANGUAGES_LIST = [
+  'Sinhala',
+  'English',
+  'Tamil'
+];
+
+export const RULING_TYPES_LIST = [
+  'Single Ruled',
+  'Square Grid',
+  'Blank / Plain',
+  'CR Hardcover',
+  'Practical'
+];
+
+export const BRANDS_LIST = [
+  'Atlas',
+  'Casio',
+  'Pilot',
+  'Faber-Castell',
+  'Oxford',
+  'Mont Marte',
+  'Stabilo',
+  'SanDisk',
+  'Helix Oxford',
+  'Mango'
+];
+
+export interface SchoolBundleKit {
+  id: string;
+  name: string;
+  gradeBadge: string;
+  price: number;
+  originalPrice: number;
+  savingsPercentage: number;
+  image: string;
+  description: string;
+  itemsIncluded: string[];
+}
+
+export const BACK_TO_SCHOOL_BUNDLES: SchoolBundleKit[] = [
+  {
+    id: 'bundle-g6-9',
+    name: 'Grade 6 - 9 Complete Back-to-School Master Pack',
+    gradeBadge: 'Grade 6-9 Essential',
+    price: 6450,
+    originalPrice: 7900,
+    savingsPercentage: 18,
+    image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80',
+    description: 'Complete all-in-one stationery set for junior secondary students containing CR books, Pilot gel pens, geometry kit, and drawing supplies.',
+    itemsIncluded: [
+      '4x Atlas A4 CR Hardcover 200-Page Single Ruled Books',
+      '2x Atlas Square Grid Maths Exercise Books (80p)',
+      '1x Helix Oxford 9-Piece Metal Geometry Precision Set',
+      '1x Pack of 5 Pilot G2 Gel Pens (0.7mm Medium)',
+      '1x Faber-Castell 12 Watercolour Eco Pencils Set',
+      '1x Clear A4 Display File (20 Pockets)'
+    ]
+  },
+  {
+    id: 'bundle-al-science',
+    name: 'A/L Science & Maths Exam Success Kit',
+    gradeBadge: 'Grade 12-13 A/L',
+    price: 13950,
+    originalPrice: 16500,
+    savingsPercentage: 15,
+    image: 'https://images.unsplash.com/photo-1611125832047-1d7ad1e8e48f?auto=format&fit=crop&w=800&q=80',
+    description: 'Specially assembled kit for Advanced Level Physical & Biological Science students. Includes Casio scientific calculator and heavy duty CR books.',
+    itemsIncluded: [
+      '1x Casio FX-991CW ClassWiz Scientific Calculator (3-Year Warranty)',
+      '6x Atlas A4 Hardcover CR Notebooks (200-Page Single Ruled)',
+      '2x Science Practical Lab Books with Grid Graph Sheets',
+      '1x Pack of 6 Stabilo Boss Pastel Highlighters',
+      '1x SanDisk 64GB Type-C / USB Dual Flash Drive'
+    ]
+  },
+  {
+    id: 'bundle-primary-art',
+    name: 'Primary Student Creative Art & Craft Bundle',
+    gradeBadge: 'Grade 1-5 Primary',
+    price: 3450,
+    originalPrice: 4200,
+    savingsPercentage: 18,
+    image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80',
+    description: 'Fun, safe, non-toxic art and craft essentials to spark creativity for primary school students in Grades 1 to 5.',
+    itemsIncluded: [
+      '1x Faber-Castell 24 Watercolour Eco Pencils with Brush',
+      '1x Mont Marte Poster Paint Set (12 Vibrant Colours)',
+      '2x A4 Blank Drawing & Sketching Pad (50 Sheets)',
+      '1x Children Safety Scissors & Non-toxic Glue Stick',
+      '1x Nataraj 2B Exam Pencils Box (10 Pencils + Eraser)'
+    ]
+  }
+];
+
 export const STORE_CATEGORIES: StoreCategory[] = [
-  { slug: 'books', label: 'Books', description: 'School books, text books, reference books, novels and religious books.' },
-  { slug: 'school-books', label: 'School Books', description: 'Grade 1 to A/L, term books, scholarship and revision materials.' },
-  { slug: 'exercise-books', label: 'Exercise Books', description: 'CR books, ruled books, blank books, note books and practical books.' },
-  { slug: 'writing-instruments', label: 'Writing Instruments', description: 'Pens, pencils, markers, highlighters and correction tools.' },
-  { slug: 'mathematical-instruments', label: 'Mathematical Instruments', description: 'Geometry sets, rulers, protractors, calculators and maths tools.' },
-  { slug: 'art-craft', label: 'Art & Craft', description: 'Colour pencils, paints, sketch pens, glue, craft papers and modelling tools.' },
-  { slug: 'office-supplies', label: 'Office Supplies', description: 'A4/A3 paper, files, folders, staplers, clips and document organisers.' },
-  { slug: 'school-accessories', label: 'School Accessories', description: 'Bags, lunch boxes, water bottles, book covers and name tags.' },
-  { slug: 'files-organization', label: 'Files & Organization', description: 'Clear files, display books, binders, folders and organizers.' },
-  { slug: 'educational-materials', label: 'Educational Materials', description: 'Flash cards, charts, maps, globes and teaching aids.' },
-  { slug: 'preschool-kids', label: 'Preschool & Kids', description: 'Colouring books, activity books, alphabet books and kids art supplies.' },
-  { slug: 'science-laboratory', label: 'Science & Laboratory', description: 'Science books, practical books, lab materials and educational models.' },
-  { slug: 'gifts-accessories', label: 'Gifts & Accessories', description: 'Greeting cards, gift wraps, bookmarks, key tags and decorative stationery.' },
-  { slug: 'electronics', label: 'Electronics', description: 'Calculators, USB drives, audio gear and power accessories.' },
+  { slug: 'books', label: 'General Books', description: 'School books, text books, reference books, novels and religious books.', iconName: 'Book' },
+  { slug: 'school-books', label: 'School Books', description: 'Grade 1 to A/L, term books, scholarship and revision materials.', iconName: 'GraduationCap' },
+  { slug: 'exercise-books', label: 'Exercise Books', description: 'CR books, ruled books, blank books, note books and practical books.', iconName: 'BookOpen' },
+  { slug: 'writing-instruments', label: 'Writing Instruments', description: 'Pens, pencils, markers, highlighters and correction tools.', iconName: 'PenTool' },
+  { slug: 'mathematical-instruments', label: 'Mathematical Instruments', description: 'Geometry sets, rulers, protractors, calculators and maths tools.', iconName: 'Calculator' },
+  { slug: 'art-craft', label: 'Art & Craft', description: 'Colour pencils, paints, sketch pens, glue, craft papers and modelling tools.', iconName: 'Palette' },
+  { slug: 'office-supplies', label: 'Office Supplies', description: 'A4/A3 paper, files, folders, staplers, clips and document organisers.', iconName: 'Briefcase' },
+  { slug: 'school-accessories', label: 'School Accessories', description: 'Bags, lunch boxes, water bottles, book covers and name tags.', iconName: 'Backpack' },
+  { slug: 'files-organization', label: 'Files & Organization', description: 'Clear files, display books, binders, folders and organizers.', iconName: 'FolderArchive' },
+  { slug: 'educational-materials', label: 'Educational Materials', description: 'Flash cards, charts, maps, globes and teaching aids.', iconName: 'Sparkles' },
+  { slug: 'preschool-kids', label: 'Preschool & Kids', description: 'Colouring books, activity books, alphabet books and kids art supplies.', iconName: 'Smile' },
+  { slug: 'science-laboratory', label: 'Science & Laboratory', description: 'Science books, practical books, lab materials and educational models.', iconName: 'FlaskConical' },
+  { slug: 'gifts-accessories', label: 'Gifts & Accessories', description: 'Greeting cards, gift wraps, bookmarks, key tags and decorative stationery.', iconName: 'Gift' },
+  { slug: 'electronics', label: 'Electronics', description: 'Calculators, USB drives, audio gear and power accessories.', iconName: 'Cpu' },
 ];
 
 export const CATEGORY_LABELS: Record<string, string> = Object.fromEntries(
@@ -55,41 +387,100 @@ export const CATEGORY_IMAGES: Record<string, string> = {
   'office-supplies': 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=900&q=80',
   'school-accessories': 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=80',
   'files-organization': 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80',
-  'educational-materials': 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80',
+  'educational-materials': '/products/globe.jpg',
   'preschool-kids': 'https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=900&q=80',
-  'science-laboratory': 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=900&q=80',
+  'science-laboratory': '/products/microscope.jpg',
   'gifts-accessories': 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=900&q=80',
   electronics: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=900&q=80',
 };
 
 export const INITIAL_CATALOG_PRODUCTS: CatalogProduct[] = [
+  // 1. EXERCISE BOOKS
   {
     _id: 'prod-001',
-    name: 'Premium A4 Hardcover CR Notebook - 200 Pages',
+    name: 'Atlas Premium A4 Hardcover CR Notebook',
     slug: 'premium-a4-hardcover-cr-notebook-200-pages',
     description: 'High-grade 80gsm smooth paper CR book with durable hardcover binding. Ruled lines for neat, effortless writing in schools, universities, and offices.',
     category: 'exercise-books',
     subcategory: 'CR Books',
     price: 490,
     compareAtPrice: 600,
-    images: [
-      { url: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=80', alt: 'A4 CR Notebook' },
-      { url: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=900&q=80', alt: 'Notebook Paper' }
-    ],
+    images: [{ url: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=80', alt: 'A4 CR Notebook' }],
     stock: 120,
     sku: 'AZ-CR-001',
-    tags: ['cr book', 'a4', 'school', 'ruled', 'notebook'],
+    tags: ['cr book', 'a4', 'school', 'ruled', 'notebook', 'atlas'],
     isFeatured: true,
     rating: 4.9,
     reviewsCount: 48,
     badge: 'Best Seller',
-    specifications: {
-      'Pages': '200 Pages',
-      'Paper Weight': '80 GSM Premium White',
-      'Ruling': 'Single Ruled',
-      'Cover': 'Matte Laminated Hardcover'
-    }
+    brand: 'Atlas',
+    grade: 'Grade 6-9',
+    rulingType: 'CR Hardcover',
+    variants: [{ name: 'Pages', options: ['80 Pages', '120 Pages', '160 Pages', '200 Pages'] }],
   },
+  {
+    _id: 'prod-013',
+    name: 'Atlas Single Ruled 80-Page Exercise Books (Pack of 5)',
+    slug: 'atlas-single-ruled-80-page-exercise-books-pack-of-5',
+    description: 'High whiteness smooth paper standard exercise books for primary and secondary school daily classwork.',
+    category: 'exercise-books',
+    subcategory: 'Ruled Books',
+    price: 450,
+    compareAtPrice: 550,
+    images: [{ url: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=900&q=80' }],
+    stock: 200,
+    sku: 'AZ-EX-80P',
+    tags: ['atlas', 'exercise book', 'ruled', 'school'],
+    isFeatured: false,
+    rating: 4.8,
+    reviewsCount: 31,
+    brand: 'Atlas',
+    grade: 'Grade 1-5',
+    rulingType: 'Single Ruled',
+  },
+  {
+    _id: 'prod-014',
+    name: 'Atlas Square Grid 80-Page Primary Mathematics Book (Pack of 5)',
+    slug: 'atlas-square-grid-80-page-maths-book-pack-of-5',
+    description: 'Precision square ruled lines designed for primary school arithmetic, geometry diagrams, and mathematics exercises.',
+    category: 'exercise-books',
+    subcategory: 'Maths Books',
+    price: 450,
+    compareAtPrice: 550,
+    images: [{ url: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=80' }],
+    stock: 180,
+    sku: 'AZ-EX-SQ',
+    tags: ['atlas', 'square grid', 'maths', 'primary'],
+    isFeatured: false,
+    rating: 4.9,
+    reviewsCount: 22,
+    brand: 'Atlas',
+    grade: 'Grade 1-5',
+    rulingType: 'Square Grid',
+  },
+  {
+    _id: 'prod-015',
+    name: 'Premium A4 Science Practical Lab Book 120 Pages',
+    slug: 'premium-a4-science-practical-lab-book-120-pages',
+    description: 'Interleaved ruling with blank graph pages for drawing scientific diagrams, chemical formulas, and physics experiments.',
+    category: 'exercise-books',
+    subcategory: 'Practical Books',
+    price: 620,
+    compareAtPrice: 750,
+    images: [{ url: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=900&q=80' }],
+    stock: 95,
+    sku: 'AZ-EX-LAB',
+    tags: ['practical', 'science', 'lab book', 'a4'],
+    isFeatured: true,
+    rating: 5.0,
+    reviewsCount: 19,
+    badge: 'Lab Choice',
+    brand: 'Atlas',
+    grade: 'Grade 10-11 (O/L)',
+    rulingType: 'Practical',
+  },
+
+  // 2. ELECTRONICS & CALCULATORS
   {
     _id: 'prod-002',
     name: 'Casio FX-991CW ClassWiz Scientific Calculator',
@@ -99,10 +490,7 @@ export const INITIAL_CATALOG_PRODUCTS: CatalogProduct[] = [
     subcategory: 'Calculators',
     price: 9800,
     compareAtPrice: 11500,
-    images: [
-      { url: 'https://images.unsplash.com/photo-1611125832047-1d7ad1e8e48f?auto=format&fit=crop&w=900&q=80', alt: 'Scientific Calculator' },
-      { url: 'https://images.unsplash.com/photo-1587145820266-a5951ee6f620?auto=format&fit=crop&w=900&q=80', alt: 'Casio Calculator' }
-    ],
+    images: [{ url: 'https://images.unsplash.com/photo-1611125832047-1d7ad1e8e48f?auto=format&fit=crop&w=900&q=80', alt: 'Scientific Calculator' }],
     stock: 35,
     sku: 'AZ-EL-991',
     tags: ['calculator', 'casio', 'scientific', 'al exam', 'maths'],
@@ -110,169 +498,8 @@ export const INITIAL_CATALOG_PRODUCTS: CatalogProduct[] = [
     rating: 5.0,
     reviewsCount: 82,
     badge: 'Top Pick',
-    specifications: {
-      'Functions': '540+ Scientific Functions',
-      'Display': 'High-Res Natural 4-gradation Display',
-      'Power': 'Solar Cell + 1x LR44 Battery',
-      'Warranty': '3 Years Authorized Warranty'
-    }
-  },
-  {
-    _id: 'prod-003',
-    name: 'Pilot G2 Retractable Gel Pen 0.7mm (Pack of 5)',
-    slug: 'pilot-g2-gel-pen-pack-of-5',
-    description: 'The world-famous smooth writing gel pen with dynamic gel ink formula and comfortable rubberized grip. Longest writing gel pen in the market.',
-    category: 'writing-instruments',
-    subcategory: 'Pens',
-    price: 1350,
-    compareAtPrice: 1600,
-    images: [
-      { url: 'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=900&q=80', alt: 'Pilot Gel Pens' },
-      { url: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=900&q=80', alt: 'Pen Tip' }
-    ],
-    stock: 250,
-    sku: 'AZ-PLT-G2',
-    tags: ['pilot', 'gel pen', 'pens', 'stationery'],
-    isFeatured: true,
-    rating: 4.9,
-    reviewsCount: 65,
-    badge: 'Popular',
-    specifications: {
-      'Tip Size': '0.7mm Medium Tip',
-      'Colors': '3x Blue, 1x Black, 1x Red',
-      'Ink Type': 'Quick-drying Dynamic Gel Ink',
-      'Refillable': 'Yes (Pilot G2 Refills)'
-    }
-  },
-  {
-    _id: 'prod-004',
-    name: 'Oxford English-Sinhala-Tamil Student Dictionary',
-    slug: 'oxford-trilingual-student-dictionary',
-    description: 'Comprehensive trilingual dictionary for Sri Lankan students containing over 45,000 definitions, pronunciation guides, grammar charts, and real-world example sentences.',
-    category: 'books',
-    subcategory: 'Dictionaries',
-    price: 2850,
-    compareAtPrice: 3400,
-    images: [
-      { url: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=900&q=80', alt: 'Dictionary' },
-      { url: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=900&q=80', alt: 'Open Book' }
-    ],
-    stock: 45,
-    sku: 'AZ-BK-OXF',
-    tags: ['dictionary', 'oxford', 'english', 'sinhala', 'tamil'],
-    isFeatured: true,
-    rating: 4.8,
-    reviewsCount: 39,
-    specifications: {
-      'Pages': '1120 Pages',
-      'Cover': 'Flexible Durable Vinyl Cover',
-      'Edition': 'Latest Revised Edition',
-      'Target Group': 'School & College Students'
-    }
-  },
-  {
-    _id: 'prod-005',
-    name: 'Faber-Castell 36 Watercolour Eco Pencils Set with Brush',
-    slug: 'faber-castell-36-watercolour-pencils-set',
-    description: 'Hexagonal coloured pencils with water-soluble lead. Easily converts into brilliant watercolour paintings with just a few wet brush strokes. Break-resistant SV bonding.',
-    category: 'art-craft',
-    subcategory: 'Colour Pencils',
-    price: 2450,
-    compareAtPrice: 2950,
-    images: [
-      { url: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=900&q=80', alt: 'Watercolour Pencils' },
-      { url: 'https://images.unsplash.com/photo-1569683795645-b62e50fbf103?auto=format&fit=crop&w=900&q=80', alt: 'Art Sketching' }
-    ],
-    stock: 80,
-    sku: 'AZ-FC-36',
-    tags: ['faber castell', 'art', 'colour pencils', 'watercolour', 'painting'],
-    isFeatured: true,
-    rating: 5.0,
-    reviewsCount: 54,
-    badge: 'Artist Choice',
-    specifications: {
-      'Pack Contains': '36 Colours + 1 Natural Bristle Brush',
-      'Lead': '3.3mm Water-Soluble Pigment',
-      'Wood': '100% Certified Sustainable Forestry',
-      'Safety': 'Non-toxic, safe for children'
-    }
-  },
-  {
-    _id: 'prod-006',
-    name: 'Helix Oxford Maths Geometry Precision Box (9-Piece Set)',
-    slug: 'helix-oxford-maths-geometry-precision-set',
-    description: 'The traditional metal tin mathematical instrument set featuring embossed metal storage tin, precision metal compass, 9cm pencil, ruler, 45 & 60 set squares, 180 protractor, eraser, and sharpener.',
-    category: 'mathematical-instruments',
-    subcategory: 'Geometry Sets',
-    price: 950,
-    compareAtPrice: 1200,
-    images: [
-      { url: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=900&q=80', alt: 'Maths Geometry Set' }
-    ],
-    stock: 140,
-    sku: 'AZ-MAT-HLX',
-    tags: ['geometry', 'maths', 'helix oxford', 'compass', 'ruler'],
-    isFeatured: true,
-    rating: 4.9,
-    reviewsCount: 71,
-    badge: 'Essential',
-    specifications: {
-      'Contents': '9 Essential Mathematical Tools',
-      'Case': 'Self-centering Metal Embossed Tin',
-      'Material': 'Stainless Steel & Shatter-resistant Acrylic'
-    }
-  },
-  {
-    _id: 'prod-007',
-    name: 'Ergonomic Waterproof Student Backpack - 32L Navy Blue',
-    slug: 'ergonomic-waterproof-student-backpack-navy',
-    description: 'Heavy duty multi-pocket school and campus backpack with padded S-curve shoulder straps, breathable back panel, internal 15.6" laptop sleeve, and rainproof Oxford fabric.',
-    category: 'school-accessories',
-    subcategory: 'Bags',
-    price: 3950,
-    compareAtPrice: 4800,
-    images: [
-      { url: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=80', alt: 'Navy Backpack' },
-      { url: 'https://images.unsplash.com/photo-1546938576-6e6a64f317cc?auto=format&fit=crop&w=900&q=80', alt: 'School Bag' }
-    ],
-    stock: 45,
-    sku: 'AZ-BAG-32L',
-    tags: ['backpack', 'school bag', 'laptop bag', 'waterproof'],
-    isFeatured: true,
-    rating: 4.8,
-    reviewsCount: 33,
-    badge: 'Hot Deal',
-    specifications: {
-      'Capacity': '32 Liters',
-      'Compartments': '4 Zipped Pockets + 2 Side Water Bottle Pouches',
-      'Laptop Sleeve': 'Fits up to 15.6 Inch Laptops / Tablets',
-      'Fabric': 'High Density Water-Repellent Nylon'
-    }
-  },
-  {
-    _id: 'prod-008',
-    name: 'Atlas High Quality A4 Copier Paper (80 GSM / 500 Sheets Box)',
-    slug: 'atlas-a4-copier-paper-80gsm-500-sheets',
-    description: 'Ultra-white 80gsm premium printing and photocopy paper. Jam-free high-speed laser and inkjet compatibility. Perfect for assignments, office reports, and study notes.',
-    category: 'office-supplies',
-    subcategory: 'Paper',
-    price: 1850,
-    compareAtPrice: 2200,
-    images: [
-      { url: 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=900&q=80', alt: 'A4 Copier Paper' }
-    ],
-    stock: 300,
-    sku: 'AZ-PPR-A4',
-    tags: ['a4 paper', 'photocopy paper', 'atlas', 'stationery', 'office'],
-    isFeatured: false,
-    rating: 4.9,
-    reviewsCount: 95,
-    specifications: {
-      'Size': 'A4 (210 x 297 mm)',
-      'Grammage': '80 GSM',
-      'Sheets': '500 Sheets Ream',
-      'Whiteness': '102% CIE High Brightness'
-    }
+    brand: 'Casio',
+    grade: 'Grade 12-13 (A/L)',
   },
   {
     _id: 'prod-009',
@@ -283,9 +510,7 @@ export const INITIAL_CATALOG_PRODUCTS: CatalogProduct[] = [
     subcategory: 'Storage',
     price: 2950,
     compareAtPrice: 3600,
-    images: [
-      { url: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=900&q=80', alt: 'SanDisk Dual Drive' }
-    ],
+    images: [{ url: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=900&q=80' }],
     stock: 55,
     sku: 'AZ-SD-64G',
     tags: ['sandisk', 'usb', 'type c', 'flash drive', 'storage'],
@@ -293,36 +518,47 @@ export const INITIAL_CATALOG_PRODUCTS: CatalogProduct[] = [
     rating: 4.9,
     reviewsCount: 42,
     badge: 'Tech Deal',
-    specifications: {
-      'Capacity': '64 GB',
-      'Interface': 'USB 3.1 Gen 1 + USB Type-C',
-      'Read Speed': 'Up to 150 MB/s',
-      'Casing': 'Cast Metal Swivel Housing'
-    }
+    brand: 'SanDisk',
   },
   {
-    _id: 'prod-010',
-    name: 'Mont Marte Studio Acrylic Colour Paint Set (18 x 36ml)',
-    slug: 'mont-marte-studio-acrylic-paint-set-18-tubes',
-    description: 'High quality pigments with smooth buttery consistency, brilliant lightfastness, and fast drying satin finish. Ideal for paper, canvas, wood, and craft projects.',
-    category: 'art-craft',
-    subcategory: 'Paints',
-    price: 3600,
-    compareAtPrice: 4400,
-    images: [
-      { url: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=900&q=80', alt: 'Acrylic Paint Set' }
-    ],
+    _id: 'prod-016',
+    name: 'Rechargeable Eye-Care LED Student Study Desk Lamp',
+    slug: 'rechargeable-eye-care-led-student-study-desk-lamp',
+    description: 'Touch dimmable 3-color LED desk lamp with flexible goose-neck arm and long-lasting USB rechargeable lithium battery for late night study.',
+    category: 'electronics',
+    subcategory: 'Desk Lamps',
+    price: 2250,
+    compareAtPrice: 2800,
+    images: [{ url: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=900&q=80' }],
     stock: 40,
-    sku: 'AZ-ART-MM18',
-    tags: ['acrylic paints', 'art', 'mont marte', 'canvas', 'painting'],
+    sku: 'AZ-EL-LMP',
+    tags: ['desk lamp', 'led', 'study', 'rechargeable'],
     isFeatured: false,
     rating: 4.8,
-    reviewsCount: 29,
-    specifications: {
-      'Quantity': '18 Tubes x 36ml',
-      'Finish': 'Satin Gloss',
-      'Base': 'Water-based, quick dry'
-    }
+    reviewsCount: 17,
+    brand: 'AZIP Genuine',
+  },
+
+  // 3. WRITING INSTRUMENTS
+  {
+    _id: 'prod-003',
+    name: 'Pilot G2 Retractable Gel Pen 0.7mm (Pack of 5)',
+    slug: 'pilot-g2-gel-pen-pack-of-5',
+    description: 'The world-famous smooth writing gel pen with dynamic gel ink formula and comfortable rubberized grip. Longest writing gel pen in the market.',
+    category: 'writing-instruments',
+    subcategory: 'Pens',
+    price: 1350,
+    compareAtPrice: 1600,
+    images: [{ url: 'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=900&q=80' }],
+    stock: 250,
+    sku: 'AZ-PLT-G2',
+    tags: ['pilot', 'gel pen', 'pens', 'stationery'],
+    isFeatured: true,
+    rating: 4.9,
+    reviewsCount: 65,
+    badge: 'Popular',
+    brand: 'Pilot',
+    variants: [{ name: 'Ink Color', options: ['Blue', 'Black', 'Red', 'Assorted Pack'] }],
   },
   {
     _id: 'prod-011',
@@ -333,9 +569,7 @@ export const INITIAL_CATALOG_PRODUCTS: CatalogProduct[] = [
     subcategory: 'Highlighters',
     price: 1650,
     compareAtPrice: 1950,
-    images: [
-      { url: 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=900&q=80', alt: 'Pastel Highlighters' }
-    ],
+    images: [{ url: 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=900&q=80' }],
     stock: 90,
     sku: 'AZ-STB-PST',
     tags: ['stabilo', 'highlighter', 'pastel', 'study', 'stationery'],
@@ -343,35 +577,408 @@ export const INITIAL_CATALOG_PRODUCTS: CatalogProduct[] = [
     rating: 5.0,
     reviewsCount: 68,
     badge: 'Trend',
-    specifications: {
-      'Colours': '6 Pastel Shades (Milky Yellow, Pastel Pink, Lilac, Mint, Turquoise, Peach)',
-      'Line Width': '2.0mm + 5.0mm Chisel Tip',
-      'Technology': 'Anti-Dry-Out 4h'
-    }
+    brand: 'Stabilo',
   },
+  {
+    _id: 'prod-017',
+    name: 'Nataraj 2B Exam Graphite Pencils Box (10 Pencils + Eraser & Sharpener)',
+    slug: 'nataraj-2b-exam-graphite-pencils-box',
+    description: 'Dark 2B graphite core engineered for O/L and A/L multiple choice answer sheets. Break-resistant wood bonding.',
+    category: 'writing-instruments',
+    subcategory: 'Pencils',
+    price: 320,
+    compareAtPrice: 400,
+    images: [{ url: 'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=900&q=80' }],
+    stock: 300,
+    sku: 'AZ-NTR-2B',
+    tags: ['nataraj', 'pencil', '2b', 'exam'],
+    isFeatured: false,
+    rating: 4.9,
+    reviewsCount: 52,
+    brand: 'Nataraj',
+  },
+
+  // 4. SCHOOL BOOKS & EXAM PREP
+  {
+    _id: 'prod-004',
+    name: 'Oxford English-Sinhala-Tamil Student Dictionary',
+    slug: 'oxford-trilingual-student-dictionary',
+    description: 'Comprehensive trilingual dictionary for Sri Lankan students containing over 45,000 definitions, pronunciation guides, grammar charts, and real-world example sentences.',
+    category: 'books',
+    subcategory: 'Dictionaries',
+    price: 2850,
+    compareAtPrice: 3400,
+    images: [{ url: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=900&q=80' }],
+    stock: 45,
+    sku: 'AZ-BK-OXF',
+    tags: ['dictionary', 'oxford', 'english', 'sinhala', 'tamil'],
+    isFeatured: true,
+    rating: 4.8,
+    reviewsCount: 39,
+    brand: 'Oxford',
+    language: 'English',
+    grade: 'Grade 6-9',
+  },
+  {
+    _id: 'prod-018',
+    name: 'Grade 5 Scholarship Past Papers & Model Test Pack',
+    slug: 'grade-5-scholarship-past-papers-model-test-pack',
+    description: 'Complete collection of 10-year official scholarship question papers with full step-by-step model answers and mark breakdown.',
+    category: 'school-books',
+    subcategory: 'Scholarship',
+    price: 850,
+    compareAtPrice: 1100,
+    images: [{ url: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80' }],
+    stock: 110,
+    sku: 'AZ-SB-G5',
+    tags: ['scholarship', 'grade 5', 'past papers', 'exam'],
+    isFeatured: true,
+    rating: 5.0,
+    reviewsCount: 74,
+    badge: 'Top Seller',
+    grade: 'Grade 1-5',
+    language: 'Sinhala',
+  },
+  {
+    _id: 'prod-019',
+    name: 'G.C.E. O/L Mathematics 10-Year Past Papers Book',
+    slug: 'gce-ol-mathematics-10-year-past-papers-book',
+    description: 'Official Department of Examinations O/L Mathematics past papers with marking schemes and revision summary notes.',
+    category: 'school-books',
+    subcategory: 'O/L Books',
+    price: 1250,
+    compareAtPrice: 1500,
+    images: [{ url: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80' }],
+    stock: 85,
+    sku: 'AZ-SB-OLM',
+    tags: ['ol exam', 'maths', 'past papers', 'revision'],
+    isFeatured: true,
+    rating: 4.9,
+    reviewsCount: 41,
+    grade: 'Grade 10-11 (O/L)',
+    language: 'Sinhala',
+  },
+
+  // 5. ART & CRAFT
+  {
+    _id: 'prod-005',
+    name: 'Faber-Castell 36 Watercolour Eco Pencils Set with Brush',
+    slug: 'faber-castell-36-watercolour-pencils-set',
+    description: 'Hexagonal coloured pencils with water-soluble lead. Easily converts into brilliant watercolour paintings with just a few wet brush strokes.',
+    category: 'art-craft',
+    subcategory: 'Colour Pencils',
+    price: 2450,
+    compareAtPrice: 2950,
+    images: [{ url: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=900&q=80' }],
+    stock: 80,
+    sku: 'AZ-FC-36',
+    tags: ['faber castell', 'art', 'colour pencils', 'watercolour'],
+    isFeatured: true,
+    rating: 5.0,
+    reviewsCount: 54,
+    badge: 'Artist Choice',
+    brand: 'Faber-Castell',
+  },
+  {
+    _id: 'prod-010',
+    name: 'Mont Marte Studio Acrylic Colour Paint Set (18 x 36ml)',
+    slug: 'mont-marte-studio-acrylic-paint-set-18-tubes',
+    description: 'High quality pigments with smooth buttery consistency, brilliant lightfastness, and fast drying satin finish. Ideal for paper, canvas, wood, and craft projects.',
+    category: 'art-craft',
+    subcategory: 'Paints',
+    price: 3600,
+    compareAtPrice: 4400,
+    images: [{ url: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=900&q=80' }],
+    stock: 40,
+    sku: 'AZ-ART-MM18',
+    tags: ['acrylic paints', 'art', 'mont marte', 'canvas'],
+    isFeatured: false,
+    rating: 4.8,
+    reviewsCount: 29,
+    brand: 'Mont Marte',
+  },
+
+  // 6. MATHEMATICAL INSTRUMENTS
+  {
+    _id: 'prod-006',
+    name: 'Helix Oxford Maths Geometry Precision Box (9-Piece Set)',
+    slug: 'helix-oxford-maths-geometry-precision-set',
+    description: 'The traditional metal tin mathematical instrument set featuring embossed metal storage tin, precision metal compass, ruler, set squares, and 180 protractor.',
+    category: 'mathematical-instruments',
+    subcategory: 'Geometry Sets',
+    price: 950,
+    compareAtPrice: 1200,
+    images: [{ url: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=900&q=80' }],
+    stock: 140,
+    sku: 'AZ-MAT-HLX',
+    tags: ['geometry', 'maths', 'helix oxford', 'compass'],
+    isFeatured: true,
+    rating: 4.9,
+    reviewsCount: 71,
+    badge: 'Essential',
+    brand: 'Helix Oxford',
+  },
+
+  // 7. SCHOOL ACCESSORIES & BAGS
+  {
+    _id: 'prod-007',
+    name: 'Ergonomic Waterproof Student Backpack - 32L Navy Blue',
+    slug: 'ergonomic-waterproof-student-backpack-navy',
+    description: 'Heavy duty multi-pocket school and campus backpack with padded S-curve shoulder straps, breathable back panel, internal laptop sleeve, and rainproof Oxford fabric.',
+    category: 'school-accessories',
+    subcategory: 'Bags',
+    price: 3950,
+    compareAtPrice: 4800,
+    images: [{ url: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=80' }],
+    stock: 45,
+    sku: 'AZ-BAG-32L',
+    tags: ['backpack', 'school bag', 'laptop bag', 'waterproof'],
+    isFeatured: true,
+    rating: 4.8,
+    reviewsCount: 33,
+    badge: 'Hot Deal',
+    brand: 'AZIP Genuine',
+  },
+  {
+    _id: 'prod-020',
+    name: 'Stainless Steel Insulated Student Water Bottle (750ml)',
+    slug: 'stainless-steel-insulated-student-water-bottle-750ml',
+    description: 'Double-wall vacuum insulated flask keeping water ice cold for 24 hours or warm for 12 hours. Leak-proof sports cap.',
+    category: 'school-accessories',
+    subcategory: 'Water Bottles',
+    price: 1650,
+    compareAtPrice: 2100,
+    images: [{ url: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=80' }],
+    stock: 75,
+    sku: 'AZ-ACC-BTL',
+    tags: ['water bottle', 'stainless steel', 'flask', 'school'],
+    isFeatured: false,
+    rating: 4.9,
+    reviewsCount: 28,
+  },
+
+  // 8. OFFICE SUPPLIES
+  {
+    _id: 'prod-008',
+    name: 'Atlas High Quality A4 Copier Paper (80 GSM / 500 Sheets Box)',
+    slug: 'atlas-a4-copier-paper-80gsm-500-sheets',
+    description: 'Ultra-white 80gsm premium printing and photocopy paper. Jam-free high-speed laser and inkjet compatibility. Perfect for assignments and office reports.',
+    category: 'office-supplies',
+    subcategory: 'Paper',
+    price: 1850,
+    compareAtPrice: 2200,
+    images: [{ url: 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=900&q=80' }],
+    stock: 300,
+    sku: 'AZ-PPR-A4',
+    tags: ['a4 paper', 'photocopy paper', 'atlas', 'office'],
+    isFeatured: false,
+    rating: 4.9,
+    reviewsCount: 95,
+    brand: 'Atlas',
+  },
+  {
+    _id: 'prod-021',
+    name: 'Kangaro HD-45 Heavy Duty Metal Desk Stapler',
+    slug: 'kangaro-hd-45-heavy-duty-metal-desk-stapler',
+    description: 'All-metal durable construction stapling up to 30 sheets of paper at once. Includes quick loading mechanism.',
+    category: 'office-supplies',
+    subcategory: 'Staplers',
+    price: 1250,
+    compareAtPrice: 1550,
+    images: [{ url: 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=900&q=80' }],
+    stock: 60,
+    sku: 'AZ-OFF-KNG',
+    tags: ['kangaro', 'stapler', 'office', 'heavy duty'],
+    isFeatured: false,
+    rating: 4.8,
+    reviewsCount: 16,
+    brand: 'Kangaro',
+  },
+
+  // 9. FILES & ORGANIZATION
   {
     _id: 'prod-012',
     name: 'Clear Display Book / Portfolio File 40 Pockets (A4)',
     slug: 'clear-display-book-40-pockets-a4',
-    description: 'Heavy duty presentation book with 40 clear anti-glare copy-safe transparent pockets. Spine label insert for organized indexing of certificates and projects.',
+    description: 'Heavy duty presentation book with 40 clear anti-glare transparent pockets. Spine label insert for organized indexing of certificates.',
     category: 'files-organization',
     subcategory: 'Files',
     price: 680,
     compareAtPrice: 850,
-    images: [
-      { url: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80', alt: 'Display File' }
-    ],
+    images: [{ url: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80' }],
     stock: 160,
     sku: 'AZ-FIL-40P',
-    tags: ['file', 'display book', 'folder', 'certificates', 'office'],
+    tags: ['file', 'display book', 'folder', 'certificates'],
     isFeatured: false,
     rating: 4.7,
     reviewsCount: 22,
-    specifications: {
-      'Pockets': '40 Bound Top-Loading Pockets',
-      'Capacity': '80 A4 Sheets (Back-to-Back)',
-      'Material': 'Acid-Free Archival Safe Polypropylene'
-    }
+    brand: 'Atlas',
+  },
+  {
+    _id: 'prod-022',
+    name: 'Atlas Heavy Duty Box File with Lever Arch Mechanism (A4)',
+    slug: 'atlas-heavy-duty-box-file-lever-arch',
+    description: 'Premium laminated board lever arch box file with metal edge protector and pull ring finger hole for office document archival.',
+    category: 'files-organization',
+    subcategory: 'Box Files',
+    price: 920,
+    compareAtPrice: 1150,
+    images: [{ url: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80' }],
+    stock: 80,
+    sku: 'AZ-FIL-BOX',
+    tags: ['box file', 'lever arch', 'atlas', 'organization'],
+    isFeatured: false,
+    rating: 4.9,
+    reviewsCount: 27,
+    brand: 'Atlas',
+  },
+
+  // 10. EDUCATIONAL MATERIALS
+  {
+    _id: 'prod-023',
+    name: 'Interactive 3D Desktop World Globe Map (20cm Swivel Stand)',
+    slug: 'interactive-3d-desktop-world-globe-map-20cm',
+    description: 'High definition geographical world globe showing countries, capitals, ocean currents, and latitude boundaries on a brushed steel swivel stand.',
+    category: 'educational-materials',
+    subcategory: 'Globes & Maps',
+    price: 3200,
+    compareAtPrice: 3900,
+    images: [{ url: '/products/globe.jpg' }],
+    stock: 35,
+    sku: 'AZ-EDU-GLB',
+    tags: ['globe', 'world map', 'geography', 'educational'],
+    isFeatured: true,
+    rating: 5.0,
+    reviewsCount: 38,
+    badge: 'Teacher Pick',
+  },
+  {
+    _id: 'prod-024',
+    name: 'Primary Sinhala & English Alphabet Flash Cards Deck (52 Cards)',
+    slug: 'primary-sinhala-english-alphabet-flash-cards-deck',
+    description: 'Laminated, tear-resistant learning flash cards with vibrant illustrations for early childhood alphabet and vocabulary recognition.',
+    category: 'educational-materials',
+    subcategory: 'Flash Cards',
+    price: 580,
+    compareAtPrice: 720,
+    images: [{ url: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80' }],
+    stock: 120,
+    sku: 'AZ-EDU-CRD',
+    tags: ['flash cards', 'alphabet', 'sinhala', 'english', 'primary'],
+    isFeatured: false,
+    rating: 4.8,
+    reviewsCount: 19,
+  },
+
+  // 11. PRESCHOOL & KIDS
+  {
+    _id: 'prod-025',
+    name: 'Faber-Castell Jumbo Non-Toxic Wax Crayons (Pack of 24)',
+    slug: 'faber-castell-jumbo-non-toxic-crayons-pack-of-24',
+    description: 'Thick jumbo crayons designed for little hands. Smooth application with non-toxic, washable pigments for kids coloring.',
+    category: 'preschool-kids',
+    subcategory: 'Crayons',
+    price: 780,
+    compareAtPrice: 950,
+    images: [{ url: 'https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=900&q=80' }],
+    stock: 110,
+    sku: 'AZ-KID-CRY',
+    tags: ['crayons', 'faber castell', 'preschool', 'kids', 'coloring'],
+    isFeatured: true,
+    rating: 4.9,
+    reviewsCount: 43,
+    brand: 'Faber-Castell',
+  },
+  {
+    _id: 'prod-026',
+    name: 'Kids Giant Animals Coloring & Activity Storybook',
+    slug: 'kids-giant-animals-coloring-activity-storybook',
+    description: 'Fun jumbo coloring book featuring wild animals, puzzles, maze games, and alphabet writing exercises for preschoolers.',
+    category: 'preschool-kids',
+    subcategory: 'Coloring Books',
+    price: 480,
+    compareAtPrice: 600,
+    images: [{ url: 'https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=900&q=80' }],
+    stock: 150,
+    sku: 'AZ-KID-CLR',
+    tags: ['coloring book', 'preschool', 'kids', 'activity'],
+    isFeatured: false,
+    rating: 4.8,
+    reviewsCount: 25,
+  },
+
+  // 12. SCIENCE & LABORATORY
+  {
+    _id: 'prod-027',
+    name: '100x-400x Beginner Educational Science Microscope Kit',
+    slug: '100x-400x-beginner-educational-science-microscope-kit',
+    description: 'Precision optical glass lenses, built-in LED light source, prepared biological specimen slides, blank glass slides, tweezers, and protective carrying case.',
+    category: 'science-laboratory',
+    subcategory: 'Microscopes',
+    price: 6800,
+    compareAtPrice: 8500,
+    images: [{ url: '/products/microscope.jpg' }],
+    stock: 25,
+    sku: 'AZ-SCI-MIC',
+    tags: ['microscope', 'science', 'lab', 'biology'],
+    isFeatured: true,
+    rating: 5.0,
+    reviewsCount: 31,
+    badge: 'Lab Master',
+  },
+  {
+    _id: 'prod-028',
+    name: 'Student Science Laboratory Safety Goggles & White Lab Coat Set',
+    slug: 'student-science-laboratory-safety-goggles-lab-coat-set',
+    description: 'Durable white cotton lab coat with front pockets plus shatterproof anti-fog safety goggles for chemistry and biology practicals.',
+    category: 'science-laboratory',
+    subcategory: 'Lab Wear',
+    price: 2450,
+    compareAtPrice: 2950,
+    images: [{ url: '/products/microscope.jpg' }],
+    stock: 65,
+    sku: 'AZ-SCI-COT',
+    tags: ['lab coat', 'goggles', 'science', 'chemistry'],
+    isFeatured: false,
+    rating: 4.9,
+    reviewsCount: 14,
+  },
+
+  // 13. GIFTS & ACCESSORIES
+  {
+    _id: 'prod-029',
+    name: 'Premium Wooden Executive Rollerball Pen in Gift Box',
+    slug: 'premium-wooden-executive-rollerball-pen-in-gift-box',
+    description: 'Handcrafted rosewood body with gold-plated accents, smooth black ink rollerball refill, and velvet-lined wooden presentation case.',
+    category: 'gifts-accessories',
+    subcategory: 'Executive Pens',
+    price: 1950,
+    compareAtPrice: 2500,
+    images: [{ url: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=900&q=80' }],
+    stock: 45,
+    sku: 'AZ-GFT-PEN',
+    tags: ['executive pen', 'gift box', 'wooden pen', 'luxury'],
+    isFeatured: true,
+    rating: 5.0,
+    reviewsCount: 26,
+    badge: 'Gift Choice',
+  },
+  {
+    _id: 'prod-030',
+    name: 'Decorative Bookmarks & Greeting Cards Value Set (Pack of 10)',
+    slug: 'decorative-bookmarks-greeting-cards-value-set',
+    description: 'Assorted aesthetic floral bookmarks with motivational quotes and gold ribbon tassels, plus matching envelope greeting cards.',
+    category: 'gifts-accessories',
+    subcategory: 'Bookmarks',
+    price: 650,
+    compareAtPrice: 850,
+    images: [{ url: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=900&q=80' }],
+    stock: 90,
+    sku: 'AZ-GFT-BMK',
+    tags: ['bookmarks', 'greeting cards', 'gift', 'stationery'],
+    isFeatured: false,
+    rating: 4.8,
+    reviewsCount: 18,
   }
 ];
 

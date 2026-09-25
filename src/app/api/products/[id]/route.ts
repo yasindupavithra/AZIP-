@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import dbConnect from '@/lib/db';
 import Product from '@/lib/models/Product';
 import '@/lib/models/Vendor';
-import { INITIAL_CATALOG_PRODUCTS } from '@/lib/catalog';
+import { getLocalProducts, updateLocalProduct, deleteLocalProduct } from '@/lib/local-db';
 
 // GET /api/products/[id]
 export async function GET(
@@ -11,7 +11,6 @@ export async function GET(
 ) {
   try {
     const { id } = await params;
-
     let product = null;
 
     try {
@@ -27,10 +26,8 @@ export async function GET(
     }
 
     if (!product) {
-      // Look in INITIAL_CATALOG_PRODUCTS
-      const fallback = INITIAL_CATALOG_PRODUCTS.find(
-        (p) => p._id === id || p.slug === id
-      );
+      const localItems = getLocalProducts();
+      const fallback = localItems.find((p) => p._id === id || p.slug === id);
       if (fallback) {
         product = fallback;
       }
@@ -56,54 +53,66 @@ export async function PUT(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    await dbConnect();
     const { id } = await params;
     const body = await request.json();
 
-    const product = await Product.findByIdAndUpdate(
-      id,
-      { $set: body },
-      { new: true, runValidators: true }
-    );
+    // Update in local DB
+    const updatedLocal = updateLocalProduct(id, body);
 
-    if (!product) {
+    // Try updating in MongoDB if available
+    try {
+      await dbConnect();
+      await Product.findByIdAndUpdate(
+        id,
+        { $set: body },
+        { new: true, runValidators: true }
+      ).catch(() => {});
+    } catch {
+      // Ignore DB error
+    }
+
+    if (!updatedLocal) {
       return NextResponse.json({ error: 'Product not found' }, { status: 404 });
     }
 
-    return NextResponse.json({ product });
+    return NextResponse.json({ product: updatedLocal });
   } catch (error) {
     console.error('Update product error:', error);
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { error: 'Failed to update product: ' + (error as Error).message },
       { status: 500 }
     );
   }
 }
 
-// DELETE /api/products/[id] - Soft delete (admin only)
+// DELETE /api/products/[id] - Delete product (admin only)
 export async function DELETE(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    await dbConnect();
     const { id } = await params;
 
-    const product = await Product.findByIdAndUpdate(
-      id,
-      { isActive: false },
-      { new: true }
-    );
+    // Delete in local DB
+    const deleted = deleteLocalProduct(id);
 
-    if (!product) {
-      return NextResponse.json({ error: 'Product not found' }, { status: 404 });
+    // Try deleting in MongoDB if available
+    try {
+      await dbConnect();
+      await Product.findByIdAndUpdate(
+        id,
+        { isActive: false },
+        { new: true }
+      ).catch(() => {});
+    } catch {
+      // Ignore DB error
     }
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ success: true, deleted });
   } catch (error) {
     console.error('Delete product error:', error);
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { error: 'Failed to delete product: ' + (error as Error).message },
       { status: 500 }
     );
   }

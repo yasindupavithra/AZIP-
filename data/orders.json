@@ -1,0 +1,41 @@
+[
+  {
+    "_id": "ord-mugst8rm",
+    "orderNumber": "AZ-349407",
+    "customer": {
+      "name": "Kasun Perera",
+      "phone": "0771234567",
+      "email": "",
+      "address": {
+        "street": "123 Peradeniya Road",
+        "city": "Kandy",
+        "district": "Kandy",
+        "postalCode": ""
+      }
+    },
+    "items": [
+      {
+        "id": "6ab36b8a889a3ef438c70051",
+        "name": "Oxford Advanced Learner Dictionary - 10th Edition",
+        "quantity": 1,
+        "price": 3800
+      },
+      {
+        "id": "6ab36b8a889a3ef438c70059",
+        "name": "Double A Premium A4 Copier Paper (500 Sheets, 80gsm)",
+        "quantity": 2,
+        "price": 1650
+      },
+      {
+        "id": "prod-003",
+        "name": "Pilot G2 Retractable Gel Pen 0.7mm (Pack of 5)",
+        "quantity": 1,
+        "price": 1350
+      }
+    ],
+    "total": 8450,
+    "status": "pending",
+    "paymentMethod": "cod",
+    "createdAt": "2026-09-25T10:08:52.642Z"
+  }
+]

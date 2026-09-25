@@ -13,27 +13,78 @@ import {
   MessageCircle, 
   Star,
   ChevronRight,
+  ChevronLeft,
   RotateCcw,
   CreditCard,
   Zap,
   Package,
   BadgeCheck,
-  Gift
+  Gift,
+  Upload,
+  BookOpen,
+  GraduationCap
 } from 'lucide-react';
 import StoreShell from '@/components/StoreShell';
 import ProductCard from '@/components/ProductCard';
-import { INITIAL_CATALOG_PRODUCTS, STORE_CATEGORIES } from '@/lib/catalog';
+import BackToSchoolBundleCard from '@/components/BackToSchoolBundleCard';
+import BooklistUploadModal from '@/components/BooklistUploadModal';
+import { INITIAL_CATALOG_PRODUCTS, STORE_CATEGORIES, BACK_TO_SCHOOL_BUNDLES } from '@/lib/catalog';
 import { useCartStore } from '@/store/cart';
 
-/* ─── Data ────────────────────────────────────────────── */
+/* ─── Hero Slider Data (5 High Quality Slides) ─────────────────────── */
+
+const HERO_SLIDES = [
+  {
+    id: 1,
+    image: '/hero/slide1.jpg',
+    badge: 'Complete Stationery Sets',
+    title: 'Vibrant Art & School Supplies',
+    subtitle: 'Atlas, Pilot gel pens, geometry sets & watercolor sketchbooks.',
+    tag: '100% Genuine Brands',
+  },
+  {
+    id: 2,
+    image: '/hero/slide2.jpg',
+    badge: 'School Education',
+    title: 'Grade Textbooks & CR Books',
+    subtitle: 'High-grade 80gsm paper CR books from Grade 1 to A/L.',
+    tag: 'Syllabus Approved',
+  },
+  {
+    id: 3,
+    image: '/hero/slide3.jpg',
+    badge: 'Artist Studio Corner',
+    title: 'Faber-Castell & Mont Marte',
+    subtitle: 'Watercolour pencils, acrylic paints, brushes & drawing pads.',
+    tag: 'Artist Choice',
+  },
+  {
+    id: 4,
+    image: '/hero/slide4.jpg',
+    badge: 'Exam Approved Tech',
+    title: 'Casio Scientific Calculators',
+    subtitle: 'Authentic FX-991CW ClassWiz with 3-year warranty & USB drives.',
+    tag: 'Authorized Warranty',
+  },
+  {
+    id: 5,
+    image: '/hero/slide5.jpg',
+    badge: 'Backpacks & Gear',
+    title: 'Ergonomic School Backpacks',
+    subtitle: 'Waterproof multi-pocket backpacks & essential student gear.',
+    tag: 'Islandwide Express',
+  },
+];
+
+/* ─── Category Cards with Legible Explicit Typography ──────────────── */
 
 const mainCategories = [
-  { slug: 'books', label: 'Books & Textbooks', action: 'Explore Books', image: '/categories/cat_books.jpg', icon: '📚' },
-  { slug: 'exercise-books', label: 'Exercise & CR Books', action: 'Shop CR Books', image: '/categories/cat_stationery.jpg', icon: '📓' },
-  { slug: 'writing-instruments', label: 'Pens & Stationery', action: 'View Pens', image: '/categories/cat_gifts.jpg', icon: '✒️' },
-  { slug: 'art-craft', label: 'Fine Art & Craft', action: 'Explore Studio', image: '/categories/cat_art.jpg', icon: '🎨' },
-  { slug: 'school-accessories', label: 'School Gear & Bags', action: 'Shop Gear', image: '/categories/cat_school.jpg', icon: '🎒' },
-  { slug: 'electronics', label: 'Calculators & Tech', action: 'Shop Tech', image: '/categories/cat_lifestyle.jpg', icon: '🖩' },
+  { slug: 'school-books', label: 'School Education & Textbooks', action: 'Shop Grade Books', image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80', icon: '🎓' },
+  { slug: 'exercise-books', label: 'CR & Exercise Notebooks', action: 'Shop CR Books', image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80', icon: '📓' },
+  { slug: 'writing-instruments', label: 'Pens & Writing Tools', action: 'View Pilot & Pens', image: 'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=600&q=80', icon: '✒️' },
+  { slug: 'mathematical-instruments', label: 'Calculators & Geometry', action: 'Explore Maths', image: 'https://images.unsplash.com/photo-1611125832047-1d7ad1e8e48f?auto=format&fit=crop&w=600&q=80', icon: '📐' },
+  { slug: 'art-craft', label: 'Fine Art & Craft Paints', action: 'Explore Studio', image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80', icon: '🎨' },
+  { slug: 'school-accessories', label: 'Backpacks & Accessories', action: 'Shop Backpacks', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80', icon: '🎒' },
 ];
 
 const brandLogos = [
@@ -63,7 +114,7 @@ const customerReviews = [
     name: 'Dilini Wickramasinghe',
     role: 'Mother of 2 School Kids, Peradeniya',
     avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80',
-    content: "I sent my children's school booklist via WhatsApp and AZIP team packed every single item and delivered straight to my doorstep. Super convenient!",
+    content: "I uploaded my children's school booklist online and AZIP team packed every single item and delivered straight to my doorstep. Super convenient!",
     rating: 5,
   },
   {
@@ -101,350 +152,295 @@ function useInView(options = {}) {
 
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState<'newest' | 'trending'>('newest');
-  const [products] = useState(INITIAL_CATALOG_PRODUCTS);
+  const [products, setProducts] = useState(INITIAL_CATALOG_PRODUCTS);
+  const [isBooklistModalOpen, setIsBooklistModalOpen] = useState(false);
   const addItem = useCartStore((s) => s.addItem);
 
+  // Hero Carousel Slide State
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+
+  // Auto-play timer (slides every 4 seconds)
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlideIndex((prev) => (prev + 1) % HERO_SLIDES.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    async function loadLiveProducts() {
+      try {
+        const res = await fetch('/api/products?limit=40');
+        if (res.ok) {
+          const data = await res.json();
+          if (data.products && data.products.length > 0) {
+            setProducts(data.products);
+          }
+        }
+      } catch (err) {
+        console.warn('Could not fetch live products on home page:', err);
+      }
+    }
+    loadLiveProducts();
+  }, []);
+
+  const nextSlide = () => {
+    setCurrentSlideIndex((prev) => (prev + 1) % HERO_SLIDES.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlideIndex((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
+  };
+
   const displayedProducts = activeTab === 'newest'
-    ? products.slice(0, 8)
-    : [...products].reverse().slice(0, 8);
+    ? products.slice(0, 10)
+    : [...products].reverse().slice(0, 10);
 
   // Scroll-reveal sections
   const heroRef = useInView();
+  const bundlesRef = useInView();
   const dealsRef = useInView();
-  const bannersRef = useInView();
   const categoriesRef = useInView();
   const trustRef = useInView();
   const whatsappRef = useInView();
   const brandsRef = useInView();
   const reviewsRef = useInView();
 
+  const currentSlide = HERO_SLIDES[currentSlideIndex];
+
   return (
     <StoreShell>
 
       {/* ═══════════════════════════════════════════════════
-          1. HERO SECTION — Full Width with Premium Image
+          1. HERO SECTION — Auto-sliding 5 Image Carousel
           ═══════════════════════════════════════════════════ */}
       <section 
         ref={heroRef.ref}
-        className="relative bg-gradient-to-br from-white via-slate-50 to-red-50/20 overflow-hidden"
+        className="relative bg-gradient-to-br from-white via-slate-50 to-red-50/20 overflow-hidden font-sans"
       >
-        {/* Decorative background blobs */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-red-100/30 to-transparent rounded-full blur-3xl -translate-y-1/3 translate-x-1/4 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-blue-50/40 to-transparent rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 w-[300px] h-[300px] bg-gradient-to-br from-purple-50/20 to-transparent rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-        
-        <div className="container mx-auto py-14 md:py-20 lg:py-24 relative z-10">
-          <div className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center ${heroRef.isInView ? 'opacity-100' : 'opacity-0'}`}>
+        <div className="container mx-auto py-10 md:py-16 lg:py-20 relative z-10">
+          <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center ${heroRef.isInView ? 'opacity-100' : 'opacity-0'}`}>
             
             {/* Left: Content */}
-            <div className={`${heroRef.isInView ? 'animate-slide-left' : ''} order-2 lg:order-1`}>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-50 border border-red-100 text-[#DC2626] text-[11px] font-bold rounded-full mb-7 uppercase tracking-wider">
-                <Sparkles size={13} /> Trusted by 10,000+ Students
+            <div className="order-2 lg:order-1">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-red-50 border border-red-100 text-[#DC2626] text-[11px] font-extrabold rounded-full mb-5 uppercase tracking-wider">
+                <Sparkles size={13} /> {currentSlide.tag}
               </div>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-black text-gray-900 tracking-tight leading-[1.08] font-['Outfit'] mb-6">
-                Your One-Stop Shop for
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.3rem] font-black text-gray-900 tracking-tight leading-[1.08] font-['Outfit'] mb-5 transition-all duration-300">
+                Your Preferred Online
                 <span className="block mt-2 bg-gradient-to-r from-[#DC2626] via-[#E11D48] to-[#9333EA] bg-clip-text text-transparent">
-                  Education & Stationery
+                  Stationery &amp; Bookshop
                 </span>
               </h1>
 
-              <p className="text-base sm:text-lg text-gray-500 font-medium mb-9 max-w-lg leading-relaxed">
-                Premium books, Atlas CR notebooks, Casio calculators, Faber-Castell art sets — delivered island-wide in 24-72 hours with Cash on Delivery.
+              <p className="text-base sm:text-lg text-gray-600 font-medium mb-7 max-w-lg leading-relaxed transition-all duration-300">
+                {currentSlide.subtitle} Grade textbooks, CR exercise books, Pilot gel pens, Casio scientific calculators, and Faber-Castell art sets delivered island-wide.
               </p>
 
-              <div className="flex flex-wrap items-center gap-4 mb-12">
-                <Link
-                  href="/products"
-                  className="px-8 py-4 bg-[#DC2626] hover:bg-[#B91C1C] text-white text-sm font-bold rounded-2xl shadow-lg shadow-red-500/25 hover:shadow-xl hover:shadow-red-500/35 transition-all duration-300 hover:-translate-y-1 uppercase tracking-wider flex items-center gap-2.5"
+              {/* Action Buttons */}
+              <div className="flex flex-wrap items-center gap-4 mb-9">
+                <button
+                  type="button"
+                  onClick={() => setIsBooklistModalOpen(true)}
+                  className="px-7 py-4 bg-gradient-to-r from-[#DC2626] to-[#E11D48] hover:from-[#B91C1C] hover:to-[#C2410C] text-white text-xs sm:text-sm font-black rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 uppercase tracking-wider flex items-center gap-2.5 cursor-pointer border-none"
                 >
-                  Shop Now <ArrowRight size={16} />
-                </Link>
+                  <Upload size={16} /> Upload School Booklist
+                </button>
 
                 <Link
-                  href="/offers"
-                  className="px-8 py-4 bg-white hover:bg-gray-50 text-gray-800 text-sm font-bold rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex items-center gap-2.5"
+                  href="/products"
+                  className="px-7 py-4 bg-white hover:bg-gray-50 text-gray-900 text-xs sm:text-sm font-bold rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 flex items-center gap-2"
                 >
-                  <Flame size={16} className="text-[#DC2626]" /> View Deals
+                  Browse Catalog <ArrowRight size={15} />
                 </Link>
               </div>
 
               {/* Trust Badges */}
-              <div className="flex flex-wrap items-center gap-x-7 gap-y-3 text-[13px] font-semibold text-gray-500">
-                <span className="flex items-center gap-2">
-                  <CheckCircle2 size={17} className="text-emerald-500" /> 100% Genuine Brands
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-xs font-bold text-gray-500">
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle2 size={16} className="text-emerald-500" /> 100% Genuine Brands
                 </span>
-                <span className="flex items-center gap-2">
-                  <Truck size={17} className="text-blue-500" /> Island-wide Delivery
+                <span className="flex items-center gap-1.5">
+                  <Truck size={16} className="text-blue-500" /> Island-wide Delivery
                 </span>
-                <span className="flex items-center gap-2">
-                  <CreditCard size={17} className="text-purple-500" /> Cash on Delivery
+                <span className="flex items-center gap-1.5">
+                  <CreditCard size={16} className="text-purple-500" /> Cash on Delivery
                 </span>
               </div>
             </div>
 
-            {/* Right: Stunning Hero Image */}
-            <div className={`order-1 lg:order-2 ${heroRef.isInView ? 'animate-slide-right' : ''}`}>
-              <div className="relative">
-                {/* Main Image Container */}
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-gray-900/10 border border-white/50">
-                  <img
-                    src="/mockup/hero_premium.jpg"
-                    alt="Premium Stationery & Educational Materials — Colorful pencils, calculator, art supplies, and backpack arranged in a stunning flat-lay"
-                    className="w-full h-[320px] sm:h-[380px] lg:h-[440px] object-cover"
-                  />
-                  {/* Subtle gradient overlay at bottom */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-white/5 pointer-events-none" />
-                </div>
+            {/* Right: Auto-playing 5 Image Slider */}
+            <div className="order-1 lg:order-2">
+              <div className="relative group">
+                
+                {/* Image Slider Container with 16:9 aspect */}
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/60 bg-slate-100 aspect-16/10">
+                  
+                  {HERO_SLIDES.map((slide, idx) => (
+                    <div
+                      key={slide.id}
+                      className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+                        idx === currentSlideIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                      }`}
+                    >
+                      <img
+                        src={slide.image}
+                        alt={slide.title}
+                        className="w-full h-full object-cover scale-100 group-hover:scale-103 transition-transform duration-700"
+                      />
+                      
+                      {/* Gradient Overlay for Text Legibility */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
 
-                {/* Floating badge: Free Delivery */}
-                <div className="absolute -bottom-4 left-4 sm:-bottom-5 sm:-left-5 bg-white rounded-2xl shadow-xl shadow-gray-900/10 p-3.5 border border-gray-100 animate-fade-in delay-500 z-10">
-                  <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 bg-emerald-50 rounded-xl flex items-center justify-center">
-                      <Truck size={22} className="text-emerald-600" />
-                    </div>
-                    <div>
-                      <div className="text-xs font-bold text-gray-900">Free Delivery</div>
-                      <div className="text-[10px] text-gray-400 font-medium">Orders above Rs 3,000</div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Floating badge: Authorized */}
-                <div className="absolute -top-4 right-4 sm:-top-5 sm:-right-5 bg-white rounded-2xl shadow-xl shadow-gray-900/10 p-3.5 border border-gray-100 animate-fade-in delay-700 z-10">
-                  <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 bg-amber-50 rounded-xl flex items-center justify-center">
-                      <Award size={22} className="text-amber-600" />
-                    </div>
-                    <div>
-                      <div className="text-xs font-bold text-gray-900">Authorized</div>
-                      <div className="text-[10px] text-gray-400 font-medium">All brands genuine</div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Floating stats badge */}
-                <div className="absolute bottom-6 right-6 sm:bottom-8 sm:right-8 bg-white/90 backdrop-blur-md rounded-xl shadow-lg p-3 border border-white/50 animate-fade-in delay-800 z-10">
-                  <div className="flex items-center gap-2">
-                    <div className="flex -space-x-1.5">
-                      <div className="w-6 h-6 rounded-full bg-[#DC2626] flex items-center justify-center text-white text-[8px] font-bold ring-2 ring-white">A</div>
-                      <div className="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center text-white text-[8px] font-bold ring-2 ring-white">C</div>
-                      <div className="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center text-white text-[8px] font-bold ring-2 ring-white">P</div>
-                    </div>
-                    <div>
-                      <div className="text-[10px] font-bold text-gray-900">10K+ Happy Customers</div>
-                      <div className="flex gap-0.5 mt-0.5">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} size={9} className="fill-amber-400 text-amber-400" />
-                        ))}
+                      {/* Slide Caption Overlay */}
+                      <div className="absolute bottom-5 left-5 right-5 z-20 text-white">
+                        <span className="inline-block px-3 py-1 bg-[#DC2626] text-white text-[10px] font-black rounded-full uppercase tracking-wider mb-1.5 shadow-sm">
+                          {slide.badge}
+                        </span>
+                        <h3 className="text-base sm:text-xl font-black text-white leading-tight drop-shadow-sm font-['Outfit']">
+                          {slide.title}
+                        </h3>
                       </div>
                     </div>
+                  ))}
+
+                  {/* Left / Right Slider Controls */}
+                  <button
+                    type="button"
+                    onClick={prevSlide}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-slate-900/60 hover:bg-slate-900 text-white flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 border border-white/20 cursor-pointer"
+                    title="Previous Slide"
+                  >
+                    <ChevronLeft size={20} />
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={nextSlide}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-slate-900/60 hover:bg-slate-900 text-white flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 border border-white/20 cursor-pointer"
+                    title="Next Slide"
+                  >
+                    <ChevronRight size={20} />
+                  </button>
+
+                  {/* Dot Indicators */}
+                  <div className="absolute bottom-3 right-5 z-30 flex items-center gap-1.5">
+                    {HERO_SLIDES.map((_, dotIdx) => (
+                      <button
+                        key={dotIdx}
+                        type="button"
+                        onClick={() => setCurrentSlideIndex(dotIdx)}
+                        className={`h-2 rounded-full transition-all border-none cursor-pointer ${
+                          dotIdx === currentSlideIndex
+                            ? 'w-6 bg-[#DC2626]'
+                            : 'w-2 bg-white/60 hover:bg-white'
+                        }`}
+                        title={`Slide ${dotIdx + 1}`}
+                      />
+                    ))}
+                  </div>
+
+                </div>
+
+                {/* Floating Fast Delivery Badge */}
+                <div className="absolute -bottom-4 left-4 bg-white rounded-2xl shadow-xl p-3.5 border border-gray-100 z-30 flex items-center gap-3">
+                  <div className="w-10 h-10 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center">
+                    <Truck size={20} />
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold text-gray-900">Fast Home Delivery</div>
+                    <div className="text-[10px] text-gray-500 font-medium">Island-wide express shipping</div>
                   </div>
                 </div>
+
+                {/* Floating Authentic Badge */}
+                <div className="absolute -top-4 right-4 bg-white rounded-2xl shadow-xl p-3.5 border border-gray-100 z-30 flex items-center gap-3">
+                  <div className="w-10 h-10 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center">
+                    <Award size={20} />
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold text-gray-900">100% Authentic</div>
+                    <div className="text-[10px] text-gray-500 font-medium">Atlas, Casio, Pilot &amp; Faber</div>
+                  </div>
+                </div>
+
               </div>
             </div>
+
           </div>
         </div>
       </section>
 
-
       {/* ═══════════════════════════════════════════════════
-          2. EXPLORE NEWEST — Full Width Products
+          2. Back to School Kit Showcase
           ═══════════════════════════════════════════════════ */}
-      <section 
-        ref={dealsRef.ref}
-        className="section-spacing bg-white"
-      >
-        <div className="container mx-auto">
-          <div className={`${dealsRef.isInView ? 'animate-fade-in-up' : 'opacity-0'}`}>
-              
-            {/* Header with Tabs */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
-              <div>
-                <div className="section-label">
-                  <Zap size={13} /> Fresh Arrivals
-                </div>
-                <h2 className="text-xl sm:text-2xl font-black text-gray-900 tracking-tight font-['Outfit']">
-                  Explore The Newest
-                </h2>
-              </div>
-
-              <div className="flex items-center gap-2 bg-gray-100 p-1 rounded-xl">
-                <button
-                  onClick={() => setActiveTab('newest')}
-                  className={`px-4 py-2 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer border-none ${
-                    activeTab === 'newest'
-                      ? 'bg-white text-gray-900 shadow-sm'
-                      : 'bg-transparent text-gray-500 hover:text-gray-700'
-                  }`}
-                >
-                  New Arrivals
-                </button>
-                <button
-                  onClick={() => setActiveTab('trending')}
-                  className={`px-4 py-2 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer border-none ${
-                    activeTab === 'trending'
-                      ? 'bg-white text-gray-900 shadow-sm'
-                      : 'bg-transparent text-gray-500 hover:text-gray-700'
-                  }`}
-                >
-                  Trending
-                </button>
-              </div>
-            </div>
-
-            {/* Product Grid — Full Width */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
-              {displayedProducts.map((product) => (
-                <ProductCard
-                  key={product._id}
-                  id={product._id}
-                  name={product.name}
-                  slug={product.slug}
-                  price={product.price}
-                  compareAtPrice={product.compareAtPrice}
-                  image={product.images[0]?.url || ''}
-                  category={product.category}
-                  stock={product.stock}
-                />
-              ))}
-            </div>
-
-            {/* View All */}
-            <div className="mt-10 text-center">
-              <Link
-                href="/products"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-bold rounded-xl transition-all hover:-translate-y-0.5"
-              >
-                View All Products <ArrowRight size={14} />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      {/* ═══════════════════════════════════════════════════
-          3. SERVICE BANNERS — Three Premium Cards
-          ═══════════════════════════════════════════════════ */}
-      <section 
-        ref={bannersRef.ref}
-        className="section-spacing bg-gray-50/70"
-      >
-        <div className="container mx-auto">
-          <div className={`grid grid-cols-1 md:grid-cols-3 gap-6 ${bannersRef.isInView ? 'animate-fade-in-up' : 'opacity-0'}`}>
-            
-            {/* Booklist */}
-            <div className="group bg-white p-7 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <Package size={24} className="text-emerald-600" />
-                </div>
-                <h3 className="font-['Outfit'] font-bold text-lg text-gray-900 mb-2">
-                  School Booklist Packs
-                </h3>
-                <p className="text-sm text-gray-500 leading-relaxed mb-5">
-                  Grade 1 to A/L term booklist bundle packs with covers, pens, and Atlas exercise books packed for you.
-                </p>
-              </div>
-              <a
-                href="https://wa.me/94770000000?text=Hello%2C%20I%20have%20a%20school%20booklist%20to%20order"
-                target="_blank"
-                rel="noreferrer"
-                className="text-sm font-bold text-emerald-600 hover:text-emerald-700 flex items-center gap-1.5 transition-colors"
-              >
-                Send on WhatsApp <ArrowRight size={14} />
-              </a>
-            </div>
-
-            {/* Art Studio */}
-            <div className="group bg-white p-7 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 bg-rose-50 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <Gift size={24} className="text-[#DC2626]" />
-                </div>
-                <h3 className="font-['Outfit'] font-bold text-lg text-gray-900 mb-2">
-                  Faber-Castell & Mont Marte
-                </h3>
-                <p className="text-sm text-gray-500 leading-relaxed mb-5">
-                  Watercolour pencils, canvases, acrylic sets, and drawing tools for students and artists.
-                </p>
-              </div>
-              <Link
-                href="/products?category=art-craft"
-                className="text-sm font-bold text-[#DC2626] hover:text-[#B91C1C] flex items-center gap-1.5 transition-colors"
-              >
-                Explore Art Supplies <ArrowRight size={14} />
-              </Link>
-            </div>
-
-            {/* Calculators */}
-            <div className="group bg-white p-7 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <Zap size={24} className="text-blue-600" />
-                </div>
-                <h3 className="font-['Outfit'] font-bold text-lg text-gray-900 mb-2">
-                  Casio & SanDisk Tech
-                </h3>
-                <p className="text-sm text-gray-500 leading-relaxed mb-5">
-                  Genuine ClassWiz scientific calculators with 3-year warranty and high-speed USB flash drives.
-                </p>
-              </div>
-              <Link
-                href="/products?category=electronics"
-                className="text-sm font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1.5 transition-colors"
-              >
-                View Tech Catalog <ArrowRight size={14} />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      {/* ═══════════════════════════════════════════════════
-          4. SHOP BY CATEGORY — Clean Icon Grid
-          ═══════════════════════════════════════════════════ */}
-      <section 
-        ref={categoriesRef.ref}
-        className="section-spacing bg-white"
-      >
-        <div className="container mx-auto">
-          
-          <div className={`flex items-end justify-between mb-10 ${categoriesRef.isInView ? 'animate-fade-in-up' : 'opacity-0'}`}>
+      <section ref={bundlesRef.ref} className="py-12 bg-slate-900 text-white font-sans">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
             <div>
-              <div className="section-label"><Sparkles size={13} /> Browse</div>
-              <h2 className="section-title">Featured Categories</h2>
-              <p className="section-subtitle">Explore by category for faster shopping</p>
+              <div className="inline-flex items-center gap-1.5 text-xs font-black text-[#DC2626] uppercase tracking-wider mb-1">
+                <Sparkles size={14} className="fill-[#DC2626]" /> One-Click Bundles
+              </div>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-white font-['Outfit']">
+                Back to School Master Kit Bundles
+              </h2>
             </div>
-            <Link
-              href="/products"
-              className="hidden sm:flex items-center gap-1.5 text-sm font-bold text-[#DC2626] hover:text-[#B91C1C] transition-colors"
-            >
-              View All <ChevronRight size={16} />
+            <Link href="/products" className="text-xs font-bold text-slate-300 hover:text-white flex items-center gap-1">
+              View All Bundles <ArrowRight size={14} />
             </Link>
           </div>
 
-          <div className={`grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5 ${categoriesRef.isInView ? 'animate-fade-in-up delay-200' : 'opacity-0'}`}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {BACK_TO_SCHOOL_BUNDLES.map((bundle) => (
+              <BackToSchoolBundleCard key={bundle.id} bundle={bundle} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════
+          3. Category Cards with Legible Typography
+          ═══════════════════════════════════════════════════ */}
+      <section 
+        ref={categoriesRef.ref}
+        className="section-spacing bg-white font-sans"
+      >
+        <div className="container mx-auto px-4">
+          
+          <div className="flex items-end justify-between mb-8">
+            <div>
+              <div className="section-label"><Sparkles size={13} /> Categories</div>
+              <h2 className="section-title">Explore Main Categories</h2>
+              <p className="section-subtitle">Categorized for fast browsing</p>
+            </div>
+            <Link
+              href="/products"
+              className="hidden sm:flex items-center gap-1.5 text-xs font-bold text-[#DC2626] hover:text-[#B91C1C]"
+            >
+              View Full Catalog <ChevronRight size={15} />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {mainCategories.map((cat) => (
               <Link
                 key={cat.slug}
                 href={`/products?category=${cat.slug}`}
-                className="group bg-gray-50 hover:bg-white rounded-2xl border border-gray-100 hover:border-[#DC2626]/20 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 p-4 flex flex-col items-center text-center overflow-hidden"
+                className="group bg-gray-50 hover:bg-white rounded-2xl border border-gray-100 hover:border-[#DC2626]/30 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 p-3.5 flex flex-col items-center text-center overflow-hidden"
               >
-                <div className="w-full aspect-[4/3] rounded-xl overflow-hidden bg-white mb-4 shadow-sm">
+                <div className="w-full aspect-square rounded-xl overflow-hidden bg-white mb-3 shadow-xs flex items-center justify-center p-2">
                   <img
                     src={cat.image}
                     alt={cat.label}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
 
-                <h3 className="font-['Outfit'] font-bold text-sm text-gray-900 group-hover:text-[#DC2626] transition-colors leading-snug line-clamp-1 mb-1">
+                <h3 className="font-bold text-xs text-gray-900 group-hover:text-[#DC2626] transition-colors leading-snug line-clamp-2 mb-1">
                   {cat.label}
                 </h3>
-                <span className="text-[11px] font-semibold text-gray-400 group-hover:text-[#DC2626]/70 transition-colors">
+                <span className="text-[10px] font-bold text-[#DC2626] group-hover:underline">
                   {cat.action} →
                 </span>
               </Link>
@@ -453,98 +449,138 @@ export default function HomePage() {
         </div>
       </section>
 
-
       {/* ═══════════════════════════════════════════════════
-          5. TRUST BAR — Full Width with Icons
+          4. FEATURED PRODUCTS CATALOG GRID
           ═══════════════════════════════════════════════════ */}
       <section 
-        ref={trustRef.ref}
-        className="bg-gray-900 text-white py-14"
+        ref={dealsRef.ref}
+        className="section-spacing bg-gray-50/70 font-sans"
       >
-        <div className={`container mx-auto ${trustRef.isInView ? 'animate-fade-in-up' : 'opacity-0'}`}>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { icon: <Truck size={28} />, title: 'Island Wide Delivery', desc: 'Fast 24-72 hours to all cities', color: 'bg-blue-500/10 text-blue-400' },
-              { icon: <Award size={28} />, title: '100% Genuine Brands', desc: 'Authorized manufacturer warranty', color: 'bg-amber-500/10 text-amber-400' },
-              { icon: <HeadphonesIcon size={28} />, title: 'Dedicated Support', desc: 'Direct WhatsApp & Hotline', color: 'bg-emerald-500/10 text-emerald-400' },
-              { icon: <RotateCcw size={28} />, title: 'Easy Returns', desc: 'Hassle-free 7-day exchange', color: 'bg-purple-500/10 text-purple-400' },
-            ].map((item, i) => (
-              <div key={i} className="flex items-start gap-4">
-                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 ${item.color}`}>
-                  {item.icon}
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-white mb-0.5">{item.title}</div>
-                  <div className="text-xs text-gray-400">{item.desc}</div>
-                </div>
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+            <div>
+              <div className="section-label">
+                <Zap size={13} /> Recommended Items
               </div>
+              <h2 className="text-xl sm:text-2xl font-black text-gray-900 tracking-tight font-['Outfit']">
+                Featured Educational Products
+              </h2>
+            </div>
+
+            <div className="flex items-center gap-2 bg-gray-200/60 p-1 rounded-xl">
+              <button
+                onClick={() => setActiveTab('newest')}
+                className={`px-4 py-2 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer border-none ${
+                  activeTab === 'newest'
+                    ? 'bg-white text-gray-900 shadow-xs'
+                    : 'bg-transparent text-gray-600 hover:text-gray-900'
+                }`}
+              >
+                Top Picks
+              </button>
+              <button
+                onClick={() => setActiveTab('trending')}
+                className={`px-4 py-2 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer border-none ${
+                  activeTab === 'trending'
+                    ? 'bg-white text-gray-900 shadow-xs'
+                    : 'bg-transparent text-gray-600 hover:text-gray-900'
+                }`}
+              >
+                Trending
+              </button>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+            {displayedProducts.map((product) => (
+              <ProductCard
+                key={product._id}
+                id={product._id}
+                name={product.name}
+                slug={product.slug}
+                price={product.price}
+                compareAtPrice={product.compareAtPrice}
+                image={product.images[0]?.url || ''}
+                category={product.category}
+                stock={product.stock}
+                brand={product.brand}
+                badge={product.badge}
+                variants={product.variants}
+              />
             ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <Link
+              href="/products"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#DC2626] hover:bg-[#b91c1c] text-white text-xs font-bold rounded-xl shadow-md transition-all hover:scale-105"
+            >
+              View Full Stationery Catalog <ArrowRight size={14} />
+            </Link>
           </div>
         </div>
       </section>
 
-
       {/* ═══════════════════════════════════════════════════
-          6. WHATSAPP BOOKLIST CTA — Premium Dark Section
+          5. WHATSAPP & BOOKLIST DIRECT ORDER CTA
           ═══════════════════════════════════════════════════ */}
       <section 
         ref={whatsappRef.ref}
-        className="section-spacing bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 text-white relative overflow-hidden"
+        className="py-14 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white relative overflow-hidden font-sans"
       >
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wMykiLz48L3N2Zz4=')] pointer-events-none" />
-        
-        <div className={`container mx-auto relative z-10 ${whatsappRef.isInView ? 'animate-fade-in-up' : 'opacity-0'}`}>
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-500/10 text-emerald-400 rounded-full text-[11px] font-bold uppercase tracking-wider mb-6 border border-emerald-500/20">
-              <MessageCircle size={14} /> Direct WhatsApp Service
-            </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black font-['Outfit'] leading-tight mb-4">
-              Have a School Booklist or
-              <br />Bulk Requirement?
-            </h2>
-            <p className="text-sm sm:text-base text-gray-400 leading-relaxed max-w-lg mx-auto mb-8">
-              Snap a photo of your school booklist or office requirements and send it on WhatsApp. 
-              Our team will pack and deliver straight to your address.
-            </p>
+        <div className="container mx-auto px-4 text-center relative z-10 max-w-2xl">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-emerald-500/10 text-emerald-400 rounded-full text-xs font-extrabold mb-4 border border-emerald-500/20">
+            <MessageCircle size={15} /> School Booklist Direct Order
+          </div>
+          <h2 className="text-2xl sm:text-3xl font-black font-['Outfit'] mb-3">
+            Send School Booklist for Quick Home Delivery
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-300 font-medium mb-6 leading-relaxed">
+            Upload your booklist document/image or send via WhatsApp for an instant price estimate with island-wide home delivery.
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <button
+              type="button"
+              onClick={() => setIsBooklistModalOpen(true)}
+              className="px-6 py-3 bg-[#DC2626] hover:bg-[#b91c1c] text-white text-xs font-extrabold rounded-xl shadow-md transition-all flex items-center gap-2 cursor-pointer border-none"
+            >
+              <Upload size={15} /> Upload Booklist Online
+            </button>
 
             <a
-              href="https://wa.me/94770000000?text=Hello%20AZIP%20Store%2C%20I%20would%20like%20to%20order%20stationery%2Fbooks"
+              href="https://wa.me/94770000000?text=Hello%20AZIP%20Store%2C%20I%20have%20a%20school%20booklist%20inquiry"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm rounded-2xl shadow-lg shadow-emerald-900/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl uppercase tracking-wider animate-pulse-glow"
+              className="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold rounded-xl shadow-md transition-all flex items-center gap-2 cursor-pointer"
             >
-              <MessageCircle size={20} />
-              Send Booklist on WhatsApp
+              <MessageCircle size={15} /> Send via WhatsApp
             </a>
           </div>
         </div>
       </section>
 
-
       {/* ═══════════════════════════════════════════════════
-          7. TOP BRANDS — Scrollable Showcase
+          6. TOP BRANDS WE STOCK
           ═══════════════════════════════════════════════════ */}
-      <section 
-        ref={brandsRef.ref}
-        className="section-spacing bg-white"
-      >
-        <div className="container mx-auto">
-          <div className={`text-center mb-10 ${brandsRef.isInView ? 'animate-fade-in-up' : 'opacity-0'}`}>
-            <div className="section-label justify-center"><BadgeCheck size={13} /> Authenticity Guaranteed</div>
-            <h2 className="section-title text-center">Official Brands We Stock</h2>
+      <section ref={brandsRef.ref} className="py-12 bg-white font-sans">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-8">
+            <div className="section-label justify-center"><BadgeCheck size={13} /> Genuine Guarantee</div>
+            <h2 className="section-title text-center">Top Brands Authorized</h2>
           </div>
 
-          <div className={`grid grid-cols-2 sm:grid-cols-5 gap-4 ${brandsRef.isInView ? 'animate-fade-in-up delay-200' : 'opacity-0'}`}>
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
             {brandLogos.map((b) => (
               <Link
                 key={b.name}
                 href={`/products?search=${encodeURIComponent(b.name)}`}
-                className="group p-5 rounded-2xl border border-gray-100 bg-gray-50/50 hover:bg-white hover:border-[#DC2626]/20 hover:shadow-md transition-all duration-300 text-center cursor-pointer hover:-translate-y-1"
+                className="group p-4 rounded-xl border border-gray-100 bg-slate-50/50 hover:bg-white hover:border-[#DC2626]/20 hover:shadow-md transition-all text-center"
               >
-                <div className="font-['Outfit'] font-black text-base text-gray-800 group-hover:text-[#DC2626] transition-colors">
+                <div className="font-black text-sm text-gray-800 group-hover:text-[#DC2626] transition-colors">
                   {b.name}
                 </div>
-                <div className="text-[11px] text-gray-400 font-medium mt-1">
+                <div className="text-[10px] text-gray-400 font-medium mt-0.5">
                   {b.tag}
                 </div>
               </Link>
@@ -553,65 +589,12 @@ export default function HomePage() {
         </div>
       </section>
 
-
-      {/* ═══════════════════════════════════════════════════
-          8. CUSTOMER REVIEWS — Premium Testimonials
-          ═══════════════════════════════════════════════════ */}
-      <section 
-        ref={reviewsRef.ref}
-        className="section-spacing bg-gray-50/70"
-      >
-        <div className="container mx-auto">
-          <div className={`text-center max-w-md mx-auto mb-12 ${reviewsRef.isInView ? 'animate-fade-in-up' : 'opacity-0'}`}>
-            <div className="section-label justify-center"><Star size={13} className="fill-[#DC2626]" /> Reviews</div>
-            <h2 className="section-title text-center">What Our Customers Say</h2>
-            <p className="section-subtitle mx-auto text-center">
-              Trusted by 10,000+ students, schools, teachers, and university faculties.
-            </p>
-          </div>
-
-          <div className={`grid grid-cols-1 md:grid-cols-3 gap-6 ${reviewsRef.isInView ? 'animate-fade-in-up delay-200' : 'opacity-0'}`}>
-            {customerReviews.map((rev) => (
-              <div
-                key={rev.id}
-                className="bg-white p-7 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(rev.rating)].map((_, i) => (
-                      <Star key={i} size={14} className="fill-amber-400 text-amber-400" />
-                    ))}
-                  </div>
-                  <p className="text-sm text-gray-600 leading-relaxed mb-6">
-                    &ldquo;{rev.content}&rdquo;
-                  </p>
-                </div>
-
-                <div className="flex items-center gap-3 pt-5 border-t border-gray-100">
-                  <img
-                    src={rev.avatar}
-                    alt={rev.name}
-                    className="w-10 h-10 rounded-full object-cover ring-2 ring-gray-100"
-                  />
-                  <div>
-                    <h4 className="text-sm font-bold text-gray-900">{rev.name}</h4>
-                    <p className="text-[11px] text-gray-400 font-medium">{rev.role}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Booklist Direct Upload Modal */}
+      <BooklistUploadModal
+        isOpen={isBooklistModalOpen}
+        onClose={() => setIsBooklistModalOpen(false)}
+      />
 
     </StoreShell>
-  );
-}
-
-function ShoppingBag(props: any) {
-  return (
-    <svg {...props} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>
-    </svg>
   );
 }

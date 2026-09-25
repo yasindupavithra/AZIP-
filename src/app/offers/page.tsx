@@ -1,14 +1,33 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Flame, Clock, Tag, Percent, ArrowRight, Sparkles } from 'lucide-react';
 import StoreShell from '@/components/StoreShell';
 import ProductCard from '@/components/ProductCard';
-import { INITIAL_CATALOG_PRODUCTS } from '@/lib/catalog';
+import { INITIAL_CATALOG_PRODUCTS, CatalogProduct } from '@/lib/catalog';
 
 export default function OffersPage() {
-  const deals = INITIAL_CATALOG_PRODUCTS.filter((p) => p.compareAtPrice && p.compareAtPrice > p.price);
+  const [products, setProducts] = useState<CatalogProduct[]>(INITIAL_CATALOG_PRODUCTS);
+
+  useEffect(() => {
+    async function loadOffers() {
+      try {
+        const res = await fetch('/api/products?limit=50');
+        if (res.ok) {
+          const data = await res.json();
+          if (data.products && data.products.length > 0) {
+            setProducts(data.products);
+          }
+        }
+      } catch (err) {
+        console.warn('Could not fetch products for offers page:', err);
+      }
+    }
+    loadOffers();
+  }, []);
+
+  const deals = products.filter((p) => (p.compareAtPrice && p.compareAtPrice > p.price) || p.isFeatured);
 
   return (
     <StoreShell>

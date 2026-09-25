@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import dbConnect from '@/lib/db';
 import Order from '@/lib/models/Order';
+import { updateLocalOrderStatus, getLocalOrders } from '@/lib/local-db';
 
 // GET /api/orders/[id]
 export async function GET(
@@ -8,15 +9,24 @@ export async function GET(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    await dbConnect();
     const { id } = await params;
-
     let order = null;
-    if (id.match(/^[0-9a-fA-F]{24}$/)) {
-      order = await Order.findById(id).lean();
+
+    try {
+      await dbConnect();
+      if (id.match(/^[0-9a-fA-F]{24}$/)) {
+        order = await Order.findById(id).lean();
+      }
+      if (!order) {
+        order = await Order.findOne({ orderNumber: id }).lean();
+      }
+    } catch {
+      // Ignore DB error
     }
+
     if (!order) {
-      order = await Order.findOne({ orderNumber: id }).lean();
+      const localOrders = getLocalOrders();
+      order = localOrders.find(o => o._id === id || o.orderNumber === id) || null;
     }
 
     if (!order) {
@@ -33,40 +43,45 @@ export async function GET(
   }
 }
 
-// PATCH /api/orders/[id] - Update status (admin only)
-export async function PATCH(
+// Handler for status updates (PUT or PATCH)
+async function updateStatus(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    await dbConnect();
     const { id } = await params;
-    const { status } = await request.json();
+    const body = await request.json();
+    const status = body.status;
 
-    const validStatuses = ['pending', 'confirmed', 'processing', 'shipped', 'delivered', 'cancelled'];
-    if (!validStatuses.includes(status)) {
-      return NextResponse.json(
-        { error: 'Invalid status' },
-        { status: 400 }
-      );
+    const updatedLocal = updateLocalOrderStatus(id, status);
+
+    try {
+      await dbConnect();
+      await Order.findByIdAndUpdate(id, { status }, { new: true }).catch(() => {});
+    } catch {
+      // Ignore DB error
     }
 
-    const order = await Order.findByIdAndUpdate(
-      id,
-      { status },
-      { new: true }
-    );
-
-    if (!order) {
-      return NextResponse.json({ error: 'Order not found' }, { status: 404 });
-    }
-
-    return NextResponse.json({ order });
+    return NextResponse.json({ success: true, order: updatedLocal });
   } catch (error) {
     console.error('Update order error:', error);
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { error: 'Failed to update order status' },
       { status: 500 }
     );
   }
+}
+
+export async function PUT(
+  request: Request,
+  context: { params: Promise<{ id: string }> }
+) {
+  return updateStatus(request, context);
+}
+
+export async function PATCH(
+  request: Request,
+  context: { params: Promise<{ id: string }> }
+) {
+  return updateStatus(request, context);
 }
