@@ -66,13 +66,9 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
   };
 
   const validateAndSetFile = (f: File) => {
-    const validTypes = ['application/pdf', 'image/jpeg', 'image/png', 'image/webp'];
-    if (!validTypes.includes(f.type)) {
-      setErrorMsg('Please upload a valid PDF document or image file (JPG, PNG).');
-      return;
-    }
-    if (f.size > 10 * 1024 * 1024) {
-      setErrorMsg('File size exceeds 10MB limit. Please upload a smaller file.');
+    // Allow images, PDFs, word documents, HEIC and general files up to 25MB
+    if (f.size > 25 * 1024 * 1024) {
+      setErrorMsg('File size exceeds 25MB limit. Please upload a smaller file.');
       return;
     }
     setErrorMsg('');

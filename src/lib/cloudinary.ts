@@ -29,7 +29,7 @@ export function getOptimizedImageUrl(
   });
 }
 
-// Upload image buffer to Cloudinary
+// Upload file/image buffer to Cloudinary
 export async function uploadImage(
   buffer: Buffer,
   folder: string = 'azip-store/products'
@@ -39,10 +39,7 @@ export async function uploadImage(
       .upload_stream(
         {
           folder,
-          resource_type: 'image',
-          transformation: [
-            { quality: 'auto', fetch_format: 'auto' },
-          ],
+          resource_type: 'auto',
         },
         (error, result) => {
           if (error || !result) {

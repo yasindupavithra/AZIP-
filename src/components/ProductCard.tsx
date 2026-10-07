@@ -21,14 +21,14 @@ interface ProductCardProps {
   specTag?: string;
 }
 
-export default function ProductCard({ 
-  id, 
-  name, 
-  slug, 
-  price, 
-  compareAtPrice, 
-  image, 
-  category, 
+export default function ProductCard({
+  id,
+  name,
+  slug,
+  price,
+  compareAtPrice,
+  image,
+  category,
   stock,
   brand,
   badge,
@@ -37,7 +37,7 @@ export default function ProductCard({
 }: ProductCardProps) {
   const [isWishlisted, setIsWishlisted] = useState(false);
   const [added, setAdded] = useState(false);
-  
+
   // Active variant option selection state
   const defaultVariantOption = variants?.[0]?.options?.[0] || null;
   const [selectedVariant, setSelectedVariant] = useState<string | null>(defaultVariantOption);
@@ -53,12 +53,12 @@ export default function ProductCard({
     e.stopPropagation();
     if (stock > 0) {
       const variantSuffix = selectedVariant ? ` (${selectedVariant})` : '';
-      addItem({ 
-        id, 
-        name: `${name}${variantSuffix}`, 
-        price, 
-        image: image || getCategoryImage(category), 
-        stock 
+      addItem({
+        id,
+        name: `${name}${variantSuffix}`,
+        price,
+        image: image || getCategoryImage(category),
+        stock
       });
       setAdded(true);
       setTimeout(() => setAdded(false), 1500);
@@ -68,22 +68,22 @@ export default function ProductCard({
   // Determine Brand from prop or fallback detection
   const detectedBrand = brand || (
     name.toLowerCase().includes('casio') ? 'CASIO' :
-    name.toLowerCase().includes('pilot') ? 'PILOT' :
-    name.toLowerCase().includes('atlas') ? 'ATLAS' :
-    name.toLowerCase().includes('faber') ? 'FABER-CASTELL' :
-    name.toLowerCase().includes('oxford') || name.toLowerCase().includes('helix') ? 'OXFORD' :
-    name.toLowerCase().includes('stabilo') ? 'STABILO' :
-    name.toLowerCase().includes('sandisk') ? 'SANDISK' :
-    name.toLowerCase().includes('mont marte') ? 'MONT MARTE' :
-    'AZIP GENUINE'
+      name.toLowerCase().includes('pilot') ? 'PILOT' :
+        name.toLowerCase().includes('atlas') ? 'ATLAS' :
+          name.toLowerCase().includes('faber') ? 'FABER-CASTELL' :
+            name.toLowerCase().includes('oxford') || name.toLowerCase().includes('helix') ? 'OXFORD' :
+              name.toLowerCase().includes('stabilo') ? 'STABILO' :
+                name.toLowerCase().includes('sandisk') ? 'SANDISK' :
+                  name.toLowerCase().includes('mont marte') ? 'MONT MARTE' :
+                    'AZIP GENUINE'
   );
 
   return (
     <div className="product-card group relative flex flex-col h-full bg-white rounded-2xl border border-gray-100 shadow-2xs hover:shadow-xl transition-all duration-300 overflow-hidden font-sans">
-      
+
       {/* 1:1 Square Aspect Ratio Media Container */}
       <Link href={`/products/${slug}`} className="block relative w-full aspect-square bg-slate-50/60 overflow-hidden shrink-0">
-        
+
         {/* Requirement 2: Correct Badge positioning (absolute top-2 left-2 z-10) */}
         <div className="absolute top-2 left-2 z-10 flex flex-col items-start gap-1">
           {discount > 0 && (
@@ -179,11 +179,10 @@ export default function ProductCard({
                       e.stopPropagation();
                       setSelectedVariant(opt);
                     }}
-                    className={`px-2 py-0.5 text-[10px] font-bold rounded-md border transition-all cursor-pointer ${
-                      selectedVariant === opt
+                    className={`px-2 py-0.5 text-[10px] font-bold rounded-md border transition-all cursor-pointer ${selectedVariant === opt
                         ? 'border-[#DC2626] bg-red-50 text-[#DC2626] shadow-2xs'
                         : 'border-gray-200 bg-gray-50 text-gray-600 hover:border-gray-300'
-                    }`}
+                      }`}
                   >
                     {opt}
                   </button>
@@ -213,13 +212,12 @@ export default function ProductCard({
               type="button"
               onClick={handleAddToCart}
               disabled={stock === 0}
-              className={`px-3 py-2 rounded-xl text-xs font-black flex items-center gap-1.5 transition-all duration-200 cursor-pointer border-none shadow-xs ${
-                added
+              className={`px-3 py-2 rounded-xl text-xs font-black flex items-center gap-1.5 transition-all duration-200 cursor-pointer border-none shadow-xs ${added
                   ? 'bg-emerald-600 text-white shadow-md scale-105'
                   : stock === 0
-                  ? 'bg-gray-100 text-gray-300 cursor-not-allowed'
-                  : 'bg-gradient-to-r from-[#DC2626] to-[#E11D48] hover:from-[#B91C1C] hover:to-[#C2410C] text-white hover:shadow-md hover:scale-105'
-              }`}
+                    ? 'bg-gray-100 text-gray-300 cursor-not-allowed'
+                    : 'bg-gradient-to-r from-[#DC2626] to-[#E11D48] hover:from-[#B91C1C] hover:to-[#C2410C] text-white hover:shadow-md hover:scale-105'
+                }`}
               title={stock === 0 ? 'Out of Stock' : 'Add to Cart'}
             >
               {added ? (

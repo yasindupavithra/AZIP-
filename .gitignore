@@ -20,7 +20,8 @@ yarn-error.log*
 .env
 
 # vercel
-.vercel
+# Uploads
+/public/uploads/
 
 # typescript
 *.tsbuildinfo
@@ -31,3 +32,5 @@ next-env.d.ts
 *.pem
 .idea
 .vscode
+
+.vercel
