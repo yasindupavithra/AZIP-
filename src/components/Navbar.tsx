@@ -166,18 +166,18 @@ export default function Navbar() {
         {/* ── 2. Main Navigation Bar (Clean Rose-Pink Daraz Layout) ── */}
 
         {/* ── 2. Main Navigation Bar (Clean Rose-Pink Daraz Layout) ── */}
-        <div className={`bg-[#E11D48] shadow-md transition-all duration-300 flex items-center ${isScrolled ? 'py-3 sm:py-3.5' : 'py-5 sm:py-8 lg:py-10'
+        <div className={`bg-[#E11D48] shadow-md transition-all duration-300 flex items-center ${isScrolled ? 'py-3.5 sm:py-4' : 'py-7 sm:py-11 lg:py-14'
           }`}>
           <div className="container mx-auto px-4 flex items-center justify-between gap-3 md:gap-10">
 
             {/* Brand Logo in crisp white pill card */}
             <Link href="/" className="flex items-center shrink-0 group">
-              <div className={`bg-white rounded-2xl shadow-lg flex items-center justify-center transition-all duration-300 group-hover:scale-[1.03] ${isScrolled ? 'px-3 py-1.5' : 'px-4 sm:px-6 py-2 sm:py-3'
+              <div className={`bg-white rounded-2xl shadow-lg flex items-center justify-center transition-all duration-300 group-hover:scale-[1.03] ${isScrolled ? 'px-3.5 py-1.5' : 'px-5 sm:px-7 py-2.5 sm:py-3.5'
                 }`}>
                 <img
                   src="/azip-logo.png"
                   alt="AZIP Store"
-                  className={`w-auto object-contain transition-all duration-300 ${isScrolled ? 'h-7.5 sm:h-9' : 'h-9 sm:h-14'
+                  className={`w-auto object-contain transition-all duration-300 ${isScrolled ? 'h-8 sm:h-10' : 'h-10 sm:h-16'
                     }`}
                 />
               </div>
@@ -187,7 +187,7 @@ export default function Navbar() {
             <form
               ref={searchRef}
               onSubmit={handleSearchSubmit}
-              className={`relative flex-1 max-w-3xl hidden md:flex items-center rounded-lg bg-white shadow-lg overflow-hidden transition-all duration-300 ${isScrolled ? 'h-10.5 sm:h-11' : 'h-12 sm:h-14'
+              className={`relative flex-1 max-w-3xl hidden md:flex items-center rounded-lg bg-white shadow-lg overflow-hidden transition-all duration-300 ${isScrolled ? 'h-11 sm:h-12' : 'h-13 sm:h-16'
                 }`}
             >
               {/* Search Input */}
@@ -197,16 +197,16 @@ export default function Navbar() {
                 onFocus={() => setIsSearchFocused(true)}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search in AZIP Store..."
-                className="flex-1 h-full px-6 text-sm sm:text-base text-gray-900 placeholder-gray-400 focus:outline-none bg-transparent font-semibold"
+                className="flex-1 h-full px-6 text-sm sm:text-lg text-gray-900 placeholder-gray-400 focus:outline-none bg-transparent font-semibold"
               />
 
               {/* Tinted Search Icon Button */}
               <button
                 type="submit"
-                className="h-full px-6 bg-rose-50 hover:bg-rose-100 text-[#E11D48] flex items-center justify-center transition-all duration-200 cursor-pointer border-none font-extrabold"
+                className="h-full px-7 bg-rose-50 hover:bg-rose-100 text-[#E11D48] flex items-center justify-center transition-all duration-200 cursor-pointer border-none font-extrabold"
                 title="Search Products"
               >
-                <Search size={isScrolled ? 19 : 23} className="stroke-[2.8]" />
+                <Search size={isScrolled ? 20 : 25} className="stroke-[2.8]" />
               </button>
 
               {/* Instant Search Autocomplete Dropdown */}
@@ -278,7 +278,7 @@ export default function Navbar() {
                 title="My Cart"
               >
                 <div className="relative">
-                  <ShoppingCart size={isScrolled ? 28 : 36} className="text-white stroke-[2] transition-all duration-300" />
+                  <ShoppingCart size={isScrolled ? 30 : 40} className="text-white stroke-[2] transition-all duration-300" />
                   {itemCount > 0 && (
                     <span className="absolute -top-2 -right-2 bg-white text-[#E11D48] text-[11px] min-w-[22px] h-[22px] px-1 rounded-full flex items-center justify-center font-black shadow-md animate-scale-in">
                       {itemCount}
@@ -293,7 +293,7 @@ export default function Navbar() {
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="md:hidden p-2.5 text-white border-none bg-transparent cursor-pointer rounded-2xl hover:bg-rose-600/50"
               >
-                {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+                {isMobileMenuOpen ? <X size={30} /> : <Menu size={30} />}
               </button>
             </div>
 
@@ -301,14 +301,14 @@ export default function Navbar() {
         </div>
 
         {/* Professional Mobile Rectangle Search Bar Nested Inside Pink Bar */}
-        <div className="md:hidden px-4 pb-4.5 pt-1.5">
+        <div className="md:hidden px-4 pb-6 pt-2.5">
           <form 
             ref={searchRef}
             onSubmit={handleSearchSubmit} 
-            className="relative flex items-center rounded-lg bg-white shadow-lg overflow-hidden border border-rose-100/60 h-11.5 transition-all"
+            className="relative flex items-center rounded-lg bg-white shadow-lg overflow-hidden border border-rose-100/60 h-13 transition-all"
           >
-            <div className="pl-3.5 text-[#E11D48] flex items-center justify-center shrink-0">
-              <Search size={18} className="stroke-[2.8]" />
+            <div className="pl-4 text-[#E11D48] flex items-center justify-center shrink-0">
+              <Search size={20} className="stroke-[2.8]" />
             </div>
 
             <input
@@ -317,7 +317,7 @@ export default function Navbar() {
               onFocus={() => setIsSearchFocused(true)}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search school books, pens, tech..."
-              className="flex-1 h-full px-3 text-xs sm:text-sm text-gray-900 placeholder-gray-400 focus:outline-none bg-transparent font-semibold"
+              className="flex-1 h-full px-3 text-sm text-gray-900 placeholder-gray-400 focus:outline-none bg-transparent font-semibold"
             />
 
             {searchQuery && (
@@ -326,13 +326,13 @@ export default function Navbar() {
                 onClick={() => setSearchQuery('')}
                 className="px-2 text-gray-400 hover:text-gray-600 border-none bg-transparent cursor-pointer shrink-0"
               >
-                <X size={16} />
+                <X size={18} />
               </button>
             )}
 
             <button 
               type="submit" 
-              className="h-full px-4 bg-[#E11D48] active:bg-[#be123c] text-white flex items-center justify-center font-black text-xs border-none cursor-pointer tracking-wider shrink-0"
+              className="h-full px-5 bg-[#E11D48] active:bg-[#be123c] text-white flex items-center justify-center font-black text-xs sm:text-sm border-none cursor-pointer tracking-wider shrink-0"
             >
               Search
             </button>
