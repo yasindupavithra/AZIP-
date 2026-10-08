@@ -2,15 +2,15 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { 
-  Truck, 
-  HeadphonesIcon, 
-  Award, 
-  ArrowRight, 
+import {
+  Truck,
+  HeadphonesIcon,
+  Award,
+  ArrowRight,
   Flame,
-  Sparkles, 
-  CheckCircle2, 
-  MessageCircle, 
+  Sparkles,
+  CheckCircle2,
+  MessageCircle,
   Star,
   ChevronRight,
   ChevronLeft,
@@ -254,34 +254,33 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════════════
           1. HERO SECTION — Full Width Banner Carousel (Daraz Layout)
           ═══════════════════════════════════════════════════ */}
-      <section 
+      <section
         ref={heroRef.ref}
         className="relative bg-slate-50/70 font-sans border-b border-slate-100 pt-8 sm:pt-12 pb-8 sm:pb-12"
       >
         <div className="container mx-auto px-4">
-          
+
           {/* Main Full-Width Banner Slider Container */}
           <div className="relative group rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border border-slate-200/80 bg-slate-900 h-[280px] sm:h-[380px] lg:h-[440px] mt-2 sm:mt-4">
-            
+
             {HERO_SLIDES.map((slide, idx) => (
               <div
                 key={slide.id}
-                className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-                  idx === currentSlideIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
-                }`}
+                className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${idx === currentSlideIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                  }`}
               >
                 <img
                   src={slide.image}
                   alt={slide.title}
                   className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700"
                 />
-                
+
                 {/* Dark Gradient Overlay for optimal text legibility */}
                 <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-950/50 to-transparent flex items-center" />
 
                 {/* Banner Text Overlay */}
                 <div className="absolute inset-0 z-20 flex flex-col justify-center px-6 sm:px-12 lg:px-16 max-w-2xl text-white">
-                  
+
                   <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-[#E11D48] text-white text-[10px] sm:text-xs font-extrabold rounded-full uppercase tracking-widest mb-3 sm:mb-4 w-fit shadow-md">
                     <Sparkles size={13} className="fill-white" />
                     <span>{slide.badge}</span>
@@ -325,11 +324,10 @@ export default function HomePage() {
                   key={dotIdx}
                   type="button"
                   onClick={() => setCurrentSlideIndex(dotIdx)}
-                  className={`h-2 sm:h-2.5 rounded-full transition-all border-none cursor-pointer ${
-                    dotIdx === currentSlideIndex
+                  className={`h-2 sm:h-2.5 rounded-full transition-all border-none cursor-pointer ${dotIdx === currentSlideIndex
                       ? 'w-6 sm:w-8 bg-[#E11D48]'
                       : 'w-2 sm:w-2.5 bg-white/50 hover:bg-white'
-                  }`}
+                    }`}
                   title={`Slide ${dotIdx + 1}`}
                 />
               ))}
@@ -374,12 +372,12 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════════════
           3. EXPLORE MAIN CATEGORIES (Clean White Cards)
           ═══════════════════════════════════════════════════ */}
-      <section 
+      <section
         ref={categoriesRef.ref}
         className="section-spacing bg-white font-sans"
       >
         <div className="container mx-auto px-4">
-          
+
           <div className="flex items-end justify-between mb-9">
             <div>
               <div className="section-label"><Sparkles size={13} /> Store Categories</div>
@@ -454,7 +452,7 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════════════
           5. FEATURED PRODUCTS CATALOG GRID (Widescreen 5-6 Cols)
           ═══════════════════════════════════════════════════ */}
-      <section 
+      <section
         ref={dealsRef.ref}
         className="section-spacing bg-white font-sans"
       >
@@ -472,21 +470,19 @@ export default function HomePage() {
             <div className="flex items-center gap-2 bg-slate-100 p-1.5 rounded-2xl border border-slate-200/60">
               <button
                 onClick={() => setActiveTab('newest')}
-                className={`px-4 py-2 rounded-xl text-xs font-black transition-all duration-200 cursor-pointer border-none ${
-                  activeTab === 'newest'
+                className={`px-4 py-2 rounded-xl text-xs font-black transition-all duration-200 cursor-pointer border-none ${activeTab === 'newest'
                     ? 'bg-white text-slate-900 shadow-xs'
                     : 'bg-transparent text-slate-600 hover:text-slate-900'
-                }`}
+                  }`}
               >
                 Top Picks
               </button>
               <button
                 onClick={() => setActiveTab('trending')}
-                className={`px-4 py-2 rounded-xl text-xs font-black transition-all duration-200 cursor-pointer border-none ${
-                  activeTab === 'trending'
+                className={`px-4 py-2 rounded-xl text-xs font-black transition-all duration-200 cursor-pointer border-none ${activeTab === 'trending'
                     ? 'bg-white text-slate-900 shadow-xs'
                     : 'bg-transparent text-slate-600 hover:text-slate-900'
-                }`}
+                  }`}
               >
                 Trending
               </button>
@@ -527,18 +523,19 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════════════
           6. WHATSAPP & BOOKLIST DIRECT ORDER CTA
           ═══════════════════════════════════════════════════ */}
-      <section 
+      <section
         ref={whatsappRef.ref}
-        className="py-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden font-sans border-y border-slate-800"
+        className="py-16 bg-[#E11D48] text-white relative overflow-hidden font-sans border-y border-rose-400/30 shadow-md"
       >
         <div className="container mx-auto px-4 text-center relative z-10 max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-500/10 text-emerald-400 rounded-full text-xs font-black mb-4 border border-emerald-500/20">
-            <MessageCircle size={15} /> School Booklist Direct Order
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/20 text-white rounded-full text-xs font-black mb-4 border border-white/30 shadow-xs backdrop-blur-md">
+            <Sparkles size={14} className="text-amber-300 animate-pulse" />
+            <span>School Booklist Direct Order</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl font-black font-['Outfit'] mb-3.5 tracking-tight">
+          <h2 className="text-2xl sm:text-4xl font-black font-['Outfit'] mb-3.5 tracking-tight text-white drop-shadow-sm">
             Send School Booklist for Quick Home Delivery
           </h2>
-          <p className="text-xs sm:text-sm text-slate-300 font-medium mb-8 leading-relaxed">
+          <p className="text-xs sm:text-sm text-white/90 font-medium mb-8 leading-relaxed max-w-xl mx-auto">
             Upload your booklist document or photo to get an instant price estimate with island-wide doorstep delivery.
           </p>
 
@@ -546,18 +543,18 @@ export default function HomePage() {
             <button
               type="button"
               onClick={() => setIsBooklistModalOpen(true)}
-              className="btn-primary px-8 py-4 text-xs sm:text-sm font-black rounded-xl shadow-lg flex items-center gap-2 cursor-pointer border-none btn-glow"
+              className="px-8 py-4 bg-white hover:bg-rose-50 text-[#E11D48] text-xs sm:text-sm font-black rounded-2xl shadow-xl hover:scale-105 flex items-center gap-2.5 cursor-pointer border-none font-['Outfit'] uppercase tracking-wider transition-all"
             >
-              <Upload size={17} /> Upload Booklist Online
+              <Upload size={18} /> Upload Booklist Online
             </button>
 
             <a
               href="https://wa.me/94770000000?text=Hello%20AZIP%20Store%2C%20I%20have%20a%20school%20booklist%20inquiry"
               target="_blank"
               rel="noreferrer"
-              className="px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-black rounded-xl shadow-lg transition-all flex items-center gap-2 cursor-pointer"
+              className="px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white text-xs sm:text-sm font-black rounded-2xl shadow-lg transition-all hover:scale-105 flex items-center gap-2.5 cursor-pointer border-none font-['Outfit'] uppercase tracking-wider"
             >
-              <MessageCircle size={17} /> Order via WhatsApp
+              <MessageCircle size={18} /> Order via WhatsApp
             </a>
           </div>
         </div>
@@ -638,7 +635,7 @@ export default function HomePage() {
       </section>
 
       {/* Booklist Direct Upload Modal */}
-      <BooklistUploadModal 
+      <BooklistUploadModal
         isOpen={isBooklistModalOpen}
         onClose={() => setIsBooklistModalOpen(false)}
       />

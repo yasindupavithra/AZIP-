@@ -164,9 +164,8 @@ export default function Navbar() {
       <header className="w-full sticky top-0 z-50 font-sans shadow-lg bg-[#E11D48]">
 
         {/* ── 1. Top Utility Mini Nav (Daraz spec: faint white right-aligned links) ── */}
-        <div className={`bg-[#E11D48] text-white/90 text-[11px] font-semibold border-b border-rose-400/30 transition-all duration-300 overflow-hidden ${
-          isScrolled ? 'max-h-0 py-0 opacity-0 border-none' : 'max-h-12 py-1 opacity-100'
-        }`}>
+        <div className={`bg-[#E11D48] text-white/90 text-[11px] font-semibold border-b border-rose-400/30 transition-all duration-300 overflow-hidden ${isScrolled ? 'max-h-0 py-0 opacity-0 border-none' : 'max-h-12 py-1 opacity-100'
+          }`}>
           <div className="container mx-auto px-4 flex justify-between sm:justify-end items-center gap-3">
             <div className="flex items-center gap-3 sm:gap-5 ml-auto tracking-wide text-xs">
               <button
@@ -220,33 +219,29 @@ export default function Navbar() {
         </div>
 
         {/* ── 2. Main Navigation Bar (Clean Rose-Pink Daraz Layout) ── */}
-        <div className={`bg-[#E11D48] shadow-md transition-all duration-300 flex items-center ${
-          isScrolled ? 'py-2 sm:py-2.5' : 'py-12 sm:py-16'
-        }`}>
+        <div className={`bg-[#E11D48] shadow-md transition-all duration-300 flex items-center ${isScrolled ? 'py-2 sm:py-2.5' : 'py-12 sm:py-16'
+          }`}>
           <div className="container mx-auto px-4 flex items-center justify-between gap-5 md:gap-10">
 
             {/* Brand Logo in crisp white pill card */}
             <Link href="/" className="flex items-center shrink-0 group">
-              <div className={`bg-white rounded-2xl shadow-lg flex items-center justify-center transition-all duration-300 group-hover:scale-[1.03] ${
-                isScrolled ? 'px-3 py-1.5' : 'px-6 py-3.5'
-              }`}>
+              <div className={`bg-white rounded-2xl shadow-lg flex items-center justify-center transition-all duration-300 group-hover:scale-[1.03] ${isScrolled ? 'px-3 py-1.5' : 'px-6 py-3.5'
+                }`}>
                 <img
                   src="/azip-logo.png"
                   alt="AZIP Store"
-                  className={`w-auto object-contain transition-all duration-300 ${
-                    isScrolled ? 'h-8 sm:h-9' : 'h-14 sm:h-18'
-                  }`}
+                  className={`w-auto object-contain transition-all duration-300 ${isScrolled ? 'h-8 sm:h-9' : 'h-14 sm:h-18'
+                    }`}
                 />
               </div>
             </Link>
 
             {/* Ultra-Simple Search Bar */}
-            <form 
+            <form
               ref={searchRef}
-              onSubmit={handleSearchSubmit} 
-              className={`relative flex-1 max-w-4xl hidden md:flex items-center rounded-2xl bg-white shadow-lg overflow-hidden transition-all duration-300 ${
-                isScrolled ? 'h-10 sm:h-11' : 'h-13 sm:h-15'
-              }`}
+              onSubmit={handleSearchSubmit}
+              className={`relative flex-1 max-w-4xl hidden md:flex items-center rounded-2xl bg-white shadow-lg overflow-hidden transition-all duration-300 ${isScrolled ? 'h-10 sm:h-11' : 'h-13 sm:h-15'
+                }`}
             >
               {/* Search Input */}
               <input
@@ -270,7 +265,7 @@ export default function Navbar() {
               {/* Instant Search Autocomplete Dropdown */}
               {isSearchFocused && searchQuery.trim().length > 0 && (
                 <div className="absolute top-full left-0 right-0 mt-3 bg-white border border-gray-100 rounded-3xl shadow-2xl z-50 p-5 animate-fade-in overflow-hidden text-gray-900">
-                  
+
                   {searchResults.length > 0 ? (
                     <div className="space-y-4">
                       <div className="px-2 text-xs font-extrabold uppercase tracking-wider text-gray-400 flex justify-between items-center">
@@ -293,7 +288,7 @@ export default function Navbar() {
                                 className="max-w-full max-h-full object-contain"
                               />
                             </div>
-                            
+
                             <div className="flex-1 min-w-0">
                               <div className="text-sm font-bold text-gray-800 group-hover:text-[#E11D48] truncate">
                                 {prod.name}
