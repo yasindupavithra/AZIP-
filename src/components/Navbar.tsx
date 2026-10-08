@@ -163,60 +163,7 @@ export default function Navbar() {
     <>
       <header className="w-full sticky top-0 z-50 font-sans shadow-lg bg-[#E11D48]">
 
-        {/* ── 1. Top Utility Mini Nav (Daraz spec: faint white right-aligned links) ── */}
-        <div className={`bg-[#E11D48] text-white/90 text-[11px] font-semibold border-b border-rose-400/30 transition-all duration-300 overflow-hidden ${isScrolled ? 'max-h-0 py-0 opacity-0 border-none' : 'max-h-12 py-1 opacity-100'
-          }`}>
-          <div className="container mx-auto px-4 flex justify-between sm:justify-end items-center gap-3">
-            <div className="flex items-center gap-3 sm:gap-5 ml-auto tracking-wide text-xs">
-              <button
-                type="button"
-                onClick={() => setIsBooklistModalOpen(true)}
-                className="hover:text-amber-200 font-extrabold transition-colors flex items-center gap-1.5 cursor-pointer bg-transparent border-none text-white uppercase text-[11px]"
-              >
-                <Upload size={12} className="text-amber-200" />
-                <span>Upload School Booklist</span>
-                <Sparkles size={11} className="text-amber-300 animate-pulse" />
-              </button>
-
-              <span className="text-white/40">|</span>
-
-              <a
-                href="https://wa.me/94770000000?text=Hello%20AZIP%20Store%2C%20I%20have%20an%20inquiry"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-pink-200 transition-colors flex items-center gap-1 uppercase text-[11px]"
-              >
-                <MessageCircle size={12} className="text-pink-200" />
-                <span>WhatsApp</span>
-              </a>
-
-              <span className="text-white/40 hidden md:inline">|</span>
-
-              <Link href="/contact" className="hover:text-white transition-colors hidden md:inline uppercase text-[11px]">
-                Help &amp; Support
-              </Link>
-
-              <span className="text-white/40">|</span>
-
-              <Link href="/admin/login" className="hover:text-white transition-colors flex items-center gap-1 uppercase font-bold text-[11px]">
-                <User size={12} />
-                <span>Login</span>
-              </Link>
-
-              <span className="text-white/40">|</span>
-
-              <Link href="/admin/login" className="hover:text-white transition-colors uppercase font-bold text-[11px]">
-                Sign Up
-              </Link>
-
-              <span className="text-white/40">|</span>
-
-              <span className="bg-rose-700/60 text-white px-2 py-0.5 rounded text-[10px] font-bold">
-                LKR (Rs.)
-              </span>
-            </div>
-          </div>
-        </div>
+        {/* ── 2. Main Navigation Bar (Clean Rose-Pink Daraz Layout) ── */}
 
         {/* ── 2. Main Navigation Bar (Clean Rose-Pink Daraz Layout) ── */}
         <div className={`bg-[#E11D48] shadow-md transition-all duration-300 flex items-center ${isScrolled ? 'py-2 sm:py-2.5' : 'py-12 sm:py-16'
