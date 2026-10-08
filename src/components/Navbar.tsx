@@ -166,18 +166,18 @@ export default function Navbar() {
         {/* ── 2. Main Navigation Bar (Clean Rose-Pink Daraz Layout) ── */}
 
         {/* ── 2. Main Navigation Bar (Clean Rose-Pink Daraz Layout) ── */}
-        <div className={`bg-[#E11D48] shadow-md transition-all duration-300 flex items-center ${isScrolled ? 'py-2.5 sm:py-3' : 'py-4 sm:py-7 lg:py-9'
+        <div className={`bg-[#E11D48] shadow-md transition-all duration-300 flex items-center ${isScrolled ? 'py-2 sm:py-2.5' : 'py-2.5 sm:py-3.5'
           }`}>
           <div className="container mx-auto px-4 flex items-center justify-between gap-3 md:gap-10">
 
             {/* Brand Logo in crisp white pill card */}
             <Link href="/" className="flex items-center shrink-0 group">
-              <div className={`bg-white rounded-2xl shadow-lg flex items-center justify-center transition-all duration-300 group-hover:scale-[1.03] ${isScrolled ? 'px-3 py-1' : 'px-3.5 sm:px-5 py-1.5 sm:py-2.5'
+              <div className={`bg-white rounded-2xl shadow-lg flex items-center justify-center transition-all duration-300 group-hover:scale-[1.03] ${isScrolled ? 'px-3 py-1' : 'px-3.5 sm:px-4 py-1 sm:py-1.5'
                 }`}>
                 <img
                   src="/azip-logo.png"
                   alt="AZIP Store"
-                  className={`w-auto object-contain transition-all duration-300 ${isScrolled ? 'h-7 sm:h-8' : 'h-8 sm:h-12'
+                  className={`w-auto object-contain transition-all duration-300 ${isScrolled ? 'h-7 sm:h-8' : 'h-8 sm:h-10'
                     }`}
                 />
               </div>
@@ -187,7 +187,7 @@ export default function Navbar() {
             <form
               ref={searchRef}
               onSubmit={handleSearchSubmit}
-              className={`relative flex-1 max-w-3xl hidden md:flex items-center rounded-lg bg-white shadow-lg overflow-hidden transition-all duration-300 ${isScrolled ? 'h-10 sm:h-10.5' : 'h-11 sm:h-12'
+              className={`relative flex-1 max-w-3xl hidden md:flex items-center rounded-lg bg-white shadow-lg overflow-hidden transition-all duration-300 ${isScrolled ? 'h-9.5 sm:h-10' : 'h-10 sm:h-11'
                 }`}
             >
               {/* Search Input */}
@@ -206,7 +206,7 @@ export default function Navbar() {
                 className="h-full px-5 bg-rose-50 hover:bg-rose-100 text-[#E11D48] flex items-center justify-center transition-all duration-200 cursor-pointer border-none font-extrabold"
                 title="Search Products"
               >
-                <Search size={isScrolled ? 18 : 21} className="stroke-[2.8]" />
+                <Search size={isScrolled ? 18 : 20} className="stroke-[2.8]" />
               </button>
 
               {/* Instant Search Autocomplete Dropdown */}
