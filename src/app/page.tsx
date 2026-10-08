@@ -282,12 +282,12 @@ export default function HomePage() {
           ═══════════════════════════════════════════════════ */}
       <section
         ref={heroRef.ref}
-        className="relative bg-slate-50/70 font-sans border-b border-slate-100 pt-8 sm:pt-12 pb-8 sm:pb-12"
+        className="relative bg-slate-50/70 font-sans border-b border-slate-100 pt-3 sm:pt-12 pb-4 sm:pb-12"
       >
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-2.5 sm:px-4">
 
           {/* Main Full-Width Banner Slider Container */}
-          <div className="relative group rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border border-slate-200/80 bg-slate-900 h-[280px] sm:h-[380px] lg:h-[440px] mt-2 sm:mt-4">
+          <div className="relative group rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border border-slate-200/80 bg-slate-900 aspect-[16/9] xs:aspect-[16/10] sm:aspect-auto sm:h-[380px] lg:h-[440px] mt-1 sm:mt-4">
 
             {heroSlides.map((slide, idx) => (
               <div
@@ -298,35 +298,35 @@ export default function HomePage() {
                 <img
                   src={slide.image}
                   alt={slide.title}
-                  className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover object-center scale-100 group-hover:scale-105 transition-transform duration-700"
                 />
 
                 {/* Dark Gradient Overlay for optimal text legibility */}
-                <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-950/50 to-transparent flex items-center" />
+                <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/60 to-transparent flex items-center" />
 
                 {/* Banner Text Overlay */}
-                <div className="absolute inset-0 z-20 flex flex-col justify-center px-6 sm:px-12 lg:px-16 max-w-2xl text-white">
+                <div className="absolute inset-0 z-20 flex flex-col justify-center px-4 sm:px-12 lg:px-16 max-w-2xl text-white">
 
-                  <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-[#E11D48] text-white text-[10px] sm:text-xs font-extrabold rounded-full uppercase tracking-widest mb-3 sm:mb-4 w-fit shadow-md">
-                    <Sparkles size={13} className="fill-white" />
-                    <span>{slide.badge}</span>
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3.5 sm:py-1 bg-[#E11D48] text-white text-[9px] sm:text-xs font-extrabold rounded-full uppercase tracking-wider mb-1.5 sm:mb-4 w-fit shadow-md">
+                    <Sparkles size={11} className="fill-white shrink-0" />
+                    <span className="truncate max-w-[200px] sm:max-w-none">{slide.badge}</span>
                   </div>
 
-                  <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white leading-[1.15] drop-shadow-lg font-['Outfit'] tracking-tight mb-3 sm:mb-4">
+                  <h2 className="text-base sm:text-4xl lg:text-5xl font-black text-white leading-[1.15] drop-shadow-lg font-['Outfit'] tracking-tight mb-1 sm:mb-4 line-clamp-2 sm:line-clamp-none">
                     {slide.title}
                   </h2>
 
-                  <p className="text-xs sm:text-base text-slate-100 font-medium leading-relaxed tracking-wide max-w-lg drop-shadow-sm mb-4">
+                  <p className="text-[10px] sm:text-base text-slate-100 font-medium leading-snug sm:leading-relaxed tracking-wide max-w-lg drop-shadow-sm mb-2 sm:mb-4 line-clamp-2 sm:line-clamp-none">
                     {slide.subtitle}
                   </p>
 
                   {slide.linkUrl && (
                     <Link
                       href={slide.linkUrl}
-                      className="inline-flex items-center gap-2 bg-[#E11D48] hover:bg-[#be123c] text-white px-5 py-2.5 rounded-xl text-xs font-black w-fit shadow-lg transition-all hover:scale-105 border border-rose-300/30 font-['Outfit'] uppercase tracking-wider"
+                      className="inline-flex items-center gap-1.5 bg-[#E11D48] hover:bg-[#be123c] text-white px-3 py-1.5 sm:px-5 sm:py-2.5 rounded-lg sm:rounded-xl text-[10px] sm:text-xs font-black w-fit shadow-lg transition-all hover:scale-105 border border-rose-300/30 font-['Outfit'] uppercase tracking-wider"
                     >
                       <span>Explore Offer</span>
-                      <ArrowRight size={14} />
+                      <ArrowRight size={12} className="sm:w-3.5 sm:h-3.5" />
                     </Link>
                   )}
 
@@ -338,31 +338,31 @@ export default function HomePage() {
             <button
               type="button"
               onClick={prevSlide}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-slate-900/60 hover:bg-slate-900 text-white flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 border border-white/20 cursor-pointer backdrop-blur-md shadow-lg"
+              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-slate-900/60 hover:bg-slate-900 text-white flex items-center justify-center transition-all opacity-70 sm:opacity-0 group-hover:opacity-100 border border-white/20 cursor-pointer backdrop-blur-md shadow-lg"
               title="Previous Slide"
             >
-              <ChevronLeft size={24} />
+              <ChevronLeft size={18} className="sm:w-6 sm:h-6" />
             </button>
 
             <button
               type="button"
               onClick={nextSlide}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-slate-900/60 hover:bg-slate-900 text-white flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 border border-white/20 cursor-pointer backdrop-blur-md shadow-lg"
+              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-slate-900/60 hover:bg-slate-900 text-white flex items-center justify-center transition-all opacity-70 sm:opacity-0 group-hover:opacity-100 border border-white/20 cursor-pointer backdrop-blur-md shadow-lg"
               title="Next Slide"
             >
-              <ChevronRight size={24} />
+              <ChevronRight size={18} className="sm:w-6 sm:h-6" />
             </button>
 
             {/* Slider Dot Indicators */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 bg-slate-950/40 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10">
+            <div className="absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 z-30 flex items-center gap-1.5 sm:gap-2 bg-slate-950/40 backdrop-blur-md px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-full border border-white/10">
               {heroSlides.map((_, dotIdx) => (
                 <button
                   key={dotIdx}
                   type="button"
                   onClick={() => setCurrentSlideIndex(dotIdx)}
-                  className={`h-2 sm:h-2.5 rounded-full transition-all border-none cursor-pointer ${dotIdx === currentSlideIndex
-                      ? 'w-6 sm:w-8 bg-[#E11D48]'
-                      : 'w-2 sm:w-2.5 bg-white/50 hover:bg-white'
+                  className={`h-1.5 sm:h-2.5 rounded-full transition-all border-none cursor-pointer ${dotIdx === currentSlideIndex
+                      ? 'w-5 sm:w-8 bg-[#E11D48]'
+                      : 'w-1.5 sm:w-2.5 bg-white/50 hover:bg-white'
                     }`}
                   title={`Slide ${dotIdx + 1}`}
                 />

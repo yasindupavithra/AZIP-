@@ -166,18 +166,18 @@ export default function Navbar() {
         {/* ── 2. Main Navigation Bar (Clean Rose-Pink Daraz Layout) ── */}
 
         {/* ── 2. Main Navigation Bar (Clean Rose-Pink Daraz Layout) ── */}
-        <div className={`bg-[#E11D48] shadow-md transition-all duration-300 flex items-center ${isScrolled ? 'py-2 sm:py-2.5' : 'py-12 sm:py-16'
+        <div className={`bg-[#E11D48] shadow-md transition-all duration-300 flex items-center ${isScrolled ? 'py-2 sm:py-2.5' : 'py-3 sm:py-6 lg:py-8'
           }`}>
-          <div className="container mx-auto px-4 flex items-center justify-between gap-5 md:gap-10">
+          <div className="container mx-auto px-4 flex items-center justify-between gap-3 md:gap-10">
 
             {/* Brand Logo in crisp white pill card */}
             <Link href="/" className="flex items-center shrink-0 group">
-              <div className={`bg-white rounded-2xl shadow-lg flex items-center justify-center transition-all duration-300 group-hover:scale-[1.03] ${isScrolled ? 'px-3 py-1.5' : 'px-6 py-3.5'
+              <div className={`bg-white rounded-2xl shadow-lg flex items-center justify-center transition-all duration-300 group-hover:scale-[1.03] ${isScrolled ? 'px-3 py-1' : 'px-3.5 sm:px-5 py-1.5 sm:py-2.5'
                 }`}>
                 <img
                   src="/azip-logo.png"
                   alt="AZIP Store"
-                  className={`w-auto object-contain transition-all duration-300 ${isScrolled ? 'h-8 sm:h-9' : 'h-14 sm:h-18'
+                  className={`w-auto object-contain transition-all duration-300 ${isScrolled ? 'h-7 sm:h-9' : 'h-9 sm:h-14'
                     }`}
                 />
               </div>
