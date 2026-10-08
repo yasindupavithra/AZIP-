@@ -187,7 +187,7 @@ export default function Navbar() {
             <form
               ref={searchRef}
               onSubmit={handleSearchSubmit}
-              className={`relative flex-1 max-w-4xl hidden md:flex items-center rounded-2xl bg-white shadow-lg overflow-hidden transition-all duration-300 ${isScrolled ? 'h-10 sm:h-11' : 'h-13 sm:h-15'
+              className={`relative flex-1 max-w-4xl hidden md:flex items-center rounded-lg bg-white shadow-lg overflow-hidden transition-all duration-300 ${isScrolled ? 'h-10 sm:h-11' : 'h-13 sm:h-15'
                 }`}
             >
               {/* Search Input */}
@@ -211,7 +211,7 @@ export default function Navbar() {
 
               {/* Instant Search Autocomplete Dropdown */}
               {isSearchFocused && searchQuery.trim().length > 0 && (
-                <div className="absolute top-full left-0 right-0 mt-3 bg-white border border-gray-100 rounded-3xl shadow-2xl z-50 p-5 animate-fade-in overflow-hidden text-gray-900">
+                <div className="absolute top-full left-0 right-0 mt-3 bg-white border border-gray-100 rounded-xl shadow-2xl z-50 p-5 animate-fade-in overflow-hidden text-gray-900">
 
                   {searchResults.length > 0 ? (
                     <div className="space-y-4">
@@ -253,7 +253,7 @@ export default function Navbar() {
 
                       <button
                         type="submit"
-                        className="w-full py-3 bg-[#E11D48] hover:bg-[#be123c] text-white text-xs sm:text-sm font-bold rounded-2xl flex items-center justify-center gap-2 transition-colors mt-2 border-none shadow-md"
+                        className="w-full py-3 bg-[#E11D48] hover:bg-[#be123c] text-white text-xs sm:text-sm font-bold rounded-lg flex items-center justify-center gap-2 transition-colors mt-2 border-none shadow-md"
                       >
                         <span>View All Results for "{searchQuery}"</span>
                         <ArrowRight size={15} />
@@ -305,7 +305,7 @@ export default function Navbar() {
           <form 
             ref={searchRef}
             onSubmit={handleSearchSubmit} 
-            className="relative flex items-center rounded-2xl bg-white shadow-lg overflow-hidden border border-rose-100/60 h-11 transition-all"
+            className="relative flex items-center rounded-lg bg-white shadow-lg overflow-hidden border border-rose-100/60 h-11 transition-all"
           >
             <div className="pl-3.5 text-[#E11D48] flex items-center justify-center shrink-0">
               <Search size={17} className="stroke-[2.8]" />
@@ -339,7 +339,7 @@ export default function Navbar() {
 
             {/* Mobile Live Autocomplete Dropdown */}
             {isSearchFocused && searchQuery.trim().length > 0 && (
-              <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-100 rounded-2xl shadow-2xl z-50 p-4 animate-fade-in text-gray-900">
+              <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-100 rounded-xl shadow-2xl z-50 p-4 animate-fade-in text-gray-900">
                 {searchResults.length > 0 ? (
                   <div className="space-y-3">
                     <div className="px-1 text-[10px] font-extrabold uppercase tracking-wider text-gray-400 flex justify-between items-center">
@@ -380,7 +380,7 @@ export default function Navbar() {
 
                     <button
                       type="submit"
-                      className="w-full py-2.5 bg-[#E11D48] text-white text-xs font-bold rounded-xl flex items-center justify-center gap-1.5 border-none shadow-md"
+                      className="w-full py-2.5 bg-[#E11D48] text-white text-xs font-bold rounded-lg flex items-center justify-center gap-1.5 border-none shadow-md"
                     >
                       <span>View All Results</span>
                       <ArrowRight size={14} />
