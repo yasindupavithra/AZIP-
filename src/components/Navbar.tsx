@@ -300,19 +300,99 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Search Bar */}
+        {/* Professional Mobile Search Bar with Live Autocomplete */}
         <div className="md:hidden px-4 pb-3">
-          <form onSubmit={handleSearchSubmit} className="flex items-center border border-gray-200 rounded-full overflow-hidden bg-gray-50 p-1">
+          <form 
+            ref={searchRef}
+            onSubmit={handleSearchSubmit} 
+            className="relative flex items-center rounded-2xl bg-white shadow-lg overflow-hidden border border-rose-100/60 h-11 transition-all"
+          >
+            <div className="pl-3.5 text-[#E11D48] flex items-center justify-center shrink-0">
+              <Search size={17} className="stroke-[2.8]" />
+            </div>
+
             <input
               type="text"
               value={searchQuery}
+              onFocus={() => setIsSearchFocused(true)}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search school books, pens, calculators..."
-              className="flex-1 h-9 px-4 text-xs text-gray-800 focus:outline-none bg-transparent font-medium"
+              placeholder="Search school books, pens, tech..."
+              className="flex-1 h-full px-3 text-xs text-gray-900 placeholder-gray-400 focus:outline-none bg-transparent font-semibold"
             />
-            <button type="submit" className="h-9 w-9 bg-[#DC2626] text-white flex items-center justify-center rounded-full border-none">
-              <Search size={14} />
+
+            {searchQuery && (
+              <button
+                type="button"
+                onClick={() => setSearchQuery('')}
+                className="px-2 text-gray-400 hover:text-gray-600 border-none bg-transparent cursor-pointer shrink-0"
+              >
+                <X size={15} />
+              </button>
+            )}
+
+            <button 
+              type="submit" 
+              className="h-full px-4 bg-[#E11D48] active:bg-[#be123c] text-white flex items-center justify-center font-black text-xs border-none cursor-pointer tracking-wider shrink-0"
+            >
+              Search
             </button>
+
+            {/* Mobile Live Autocomplete Dropdown */}
+            {isSearchFocused && searchQuery.trim().length > 0 && (
+              <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-100 rounded-2xl shadow-2xl z-50 p-4 animate-fade-in text-gray-900">
+                {searchResults.length > 0 ? (
+                  <div className="space-y-3">
+                    <div className="px-1 text-[10px] font-extrabold uppercase tracking-wider text-gray-400 flex justify-between items-center">
+                      <span>Matching Products ({searchResults.length})</span>
+                      <span className="text-[#E11D48]">Live Search</span>
+                    </div>
+
+                    <div className="divide-y divide-gray-100">
+                      {searchResults.map((prod) => (
+                        <Link
+                          key={prod._id}
+                          href={`/products/${prod.slug}`}
+                          onClick={() => setIsSearchFocused(false)}
+                          className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-rose-50/70 transition-colors"
+                        >
+                          <div className="w-10 h-10 rounded-xl bg-slate-50 border border-gray-100 p-1 flex items-center justify-center shrink-0">
+                            <img
+                              src={prod.images?.[0]?.url || '/categories/cat_stationery.jpg'}
+                              alt={prod.name}
+                              className="max-w-full max-h-full object-contain"
+                            />
+                          </div>
+                          
+                          <div className="flex-1 min-w-0">
+                            <div className="text-xs font-bold text-gray-800 truncate">
+                              {prod.name}
+                            </div>
+                            <div className="text-[11px] text-gray-400 font-semibold flex items-center gap-1.5 mt-0.5">
+                              {prod.brand && <span className="text-slate-700">{prod.brand}</span>}
+                              <span>Rs {prod.price.toLocaleString()}</span>
+                            </div>
+                          </div>
+
+                          <ChevronRight size={14} className="text-gray-300 shrink-0" />
+                        </Link>
+                      ))}
+                    </div>
+
+                    <button
+                      type="submit"
+                      className="w-full py-2.5 bg-[#E11D48] text-white text-xs font-bold rounded-xl flex items-center justify-center gap-1.5 border-none shadow-md"
+                    >
+                      <span>View All Results</span>
+                      <ArrowRight size={14} />
+                    </button>
+                  </div>
+                ) : (
+                  <div className="p-3 text-center text-xs text-gray-500 font-medium">
+                    No matching products found for "<span className="font-bold text-gray-800">{searchQuery}</span>". Press Search for full catalog.
+                  </div>
+                )}
+              </div>
+            )}
           </form>
         </div>
 
