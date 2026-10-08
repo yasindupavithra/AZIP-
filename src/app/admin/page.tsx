@@ -20,6 +20,9 @@ import {
   Image as ImageIcon,
   Sparkles,
   RefreshCw,
+  Eye,
+  EyeOff,
+  Link as LinkIcon
 } from 'lucide-react';
 import { STORE_CATEGORIES, CatalogProduct } from '@/lib/catalog';
 
@@ -34,6 +37,18 @@ interface Order {
   createdAt: string;
 }
 
+interface HeroBannerItem {
+  _id: string;
+  title: string;
+  subtitle: string;
+  badge: string;
+  image: string;
+  linkUrl: string;
+  isActive: boolean;
+  order: number;
+  createdAt?: string;
+}
+
 const PRESET_IMAGES = [
   { label: 'Notebook', url: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=80' },
   { label: 'Books', url: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=900&q=80' },
@@ -46,11 +61,21 @@ const PRESET_IMAGES = [
   { label: 'Electronics', url: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=900&q=80' },
 ];
 
+const PRESET_BANNER_IMAGES = [
+  { label: 'Stationery Set', url: '/hero/slide1.jpg' },
+  { label: 'Education Textbooks', url: '/hero/slide2.jpg' },
+  { label: 'Faber Castell Colors', url: '/hero/slide3.jpg' },
+  { label: 'Casio Calculators', url: '/hero/slide4.jpg' },
+  { label: 'School Bags', url: '/hero/slide5.jpg' },
+  { label: 'Unsplash Books', url: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80' },
+];
+
 export default function AdminDashboard() {
   const router = useRouter();
-  const [activeTab, setActiveTab] = useState<'products' | 'orders' | 'analytics'>('products');
+  const [activeTab, setActiveTab] = useState<'products' | 'orders' | 'banners'>('products');
   const [products, setProducts] = useState<CatalogProduct[]>([]);
   const [orders, setOrders] = useState<Order[]>([]);
+  const [banners, setBanners] = useState<HeroBannerItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [updatingOrderId, setUpdatingOrderId] = useState<string | null>(null);
 
@@ -64,7 +89,12 @@ export default function AdminDashboard() {
   const [submitting, setSubmitting] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
-  // Form State
+  // Modal State for Create / Edit Banner
+  const [isBannerModalOpen, setIsBannerModalOpen] = useState(false);
+  const [editingBanner, setEditingBanner] = useState<HeroBannerItem | null>(null);
+  const [submittingBanner, setSubmittingBanner] = useState(false);
+
+  // Form State Product
   const [formData, setFormData] = useState({
     name: '',
     category: 'books',
@@ -78,6 +108,17 @@ export default function AdminDashboard() {
     tags: '',
     badge: '',
     isFeatured: false,
+  });
+
+  // Form State Banner
+  const [bannerFormData, setBannerFormData] = useState({
+    title: '',
+    subtitle: '',
+    badge: 'Special Offer',
+    image: '/hero/slide1.jpg',
+    linkUrl: '/products',
+    isActive: true,
+    order: '1',
   });
 
   const showToast = (msg: string) => {
@@ -107,6 +148,13 @@ export default function AdminDashboard() {
         const data = await ordersRes.json();
         setOrders(data.orders || []);
       }
+
+      // Load banners
+      const bannersRes = await fetch('/api/banners?all=true');
+      if (bannersRes.ok) {
+        const data = await bannersRes.json();
+        setBanners(data.banners || []);
+      }
     } catch (err) {
       console.error('Failed to load admin data:', err);
     } finally {
@@ -123,6 +171,7 @@ export default function AdminDashboard() {
     router.push('/admin/login');
   };
 
+  // Product Actions
   const openCreateModal = () => {
     setEditingProduct(null);
     setFormData({
@@ -161,90 +210,169 @@ export default function AdminDashboard() {
     setIsModalOpen(true);
   };
 
-  const handleSaveProduct = async (e: React.FormEvent) => {
+  const handleProductSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name.trim() || !formData.price) {
-      showToast('❌ Product name and price are required!');
-      return;
-    }
-
     setSubmitting(true);
+
     const payload = {
-      name: formData.name.trim(),
+      name: formData.name,
       category: formData.category,
-      subcategory: formData.subcategory.trim(),
+      subcategory: formData.subcategory,
       price: Number(formData.price),
       compareAtPrice: formData.compareAtPrice ? Number(formData.compareAtPrice) : undefined,
       stock: Number(formData.stock),
-      description: formData.description.trim(),
-      images: [{ url: formData.imageUrl.trim(), alt: formData.name }],
-      sku: formData.sku.trim() || `AZ-${Math.floor(1000 + Math.random() * 9000)}`,
+      description: formData.description,
+      images: [{ url: formData.imageUrl, alt: formData.name }],
+      sku: formData.sku,
       tags: formData.tags ? formData.tags.split(',').map((t) => t.trim()) : [],
-      badge: formData.badge.trim() || undefined,
+      badge: formData.badge,
       isFeatured: formData.isFeatured,
     };
 
     try {
-      if (editingProduct) {
-        // Edit existing product
-        const res = await fetch(`/api/products/${editingProduct._id}`, {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        });
-        if (res.ok) {
-          const data = await res.json();
-          setProducts((prev) =>
-            prev.map((p) => (p._id === editingProduct._id ? { ...p, ...data.product } : p))
-          );
-          showToast('✅ Product updated successfully!');
-          setIsModalOpen(false);
-        } else {
-          showToast('❌ Failed to update product');
-        }
+      const url = editingProduct ? `/api/products/${editingProduct._id}` : '/api/products';
+      const method = editingProduct ? 'PUT' : 'POST';
+
+      const res = await fetch(url, {
+        method,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (res.ok) {
+        showToast(editingProduct ? '✅ Product updated successfully!' : '🎉 New product published to store!');
+        setIsModalOpen(false);
+        loadData();
       } else {
-        // Create new product
-        const res = await fetch('/api/products', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        });
-        if (res.ok) {
-          const data = await res.json();
-          if (data.product) {
-            setProducts((prev) => [data.product, ...prev]);
-          }
-          showToast('🎉 New product created & published to store!');
-          setIsModalOpen(false);
-        } else {
-          showToast('❌ Failed to create product');
-        }
+        const data = await res.json();
+        alert(data.error || 'Failed to save product');
       }
     } catch (err) {
       console.error(err);
-      showToast('❌ Server error saving product');
+      alert('Error saving product');
     } finally {
       setSubmitting(false);
     }
   };
 
   const handleDeleteProduct = async (id: string, name: string) => {
-    if (!confirm(`Are you sure you want to delete "${name}"?`)) return;
+    if (!confirm(`Are you sure you want to delete "${name}" from store catalog?`)) return;
 
     try {
       const res = await fetch(`/api/products/${id}`, { method: 'DELETE' });
       if (res.ok) {
         setProducts((prev) => prev.filter((p) => p._id !== id));
-        showToast('🗑️ Product deleted from store!');
-      } else {
-        showToast('❌ Failed to delete product');
+        showToast(`🗑️ Product "${name}" deleted.`);
       }
     } catch (err) {
       console.error(err);
-      showToast('❌ Server error deleting product');
     }
   };
 
+  // Banner Actions
+  const openCreateBannerModal = () => {
+    setEditingBanner(null);
+    setBannerFormData({
+      title: '',
+      subtitle: '',
+      badge: 'Daily Offer 20% Off',
+      image: PRESET_BANNER_IMAGES[0].url,
+      linkUrl: '/products',
+      isActive: true,
+      order: String(banners.length + 1),
+    });
+    setIsBannerModalOpen(true);
+  };
+
+  const openEditBannerModal = (b: HeroBannerItem) => {
+    setEditingBanner(b);
+    setBannerFormData({
+      title: b.title,
+      subtitle: b.subtitle,
+      badge: b.badge || '',
+      image: b.image,
+      linkUrl: b.linkUrl || '/products',
+      isActive: Boolean(b.isActive),
+      order: String(b.order || 1),
+    });
+    setIsBannerModalOpen(true);
+  };
+
+  const handleBannerSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmittingBanner(true);
+
+    const payload = {
+      title: bannerFormData.title,
+      subtitle: bannerFormData.subtitle,
+      badge: bannerFormData.badge,
+      image: bannerFormData.image,
+      linkUrl: bannerFormData.linkUrl,
+      isActive: bannerFormData.isActive,
+      order: Number(bannerFormData.order) || 1,
+    };
+
+    try {
+      const url = editingBanner ? `/api/banners/${editingBanner._id}` : '/api/banners';
+      const method = editingBanner ? 'PUT' : 'POST';
+
+      const res = await fetch(url, {
+        method,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (res.ok) {
+        showToast(editingBanner ? '✨ Offer Banner updated successfully!' : '🎉 New Offer Banner published to Homepage!');
+        setIsBannerModalOpen(false);
+        loadData();
+      } else {
+        const data = await res.json();
+        alert(data.error || 'Failed to save banner');
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Error saving banner');
+    } finally {
+      setSubmittingBanner(false);
+    }
+  };
+
+  const handleToggleBannerActive = async (banner: HeroBannerItem) => {
+    try {
+      const newStatus = !banner.isActive;
+      const res = await fetch(`/api/banners/${banner._id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ isActive: newStatus }),
+      });
+
+      if (res.ok) {
+        setBanners((prev) =>
+          prev.map((b) => (b._id === banner._id ? { ...b, isActive: newStatus } : b))
+        );
+        showToast(newStatus ? `👁️ Banner "${banner.title}" is now ACTIVE on Homepage!` : `🙈 Banner "${banner.title}" HIDDEN from Homepage.`);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleDeleteBanner = async (id: string, title: string) => {
+    if (!confirm(`Are you sure you want to delete banner slide "${title}"?`)) return;
+
+    try {
+      const res = await fetch(`/api/banners/${id}`, { method: 'DELETE' });
+      if (res.ok) {
+        setBanners((prev) => prev.filter((b) => b._id !== id));
+        showToast(`🗑️ Banner "${title}" deleted.`);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  // Order Actions
   const handleUpdateOrderStatus = async (orderId: string, newStatus: string) => {
     setUpdatingOrderId(orderId);
     try {
@@ -279,6 +407,7 @@ export default function AdminDashboard() {
   });
 
   const totalSales = orders.reduce((sum, o) => sum + (o.total || 0), 0);
+  const activeBannersCount = banners.filter(b => b.isActive).length;
 
   if (loading) {
     return (
@@ -316,7 +445,7 @@ export default function AdminDashboard() {
           <div className="flex items-center gap-3">
             <button
               onClick={loadData}
-              className="p-2 text-gray-600 hover:text-gray-900 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
+              className="p-2 text-gray-600 hover:text-gray-900 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors cursor-pointer border-none"
               title="Refresh Data"
             >
               <RefreshCw size={15} />
@@ -329,7 +458,7 @@ export default function AdminDashboard() {
             </Link>
             <button
               onClick={handleLogout}
-              className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold text-red-600 bg-red-50 hover:bg-red-100 rounded-lg transition-colors border border-red-200"
+              className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold text-red-600 bg-red-50 hover:bg-red-100 rounded-lg transition-colors border border-red-200 cursor-pointer"
             >
               <LogOut size={14} /> Logout
             </button>
@@ -343,22 +472,33 @@ export default function AdminDashboard() {
         {/* Dashboard Title & Stats Overview */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
           <div>
-            <h1 className="text-2xl font-black text-gray-900 font-['Outfit']">Store Management Portal</h1>
+            <h1 className="text-2xl font-black text-gray-900 font-['Outfit']">AZIP Store Control Center</h1>
             <p className="text-xs text-gray-500 mt-0.5">
-              Add new products, edit catalog items, change order status &amp; manage inventory in real-time.
+              Manage products, daily offer banners, order fulfillments &amp; homepage content in real-time.
             </p>
           </div>
 
-          <button
-            onClick={openCreateModal}
-            className="inline-flex items-center gap-2 bg-[#DC2626] hover:bg-[#B91C1C] text-white px-5 py-2.5 rounded-xl font-bold text-xs shadow-md hover:shadow-lg transition-all border-none cursor-pointer"
-          >
-            <Plus size={16} /> Add New Product
-          </button>
+          <div className="flex items-center gap-2">
+            {activeTab === 'banners' ? (
+              <button
+                onClick={openCreateBannerModal}
+                className="inline-flex items-center gap-2 bg-[#E11D48] hover:bg-[#be123c] text-white px-5 py-2.5 rounded-xl font-bold text-xs shadow-md hover:shadow-lg transition-all border-none cursor-pointer"
+              >
+                <Plus size={16} /> Add New Offer Banner
+              </button>
+            ) : (
+              <button
+                onClick={openCreateModal}
+                className="inline-flex items-center gap-2 bg-[#DC2626] hover:bg-[#B91C1C] text-white px-5 py-2.5 rounded-xl font-bold text-xs shadow-md hover:shadow-lg transition-all border-none cursor-pointer"
+              >
+                <Plus size={16} /> Add New Product
+              </button>
+            )}
+          </div>
         </div>
 
-        {/* 3 KPI Summary Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-8">
+        {/* 4 KPI Summary Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
           <div className="bg-white p-5 rounded-2xl border border-gray-200 shadow-xs">
             <div className="w-10 h-10 rounded-xl bg-red-50 text-[#DC2626] flex items-center justify-center mb-3">
               <Package size={20} />
@@ -375,6 +515,15 @@ export default function AdminDashboard() {
             <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Customer Orders</p>
             <h3 className="text-2xl font-bold text-gray-900 mt-0.5">{orders.length} Orders</h3>
             <p className="text-[11px] text-blue-600 font-medium mt-1">Online &amp; Concierge</p>
+          </div>
+
+          <div className="bg-white p-5 rounded-2xl border border-gray-200 shadow-xs">
+            <div className="w-10 h-10 rounded-xl bg-rose-50 text-[#E11D48] flex items-center justify-center mb-3">
+              <ImageIcon size={20} />
+            </div>
+            <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Hero Offer Banners</p>
+            <h3 className="text-2xl font-bold text-gray-900 mt-0.5">{banners.length} Slides ({activeBannersCount} Active)</h3>
+            <p className="text-[11px] text-[#E11D48] font-medium mt-1">Daraz Style Slider</p>
           </div>
 
           <div className="bg-white p-5 rounded-2xl border border-gray-200 shadow-xs">
@@ -399,6 +548,7 @@ export default function AdminDashboard() {
           >
             <Package size={16} /> Products ({products.length})
           </button>
+          
           <button
             onClick={() => setActiveTab('orders')}
             className={`flex items-center gap-2 px-5 py-3 text-xs font-bold border-b-2 transition-all border-none bg-transparent cursor-pointer ${
@@ -408,6 +558,17 @@ export default function AdminDashboard() {
             }`}
           >
             <ShoppingBag size={16} /> Customer Orders ({orders.length})
+          </button>
+
+          <button
+            onClick={() => setActiveTab('banners')}
+            className={`flex items-center gap-2 px-5 py-3 text-xs font-bold border-b-2 transition-all border-none bg-transparent cursor-pointer ${
+              activeTab === 'banners'
+                ? 'border-[#E11D48] text-[#E11D48] bg-rose-50/50 rounded-t-xl'
+                : 'border-transparent text-gray-500 hover:text-gray-800'
+            }`}
+          >
+            <Sparkles size={16} className="text-[#E11D48]" /> Hero Banners &amp; Daily Offers ({banners.length})
           </button>
         </div>
 
@@ -444,247 +605,344 @@ export default function AdminDashboard() {
                   ))}
                 </select>
               </div>
+
             </div>
 
             {/* Products Table */}
-            <div className="bg-white rounded-2xl border border-gray-200 shadow-xs overflow-hidden">
-              {filteredProducts.length === 0 ? (
-                <div className="p-12 text-center text-gray-500">
-                  <Package size={40} className="mx-auto text-gray-300 mb-3" />
-                  <p className="text-sm font-bold text-gray-800">No products found</p>
-                  <p className="text-xs text-gray-400 mt-1 mb-4">Click below to add your first product to this category!</p>
-                  <button
-                    onClick={openCreateModal}
-                    className="inline-flex items-center gap-2 bg-[#DC2626] text-white px-4 py-2 rounded-xl text-xs font-bold"
-                  >
-                    <Plus size={14} /> Add Product Now
-                  </button>
-                </div>
-              ) : (
-                <div className="overflow-x-auto">
-                  <table className="w-full text-left text-xs">
-                    <thead className="bg-gray-50 text-gray-600 uppercase text-[10px] font-bold border-b border-gray-200">
-                      <tr>
-                        <th className="px-5 py-3.5">Product</th>
-                        <th className="px-5 py-3.5">Category</th>
-                        <th className="px-5 py-3.5">Price</th>
-                        <th className="px-5 py-3.5">Stock</th>
-                        <th className="px-5 py-3.5">Featured</th>
-                        <th className="px-5 py-3.5 text-right">Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-gray-100">
-                      {filteredProducts.map((p) => {
-                        const imgUrl = p.images && p.images[0] ? p.images[0].url : PRESET_IMAGES[0].url;
-                        const catLabel = STORE_CATEGORIES.find((c) => c.slug === p.category)?.label || p.category;
-
-                        return (
-                          <tr key={p._id} className="hover:bg-gray-50/80 transition-colors">
-                            <td className="px-5 py-3.5">
-                              <div className="flex items-center gap-3">
+            <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-xs">
+              <div className="overflow-x-auto">
+                <table className="w-full text-left border-collapse">
+                  <thead>
+                    <tr className="bg-gray-50 text-[11px] font-bold text-gray-500 uppercase tracking-wider border-b border-gray-200">
+                      <th className="py-3.5 px-4">Product Details</th>
+                      <th className="py-3.5 px-4">Category</th>
+                      <th className="py-3.5 px-4">Price</th>
+                      <th className="py-3.5 px-4">Stock</th>
+                      <th className="py-3.5 px-4">Badge</th>
+                      <th className="py-3.5 px-4 text-right">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-100 text-xs">
+                    {filteredProducts.length > 0 ? (
+                      filteredProducts.map((p) => (
+                        <tr key={p._id} className="hover:bg-slate-50/80 transition-colors">
+                          <td className="py-3.5 px-4">
+                            <div className="flex items-center gap-3">
+                              <div className="w-12 h-12 rounded-xl bg-gray-50 border border-gray-200 p-1 flex items-center justify-center shrink-0">
                                 <img
-                                  src={imgUrl}
+                                  src={p.images?.[0]?.url || PRESET_IMAGES[0].url}
                                   alt={p.name}
-                                  className="w-12 h-12 object-contain rounded-xl border border-gray-100 bg-gray-50 p-1 shrink-0"
+                                  className="max-w-full max-h-full object-contain"
                                 />
-                                <div>
-                                  <div className="font-bold text-gray-900 line-clamp-1">{p.name}</div>
-                                  <div className="text-[11px] text-gray-400 font-mono">SKU: {p.sku || 'N/A'}</div>
-                                </div>
                               </div>
-                            </td>
-                            <td className="px-5 py-3.5">
-                              <span className="px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-gray-100 text-gray-700">
-                                {catLabel}
+                              <div>
+                                <h4 className="font-bold text-gray-900 text-xs line-clamp-1">{p.name}</h4>
+                                <div className="text-[11px] text-gray-400 font-mono mt-0.5">SKU: {p.sku || 'N/A'}</div>
+                              </div>
+                            </div>
+                          </td>
+
+                          <td className="py-3.5 px-4 capitalize font-semibold text-gray-600">
+                            {p.category.replace('-', ' ')}
+                          </td>
+
+                          <td className="py-3.5 px-4">
+                            <div className="font-bold text-gray-900">Rs {p.price.toLocaleString()}</div>
+                            {p.compareAtPrice && (
+                              <div className="text-[10px] text-gray-400 line-through">Rs {p.compareAtPrice.toLocaleString()}</div>
+                            )}
+                          </td>
+
+                          <td className="py-3.5 px-4">
+                            <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold ${
+                              p.stock > 10 ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-amber-50 text-amber-700 border border-amber-200'
+                            }`}>
+                              {p.stock} in stock
+                            </span>
+                          </td>
+
+                          <td className="py-3.5 px-4">
+                            {p.badge ? (
+                              <span className="px-2 py-0.5 rounded text-[10px] font-extrabold bg-red-100 text-[#DC2626]">
+                                {p.badge}
                               </span>
-                            </td>
-                            <td className="px-5 py-3.5 font-bold text-gray-900">
-                              Rs. {p.price.toLocaleString()}
-                              {p.compareAtPrice && (
-                                <span className="text-[10px] text-gray-400 line-through block font-normal">
-                                  Rs. {p.compareAtPrice.toLocaleString()}
-                                </span>
-                              )}
-                            </td>
-                            <td className="px-5 py-3.5">
-                              {p.stock > 0 ? (
-                                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800">
-                                  In Stock ({p.stock})
-                                </span>
-                              ) : (
-                                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-red-100 text-red-800">
-                                  Out of Stock
-                                </span>
-                              )}
-                            </td>
-                            <td className="px-5 py-3.5">
-                              {p.isFeatured ? (
-                                <span className="inline-flex items-center gap-1 text-emerald-600 font-bold text-[11px]">
-                                  <Sparkles size={12} /> Yes
-                                </span>
-                              ) : (
-                                <span className="text-gray-400 text-[11px]">No</span>
-                              )}
-                            </td>
-                            <td className="px-5 py-3.5 text-right">
-                              <div className="flex items-center justify-end gap-2">
-                                <button
-                                  onClick={() => openEditModal(p)}
-                                  className="p-1.5 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors border border-blue-200 cursor-pointer"
-                                  title="Edit Product"
-                                >
-                                  <Edit2 size={14} />
-                                </button>
-                                <button
-                                  onClick={() => handleDeleteProduct(p._id, p.name)}
-                                  className="p-1.5 text-red-600 hover:bg-red-50 rounded-lg transition-colors border border-red-200 cursor-pointer"
-                                  title="Delete Product"
-                                >
-                                  <Trash2 size={14} />
-                                </button>
-                              </div>
-                            </td>
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </table>
-                </div>
-              )}
+                            ) : (
+                              <span className="text-gray-400 text-[10px]">-</span>
+                            )}
+                          </td>
+
+                          <td className="py-3.5 px-4 text-right">
+                            <div className="flex items-center justify-end gap-1.5">
+                              <button
+                                onClick={() => openEditModal(p)}
+                                className="p-1.5 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors border-none bg-transparent cursor-pointer"
+                                title="Edit Product"
+                              >
+                                <Edit2 size={15} />
+                              </button>
+                              <button
+                                onClick={() => handleDeleteProduct(p._id, p.name)}
+                                className="p-1.5 text-red-600 hover:bg-red-50 rounded-lg transition-colors border-none bg-transparent cursor-pointer"
+                                title="Delete Product"
+                              >
+                                <Trash2 size={15} />
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                      ))
+                    ) : (
+                      <tr>
+                        <td colSpan={6} className="py-8 text-center text-gray-400 text-xs font-medium">
+                          No matching products found. Try changing filters or add a new product.
+                        </td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+              </div>
             </div>
 
           </div>
         )}
 
-        {/* ── TAB 2: CUSTOMER ORDERS ────────────────────────── */}
+        {/* ── TAB 2: ORDER MANAGEMENT ──────────────────────── */}
         {activeTab === 'orders' && (
-          <div className="bg-white rounded-2xl border border-gray-200 shadow-xs overflow-hidden">
-            <div className="p-5 border-b border-gray-200 flex items-center justify-between">
-              <div>
-                <h2 className="text-base font-bold text-gray-900">Customer Orders</h2>
-                <p className="text-xs text-gray-500">View and process customer orders placed on store</p>
+          <div className="space-y-6">
+            <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-xs">
+              <div className="p-4 border-b border-gray-200 bg-gray-50 flex items-center justify-between">
+                <h3 className="font-bold text-xs uppercase tracking-wider text-gray-600">Customer Order Queue</h3>
+                <span className="text-xs text-gray-500 font-semibold">{orders.length} total orders</span>
               </div>
-            </div>
 
-            {orders.length === 0 ? (
-              <div className="p-12 text-center text-gray-500">
-                <ShoppingBag size={40} className="mx-auto text-gray-300 mb-3" />
-                <p className="text-sm font-bold text-gray-800">No orders received yet</p>
-                <p className="text-xs text-gray-400 mt-1">When customers place orders, they will show up here instantly!</p>
-              </div>
-            ) : (
               <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs">
-                  <thead className="bg-gray-50 text-gray-600 uppercase text-[10px] font-bold border-b border-gray-200">
-                    <tr>
-                      <th className="px-5 py-3.5">Order #</th>
-                      <th className="px-5 py-3.5">Customer</th>
-                      <th className="px-5 py-3.5">Items</th>
-                      <th className="px-5 py-3.5">Total (LKR)</th>
-                      <th className="px-5 py-3.5">Status</th>
-                      <th className="px-5 py-3.5 text-right">Update Status</th>
+                <table className="w-full text-left border-collapse">
+                  <thead>
+                    <tr className="bg-gray-50 text-[11px] font-bold text-gray-500 uppercase tracking-wider border-b border-gray-200">
+                      <th className="py-3.5 px-4">Order ID &amp; Date</th>
+                      <th className="py-3.5 px-4">Customer Info</th>
+                      <th className="py-3.5 px-4">Items Purchased</th>
+                      <th className="py-3.5 px-4">Total Amount</th>
+                      <th className="py-3.5 px-4">Status</th>
+                      <th className="py-3.5 px-4 text-right">Update Status</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-100">
-                    {orders.map((order) => {
-                      const statusColor =
-                        order.status === 'delivered' ? 'bg-emerald-100 text-emerald-800' :
-                        order.status === 'shipped' ? 'bg-blue-100 text-blue-800' :
-                        order.status === 'processing' ? 'bg-purple-100 text-purple-800' :
-                        order.status === 'cancelled' ? 'bg-red-100 text-red-800' :
-                        'bg-amber-100 text-amber-800';
-
-                      return (
-                        <tr key={order._id} className="hover:bg-gray-50/80 transition-colors">
-                          <td className="px-5 py-3.5 font-bold text-gray-900">
-                            {order.orderNumber}
-                          </td>
-                          <td className="px-5 py-3.5">
-                            <div className="font-semibold text-gray-900">{order.customer.name}</div>
-                            <div className="text-[11px] text-gray-500">{order.customer.phone}</div>
-                          </td>
-                          <td className="px-5 py-3.5">
-                            <div className="text-[11px] text-gray-700">
-                              {order.items && order.items.length > 0 ? (
-                                order.items.map((i, idx) => (
-                                  <div key={idx} className="truncate max-w-[200px]">
-                                    {i.quantity}x {i.name}
-                                  </div>
-                                ))
-                              ) : (
-                                <span className="text-gray-400">Stationery order</span>
-                              )}
+                  <tbody className="divide-y divide-gray-100 text-xs">
+                    {orders.length > 0 ? (
+                      orders.map((o) => (
+                        <tr key={o._id} className="hover:bg-slate-50/80 transition-colors">
+                          <td className="py-3.5 px-4 font-mono">
+                            <div className="font-bold text-gray-900">{o.orderNumber || o._id}</div>
+                            <div className="text-[10px] text-gray-400 mt-0.5">
+                              {new Date(o.createdAt).toLocaleDateString()} {new Date(o.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                             </div>
                           </td>
-                          <td className="px-5 py-3.5 font-bold text-gray-900">
-                            Rs. {(order.total || 0).toLocaleString()}
+
+                          <td className="py-3.5 px-4">
+                            <div className="font-bold text-gray-900">{o.customer?.name || 'Guest Customer'}</div>
+                            <div className="text-[11px] text-gray-500">{o.customer?.phone}</div>
                           </td>
-                          <td className="px-5 py-3.5">
-                            <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase ${statusColor}`}>
-                              {order.status}
+
+                          <td className="py-3.5 px-4">
+                            <div className="space-y-1">
+                              {o.items?.map((it, idx) => (
+                                <div key={idx} className="text-[11px] text-gray-700">
+                                  <span className="font-bold">{it.quantity}x</span> {it.name}
+                                </div>
+                              ))}
+                            </div>
+                          </td>
+
+                          <td className="py-3.5 px-4">
+                            <div className="font-bold text-gray-900">Rs {o.total?.toLocaleString()}</div>
+                            <div className="text-[10px] uppercase font-bold text-gray-400">{o.paymentMethod || 'COD'}</div>
+                          </td>
+
+                          <td className="py-3.5 px-4">
+                            <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold capitalize ${
+                              o.status === 'completed' || o.status === 'delivered'
+                                ? 'bg-emerald-100 text-emerald-800 border border-emerald-200'
+                                : o.status === 'cancelled'
+                                ? 'bg-red-100 text-red-800 border border-red-200'
+                                : 'bg-amber-100 text-amber-800 border border-amber-200'
+                            }`}>
+                              {o.status}
                             </span>
                           </td>
-                          <td className="px-5 py-3.5 text-right">
+
+                          <td className="py-3.5 px-4 text-right">
                             <select
-                              value={order.status}
-                              disabled={updatingOrderId === order._id}
-                              onChange={(e) => handleUpdateOrderStatus(order._id, e.target.value)}
-                              className="text-[11px] font-semibold px-2 py-1 border border-gray-300 rounded-lg bg-white text-gray-700 cursor-pointer focus:outline-none focus:border-[#DC2626]"
+                              value={o.status}
+                              disabled={updatingOrderId === o._id}
+                              onChange={(e) => handleUpdateOrderStatus(o._id, e.target.value)}
+                              className="px-2.5 py-1 text-xs border border-gray-300 rounded-lg bg-white font-bold text-gray-700 focus:outline-none focus:border-[#DC2626] cursor-pointer"
                             >
                               <option value="pending">Pending</option>
-                              <option value="confirmed">Confirmed</option>
                               <option value="processing">Processing</option>
                               <option value="shipped">Shipped</option>
                               <option value="delivered">Delivered</option>
+                              <option value="completed">Completed</option>
                               <option value="cancelled">Cancelled</option>
                             </select>
                           </td>
                         </tr>
-                      );
-                    })}
+                      ))
+                    ) : (
+                      <tr>
+                        <td colSpan={6} className="py-8 text-center text-gray-400 text-xs font-medium">
+                          No customer orders placed yet.
+                        </td>
+                      </tr>
+                    )}
                   </tbody>
                 </table>
               </div>
-            )}
+            </div>
+          </div>
+        )}
+
+        {/* ── TAB 3: HERO OFFER BANNERS MANAGEMENT ──────────── */}
+        {activeTab === 'banners' && (
+          <div className="space-y-6">
+
+            {/* Header Banner Control Bar */}
+            <div className="bg-gradient-to-r from-rose-900 via-rose-800 to-slate-900 p-6 rounded-3xl text-white shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 border border-rose-700/40">
+              <div>
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-rose-500/30 text-pink-200 rounded-full text-[11px] font-extrabold uppercase tracking-wider mb-2 border border-rose-400/30">
+                  <Sparkles size={12} className="text-amber-300 animate-pulse" /> Live Dynamic Hero Slider
+                </div>
+                <h2 className="text-xl sm:text-2xl font-black font-['Outfit']">Homepage Daily Offer Banners</h2>
+                <p className="text-xs text-rose-100/80 mt-1 max-w-xl">
+                  Add, edit, enable or disable daily special offer slides for homepage carousel without touching any code!
+                </p>
+              </div>
+
+              <button
+                onClick={openCreateBannerModal}
+                className="px-5 py-3 bg-[#E11D48] hover:bg-[#be123c] text-white text-xs font-black rounded-2xl shadow-lg transition-all hover:scale-105 border border-rose-300/30 uppercase tracking-wider shrink-0 cursor-pointer"
+              >
+                + Add New Offer Banner
+              </button>
+            </div>
+
+            {/* Banners Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {banners.map((b, idx) => (
+                <div
+                  key={b._id}
+                  className={`bg-white rounded-3xl border ${
+                    b.isActive ? 'border-rose-200 shadow-md' : 'border-gray-200 opacity-60 bg-gray-50'
+                  } overflow-hidden transition-all duration-300 flex flex-col justify-between`}
+                >
+                  {/* Banner Image Preview */}
+                  <div className="relative aspect-16/9 bg-slate-900 overflow-hidden">
+                    <img
+                      src={b.image}
+                      alt={b.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/30 to-transparent" />
+
+                    {/* Top Status & Badge overlay */}
+                    <div className="absolute top-3 left-3 z-10 flex items-center gap-2">
+                      <span className="bg-[#E11D48] text-white text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider shadow-md">
+                        {b.badge || 'Special Offer'}
+                      </span>
+                    </div>
+
+                    <div className="absolute top-3 right-3 z-10">
+                      <button
+                        onClick={() => handleToggleBannerActive(b)}
+                        className={`px-3 py-1 rounded-full text-[10px] font-black flex items-center gap-1.5 transition-all shadow-md cursor-pointer border-none ${
+                          b.isActive
+                            ? 'bg-emerald-600 text-white hover:bg-emerald-700'
+                            : 'bg-gray-800 text-gray-300 hover:bg-gray-900'
+                        }`}
+                        title={b.isActive ? 'Click to Hide from Homepage' : 'Click to Enable on Homepage'}
+                      >
+                        {b.isActive ? <Eye size={12} /> : <EyeOff size={12} />}
+                        <span>{b.isActive ? 'ACTIVE' : 'HIDDEN'}</span>
+                      </button>
+                    </div>
+
+                    {/* Banner Title & Subtitle Preview Overlay */}
+                    <div className="absolute bottom-3 left-4 right-4 z-10 text-white">
+                      <h3 className="text-base font-black leading-snug drop-shadow-sm font-['Outfit']">
+                        {b.title}
+                      </h3>
+                      <p className="text-xs text-slate-200 font-medium line-clamp-1 drop-shadow-xs mt-0.5">
+                        {b.subtitle}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Banner Action Controls Bar */}
+                  <div className="p-4 bg-white border-t border-gray-100 flex items-center justify-between text-xs font-semibold text-gray-600">
+                    <div className="flex items-center gap-2 truncate max-w-[60%]">
+                      <LinkIcon size={14} className="text-rose-500 shrink-0" />
+                      <span className="truncate font-mono text-[11px] text-gray-500">
+                        {b.linkUrl || '/products'}
+                      </span>
+                    </div>
+
+                    <div className="flex items-center gap-2 shrink-0">
+                      <button
+                        onClick={() => openEditBannerModal(b)}
+                        className="px-3 py-1.5 text-xs font-bold text-blue-600 bg-blue-50 hover:bg-blue-100 rounded-xl transition-colors border border-blue-200 cursor-pointer"
+                      >
+                        Edit Slide
+                      </button>
+                      <button
+                        onClick={() => handleDeleteBanner(b._id, b.title)}
+                        className="px-3 py-1.5 text-xs font-bold text-red-600 bg-red-50 hover:bg-red-100 rounded-xl transition-colors border border-red-200 cursor-pointer"
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
           </div>
         )}
 
       </main>
 
-      {/* ── CREATE / EDIT PRODUCT MODAL ───────────────────────── */}
+      {/* ── MODAL: CREATE / EDIT PRODUCT ─────────────────── */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-white w-full max-w-2xl rounded-2xl shadow-2xl border border-gray-200 overflow-hidden my-8 animate-fade-in">
+        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-white rounded-3xl max-w-2xl w-full p-6 shadow-2xl border border-gray-100 my-8">
             
-            {/* Modal Header */}
-            <div className="px-6 py-4 bg-gray-900 text-white flex items-center justify-between">
-              <h3 className="text-base font-bold flex items-center gap-2">
-                <Package size={18} className="text-[#DC2626]" />
-                {editingProduct ? 'Edit Catalog Product' : 'Add New Product to Store'}
-              </h3>
+            <div className="flex items-center justify-between border-b border-gray-100 pb-4 mb-5">
+              <div>
+                <h3 className="text-lg font-black text-gray-900 font-['Outfit']">
+                  {editingProduct ? 'Edit Product Details' : 'Add New Product to Catalog'}
+                </h3>
+                <p className="text-xs text-gray-500 mt-0.5">Fill in product information to show on store front</p>
+              </div>
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="text-gray-400 hover:text-white text-lg font-bold border-none bg-transparent cursor-pointer"
+                className="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 flex items-center justify-center text-sm font-bold border-none cursor-pointer"
               >
                 ✕
               </button>
             </div>
 
-            {/* Modal Body Form */}
-            <form onSubmit={handleSaveProduct} className="p-6 space-y-4 max-h-[80vh] overflow-y-auto">
+            <form onSubmit={handleProductSubmit} className="space-y-4">
               
-              {/* Product Title */}
+              {/* Product Name */}
               <div>
                 <label className="block text-xs font-bold text-gray-700 mb-1">
-                  Product Name / Title *
+                  Product Title *
                 </label>
                 <input
                   type="text"
                   required
-                  placeholder="e.g. Atlas A4 200 Pages CR Book"
+                  placeholder="e.g. Atlas CR 80GSM 120 Pages Notebook"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-3.5 py-2 text-xs border border-gray-300 rounded-xl focus:outline-none focus:border-[#DC2626] font-medium text-gray-900"
+                  className="w-full px-3.5 py-2 text-xs border border-gray-300 rounded-xl focus:outline-none focus:border-[#DC2626] font-semibold text-gray-900"
                 />
               </div>
 
@@ -892,7 +1150,155 @@ export default function AdminDashboard() {
         </div>
       )}
 
+      {/* ── MODAL: CREATE / EDIT HERO BANNER ─────────────── */}
+      {isBannerModalOpen && (
+        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-white rounded-3xl max-w-2xl w-full p-6 shadow-2xl border border-gray-100 my-8">
+            
+            <div className="flex items-center justify-between border-b border-gray-100 pb-4 mb-5">
+              <div>
+                <h3 className="text-lg font-black text-gray-900 font-['Outfit']">
+                  {editingBanner ? 'Edit Hero Offer Banner' : 'Add New Daily Offer Banner'}
+                </h3>
+                <p className="text-xs text-gray-500 mt-0.5">Publish promotional slides for homepage Daraz-style carousel</p>
+              </div>
+              <button
+                onClick={() => setIsBannerModalOpen(false)}
+                className="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 flex items-center justify-center text-sm font-bold border-none cursor-pointer"
+              >
+                ✕
+              </button>
+            </div>
+
+            <form onSubmit={handleBannerSubmit} className="space-y-4">
+              
+              {/* Banner Title */}
+              <div>
+                <label className="block text-xs font-bold text-gray-700 mb-1">
+                  Banner Main Heading (Title) *
+                </label>
+                <input
+                  type="text"
+                  required
+                  placeholder="e.g. Friday Mega Discount 25% Off"
+                  value={bannerFormData.title}
+                  onChange={(e) => setBannerFormData({ ...bannerFormData, title: e.target.value })}
+                  className="w-full px-3.5 py-2 text-xs border border-gray-300 rounded-xl focus:outline-none focus:border-[#E11D48] font-black text-gray-900"
+                />
+              </div>
+
+              {/* Subtitle */}
+              <div>
+                <label className="block text-xs font-bold text-gray-700 mb-1">
+                  Banner Subtitle / Description *
+                </label>
+                <input
+                  type="text"
+                  required
+                  placeholder="e.g. Free home delivery on all Atlas CR Books & Pilot Gel Pens in Kandy"
+                  value={bannerFormData.subtitle}
+                  onChange={(e) => setBannerFormData({ ...bannerFormData, subtitle: e.target.value })}
+                  className="w-full px-3.5 py-2 text-xs border border-gray-300 rounded-xl focus:outline-none focus:border-[#E11D48] text-gray-900"
+                />
+              </div>
+
+              {/* Badge & Target Link */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 mb-1">
+                    Highlight Badge Tag
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="e.g. Weekend Flash Sale, 15% OFF"
+                    value={bannerFormData.badge}
+                    onChange={(e) => setBannerFormData({ ...bannerFormData, badge: e.target.value })}
+                    className="w-full px-3.5 py-2 text-xs border border-gray-300 rounded-xl focus:outline-none focus:border-[#E11D48] text-gray-900 font-semibold"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 mb-1">
+                    Target Button Link URL
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="/products?category=exercise-books"
+                    value={bannerFormData.linkUrl}
+                    onChange={(e) => setBannerFormData({ ...bannerFormData, linkUrl: e.target.value })}
+                    className="w-full px-3.5 py-2 text-xs border border-gray-300 rounded-xl focus:outline-none focus:border-[#E11D48] text-gray-900 font-mono text-[11px]"
+                  />
+                </div>
+              </div>
+
+              {/* Image URL & Presets */}
+              <div>
+                <label className="block text-xs font-bold text-gray-700 mb-1 flex items-center justify-between">
+                  <span>Banner Image URL *</span>
+                  <span className="text-[10px] text-gray-400 font-normal">Pick a banner background preset or paste custom link</span>
+                </label>
+                <input
+                  type="text"
+                  required
+                  placeholder="/hero/slide1.jpg or https://..."
+                  value={bannerFormData.image}
+                  onChange={(e) => setBannerFormData({ ...bannerFormData, image: e.target.value })}
+                  className="w-full px-3.5 py-2 text-xs border border-gray-300 rounded-xl focus:outline-none focus:border-[#E11D48] text-gray-900 font-mono text-[11px]"
+                />
+
+                {/* Quick Presets */}
+                <div className="flex flex-wrap gap-1.5 mt-2">
+                  {PRESET_BANNER_IMAGES.map((preset) => (
+                    <button
+                      key={preset.label}
+                      type="button"
+                      onClick={() => setBannerFormData({ ...bannerFormData, image: preset.url })}
+                      className="px-2.5 py-1 bg-rose-50 hover:bg-rose-100 hover:text-[#E11D48] text-[10px] font-semibold text-rose-800 rounded-lg border border-rose-200 cursor-pointer transition-colors"
+                    >
+                      🖼️ {preset.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Is Active Checkbox */}
+              <div className="pt-2 flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  id="isBannerActive"
+                  checked={bannerFormData.isActive}
+                  onChange={(e) => setBannerFormData({ ...bannerFormData, isActive: e.target.checked })}
+                  className="w-4 h-4 text-[#E11D48] rounded border-gray-300 focus:ring-[#E11D48] cursor-pointer"
+                />
+                <label htmlFor="isBannerActive" className="text-xs font-bold text-gray-800 cursor-pointer select-none">
+                  Make Banner Slide ACTIVE on Homepage Carousel Right Now
+                </label>
+              </div>
+
+              {/* Submit Buttons */}
+              <div className="pt-4 flex items-center justify-end gap-3 border-t border-gray-100">
+                <button
+                  type="button"
+                  onClick={() => setIsBannerModalOpen(false)}
+                  className="px-4 py-2 text-xs font-bold text-gray-600 hover:text-gray-900 bg-gray-100 hover:bg-gray-200 rounded-xl cursor-pointer border-none"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={submittingBanner}
+                  className="px-6 py-2.5 bg-[#E11D48] hover:bg-[#be123c] text-white font-bold text-xs rounded-xl shadow-md transition-all cursor-pointer border-none disabled:opacity-50 uppercase tracking-wider"
+                >
+                  {submittingBanner ? 'Publishing...' : editingBanner ? 'Update Banner' : 'Publish Banner Slide'}
+                </button>
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }
-

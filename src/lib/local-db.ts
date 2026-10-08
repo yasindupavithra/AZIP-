@@ -187,3 +187,145 @@ export function updateLocalOrderStatus(id: string, status: string): LocalOrder |
   saveLocalOrders(orders);
   return order;
 }
+
+// ── Local Hero Banners Storage ─────────────────────────────
+const BANNERS_FILE = path.join(DATA_DIR, 'banners.json');
+let memoryBannersCache: LocalBanner[] | null = null;
+
+export interface LocalBanner {
+  _id: string;
+  title: string;
+  subtitle: string;
+  badge: string;
+  image: string;
+  linkUrl: string;
+  isActive: boolean;
+  order: number;
+  createdAt?: string;
+}
+
+export const INITIAL_HERO_BANNERS: LocalBanner[] = [
+  {
+    _id: 'banner-1',
+    title: 'Vibrant Art & School Supplies',
+    subtitle: 'Atlas, Pilot gel pens, geometry sets & watercolor sketchbooks.',
+    badge: 'Complete Stationery Sets',
+    image: '/hero/slide1.jpg',
+    linkUrl: '/products',
+    isActive: true,
+    order: 1,
+  },
+  {
+    _id: 'banner-2',
+    title: 'Grade Textbooks & CR Books',
+    subtitle: 'High-grade 80gsm paper CR books from Grade 1 to A/L.',
+    badge: 'School Education',
+    image: '/hero/slide2.jpg',
+    linkUrl: '/products?category=exercise-books',
+    isActive: true,
+    order: 2,
+  },
+  {
+    _id: 'banner-3',
+    title: 'Faber-Castell & Mont Marte',
+    subtitle: 'Watercolour pencils, acrylic paints, brushes & drawing pads.',
+    badge: 'Artist Studio Corner',
+    image: '/hero/slide3.jpg',
+    linkUrl: '/products?category=art-craft',
+    isActive: true,
+    order: 3,
+  },
+  {
+    _id: 'banner-4',
+    title: 'Casio Scientific Calculators',
+    subtitle: 'Authentic FX-991CW ClassWiz with 3-year warranty & USB drives.',
+    badge: 'Exam Approved Tech',
+    image: '/hero/slide4.jpg',
+    linkUrl: '/products?category=mathematical-instruments',
+    isActive: true,
+    order: 4,
+  },
+  {
+    _id: 'banner-5',
+    title: 'Ergonomic School Backpacks',
+    subtitle: 'Waterproof multi-pocket backpacks & essential student gear.',
+    badge: 'Backpacks & Gear',
+    image: '/hero/slide5.jpg',
+    linkUrl: '/products?category=school-accessories',
+    isActive: true,
+    order: 5,
+  },
+];
+
+export function getLocalBanners(): LocalBanner[] {
+  if (memoryBannersCache && memoryBannersCache.length > 0) return memoryBannersCache;
+
+  ensureDataDir();
+  if (!fs.existsSync(BANNERS_FILE)) {
+    saveLocalBanners(INITIAL_HERO_BANNERS);
+    memoryBannersCache = INITIAL_HERO_BANNERS;
+    return INITIAL_HERO_BANNERS;
+  }
+  try {
+    const raw = fs.readFileSync(BANNERS_FILE, 'utf-8');
+    const parsed = JSON.parse(raw);
+    const valid = Array.isArray(parsed) && parsed.length > 0 ? parsed : INITIAL_HERO_BANNERS;
+    memoryBannersCache = valid;
+    return valid;
+  } catch {
+    memoryBannersCache = INITIAL_HERO_BANNERS;
+    return INITIAL_HERO_BANNERS;
+  }
+}
+
+export function saveLocalBanners(banners: LocalBanner[]): void {
+  ensureDataDir();
+  memoryBannersCache = banners;
+  try {
+    fs.writeFileSync(BANNERS_FILE, JSON.stringify(banners, null, 2), 'utf-8');
+  } catch (err) {
+    console.error('Failed writing local banners JSON:', err);
+  }
+}
+
+export function addLocalBanner(data: Partial<LocalBanner>): LocalBanner {
+  const banners = getLocalBanners();
+  const newBanner: LocalBanner = {
+    _id: 'banner-' + Date.now().toString(36),
+    title: data.title || 'Special Promotion Banner',
+    subtitle: data.subtitle || 'Exclusive discount on school stationery and educational supplies.',
+    badge: data.badge || 'Special Offer',
+    image: data.image || '/hero/slide1.jpg',
+    linkUrl: data.linkUrl || '/products',
+    isActive: data.isActive !== undefined ? Boolean(data.isActive) : true,
+    order: Number(data.order) || banners.length + 1,
+    createdAt: new Date().toISOString(),
+  };
+  banners.unshift(newBanner);
+  saveLocalBanners(banners);
+  return newBanner;
+}
+
+export function updateLocalBanner(id: string, data: Partial<LocalBanner>): LocalBanner | null {
+  const banners = getLocalBanners();
+  const index = banners.findIndex(b => b._id === id);
+  if (index === -1) return null;
+
+  const updated: LocalBanner = {
+    ...banners[index],
+    ...data,
+    isActive: data.isActive !== undefined ? Boolean(data.isActive) : banners[index].isActive,
+  };
+  banners[index] = updated;
+  saveLocalBanners(banners);
+  return updated;
+}
+
+export function deleteLocalBanner(id: string): boolean {
+  const banners = getLocalBanners();
+  const filtered = banners.filter(b => b._id !== id);
+  if (filtered.length === banners.length) return false;
+  saveLocalBanners(filtered);
+  return true;
+}
+

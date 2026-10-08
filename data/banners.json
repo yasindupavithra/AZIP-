@@ -1,0 +1,52 @@
+[
+  {
+    "_id": "banner-1",
+    "title": "Vibrant Art & School Supplies",
+    "subtitle": "Atlas, Pilot gel pens, geometry sets & watercolor sketchbooks.",
+    "badge": "Complete Stationery Sets",
+    "image": "/hero/slide1.jpg",
+    "linkUrl": "/products",
+    "isActive": true,
+    "order": 1
+  },
+  {
+    "_id": "banner-2",
+    "title": "Grade Textbooks & CR Books",
+    "subtitle": "High-grade 80gsm paper CR books from Grade 1 to A/L.",
+    "badge": "School Education",
+    "image": "/hero/slide2.jpg",
+    "linkUrl": "/products?category=exercise-books",
+    "isActive": true,
+    "order": 2
+  },
+  {
+    "_id": "banner-3",
+    "title": "Faber-Castell & Mont Marte",
+    "subtitle": "Watercolour pencils, acrylic paints, brushes & drawing pads.",
+    "badge": "Artist Studio Corner",
+    "image": "/hero/slide3.jpg",
+    "linkUrl": "/products?category=art-craft",
+    "isActive": true,
+    "order": 3
+  },
+  {
+    "_id": "banner-4",
+    "title": "Casio Scientific Calculators",
+    "subtitle": "Authentic FX-991CW ClassWiz with 3-year warranty & USB drives.",
+    "badge": "Exam Approved Tech",
+    "image": "/hero/slide4.jpg",
+    "linkUrl": "/products?category=mathematical-instruments",
+    "isActive": true,
+    "order": 4
+  },
+  {
+    "_id": "banner-5",
+    "title": "Ergonomic School Backpacks",
+    "subtitle": "Waterproof multi-pocket backpacks & essential student gear.",
+    "badge": "Backpacks & Gear",
+    "image": "/hero/slide5.jpg",
+    "linkUrl": "/products?category=school-accessories",
+    "isActive": true,
+    "order": 5
+  }
+]

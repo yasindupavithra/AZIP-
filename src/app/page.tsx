@@ -194,6 +194,7 @@ function useInView(options = {}) {
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState<'newest' | 'trending'>('newest');
   const [products, setProducts] = useState(INITIAL_CATALOG_PRODUCTS);
+  const [heroSlides, setHeroSlides] = useState<any[]>(HERO_SLIDES);
   const [isBooklistModalOpen, setIsBooklistModalOpen] = useState(false);
 
   // Hero Carousel Slide State
@@ -201,11 +202,12 @@ export default function HomePage() {
 
   // Auto-play timer (slides every 4 seconds)
   useEffect(() => {
+    if (heroSlides.length === 0) return;
     const timer = setInterval(() => {
-      setCurrentSlideIndex((prev) => (prev + 1) % HERO_SLIDES.length);
+      setCurrentSlideIndex((prev) => (prev + 1) % heroSlides.length);
     }, 4000);
     return () => clearInterval(timer);
-  }, []);
+  }, [heroSlides.length]);
 
   useEffect(() => {
     async function loadLiveProducts() {
@@ -221,15 +223,39 @@ export default function HomePage() {
         console.warn('Could not fetch live products on home page:', err);
       }
     }
+
+    async function loadLiveBanners() {
+      try {
+        const res = await fetch('/api/banners');
+        if (res.ok) {
+          const data = await res.json();
+          if (data.banners && data.banners.length > 0) {
+            const mapped = data.banners.map((b: any, idx: number) => ({
+              id: b._id || idx,
+              image: b.image,
+              badge: b.badge || 'Special Offer',
+              title: b.title,
+              subtitle: b.subtitle,
+              linkUrl: b.linkUrl || '/products',
+            }));
+            setHeroSlides(mapped);
+          }
+        }
+      } catch (err) {
+        console.warn('Could not fetch live banners on home page:', err);
+      }
+    }
+
     loadLiveProducts();
+    loadLiveBanners();
   }, []);
 
   const nextSlide = () => {
-    setCurrentSlideIndex((prev) => (prev + 1) % HERO_SLIDES.length);
+    setCurrentSlideIndex((prev) => (prev + 1) % heroSlides.length);
   };
 
   const prevSlide = () => {
-    setCurrentSlideIndex((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
+    setCurrentSlideIndex((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
   };
 
   const displayedProducts = activeTab === 'newest'
@@ -263,9 +289,9 @@ export default function HomePage() {
           {/* Main Full-Width Banner Slider Container */}
           <div className="relative group rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border border-slate-200/80 bg-slate-900 h-[280px] sm:h-[380px] lg:h-[440px] mt-2 sm:mt-4">
 
-            {HERO_SLIDES.map((slide, idx) => (
+            {heroSlides.map((slide, idx) => (
               <div
-                key={slide.id}
+                key={slide.id || idx}
                 className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${idx === currentSlideIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
                   }`}
               >
@@ -290,9 +316,19 @@ export default function HomePage() {
                     {slide.title}
                   </h2>
 
-                  <p className="text-xs sm:text-base text-slate-100 font-medium leading-relaxed tracking-wide max-w-lg drop-shadow-sm">
+                  <p className="text-xs sm:text-base text-slate-100 font-medium leading-relaxed tracking-wide max-w-lg drop-shadow-sm mb-4">
                     {slide.subtitle}
                   </p>
+
+                  {slide.linkUrl && (
+                    <Link
+                      href={slide.linkUrl}
+                      className="inline-flex items-center gap-2 bg-[#E11D48] hover:bg-[#be123c] text-white px-5 py-2.5 rounded-xl text-xs font-black w-fit shadow-lg transition-all hover:scale-105 border border-rose-300/30 font-['Outfit'] uppercase tracking-wider"
+                    >
+                      <span>Explore Offer</span>
+                      <ArrowRight size={14} />
+                    </Link>
+                  )}
 
                 </div>
               </div>
@@ -319,7 +355,7 @@ export default function HomePage() {
 
             {/* Slider Dot Indicators */}
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 bg-slate-950/40 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10">
-              {HERO_SLIDES.map((_, dotIdx) => (
+              {heroSlides.map((_, dotIdx) => (
                 <button
                   key={dotIdx}
                   type="button"
