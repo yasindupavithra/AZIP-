@@ -166,7 +166,7 @@ export default function Navbar() {
         {/* ── 2. Main Navigation Bar (Clean Rose-Pink Daraz Layout) ── */}
 
         {/* ── 2. Main Navigation Bar (Clean Rose-Pink Daraz Layout) ── */}
-        <div className={`bg-[#E11D48] shadow-md transition-all duration-300 flex items-center ${isScrolled ? 'py-2 sm:py-2.5' : 'py-3 sm:py-6 lg:py-8'
+        <div className={`bg-[#E11D48] shadow-md transition-all duration-300 flex items-center ${isScrolled ? 'py-2.5 sm:py-3' : 'py-4 sm:py-7 lg:py-9'
           }`}>
           <div className="container mx-auto px-4 flex items-center justify-between gap-3 md:gap-10">
 
@@ -177,17 +177,17 @@ export default function Navbar() {
                 <img
                   src="/azip-logo.png"
                   alt="AZIP Store"
-                  className={`w-auto object-contain transition-all duration-300 ${isScrolled ? 'h-7 sm:h-9' : 'h-9 sm:h-14'
+                  className={`w-auto object-contain transition-all duration-300 ${isScrolled ? 'h-7 sm:h-8' : 'h-8 sm:h-12'
                     }`}
                 />
               </div>
             </Link>
 
-            {/* Ultra-Simple Rectangle Search Bar */}
+            {/* Ultra-Simple Sleek Rectangle Search Bar Nested Inside Pink Header */}
             <form
               ref={searchRef}
               onSubmit={handleSearchSubmit}
-              className={`relative flex-1 max-w-4xl hidden md:flex items-center rounded-lg bg-white shadow-lg overflow-hidden transition-all duration-300 ${isScrolled ? 'h-10 sm:h-11' : 'h-13 sm:h-15'
+              className={`relative flex-1 max-w-3xl hidden md:flex items-center rounded-lg bg-white shadow-lg overflow-hidden transition-all duration-300 ${isScrolled ? 'h-10 sm:h-10.5' : 'h-11 sm:h-12'
                 }`}
             >
               {/* Search Input */}
@@ -197,16 +197,16 @@ export default function Navbar() {
                 onFocus={() => setIsSearchFocused(true)}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search in AZIP Store..."
-                className="flex-1 h-full px-6 text-sm sm:text-base text-gray-900 placeholder-gray-400 focus:outline-none bg-transparent font-semibold"
+                className="flex-1 h-full px-5 text-sm sm:text-base text-gray-900 placeholder-gray-400 focus:outline-none bg-transparent font-semibold"
               />
 
               {/* Tinted Search Icon Button */}
               <button
                 type="submit"
-                className="h-full px-6 bg-rose-50 hover:bg-rose-100 text-[#E11D48] flex items-center justify-center transition-all duration-200 cursor-pointer border-none font-extrabold"
+                className="h-full px-5 bg-rose-50 hover:bg-rose-100 text-[#E11D48] flex items-center justify-center transition-all duration-200 cursor-pointer border-none font-extrabold"
                 title="Search Products"
               >
-                <Search size={isScrolled ? 18 : 23} className="stroke-[2.8]" />
+                <Search size={isScrolled ? 18 : 21} className="stroke-[2.8]" />
               </button>
 
               {/* Instant Search Autocomplete Dropdown */}
@@ -278,7 +278,7 @@ export default function Navbar() {
                 title="My Cart"
               >
                 <div className="relative">
-                  <ShoppingCart size={isScrolled ? 28 : 36} className="text-white stroke-[2] transition-all duration-300" />
+                  <ShoppingCart size={isScrolled ? 26 : 34} className="text-white stroke-[2] transition-all duration-300" />
                   {itemCount > 0 && (
                     <span className="absolute -top-2 -right-2 bg-white text-[#E11D48] text-[11px] min-w-[22px] h-[22px] px-1 rounded-full flex items-center justify-center font-black shadow-md animate-scale-in">
                       {itemCount}
@@ -300,12 +300,12 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Professional Mobile Rectangle Search Bar with Live Autocomplete */}
-        <div className="md:hidden px-4 pb-3">
+        {/* Professional Mobile Rectangle Search Bar Nested Inside Pink Bar */}
+        <div className="md:hidden px-4 pb-4 pt-1">
           <form 
             ref={searchRef}
             onSubmit={handleSearchSubmit} 
-            className="relative flex items-center rounded-lg bg-white shadow-lg overflow-hidden border border-rose-100/60 h-11 transition-all"
+            className="relative flex items-center rounded-lg bg-white shadow-lg overflow-hidden border border-rose-100/60 h-10.5 transition-all"
           >
             <div className="pl-3.5 text-[#E11D48] flex items-center justify-center shrink-0">
               <Search size={17} className="stroke-[2.8]" />
