@@ -183,7 +183,7 @@ export default function Navbar() {
               </div>
             </Link>
 
-            {/* Ultra-Simple Search Bar */}
+            {/* Ultra-Simple Rectangle Search Bar */}
             <form
               ref={searchRef}
               onSubmit={handleSearchSubmit}
@@ -211,7 +211,7 @@ export default function Navbar() {
 
               {/* Instant Search Autocomplete Dropdown */}
               {isSearchFocused && searchQuery.trim().length > 0 && (
-                <div className="absolute top-full left-0 right-0 mt-3 bg-white border border-gray-100 rounded-xl shadow-2xl z-50 p-5 animate-fade-in overflow-hidden text-gray-900">
+                <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-100 rounded-xl shadow-2xl z-50 p-5 animate-fade-in overflow-hidden text-gray-900">
 
                   {searchResults.length > 0 ? (
                     <div className="space-y-4">
@@ -226,9 +226,9 @@ export default function Navbar() {
                             key={prod._id}
                             href={`/products/${prod.slug}`}
                             onClick={() => setIsSearchFocused(false)}
-                            className="flex items-center gap-4 p-3 rounded-2xl hover:bg-rose-50/70 transition-colors group"
+                            className="flex items-center gap-4 p-3 rounded-lg hover:bg-rose-50/70 transition-colors group"
                           >
-                            <div className="w-11 h-11 rounded-xl bg-slate-50 border border-gray-100 p-1 flex items-center justify-center shrink-0">
+                            <div className="w-11 h-11 rounded-lg bg-slate-50 border border-gray-100 p-1 flex items-center justify-center shrink-0">
                               <img
                                 src={prod.images?.[0]?.url || '/categories/cat_stationery.jpg'}
                                 alt={prod.name}
@@ -300,7 +300,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Professional Mobile Search Bar with Live Autocomplete */}
+        {/* Professional Mobile Rectangle Search Bar with Live Autocomplete */}
         <div className="md:hidden px-4 pb-3">
           <form 
             ref={searchRef}
@@ -353,9 +353,9 @@ export default function Navbar() {
                           key={prod._id}
                           href={`/products/${prod.slug}`}
                           onClick={() => setIsSearchFocused(false)}
-                          className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-rose-50/70 transition-colors"
+                          className="flex items-center gap-3 p-2.5 rounded-lg hover:bg-rose-50/70 transition-colors"
                         >
-                          <div className="w-10 h-10 rounded-xl bg-slate-50 border border-gray-100 p-1 flex items-center justify-center shrink-0">
+                          <div className="w-10 h-10 rounded-lg bg-slate-50 border border-gray-100 p-1 flex items-center justify-center shrink-0">
                             <img
                               src={prod.images?.[0]?.url || '/categories/cat_stationery.jpg'}
                               alt={prod.name}
