@@ -628,7 +628,7 @@ export default function AdminDashboard() {
                         <tr key={p._id} className="hover:bg-slate-50/80 transition-colors">
                           <td className="py-3.5 px-4">
                             <div className="flex items-center gap-3">
-                              <div className="w-12 h-12 rounded-xl bg-gray-50 border border-gray-200 p-1 flex items-center justify-center shrink-0">
+                              <div className="w-12 h-12 rounded-none bg-gray-50 border border-gray-200 p-1 flex items-center justify-center shrink-0">
                                 <img
                                   src={p.images?.[0]?.url || PRESET_IMAGES[0].url}
                                   alt={p.name}
@@ -830,7 +830,7 @@ export default function AdminDashboard() {
               {banners.map((b, idx) => (
                 <div
                   key={b._id}
-                  className={`bg-white rounded-3xl border ${
+                  className={`bg-white rounded-none border ${
                     b.isActive ? 'border-rose-200 shadow-md' : 'border-gray-200 opacity-60 bg-gray-50'
                   } overflow-hidden transition-all duration-300 flex flex-col justify-between`}
                 >

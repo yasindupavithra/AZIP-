@@ -144,7 +144,7 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
         {/* Header */}
         <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 px-6 py-5 text-white flex items-center justify-between shrink-0">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-[#DC2626] flex items-center justify-center text-white shadow-md">
+            <div className="w-10 h-10 rounded-2xl bg-[#007AFF] flex items-center justify-center text-white shadow-md">
               <Upload size={20} />
             </div>
             <div>
@@ -167,13 +167,13 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
 
         {/* Progress Bar */}
         <div className="bg-slate-100 px-6 py-2.5 border-b border-gray-200 flex items-center justify-between text-xs font-bold text-gray-500 shrink-0">
-          <div className={`flex items-center gap-2 ${step >= 1 ? 'text-[#DC2626]' : ''}`}>
-            <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] ${step >= 1 ? 'bg-[#DC2626] text-white' : 'bg-gray-300 text-gray-600'}`}>1</span>
+          <div className={`flex items-center gap-2 ${step >= 1 ? 'text-[#007AFF]' : ''}`}>
+            <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] ${step >= 1 ? 'bg-[#007AFF] text-white' : 'bg-gray-300 text-gray-600'}`}>1</span>
             <span>Upload File</span>
           </div>
           <div className="h-0.5 flex-1 bg-gray-200 mx-3" />
-          <div className={`flex items-center gap-2 ${step >= 2 ? 'text-[#DC2626]' : ''}`}>
-            <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] ${step >= 2 ? 'bg-[#DC2626] text-white' : 'bg-gray-300 text-gray-600'}`}>2</span>
+          <div className={`flex items-center gap-2 ${step >= 2 ? 'text-[#007AFF]' : ''}`}>
+            <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] ${step >= 2 ? 'bg-[#007AFF] text-white' : 'bg-gray-300 text-gray-600'}`}>2</span>
             <span>Contact Info</span>
           </div>
           <div className="h-0.5 flex-1 bg-gray-200 mx-3" />
@@ -202,10 +202,10 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
                 onDrop={handleDrop}
                 className={`relative border-2 border-dashed rounded-2xl p-8 text-center transition-all cursor-pointer ${
                   dragActive
-                    ? 'border-[#DC2626] bg-red-50/50 scale-[0.99]'
+                    ? 'border-[#007AFF] bg-blue-50/50 scale-[0.99]'
                     : file
                     ? 'border-emerald-400 bg-emerald-50/30'
-                    : 'border-gray-300 hover:border-[#DC2626] hover:bg-gray-50'
+                    : 'border-gray-300 hover:border-[#007AFF] hover:bg-gray-50'
                 }`}
               >
                 <input
@@ -230,19 +230,19 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
                         e.stopPropagation();
                         setFile(null);
                       }}
-                      className="text-xs font-bold text-[#DC2626] hover:underline bg-transparent border-none cursor-pointer pt-1"
+                      className="text-xs font-bold text-[#007AFF] hover:underline bg-transparent border-none cursor-pointer pt-1"
                     >
                       Remove &amp; Choose Different File
                     </button>
                   </div>
                 ) : (
                   <div className="space-y-3">
-                    <div className="w-14 h-14 bg-red-50 text-[#DC2626] rounded-2xl flex items-center justify-center mx-auto shadow-sm">
+                    <div className="w-14 h-14 bg-blue-50 text-[#007AFF] rounded-2xl flex items-center justify-center mx-auto shadow-sm">
                       <Upload size={26} />
                     </div>
                     <div>
                       <span className="text-sm font-bold text-gray-800">
-                        Drag &amp; drop your school booklist here, or <span className="text-[#DC2626] underline">browse files</span>
+                        Drag &amp; drop your school booklist here, or <span className="text-[#007AFF] underline">browse files</span>
                       </span>
                       <p className="text-xs text-gray-400 font-medium mt-1">
                         Supports PDF documents or photos/scans (PNG, JPG up to 10MB)
@@ -267,7 +267,7 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
                   disabled={!file}
                   className={`px-6 py-3 rounded-xl font-bold text-xs sm:text-sm text-white transition-all flex items-center gap-2 ${
                     file
-                      ? 'bg-[#DC2626] hover:bg-[#b91c1c] shadow-md cursor-pointer hover:scale-[1.02]'
+                      ? 'bg-[#007AFF] hover:bg-[#0056B3] shadow-md cursor-pointer hover:scale-[1.02]'
                       : 'bg-gray-300 cursor-not-allowed'
                   }`}
                 >
@@ -286,7 +286,7 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
                 {/* Student Name */}
                 <div>
                   <label className="block text-xs font-bold text-gray-700 mb-1 flex items-center gap-1.5">
-                    <User size={13} className="text-[#DC2626]" /> Student Name *
+                    <User size={13} className="text-[#007AFF]" /> Student Name *
                   </label>
                   <input
                     type="text"
@@ -294,19 +294,19 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
                     value={studentName}
                     onChange={(e) => setStudentName(e.target.value)}
                     placeholder="e.g. Kasun Perera"
-                    className="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-xs sm:text-sm font-medium focus:outline-none focus:border-[#DC2626] focus:ring-2 focus:ring-red-500/10"
+                    className="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-xs sm:text-sm font-medium focus:outline-none focus:border-[#007AFF] focus:ring-2 focus:ring-blue-500/10"
                   />
                 </div>
 
                 {/* Grade */}
                 <div>
                   <label className="block text-xs font-bold text-gray-700 mb-1 flex items-center gap-1.5">
-                    <GraduationCap size={13} className="text-[#DC2626]" /> Grade / Class *
+                    <GraduationCap size={13} className="text-[#007AFF]" /> Grade / Class *
                   </label>
                   <select
                     value={grade}
                     onChange={(e) => setGrade(e.target.value)}
-                    className="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-xs sm:text-sm font-medium focus:outline-none focus:border-[#DC2626] bg-white"
+                    className="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-xs sm:text-sm font-medium focus:outline-none focus:border-[#007AFF] bg-white"
                   >
                     <option value="Grade 1-5 Primary">Grade 1 - 5 (Primary)</option>
                     <option value="Grade 6">Grade 6</option>
@@ -330,14 +330,14 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
                     value={schoolName}
                     onChange={(e) => setSchoolName(e.target.value)}
                     placeholder="e.g. Dharmaraja College, Kandy"
-                    className="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-xs sm:text-sm font-medium focus:outline-none focus:border-[#DC2626] focus:ring-2 focus:ring-red-500/10"
+                    className="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-xs sm:text-sm font-medium focus:outline-none focus:border-[#007AFF] focus:ring-2 focus:ring-blue-500/10"
                   />
                 </div>
 
                 {/* Parent Phone / WhatsApp */}
                 <div>
                   <label className="block text-xs font-bold text-gray-700 mb-1 flex items-center gap-1.5">
-                    <Phone size={13} className="text-[#DC2626]" /> Parent Phone / WhatsApp *
+                    <Phone size={13} className="text-[#007AFF]" /> Parent Phone / WhatsApp *
                   </label>
                   <input
                     type="tel"
@@ -345,7 +345,7 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
                     value={parentPhone}
                     onChange={(e) => setParentPhone(e.target.value)}
                     placeholder="e.g. 077 123 4567"
-                    className="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-xs sm:text-sm font-medium focus:outline-none focus:border-[#DC2626] focus:ring-2 focus:ring-red-500/10"
+                    className="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-xs sm:text-sm font-medium focus:outline-none focus:border-[#007AFF] focus:ring-2 focus:ring-blue-500/10"
                   />
                 </div>
               </div>
@@ -353,14 +353,14 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
               {/* City / District */}
               <div>
                 <label className="block text-xs font-bold text-gray-700 mb-1 flex items-center gap-1.5">
-                  <MapPin size={13} className="text-[#DC2626]" /> Delivery City / District
+                  <MapPin size={13} className="text-[#007AFF]" /> Delivery City / District
                 </label>
                 <input
                   type="text"
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
                   placeholder="e.g. Kandy, Peradeniya, Colombo, Galle..."
-                  className="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-xs sm:text-sm font-medium focus:outline-none focus:border-[#DC2626]"
+                  className="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-xs sm:text-sm font-medium focus:outline-none focus:border-[#007AFF]"
                 />
               </div>
 
@@ -374,7 +374,7 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
                   placeholder="e.g. Please use Atlas CR books & Pilot gel pens if available..."
-                  className="w-full px-3.5 py-2 border border-gray-200 rounded-xl text-xs sm:text-sm font-medium focus:outline-none focus:border-[#DC2626]"
+                  className="w-full px-3.5 py-2 border border-gray-200 rounded-xl text-xs sm:text-sm font-medium focus:outline-none focus:border-[#007AFF]"
                 />
               </div>
 
@@ -389,7 +389,7 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="px-6 py-3 bg-[#DC2626] hover:bg-[#b91c1c] text-white text-xs sm:text-sm font-bold rounded-xl shadow-md hover:shadow-lg transition-all flex items-center gap-2 cursor-pointer border-none"
+                  className="px-6 py-3 bg-[#007AFF] hover:bg-[#0056B3] text-white text-xs sm:text-sm font-bold rounded-xl shadow-md hover:shadow-lg transition-all flex items-center gap-2 cursor-pointer border-none"
                 >
                   {isSubmitting ? (
                     <>
@@ -419,7 +419,7 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
                   Booklist Submitted Successfully!
                 </h3>
                 <p className="text-xs sm:text-sm text-gray-600 mt-1 max-w-md mx-auto font-medium">
-                  Our stationery team is reviewing <span className="font-bold text-gray-900">{file?.name || 'your booklist file'}</span> for <span className="font-bold text-[#DC2626]">{studentName}</span> ({schoolName}).
+                  Our stationery team is reviewing <span className="font-bold text-gray-900">{file?.name || 'your booklist file'}</span> for <span className="font-bold text-[#007AFF]">{studentName}</span> ({schoolName}).
                 </p>
               </div>
 

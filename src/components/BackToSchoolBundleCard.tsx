@@ -26,7 +26,7 @@ export default function BackToSchoolBundleCard({ bundle }: BackToSchoolBundleCar
   };
 
   return (
-    <div className="group relative bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col h-full font-sans">
+    <div className="group relative bg-white rounded-3xl border border-slate-200/80 shadow-xs hover:shadow-2xl hover:border-blue-400/50 transition-all duration-300 overflow-hidden flex flex-col h-full font-sans">
 
       {/* Top Banner Tag */}
       <div className="relative aspect-16/10 bg-gray-50 overflow-hidden shrink-0">
@@ -38,7 +38,7 @@ export default function BackToSchoolBundleCard({ bundle }: BackToSchoolBundleCar
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
 
         {/* Savings Badge */}
-        <div className="absolute top-3 left-3 z-10 flex items-center gap-1.5 bg-[#DC2626] text-white text-[11px] font-black px-3 py-1.5 rounded-full shadow-md">
+        <div className="absolute top-3 left-3 z-10 flex items-center gap-1.5 bg-[#007AFF] text-white text-[11px] font-black px-3 py-1.5 rounded-full shadow-md">
           <Sparkles size={12} className="fill-white" />
           <span>Save {bundle.savingsPercentage}% Off</span>
         </div>
@@ -60,7 +60,7 @@ export default function BackToSchoolBundleCard({ bundle }: BackToSchoolBundleCar
       <div className="p-4 flex flex-col flex-1 justify-between bg-white">
         <div className="mb-3">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-100/90 text-slate-700 text-[11px] font-bold rounded-full border border-slate-200/60">
-            <PackageCheck size={14} className="text-[#E11D48]" />
+            <PackageCheck size={14} className="text-[#007AFF]" />
             <span>Includes {bundle.itemsIncluded.length} Verified Essentials</span>
           </div>
         </div>
@@ -83,7 +83,7 @@ export default function BackToSchoolBundleCard({ bundle }: BackToSchoolBundleCar
             onClick={handleAddBundleToCart}
             className={`px-5 py-3 rounded-2xl font-black text-xs sm:text-sm flex items-center gap-2 transition-all duration-200 cursor-pointer border-none shadow-md ${added
                 ? 'bg-emerald-600 text-white scale-105'
-                : 'bg-gradient-to-r from-[#DC2626] to-[#E11D48] hover:from-[#B91C1C] hover:to-[#C2410C] text-white hover:scale-105 hover:shadow-lg'
+                : 'bg-gradient-to-r from-[#007AFF] to-[#0284C7] hover:from-[#0056B3] hover:to-[#0369A1] text-white hover:scale-105 hover:shadow-lg'
               }`}
           >
             {added ? (

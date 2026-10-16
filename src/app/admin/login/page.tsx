@@ -52,8 +52,8 @@ export default function AdminLoginPage() {
         </div>
 
         {/* Demo Credentials Notice */}
-        <div className="mb-6 p-3.5 bg-red-50 border border-red-200 rounded-lg text-xs text-gray-700">
-          <p className="font-bold text-[#e3004f] mb-1">🔑 Default Login Credentials:</p>
+        <div className="mb-6 p-3.5 bg-blue-50 border border-blue-200 rounded-lg text-xs text-gray-700">
+          <p className="font-bold text-[#007AFF] mb-1">🔑 Default Login Credentials:</p>
           <div className="space-y-0.5 font-mono text-[11px]">
             <div>Email: <span className="font-bold text-gray-900">admin@azipstore.lk</span></div>
             <div>Password: <span className="font-bold text-gray-900">admin123</span></div>
@@ -72,7 +72,7 @@ export default function AdminLoginPage() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3.5 py-2.5 text-xs border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:border-[#e3004f] focus:ring-1 focus:ring-[#e3004f] transition-all bg-gray-50 focus:bg-white"
+              className="w-full px-3.5 py-2.5 text-xs border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:border-[#007AFF] focus:ring-1 focus:ring-[#007AFF] transition-all bg-gray-50 focus:bg-white"
             />
           </div>
 
@@ -86,7 +86,7 @@ export default function AdminLoginPage() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-3.5 py-2.5 text-xs border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:border-[#e3004f] focus:ring-1 focus:ring-[#e3004f] transition-all bg-gray-50 focus:bg-white"
+              className="w-full px-3.5 py-2.5 text-xs border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:border-[#007AFF] focus:ring-1 focus:ring-[#007AFF] transition-all bg-gray-50 focus:bg-white"
             />
           </div>
 
@@ -99,14 +99,14 @@ export default function AdminLoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 px-4 bg-[#e3004f] hover:bg-[#cc0043] text-white font-bold text-xs uppercase tracking-wider rounded-lg shadow-md hover:shadow-lg transition-all cursor-pointer border-none disabled:opacity-50 mt-2"
+            className="w-full py-3 px-4 bg-[#007AFF] hover:bg-[#0056B3] text-white font-bold text-xs uppercase tracking-wider rounded-lg shadow-md hover:shadow-lg transition-all cursor-pointer border-none disabled:opacity-50 mt-2"
           >
             {loading ? 'Authenticating...' : 'Sign In to Dashboard'}
           </button>
         </form>
 
         <p className="text-center mt-6 text-xs text-gray-500">
-          <Link href="/" className="font-semibold text-gray-600 hover:text-[#e3004f] transition-colors">
+          <Link href="/" className="font-semibold text-gray-600 hover:text-[#007AFF] transition-colors">
             ← Back to Public Store
           </Link>
         </p>

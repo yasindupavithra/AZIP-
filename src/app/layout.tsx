@@ -5,6 +5,10 @@ export const metadata: Metadata = {
   title: "AZip Store | Educational Materials & Electronics - Kandy",
   description: "Your one-stop shop for educational materials, stationery, and electronics in Kandy, Sri Lanka. Books, pens, school supplies, calculators, headphones, and more.",
   keywords: ["AZip Store", "Kandy", "stationery", "electronics", "school supplies", "Sri Lanka"],
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/azip-logo.png",
+  },
 };
 
 export default function RootLayout({

@@ -95,7 +95,7 @@ export default function ProductDetailPage() {
     return (
       <StoreShell>
         <div className="container py-24 text-center max-w-md mx-auto">
-          <div className="w-16 h-16 bg-red-50 text-[#e50914] rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="w-16 h-16 bg-blue-50 text-[#007AFF] rounded-full flex items-center justify-center mx-auto mb-4">
             <RotateCcw size={28} />
           </div>
           <h1 className="text-2xl font-black text-gray-900 mb-2 font-['Outfit']">Product not found</h1>
@@ -143,7 +143,7 @@ export default function ProductDetailPage() {
         <div className="flex items-center justify-between gap-4 mb-6">
           <Link
             href="/products"
-            className="inline-flex items-center gap-2 text-xs font-bold text-gray-500 hover:text-[#e50914] transition-colors"
+            className="inline-flex items-center gap-2 text-xs font-bold text-gray-500 hover:text-[#007AFF] transition-colors"
           >
             <ArrowLeft size={16} /> Back to Catalog
           </Link>
@@ -165,9 +165,9 @@ export default function ProductDetailPage() {
             
             {/* Left: Product Images Gallery */}
             <div className="lg:col-span-6 flex flex-col gap-4">
-              <div className="relative aspect-square bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 flex items-center justify-center">
+              <div className="relative aspect-square bg-gray-50 rounded-none overflow-hidden border border-gray-100 flex items-center justify-center">
                 {discount > 0 && (
-                  <span className="absolute top-4 left-4 bg-[#e50914] text-white text-xs font-black px-3 py-1 rounded-full shadow-md z-10">
+                  <span className="absolute top-4 left-4 bg-[#007AFF] text-white text-xs font-black px-3 py-1 rounded-full shadow-md z-10">
                     SAVE {discount}%
                   </span>
                 )}
@@ -185,8 +185,8 @@ export default function ProductDetailPage() {
                     <button
                       key={idx}
                       onClick={() => setSelectedImage(img)}
-                      className={`w-16 h-16 rounded-xl overflow-hidden border-2 transition-all cursor-pointer ${
-                        selectedImage === img ? 'border-[#e50914] shadow-md scale-105' : 'border-gray-200 opacity-70 hover:opacity-100'
+                      className={`w-16 h-16 rounded-none overflow-hidden border-2 transition-all cursor-pointer ${
+                        selectedImage === img ? 'border-[#007AFF] shadow-md scale-105' : 'border-gray-200 opacity-70 hover:opacity-100'
                       }`}
                     >
                       <img src={img} alt="" className="w-full h-full object-cover" />
@@ -200,17 +200,17 @@ export default function ProductDetailPage() {
             <div className="lg:col-span-6 flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between gap-4 mb-2">
-                  <span className="text-xs font-black uppercase tracking-wider text-[#e50914] bg-red-50 px-3 py-1 rounded-full">
+                  <span className="text-xs font-black uppercase tracking-wider text-[#007AFF] bg-blue-50 px-3 py-1 rounded-full">
                     {getCategoryLabel(product.category)}
                   </span>
                   
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => setIsWishlisted(!isWishlisted)}
-                      className="p-2 rounded-full border border-gray-200 hover:bg-red-50 text-gray-500 hover:text-[#e50914] transition-colors"
+                      className="p-2 rounded-full border border-gray-200 hover:bg-blue-50 text-gray-500 hover:text-[#007AFF] transition-colors"
                       title="Add to wishlist"
                     >
-                      <Heart size={16} className={isWishlisted ? 'fill-[#e50914] text-[#e50914]' : ''} />
+                      <Heart size={16} className={isWishlisted ? 'fill-[#007AFF] text-[#007AFF]' : ''} />
                     </button>
                     <button
                       onClick={handleShare}
@@ -249,7 +249,7 @@ export default function ProductDetailPage() {
                 {/* Pricing Box */}
                 <div className="mb-6">
                   <div className="flex items-baseline gap-3">
-                    <span className="text-3xl sm:text-4xl font-black text-[#e50914] font-['Outfit']">
+                    <span className="text-3xl sm:text-4xl font-black text-[#007AFF] font-['Outfit']">
                       Rs. {product.price.toLocaleString()}
                     </span>
                     {product.compareAtPrice && product.compareAtPrice > product.price && (
@@ -326,17 +326,17 @@ export default function ProductDetailPage() {
               {/* Trust Badges under actions */}
               <div className="grid grid-cols-3 gap-3 pt-6 border-t border-gray-100 text-center">
                 <div className="p-2.5 rounded-xl bg-gray-50">
-                  <Truck size={18} className="text-[#e50914] mx-auto mb-1" />
+                  <Truck size={18} className="text-[#007AFF] mx-auto mb-1" />
                   <div className="text-[11px] font-bold text-gray-900">Fast Islandwide</div>
                   <div className="text-[10px] text-gray-500">2-3 Business Days</div>
                 </div>
                 <div className="p-2.5 rounded-xl bg-gray-50">
-                  <ShieldCheck size={18} className="text-[#e50914] mx-auto mb-1" />
+                  <ShieldCheck size={18} className="text-[#007AFF] mx-auto mb-1" />
                   <div className="text-[11px] font-bold text-gray-900">100% Genuine</div>
                   <div className="text-[10px] text-gray-500">Official Warranty</div>
                 </div>
                 <div className="p-2.5 rounded-xl bg-gray-50">
-                  <RotateCcw size={18} className="text-[#e50914] mx-auto mb-1" />
+                  <RotateCcw size={18} className="text-[#007AFF] mx-auto mb-1" />
                   <div className="text-[11px] font-bold text-gray-900">Easy Returns</div>
                   <div className="text-[10px] text-gray-500">7-Day Replacement</div>
                 </div>
@@ -361,7 +361,7 @@ export default function ProductDetailPage() {
                 onClick={() => setActiveTab(tab.id as any)}
                 className={`px-6 py-4 text-xs sm:text-sm font-bold border-b-2 transition-all cursor-pointer ${
                   activeTab === tab.id
-                    ? 'border-[#e50914] text-[#e50914] bg-white'
+                    ? 'border-[#007AFF] text-[#007AFF] bg-white'
                     : 'border-transparent text-gray-500 hover:text-gray-900'
                 }`}
               >
@@ -405,7 +405,7 @@ export default function ProductDetailPage() {
             {activeTab === 'shipping' && (
               <div className="space-y-4 text-xs sm:text-sm text-gray-700">
                 <div className="flex items-start gap-3">
-                  <Truck size={18} className="text-[#e50914] shrink-0 mt-0.5" />
+                  <Truck size={18} className="text-[#007AFF] shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-bold text-gray-900">Island-Wide Courier Delivery</h4>
                     <p className="text-gray-500 text-xs mt-0.5">
@@ -415,7 +415,7 @@ export default function ProductDetailPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <ShieldCheck size={18} className="text-[#e50914] shrink-0 mt-0.5" />
+                  <ShieldCheck size={18} className="text-[#007AFF] shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-bold text-gray-900">Payment Modes</h4>
                     <p className="text-gray-500 text-xs mt-0.5">
@@ -453,7 +453,7 @@ export default function ProductDetailPage() {
             <h2 className="text-xl sm:text-2xl font-black text-gray-900 font-['Outfit']">
               You May Also Like
             </h2>
-            <Link href="/products" className="text-xs font-bold text-[#e50914] hover:underline">
+            <Link href="/products" className="text-xs font-bold text-[#007AFF] hover:underline">
               View All Products →
             </Link>
           </div>

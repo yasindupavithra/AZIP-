@@ -19,11 +19,11 @@ export default function ContactPage() {
       {/* Header */}
       <section className="bg-[#0f172a] text-white py-14 sm:py-20 text-center">
         <div className="container max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-600/30 text-red-300 text-xs font-black uppercase rounded-full mb-3 tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-600/30 text-blue-300 text-xs font-black uppercase rounded-full mb-3 tracking-wider">
             Customer Support &amp; Branch Info
           </div>
           <h1 className="text-3xl sm:text-5xl font-black font-['Outfit'] mb-3">
-            Contact <span className="text-[#e50914]">AZIP STORE</span>
+            Contact <span className="text-[#007AFF]">AZIP STORE</span>
           </h1>
           <p className="text-xs sm:text-sm text-gray-300">
             Have questions about a book, bulk orders, or your delivery? We are here to help!
@@ -42,7 +42,7 @@ export default function ContactPage() {
               </h2>
 
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-red-50 text-[#e50914] flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#007AFF] flex items-center justify-center shrink-0">
                   <MapPin size={20} />
                 </div>
                 <div>
@@ -54,7 +54,7 @@ export default function ContactPage() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-red-50 text-[#e50914] flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#007AFF] flex items-center justify-center shrink-0">
                   <Phone size={20} />
                 </div>
                 <div>
@@ -82,7 +82,7 @@ export default function ContactPage() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-red-50 text-[#e50914] flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#007AFF] flex items-center justify-center shrink-0">
                   <Mail size={20} />
                 </div>
                 <div>
@@ -143,7 +143,7 @@ export default function ContactPage() {
                         value={form.name}
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
                         placeholder="Kasun Perera"
-                        className="w-full px-4 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-red-500"
+                        className="w-full px-4 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#007AFF]"
                       />
                     </div>
                     <div>
@@ -154,7 +154,7 @@ export default function ContactPage() {
                         value={form.phone}
                         onChange={(e) => setForm({ ...form, phone: e.target.value })}
                         placeholder="077 XXXXXXX"
-                        className="w-full px-4 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-red-500"
+                        className="w-full px-4 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#007AFF]"
                       />
                     </div>
                   </div>
@@ -167,7 +167,7 @@ export default function ContactPage() {
                         value={form.email}
                         onChange={(e) => setForm({ ...form, email: e.target.value })}
                         placeholder="you@email.com"
-                        className="w-full px-4 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-red-500"
+                        className="w-full px-4 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#007AFF]"
                       />
                     </div>
                     <div>
@@ -177,7 +177,7 @@ export default function ContactPage() {
                         value={form.subject}
                         onChange={(e) => setForm({ ...form, subject: e.target.value })}
                         placeholder="School Booklist / Product Inquiry"
-                        className="w-full px-4 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-red-500"
+                        className="w-full px-4 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#007AFF]"
                       />
                     </div>
                   </div>
@@ -190,7 +190,7 @@ export default function ContactPage() {
                       value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
                       placeholder="Write your questions, product names, or book details..."
-                      className="w-full px-4 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-red-500"
+                      className="w-full px-4 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#007AFF]"
                     />
                   </div>
 

@@ -117,7 +117,7 @@ export default function CheckoutPage() {
 
             <div className="bg-gray-50 border border-gray-200 rounded-2xl p-4 my-6">
               <span className="text-xs text-gray-500 block mb-1">Your Order Reference</span>
-              <span className="text-2xl font-black text-[#e50914] font-['Outfit'] tracking-wider">
+              <span className="text-2xl font-black text-[#007AFF] font-['Outfit'] tracking-wider">
                 {orderNumber}
               </span>
             </div>
@@ -150,7 +150,7 @@ export default function CheckoutPage() {
       <div className="container py-8 md:py-12 max-w-5xl">
         <Link
           href="/cart"
-          className="inline-flex items-center gap-2 text-xs font-bold text-gray-500 hover:text-[#e50914] mb-6 transition-colors"
+          className="inline-flex items-center gap-2 text-xs font-bold text-gray-500 hover:text-[#007AFF] mb-6 transition-colors"
         >
           <ArrowLeft size={16} /> Back to Shopping Cart
         </Link>
@@ -165,7 +165,7 @@ export default function CheckoutPage() {
             {/* Delivery Info */}
             <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
               <h2 className="text-lg font-black text-gray-900 font-['Outfit'] mb-4 flex items-center gap-2">
-                <Truck size={20} className="text-[#e50914]" />
+                <Truck size={20} className="text-[#007AFF]" />
                 1. Delivery Details
               </h2>
 
@@ -285,7 +285,7 @@ export default function CheckoutPage() {
             {/* Payment Method */}
             <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
               <h2 className="text-lg font-black text-gray-900 font-['Outfit'] mb-4 flex items-center gap-2">
-                <Banknote size={20} className="text-[#e50914]" />
+                <Banknote size={20} className="text-[#007AFF]" />
                 2. Select Payment Method
               </h2>
 
@@ -293,7 +293,7 @@ export default function CheckoutPage() {
                 <label
                   onClick={() => setForm({ ...form, paymentMethod: 'cod' })}
                   className={`flex items-start gap-4 p-4 rounded-xl border-2 transition-all cursor-pointer ${
-                    form.paymentMethod === 'cod' ? 'border-[#e50914] bg-red-50/30' : 'border-gray-200 hover:border-gray-300'
+                    form.paymentMethod === 'cod' ? 'border-[#007AFF] bg-blue-50/30' : 'border-gray-200 hover:border-gray-300'
                   }`}
                 >
                   <input
@@ -389,7 +389,7 @@ export default function CheckoutPage() {
 
                 <div className="pt-4 border-t border-gray-100 flex justify-between items-baseline">
                   <span className="text-base font-bold text-gray-900">Total</span>
-                  <span className="text-2xl font-black text-[#e50914] font-['Outfit']">
+                  <span className="text-2xl font-black text-[#007AFF] font-['Outfit']">
                     Rs. {total.toLocaleString()}
                   </span>
                 </div>

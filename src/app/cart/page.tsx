@@ -27,7 +27,7 @@ export default function CartPage() {
 
           <Link
             href="/products"
-            className="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold text-gray-600 hover:text-[#e50914] transition-colors"
+            className="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold text-gray-600 hover:text-[#007AFF] transition-colors"
           >
             <ArrowLeft size={15} /> Continue Shopping
           </Link>
@@ -35,7 +35,7 @@ export default function CartPage() {
 
         {items.length === 0 ? (
           <div className="bg-white rounded-2xl border border-gray-200 py-16 px-6 text-center max-w-lg mx-auto shadow-sm">
-            <div className="w-20 h-20 bg-red-50 text-[#e50914] rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-20 h-20 bg-blue-50 text-[#007AFF] rounded-full flex items-center justify-center mx-auto mb-4">
               <ShoppingBag size={36} strokeWidth={1.5} />
             </div>
             <h2 className="text-xl font-bold text-gray-900 font-['Outfit'] mb-2">
@@ -56,7 +56,7 @@ export default function CartPage() {
                 {items.map((item) => (
                   <div key={item.id} className="p-4 sm:p-5 flex gap-4 sm:gap-6 items-center">
                     {/* Item Image */}
-                    <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl bg-gray-50 border border-gray-100 overflow-hidden shrink-0">
+                    <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-none bg-gray-50 border border-gray-100 overflow-hidden shrink-0">
                       <img
                         src={item.image || '/placeholder.png'}
                         alt={item.name}
@@ -69,7 +69,7 @@ export default function CartPage() {
                       <h3 className="text-sm sm:text-base font-bold text-gray-900 line-clamp-1 mb-1">
                         {item.name}
                       </h3>
-                      <div className="text-sm font-extrabold text-[#e50914] font-['Outfit'] mb-3">
+                      <div className="text-sm font-extrabold text-[#007AFF] font-['Outfit'] mb-3">
                         Rs. {item.price.toLocaleString()} each
                       </div>
 
@@ -100,7 +100,7 @@ export default function CartPage() {
 
                           <button
                             onClick={() => removeItem(item.id)}
-                            className="p-1.5 text-gray-400 hover:text-[#e50914] transition-colors rounded-lg hover:bg-red-50"
+                            className="p-1.5 text-gray-400 hover:text-[#007AFF] transition-colors rounded-lg hover:bg-blue-50"
                             title="Remove item"
                           >
                             <Trash2 size={16} />
@@ -115,13 +115,13 @@ export default function CartPage() {
               <div className="flex justify-between items-center px-2">
                 <button
                   onClick={clearCart}
-                  className="text-xs font-semibold text-gray-400 hover:text-[#e50914] transition-colors"
+                  className="text-xs font-semibold text-gray-400 hover:text-[#007AFF] transition-colors"
                 >
                   Clear Cart
                 </button>
                 <Link
                   href="/products"
-                  className="text-xs font-bold text-[#e50914] hover:underline"
+                  className="text-xs font-bold text-[#007AFF] hover:underline"
                 >
                   + Add More Products
                 </Link>
@@ -156,7 +156,7 @@ export default function CartPage() {
 
                   <div className="pt-4 border-t border-gray-100 flex justify-between items-baseline">
                     <span className="text-base font-bold text-gray-900">Total Amount</span>
-                    <span className="text-2xl font-black text-[#e50914] font-['Outfit']">
+                    <span className="text-2xl font-black text-[#007AFF] font-['Outfit']">
                       Rs. {total.toLocaleString()}
                     </span>
                   </div>

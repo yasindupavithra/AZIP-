@@ -79,7 +79,7 @@ export default function ProductCard({
   );
 
   return (
-    <div className="product-card group relative flex flex-col h-full bg-white rounded-2xl border border-gray-100 shadow-2xs hover:shadow-xl transition-all duration-300 overflow-hidden font-sans">
+    <div className="product-card group relative flex flex-col h-full bg-white rounded-2xl border border-slate-200/80 shadow-2xs hover:shadow-xl hover:border-blue-300/80 transition-all duration-300 overflow-hidden font-sans">
 
       {/* 1:1 Square Aspect Ratio Media Container */}
       <Link href={`/products/${slug}`} className="block relative w-full aspect-square bg-slate-50/60 overflow-hidden shrink-0">
@@ -87,7 +87,7 @@ export default function ProductCard({
         {/* Requirement 2: Correct Badge positioning (absolute top-2 left-2 z-10) */}
         <div className="absolute top-2 left-2 z-10 flex flex-col items-start gap-1">
           {discount > 0 && (
-            <span className="inline-flex items-center bg-[#DC2626] text-white text-[10px] font-black px-2.5 py-1 rounded-full tracking-wide shadow-sm">
+            <span className="inline-flex items-center bg-[#007AFF] text-white text-[10px] font-black px-2.5 py-1 rounded-full tracking-wide shadow-sm">
               -{discount}%
             </span>
           )}
@@ -106,10 +106,10 @@ export default function ProductCard({
             e.stopPropagation();
             setIsWishlisted(!isWishlisted);
           }}
-          className="absolute top-2 right-2 z-10 w-8 h-8 rounded-full bg-white/90 hover:bg-white shadow-sm flex items-center justify-center text-gray-400 hover:text-[#DC2626] transition-all duration-200 border border-gray-100 cursor-pointer opacity-0 group-hover:opacity-100 hover:scale-110"
+          className="absolute top-2 right-2 z-10 w-8 h-8 rounded-full bg-white/90 hover:bg-white shadow-sm flex items-center justify-center text-gray-400 hover:text-[#007AFF] transition-all duration-200 border border-gray-100 cursor-pointer opacity-0 group-hover:opacity-100 hover:scale-110"
           title="Add to Wishlist"
         >
-          <Heart size={14} className={isWishlisted ? "fill-[#DC2626] text-[#DC2626]" : ""} />
+          <Heart size={14} className={isWishlisted ? "fill-[#007AFF] text-[#007AFF]" : ""} />
         </button>
 
         {/* Quick View Button */}
@@ -137,7 +137,7 @@ export default function ProductCard({
         <div>
           {/* Brand Tag & Category */}
           <div className="flex items-center justify-between gap-2 mb-1.5">
-            <span className="text-[10px] font-extrabold tracking-[0.08em] text-[#DC2626] uppercase">
+            <span className="text-[10px] font-extrabold tracking-[0.08em] text-[#007AFF] uppercase">
               {detectedBrand}
             </span>
             <span className="text-[10px] font-semibold text-gray-400 truncate max-w-[100px]">
@@ -147,7 +147,7 @@ export default function ProductCard({
 
           {/* Product Title */}
           <Link href={`/products/${slug}`} className="block group/title">
-            <h3 className="text-[13px] font-bold text-gray-800 group-hover/title:text-[#DC2626] transition-colors line-clamp-2 leading-[1.4] mb-2 min-h-[36px]" title={name}>
+            <h3 className="text-[13px] font-bold text-gray-800 group-hover/title:text-[#007AFF] transition-colors line-clamp-2 leading-[1.4] mb-2 min-h-[36px]" title={name}>
               {name}
             </h3>
           </Link>
@@ -166,7 +166,7 @@ export default function ProductCard({
           {variants && variants.length > 0 && variants[0].options?.length > 0 && (
             <div className="mb-3 pt-1">
               <div className="text-[10px] text-gray-500 font-bold mb-1 flex items-center gap-1">
-                <Layers size={10} className="text-[#DC2626]" />
+                <Layers size={10} className="text-[#007AFF]" />
                 <span>{variants[0].name}:</span>
               </div>
               <div className="flex flex-wrap gap-1">
@@ -180,8 +180,8 @@ export default function ProductCard({
                       setSelectedVariant(opt);
                     }}
                     className={`px-2 py-0.5 text-[10px] font-bold rounded-md border transition-all cursor-pointer ${selectedVariant === opt
-                        ? 'border-[#DC2626] bg-red-50 text-[#DC2626] shadow-2xs'
-                        : 'border-gray-200 bg-gray-50 text-gray-600 hover:border-gray-300'
+                      ? 'border-[#007AFF] bg-blue-50 text-[#007AFF] shadow-2xs'
+                      : 'border-gray-200 bg-gray-50 text-gray-600 hover:border-gray-300'
                       }`}
                   >
                     {opt}
@@ -213,10 +213,10 @@ export default function ProductCard({
               onClick={handleAddToCart}
               disabled={stock === 0}
               className={`px-3 py-2 rounded-xl text-xs font-black flex items-center gap-1.5 transition-all duration-200 cursor-pointer border-none shadow-xs ${added
-                  ? 'bg-emerald-600 text-white shadow-md scale-105'
-                  : stock === 0
-                    ? 'bg-gray-100 text-gray-300 cursor-not-allowed'
-                    : 'bg-gradient-to-r from-[#DC2626] to-[#E11D48] hover:from-[#B91C1C] hover:to-[#C2410C] text-white hover:shadow-md hover:scale-105'
+                ? 'bg-emerald-600 text-white shadow-md scale-105'
+                : stock === 0
+                  ? 'bg-gray-100 text-gray-300 cursor-not-allowed'
+                  : 'bg-gradient-to-r from-[#007AFF] to-[#0284C7] hover:from-[#0056B3] hover:to-[#0369A1] text-white hover:shadow-md hover:scale-105'
                 }`}
               title={stock === 0 ? 'Out of Stock' : 'Add to Cart'}
             >

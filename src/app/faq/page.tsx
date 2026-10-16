@@ -39,7 +39,7 @@ export default function FAQPage() {
     <StoreShell>
       <section className="bg-[#0f172a] text-white py-14 sm:py-20 text-center">
         <div className="container max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-600/30 text-red-300 text-xs font-black uppercase rounded-full mb-3 tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-600/30 text-blue-300 text-xs font-black uppercase rounded-full mb-3 tracking-wider">
             Help &amp; Support
           </div>
           <h1 className="text-3xl sm:text-5xl font-black font-['Outfit'] mb-3">
@@ -62,12 +62,12 @@ export default function FAQPage() {
               >
                 <button
                   onClick={() => setOpenIdx(isOpen ? null : idx)}
-                  className="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-gray-900 text-sm sm:text-base hover:text-[#e50914] transition-colors cursor-pointer"
+                  className="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-gray-900 text-sm sm:text-base hover:text-[#007AFF] transition-colors cursor-pointer"
                 >
                   <span>{faq.q}</span>
                   <ChevronDown
                     size={18}
-                    className={`shrink-0 transition-transform text-gray-400 ${isOpen ? 'rotate-180 text-[#e50914]' : ''}`}
+                    className={`shrink-0 transition-transform text-gray-400 ${isOpen ? 'rotate-180 text-[#007AFF]' : ''}`}
                   />
                 </button>
 

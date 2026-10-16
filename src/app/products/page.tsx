@@ -214,7 +214,7 @@ function ProductsContent() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             
             <div className="max-w-xl text-center md:text-left">
-              <div className="inline-flex items-center gap-2 bg-[#DC2626] text-white text-[11px] font-black px-3 py-1 rounded-full uppercase tracking-wider mb-3">
+              <div className="inline-flex items-center gap-2 bg-[#007AFF] text-white text-[11px] font-black px-3 py-1 rounded-full uppercase tracking-wider mb-3">
                 <Sparkles size={12} className="fill-white" />
                 <span>Premium Educational Stationery Catalog</span>
               </div>
@@ -229,7 +229,7 @@ function ProductsContent() {
             {/* Direct Upload Booklist Banner Action */}
             <div className="bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-3xl shrink-0 max-w-xs text-center space-y-3">
               <div className="text-xs font-black text-white flex items-center justify-center gap-2">
-                <Upload size={16} className="text-[#DC2626]" />
+                <Upload size={16} className="text-[#007AFF]" />
                 <span>School Booklist Direct Upload</span>
               </div>
               <p className="text-[11px] text-slate-300 font-medium">
@@ -237,7 +237,7 @@ function ProductsContent() {
               </p>
               <button
                 onClick={() => setIsUploadModalOpen(true)}
-                className="w-full py-2.5 px-4 bg-gradient-to-r from-[#DC2626] to-[#E11D48] hover:from-[#B91C1C] hover:to-[#C2410C] text-white text-xs font-bold rounded-xl shadow-md transition-all hover:scale-[1.02] border-none cursor-pointer"
+                className="w-full py-2.5 px-4 bg-gradient-to-r from-[#007AFF] to-[#0284C7] hover:from-[#0056B3] hover:to-[#0369A1] text-white text-xs font-bold rounded-xl shadow-md transition-all hover:scale-[1.02] border-none cursor-pointer"
               >
                 Upload Booklist Now
               </button>
@@ -250,9 +250,9 @@ function ProductsContent() {
       {/* 2. Breadcrumb Navigation */}
       <div className="bg-white border-b border-gray-200 py-2.5">
         <div className="container mx-auto px-4 flex items-center gap-2 text-[12px] text-gray-500 font-medium">
-          <Link href="/" className="hover:text-[#DC2626] transition-colors">Home</Link>
+          <Link href="/" className="hover:text-[#007AFF] transition-colors">Home</Link>
           <span className="text-gray-300">/</span>
-          <Link href="/products" className="hover:text-[#DC2626] transition-colors">Catalog</Link>
+          <Link href="/products" className="hover:text-[#007AFF] transition-colors">Catalog</Link>
           {selectedCategory !== 'all' && (
             <>
               <span className="text-gray-300">/</span>
@@ -276,23 +276,23 @@ function ProductsContent() {
                 <button
                   key={cat.slug}
                   onClick={() => setSelectedCategory(cat.slug)}
-                  className={`group relative rounded-2xl p-3 border transition-all duration-300 cursor-pointer text-left flex flex-col items-center justify-center text-center ${
+                  className={`group relative rounded-none p-3 border transition-all duration-300 cursor-pointer text-left flex flex-col items-center justify-center text-center ${
                     isSelected
-                      ? 'border-[#DC2626] bg-red-50/70 shadow-sm ring-2 ring-red-500/20'
-                      : 'border-gray-200 bg-gray-50/60 hover:border-[#DC2626] hover:bg-white hover:shadow-md hover:scale-[1.02]'
+                      ? 'border-[#007AFF] bg-blue-50/70 shadow-sm ring-2 ring-blue-500/20'
+                      : 'border-gray-200 bg-gray-50/60 hover:border-[#007AFF] hover:bg-white hover:shadow-md hover:scale-[1.02]'
                   }`}
                 >
-                  <div className="w-12 h-12 rounded-xl overflow-hidden mb-2 bg-white border border-gray-100 p-1 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-none overflow-hidden mb-2 bg-white border border-gray-100 p-1 flex items-center justify-center">
                     <img
                       src={getCategoryImage(cat.slug)}
                       alt={cat.label}
-                      className="w-full h-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-300"
+                      className="w-full h-full object-cover rounded-none group-hover:scale-110 transition-transform duration-300"
                     />
                   </div>
                   
                   {/* Legible explicit typography label */}
                   <span className={`text-xs font-black line-clamp-1 transition-colors ${
-                    isSelected ? 'text-[#DC2626]' : 'text-gray-800 group-hover:text-[#DC2626]'
+                    isSelected ? 'text-[#007AFF]' : 'text-gray-800 group-hover:text-[#007AFF]'
                   }`}>
                     {cat.label}
                   </span>
@@ -315,12 +315,12 @@ function ProductsContent() {
             {/* Header + Clear All */}
             <div className="flex items-center justify-between pb-3 border-b border-gray-200">
               <span className="text-base font-black text-gray-900 tracking-tight flex items-center gap-2">
-                <SlidersHorizontal size={17} className="text-[#DC2626]" />
+                <SlidersHorizontal size={17} className="text-[#007AFF]" />
                 <span>Faceted Filters</span>
               </span>
               <button
                 onClick={handleClearAll}
-                className="text-[11px] font-bold uppercase tracking-wider text-[#DC2626] hover:underline bg-transparent border-none cursor-pointer p-0"
+                className="text-[11px] font-bold uppercase tracking-wider text-[#007AFF] hover:underline bg-transparent border-none cursor-pointer p-0"
               >
                 Clear All
               </button>
@@ -329,7 +329,7 @@ function ProductsContent() {
             {/* Big Apply Filter Action */}
             <button
               onClick={handleApplyFilter}
-              className="w-full py-3 px-4 bg-[#DC2626] hover:bg-[#cc0043] text-white text-xs font-bold rounded-xl shadow-md transition-all cursor-pointer border-none uppercase tracking-wider flex items-center justify-center gap-2"
+              className="w-full py-3 px-4 bg-[#007AFF] hover:bg-[#0056B3] text-white text-xs font-bold rounded-xl shadow-md transition-all cursor-pointer border-none uppercase tracking-wider flex items-center justify-center gap-2"
             >
               <CheckCircle2 size={15} />
               <span>Apply Filters</span>
@@ -339,10 +339,10 @@ function ProductsContent() {
             <div className="border-b border-gray-200 pb-4">
               <button
                 onClick={() => setIsGradeOpen(!isGradeOpen)}
-                className="w-full flex items-center justify-between text-left text-xs font-extrabold text-gray-900 hover:text-[#DC2626] cursor-pointer bg-transparent border-none p-0 mb-3"
+                className="w-full flex items-center justify-between text-left text-xs font-extrabold text-gray-900 hover:text-[#007AFF] cursor-pointer bg-transparent border-none p-0 mb-3"
               >
                 <span className="flex items-center gap-2">
-                  <GraduationCap size={15} className="text-[#DC2626]" /> Grade / School Level
+                  <GraduationCap size={15} className="text-[#007AFF]" /> Grade / School Level
                 </span>
                 {isGradeOpen ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
               </button>
@@ -353,15 +353,15 @@ function ProductsContent() {
                     <label
                       key={g}
                       onClick={() => toggleSelection(selectedGrades, setSelectedGrades, g)}
-                      className="flex items-center gap-2.5 text-xs text-gray-700 py-1 hover:text-[#DC2626] cursor-pointer font-medium"
+                      className="flex items-center gap-2.5 text-xs text-gray-700 py-1 hover:text-[#007AFF] cursor-pointer font-medium"
                     >
                       <input
                         type="checkbox"
                         checked={selectedGrades.includes(g)}
                         onChange={() => {}}
-                        className="accent-[#DC2626] rounded cursor-pointer"
+                        className="accent-[#007AFF] rounded cursor-pointer"
                       />
-                      <span className={selectedGrades.includes(g) ? 'font-bold text-[#DC2626]' : ''}>
+                      <span className={selectedGrades.includes(g) ? 'font-bold text-[#007AFF]' : ''}>
                         {g}
                       </span>
                     </label>
@@ -374,10 +374,10 @@ function ProductsContent() {
             <div className="border-b border-gray-200 pb-4">
               <button
                 onClick={() => setIsCatOpen(!isCatOpen)}
-                className="w-full flex items-center justify-between text-left text-xs font-extrabold text-gray-900 hover:text-[#DC2626] cursor-pointer bg-transparent border-none p-0 mb-3"
+                className="w-full flex items-center justify-between text-left text-xs font-extrabold text-gray-900 hover:text-[#007AFF] cursor-pointer bg-transparent border-none p-0 mb-3"
               >
                 <span className="flex items-center gap-2">
-                  <BookOpen size={15} className="text-[#DC2626]" /> Categories
+                  <BookOpen size={15} className="text-[#007AFF]" /> Categories
                 </span>
                 {isCatOpen ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
               </button>
@@ -386,13 +386,13 @@ function ProductsContent() {
                 <div className="space-y-1.5 max-h-56 overflow-y-auto pr-1">
                   <label
                     onClick={() => setSelectedCategory('all')}
-                    className="flex items-center gap-2 text-xs text-gray-800 py-1 hover:text-[#DC2626] cursor-pointer font-bold border-b border-gray-100 pb-1.5 mb-1"
+                    className="flex items-center gap-2 text-xs text-gray-800 py-1 hover:text-[#007AFF] cursor-pointer font-bold border-b border-gray-100 pb-1.5 mb-1"
                   >
                     <input
                       type="checkbox"
                       checked={selectedCategory === 'all'}
                       onChange={() => {}}
-                      className="accent-[#DC2626] rounded cursor-pointer"
+                      className="accent-[#007AFF] rounded cursor-pointer"
                     />
                     <span>All Products</span>
                   </label>
@@ -401,15 +401,15 @@ function ProductsContent() {
                     <label
                       key={cat.slug}
                       onClick={() => setSelectedCategory(cat.slug)}
-                      className="flex items-center gap-2 text-xs text-gray-600 py-1 hover:text-[#DC2626] cursor-pointer font-medium"
+                      className="flex items-center gap-2 text-xs text-gray-600 py-1 hover:text-[#007AFF] cursor-pointer font-medium"
                     >
                       <input
                         type="checkbox"
                         checked={selectedCategory === cat.slug}
                         onChange={() => {}}
-                        className="accent-[#DC2626] rounded cursor-pointer"
+                        className="accent-[#007AFF] rounded cursor-pointer"
                       />
-                      <span className={selectedCategory === cat.slug ? 'font-bold text-[#DC2626]' : ''}>
+                      <span className={selectedCategory === cat.slug ? 'font-bold text-[#007AFF]' : ''}>
                         {cat.label}
                       </span>
                     </label>
@@ -422,7 +422,7 @@ function ProductsContent() {
             <div className="border-b border-gray-200 pb-4">
               <button
                 onClick={() => setIsBrandOpen(!isBrandOpen)}
-                className="w-full flex items-center justify-between text-left text-xs font-extrabold text-gray-900 hover:text-[#DC2626] cursor-pointer bg-transparent border-none p-0 mb-3"
+                className="w-full flex items-center justify-between text-left text-xs font-extrabold text-gray-900 hover:text-[#007AFF] cursor-pointer bg-transparent border-none p-0 mb-3"
               >
                 <span>Brands (Atlas, Casio, Pilot...)</span>
                 {isBrandOpen ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
@@ -434,15 +434,15 @@ function ProductsContent() {
                     <label
                       key={b}
                       onClick={() => toggleSelection(selectedBrands, setSelectedBrands, b)}
-                      className="flex items-center gap-2.5 text-xs text-gray-700 py-1 hover:text-[#DC2626] cursor-pointer font-medium"
+                      className="flex items-center gap-2.5 text-xs text-gray-700 py-1 hover:text-[#007AFF] cursor-pointer font-medium"
                     >
                       <input
                         type="checkbox"
                         checked={selectedBrands.includes(b)}
                         onChange={() => {}}
-                        className="accent-[#DC2626] rounded cursor-pointer"
+                        className="accent-[#007AFF] rounded cursor-pointer"
                       />
-                      <span className={selectedBrands.includes(b) ? 'font-bold text-[#DC2626]' : ''}>
+                      <span className={selectedBrands.includes(b) ? 'font-bold text-[#007AFF]' : ''}>
                         {b}
                       </span>
                     </label>
@@ -455,7 +455,7 @@ function ProductsContent() {
             <div className="border-b border-gray-200 pb-4">
               <button
                 onClick={() => setIsLanguageOpen(!isLanguageOpen)}
-                className="w-full flex items-center justify-between text-left text-xs font-extrabold text-gray-900 hover:text-[#DC2626] cursor-pointer bg-transparent border-none p-0 mb-3"
+                className="w-full flex items-center justify-between text-left text-xs font-extrabold text-gray-900 hover:text-[#007AFF] cursor-pointer bg-transparent border-none p-0 mb-3"
               >
                 <span>Language / Medium (Sinhala/Eng/Tam)</span>
                 {isLanguageOpen ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
@@ -467,15 +467,15 @@ function ProductsContent() {
                     <label
                       key={l}
                       onClick={() => toggleSelection(selectedLanguages, setSelectedLanguages, l)}
-                      className="flex items-center gap-2.5 text-xs text-gray-700 py-1 hover:text-[#DC2626] cursor-pointer font-medium"
+                      className="flex items-center gap-2.5 text-xs text-gray-700 py-1 hover:text-[#007AFF] cursor-pointer font-medium"
                     >
                       <input
                         type="checkbox"
                         checked={selectedLanguages.includes(l)}
                         onChange={() => {}}
-                        className="accent-[#DC2626] rounded cursor-pointer"
+                        className="accent-[#007AFF] rounded cursor-pointer"
                       />
-                      <span className={selectedLanguages.includes(l) ? 'font-bold text-[#DC2626]' : ''}>
+                      <span className={selectedLanguages.includes(l) ? 'font-bold text-[#007AFF]' : ''}>
                         {l}
                       </span>
                     </label>
@@ -488,10 +488,10 @@ function ProductsContent() {
             <div className="border-b border-gray-200 pb-4">
               <button
                 onClick={() => setIsRulingOpen(!isRulingOpen)}
-                className="w-full flex items-center justify-between text-left text-xs font-extrabold text-gray-900 hover:text-[#DC2626] cursor-pointer bg-transparent border-none p-0 mb-3"
+                className="w-full flex items-center justify-between text-left text-xs font-extrabold text-gray-900 hover:text-[#007AFF] cursor-pointer bg-transparent border-none p-0 mb-3"
               >
                 <span className="flex items-center gap-2">
-                  <Layers size={14} className="text-[#DC2626]" /> Ruling &amp; Paper Type
+                  <Layers size={14} className="text-[#007AFF]" /> Ruling &amp; Paper Type
                 </span>
                 {isRulingOpen ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
               </button>
@@ -502,15 +502,15 @@ function ProductsContent() {
                     <label
                       key={r}
                       onClick={() => toggleSelection(selectedRulings, setSelectedRulings, r)}
-                      className="flex items-center gap-2.5 text-xs text-gray-700 py-1 hover:text-[#DC2626] cursor-pointer font-medium"
+                      className="flex items-center gap-2.5 text-xs text-gray-700 py-1 hover:text-[#007AFF] cursor-pointer font-medium"
                     >
                       <input
                         type="checkbox"
                         checked={selectedRulings.includes(r)}
                         onChange={() => {}}
-                        className="accent-[#DC2626] rounded cursor-pointer"
+                        className="accent-[#007AFF] rounded cursor-pointer"
                       />
-                      <span className={selectedRulings.includes(r) ? 'font-bold text-[#DC2626]' : ''}>
+                      <span className={selectedRulings.includes(r) ? 'font-bold text-[#007AFF]' : ''}>
                         {r}
                       </span>
                     </label>
@@ -523,7 +523,7 @@ function ProductsContent() {
             <div className="border-b border-gray-200 pb-4">
               <button
                 onClick={() => setIsPriceOpen(!isPriceOpen)}
-                className="w-full flex items-center justify-between text-left text-xs font-extrabold text-gray-900 hover:text-[#DC2626] cursor-pointer bg-transparent border-none p-0 mb-3"
+                className="w-full flex items-center justify-between text-left text-xs font-extrabold text-gray-900 hover:text-[#007AFF] cursor-pointer bg-transparent border-none p-0 mb-3"
               >
                 <span>Price Range (Rs.)</span>
                 {isPriceOpen ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
@@ -538,7 +538,7 @@ function ProductsContent() {
                         type="number"
                         value={minPrice}
                         onChange={(e) => setMinPrice(Number(e.target.value))}
-                        className="w-full px-2.5 py-1 border border-gray-300 rounded-lg text-xs font-medium focus:outline-none focus:border-[#DC2626]"
+                        className="w-full px-2.5 py-1 border border-gray-300 rounded-lg text-xs font-medium focus:outline-none focus:border-[#007AFF]"
                       />
                     </div>
                     <span className="text-gray-400 mt-4">-</span>
@@ -548,7 +548,7 @@ function ProductsContent() {
                         type="number"
                         value={maxPrice}
                         onChange={(e) => setMaxPrice(Number(e.target.value))}
-                        className="w-full px-2.5 py-1 border border-gray-300 rounded-lg text-xs font-medium focus:outline-none focus:border-[#DC2626]"
+                        className="w-full px-2.5 py-1 border border-gray-300 rounded-lg text-xs font-medium focus:outline-none focus:border-[#007AFF]"
                       />
                     </div>
                   </div>
@@ -560,7 +560,7 @@ function ProductsContent() {
                     step={250}
                     value={maxPrice}
                     onChange={(e) => setMaxPrice(Number(e.target.value))}
-                    className="w-full accent-[#DC2626] cursor-pointer"
+                    className="w-full accent-[#007AFF] cursor-pointer"
                   />
                   <div className="text-[11px] text-gray-500 flex justify-between font-bold">
                     <span>Rs. {minPrice.toLocaleString()}</span>
@@ -574,7 +574,7 @@ function ProductsContent() {
             <div>
               <button
                 onClick={() => setIsAvailOpen(!isAvailOpen)}
-                className="w-full flex items-center justify-between text-left text-xs font-extrabold text-gray-900 hover:text-[#DC2626] cursor-pointer bg-transparent border-none p-0 mb-3"
+                className="w-full flex items-center justify-between text-left text-xs font-extrabold text-gray-900 hover:text-[#007AFF] cursor-pointer bg-transparent border-none p-0 mb-3"
               >
                 <span>Stock Availability</span>
                 {isAvailOpen ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
@@ -583,15 +583,15 @@ function ProductsContent() {
               {isAvailOpen && (
                 <label
                   onClick={() => setInStockOnly(!inStockOnly)}
-                  className="flex items-center gap-2.5 text-xs text-gray-700 py-1 hover:text-[#DC2626] cursor-pointer font-medium"
+                  className="flex items-center gap-2.5 text-xs text-gray-700 py-1 hover:text-[#007AFF] cursor-pointer font-medium"
                 >
                   <input
                     type="checkbox"
                     checked={inStockOnly}
                     onChange={() => {}}
-                    className="accent-[#DC2626] rounded cursor-pointer"
+                    className="accent-[#007AFF] rounded cursor-pointer"
                   />
-                  <span className={inStockOnly ? 'font-bold text-[#DC2626]' : ''}>In Stock Only</span>
+                  <span className={inStockOnly ? 'font-bold text-[#007AFF]' : ''}>In Stock Only</span>
                 </label>
               )}
             </div>
@@ -609,7 +609,7 @@ function ProductsContent() {
                 <div className="flex items-center justify-between">
                   <div>
                     <h2 className="text-lg font-black text-gray-900 tracking-tight flex items-center gap-2">
-                      <Package size={20} className="text-[#DC2626]" />
+                      <Package size={20} className="text-[#007AFF]" />
                       <span>Back to School Master Kits &amp; Bundles</span>
                     </h2>
                     <p className="text-xs text-gray-500 font-medium">
@@ -636,7 +636,7 @@ function ProductsContent() {
                   <select
                     value={itemsPerPage}
                     onChange={(e) => setItemsPerPage(e.target.value)}
-                    className="px-2.5 py-1 border border-gray-200 rounded-lg bg-white text-xs font-bold focus:outline-none focus:border-[#DC2626]"
+                    className="px-2.5 py-1 border border-gray-200 rounded-lg bg-white text-xs font-bold focus:outline-none focus:border-[#007AFF]"
                   >
                     <option value="20">20 Items</option>
                     <option value="40">40 Items</option>
@@ -647,14 +647,14 @@ function ProductsContent() {
                 <div className="flex items-center gap-1 border-l border-gray-200 pl-3">
                   <button
                     onClick={() => setViewMode('grid')}
-                    className={`p-1.5 rounded-lg transition-colors ${viewMode === 'grid' ? 'bg-red-50 text-[#DC2626] font-bold' : 'text-gray-400 hover:text-gray-700'}`}
+                    className={`p-1.5 rounded-lg transition-colors ${viewMode === 'grid' ? 'bg-blue-50 text-[#007AFF] font-bold' : 'text-gray-400 hover:text-gray-700'}`}
                     title="Grid View"
                   >
                     <LayoutGrid size={16} />
                   </button>
                   <button
                     onClick={() => setViewMode('list')}
-                    className={`p-1.5 rounded-lg transition-colors ${viewMode === 'list' ? 'bg-red-50 text-[#DC2626] font-bold' : 'text-gray-400 hover:text-gray-700'}`}
+                    className={`p-1.5 rounded-lg transition-colors ${viewMode === 'list' ? 'bg-blue-50 text-[#007AFF] font-bold' : 'text-gray-400 hover:text-gray-700'}`}
                     title="List View"
                   >
                     <List size={16} />
@@ -669,7 +669,7 @@ function ProductsContent() {
                   <select
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value)}
-                    className="px-3 py-1.5 border border-gray-200 rounded-xl bg-white text-xs font-bold focus:outline-none focus:border-[#DC2626]"
+                    className="px-3 py-1.5 border border-gray-200 rounded-xl bg-white text-xs font-bold focus:outline-none focus:border-[#007AFF]"
                   >
                     <option value="popularity">Popularity</option>
                     <option value="price-low">Price: Low to High</option>
@@ -690,7 +690,7 @@ function ProductsContent() {
               {/* Active Filter Badges */}
               <div className="flex flex-wrap items-center gap-1.5">
                 {selectedGrades.map((g) => (
-                  <span key={g} onClick={() => toggleSelection(selectedGrades, setSelectedGrades, g)} className="bg-red-50 text-[#DC2626] border border-red-200 px-2.5 py-0.5 rounded-full font-bold flex items-center gap-1 cursor-pointer">
+                  <span key={g} onClick={() => toggleSelection(selectedGrades, setSelectedGrades, g)} className="bg-blue-50 text-[#007AFF] border border-blue-200 px-2.5 py-0.5 rounded-full font-bold flex items-center gap-1 cursor-pointer">
                     {g} ×
                   </span>
                 ))}
@@ -710,12 +710,12 @@ function ProductsContent() {
             {/* Products Grid */}
             {loading ? (
               <div className="py-24 text-center bg-white rounded-3xl border border-gray-200">
-                <div className="w-8 h-8 border-3 border-[#DC2626] border-t-transparent rounded-full animate-spin mx-auto mb-3" />
+                <div className="w-8 h-8 border-3 border-[#007AFF] border-t-transparent rounded-full animate-spin mx-auto mb-3" />
                 <p className="text-xs font-bold text-gray-500">Loading stationery catalog...</p>
               </div>
             ) : sortedProducts.length === 0 ? (
               <div className="py-20 text-center bg-white rounded-3xl border border-gray-200 px-6">
-                <div className="w-14 h-14 bg-red-50 text-[#DC2626] rounded-full flex items-center justify-center mx-auto mb-3">
+                <div className="w-14 h-14 bg-blue-50 text-[#007AFF] rounded-none flex items-center justify-center mx-auto mb-3">
                   <Search size={24} />
                 </div>
                 <h3 className="text-base font-bold text-gray-900 mb-1">No products found</h3>
@@ -724,7 +724,7 @@ function ProductsContent() {
                 </p>
                 <button
                   onClick={handleClearAll}
-                  className="px-6 py-2.5 bg-[#DC2626] text-white text-xs font-bold rounded-xl uppercase tracking-wider cursor-pointer border-none"
+                  className="px-6 py-2.5 bg-[#007AFF] text-white text-xs font-bold rounded-xl uppercase tracking-wider cursor-pointer border-none"
                 >
                   Clear All Filters
                 </button>
@@ -761,7 +761,7 @@ function ProductsContent() {
                     <button className="px-3.5 py-2 border border-gray-200 rounded-xl bg-white font-bold text-gray-700 cursor-pointer">
                       Previous
                     </button>
-                    <button className="w-8 h-8 rounded-xl bg-[#DC2626] text-white font-black flex items-center justify-center cursor-pointer shadow-xs">
+                    <button className="w-8 h-8 rounded-xl bg-[#007AFF] text-white font-black flex items-center justify-center cursor-pointer shadow-xs">
                       1
                     </button>
                     <button className="px-3.5 py-2 border border-gray-200 rounded-xl bg-white font-bold text-gray-700 cursor-pointer">

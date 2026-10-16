@@ -10,11 +10,11 @@ export default function AboutPage() {
       {/* Banner */}
       <section className="bg-[#0f172a] text-white py-14 sm:py-20 relative overflow-hidden">
         <div className="container relative z-10 text-center max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-600/30 text-red-300 text-xs font-black uppercase rounded-full mb-3 tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-600/30 text-blue-300 text-xs font-black uppercase rounded-full mb-3 tracking-wider">
             Our Story &amp; Purpose
           </div>
           <h1 className="text-3xl sm:text-5xl font-black font-['Outfit'] mb-4">
-            About <span className="text-[#e50914]">AZIP STORE</span>
+            About <span className="text-[#007AFF]">AZIP STORE</span>
           </h1>
           <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
             Sri Lanka's trusted destination for school books, university textbooks, professional art supplies, stationery, and student electronics.
@@ -27,7 +27,7 @@ export default function AboutPage() {
         {/* Mission and Vision */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div>
-            <div className="text-xs font-bold uppercase tracking-wider text-[#e50914] mb-2">
+            <div className="text-xs font-bold uppercase tracking-wider text-[#007AFF] mb-2">
               Empowering Sri Lankan Education
             </div>
             <h2 className="text-2xl sm:text-3xl font-black text-gray-900 font-['Outfit'] mb-4">
@@ -42,17 +42,17 @@ export default function AboutPage() {
 
             <div className="grid grid-cols-2 gap-4 pt-2">
               <div className="p-4 bg-gray-50 rounded-xl border border-gray-200">
-                <div className="text-2xl font-black text-[#e50914] font-['Outfit']">10,000+</div>
+                <div className="text-2xl font-black text-[#007AFF] font-['Outfit']">10,000+</div>
                 <div className="text-xs text-gray-500 font-semibold mt-0.5">Students Served</div>
               </div>
               <div className="p-4 bg-gray-50 rounded-xl border border-gray-200">
-                <div className="text-2xl font-black text-[#e50914] font-['Outfit']">500+</div>
+                <div className="text-2xl font-black text-[#007AFF] font-['Outfit']">500+</div>
                 <div className="text-xs text-gray-500 font-semibold mt-0.5">Official Brands</div>
               </div>
             </div>
           </div>
 
-          <div className="relative aspect-4/3 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+          <div className="relative aspect-4/3 rounded-none overflow-hidden shadow-lg border border-gray-200">
             <img
               src="https://images.unsplash.com/photo-1507842229458-77903be6772b?auto=format&fit=crop&w=1200&q=80"
               alt="AZIP Bookstore"
@@ -70,7 +70,7 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm text-center">
-              <div className="w-12 h-12 bg-red-50 text-[#e50914] rounded-xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-12 h-12 bg-blue-50 text-[#007AFF] rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Award size={24} />
               </div>
               <h3 className="font-bold text-gray-900 text-base mb-1">100% Genuine Brands</h3>
@@ -80,7 +80,7 @@ export default function AboutPage() {
             </div>
 
             <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm text-center">
-              <div className="w-12 h-12 bg-red-50 text-[#e50914] rounded-xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-12 h-12 bg-blue-50 text-[#007AFF] rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Truck size={24} />
               </div>
               <h3 className="font-bold text-gray-900 text-base mb-1">Island-Wide Delivery</h3>
@@ -90,7 +90,7 @@ export default function AboutPage() {
             </div>
 
             <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm text-center">
-              <div className="w-12 h-12 bg-red-50 text-[#e50914] rounded-xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-12 h-12 bg-blue-50 text-[#007AFF] rounded-xl flex items-center justify-center mx-auto mb-4">
                 <BookOpen size={24} />
               </div>
               <h3 className="font-bold text-gray-900 text-base mb-1">School Booklist Packing</h3>
@@ -100,7 +100,7 @@ export default function AboutPage() {
             </div>
 
             <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm text-center">
-              <div className="w-12 h-12 bg-red-50 text-[#e50914] rounded-xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-12 h-12 bg-blue-50 text-[#007AFF] rounded-xl flex items-center justify-center mx-auto mb-4">
                 <ShieldCheck size={24} />
               </div>
               <h3 className="font-bold text-gray-900 text-base mb-1">Secure &amp; Reliable</h3>
