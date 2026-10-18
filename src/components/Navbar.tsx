@@ -130,110 +130,135 @@ export default function Navbar() {
 
         {/* White main header */}
         <div className="bg-white border-b border-slate-100 shadow-[0_3px_14px_rgba(15,23,42,0.04)]">
-          <div className="container mx-auto px-4 py-6 sm:py-7 flex items-center justify-between gap-4 md:gap-8">
-            <div className="flex items-center gap-3">
+          <div className="container mx-auto px-3.5 sm:px-4 py-3 sm:py-6 lg:py-7">
+            <div className="flex items-center justify-between gap-3 sm:gap-4 md:gap-8">
+              <div className="flex items-center gap-2 sm:gap-3">
+                <button
+                  type="button"
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                  className="lg:hidden p-1.5 -ml-1 text-slate-700 hover:bg-slate-100 rounded-lg cursor-pointer border-none bg-transparent"
+                  aria-label="Toggle menu"
+                >
+                  {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                </button>
+
+                <Link href="/" className="shrink-0 group">
+                  <img
+                    src="/azip-logo.png"
+                    alt="AZIP Store"
+                    className="h-9 sm:h-[54px] lg:h-[64px] w-auto object-contain group-hover:scale-[1.02] transition-transform"
+                  />
+                </Link>
+              </div>
+
+              <form
+                ref={searchRef}
+                onSubmit={handleSearchSubmit}
+                className="relative flex-1 max-w-2xl hidden md:flex items-center"
+              >
+                <div className="flex w-full items-center rounded-full bg-white border border-slate-200 shadow-[inset_0_1px_3px_rgba(15,23,42,0.04)] focus-within:border-[#0066FF] focus-within:ring-4 focus-within:ring-[#0066FF]/10 transition-all">
+                  <input
+                    type="text"
+                    value={searchQuery}
+                    onFocus={() => setIsSearchFocused(true)}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="Search for books, stationery, school bags, and more..."
+                    className="flex-1 h-12 sm:h-14 pl-6 sm:pl-7 pr-3 text-[14px] sm:text-[15px] text-slate-800 placeholder-slate-400 focus:outline-none bg-transparent font-normal"
+                  />
+                  <button
+                    type="submit"
+                    className="h-10 w-10 sm:h-11 sm:w-11 mr-1.5 bg-[#0066FF] hover:bg-[#0052CC] text-white rounded-full flex items-center justify-center shrink-0 transition-colors cursor-pointer border-none shadow-sm"
+                    title="Search"
+                  >
+                    <Search size={18} strokeWidth={2.4} />
+                  </button>
+                </div>
+
+                {isSearchFocused && searchQuery.trim() && (
+                  <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden z-50">
+                    {searchResults.length > 0 ? (
+                      <div className="p-2 space-y-0.5">
+                        {searchResults.map((product) => (
+                          <Link
+                            key={product._id}
+                            href={`/products/${product.slug}`}
+                            onClick={() => setIsSearchFocused(false)}
+                            className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors"
+                          >
+                            <img
+                              src={product.images[0]?.url || '/placeholder.png'}
+                              alt={product.name}
+                              className="w-10 h-10 object-contain p-1 rounded-lg bg-slate-50 border border-slate-100 shrink-0"
+                            />
+                            <div className="flex-1 min-w-0">
+                              <div className="text-sm font-semibold text-slate-900 truncate">
+                                {product.name}
+                              </div>
+                              <div className="text-[11px] text-slate-500 font-medium">
+                                {product.brand || 'AZIP'}
+                              </div>
+                            </div>
+                            <div className="text-sm font-bold text-[#2B6BFF] shrink-0">
+                              Rs {product.price.toLocaleString()}
+                            </div>
+                          </Link>
+                        ))}
+                        <button
+                          type="submit"
+                          className="w-full py-2.5 bg-[#2B6BFF] text-white text-xs font-bold rounded-xl flex items-center justify-center gap-1.5 border-none mt-1 cursor-pointer"
+                        >
+                          View All Results
+                          <ArrowRight size={13} />
+                        </button>
+                      </div>
+                    ) : (
+                      <div className="p-5 text-center text-sm text-slate-500">
+                        No results for &ldquo;
+                        <span className="font-bold text-slate-800">{searchQuery}</span>&rdquo;
+                      </div>
+                    )}
+                  </div>
+                )}
+              </form>
+
               <button
                 type="button"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="lg:hidden p-2 text-slate-700 hover:bg-slate-100 rounded-lg cursor-pointer border-none bg-transparent"
-                aria-label="Toggle menu"
+                onClick={toggleCart}
+                className="flex items-center gap-2 sm:gap-3 text-slate-800 hover:bg-slate-50 rounded-full px-2.5 sm:px-4 py-2 cursor-pointer border-none bg-transparent transition-colors"
+                title="Cart"
               >
-                {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+                <div className="relative">
+                  <ShoppingCart size={24} className="text-[#0066FF]" strokeWidth={2} />
+                  <span className="absolute -top-2 -right-2.5 min-w-[18px] h-[18px] px-1 rounded-full bg-[#0066FF] text-white text-[10px] font-black flex items-center justify-center shadow-sm">
+                    {cartCount}
+                  </span>
+                </div>
+                <span className="hidden sm:inline text-[15px] font-bold text-[#0F172A]">Cart</span>
               </button>
-
-              <Link href="/" className="shrink-0 group">
-                <img
-                  src="/azip-logo.png"
-                  alt="AZIP Store"
-                  className="h-12 sm:h-[58px] lg:h-[64px] w-auto object-contain group-hover:scale-[1.02] transition-transform"
-                />
-              </Link>
             </div>
 
-            <form
-              ref={searchRef}
-              onSubmit={handleSearchSubmit}
-              className="relative flex-1 max-w-2xl hidden md:flex items-center"
-            >
-              <div className="flex w-full items-center rounded-full bg-white border border-slate-200 shadow-[inset_0_1px_3px_rgba(15,23,42,0.04)] focus-within:border-[#0066FF] focus-within:ring-4 focus-within:ring-[#0066FF]/10 transition-all">
+            {/* Mobile instant search pill */}
+            <div className="mt-2.5 md:hidden">
+              <form
+                onSubmit={handleSearchSubmit}
+                className="relative flex w-full items-center rounded-full bg-slate-50 border border-slate-200/90 shadow-[inset_0_1px_2px_rgba(15,23,42,0.03)] focus-within:bg-white focus-within:border-[#0066FF] focus-within:ring-2 focus-within:ring-[#0066FF]/15 transition-all"
+              >
                 <input
                   type="text"
                   value={searchQuery}
-                  onFocus={() => setIsSearchFocused(true)}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search for books, stationery, school bags, and more..."
-                  className="flex-1 h-12 sm:h-14 pl-6 sm:pl-7 pr-3 text-[14px] sm:text-[15px] text-slate-800 placeholder-slate-400 focus:outline-none bg-transparent font-normal"
+                  placeholder="Search books, stationery, bags..."
+                  className="flex-1 h-10 pl-4 pr-2 text-[13px] text-slate-800 placeholder-slate-400 focus:outline-none bg-transparent"
                 />
                 <button
                   type="submit"
-                  className="h-10 w-10 sm:h-11 sm:w-11 mr-1.5 bg-[#0066FF] hover:bg-[#0052CC] text-white rounded-full flex items-center justify-center shrink-0 transition-colors cursor-pointer border-none shadow-sm"
+                  className="h-8 w-8 mr-1 bg-[#0066FF] text-white rounded-full flex items-center justify-center shrink-0 border-none cursor-pointer shadow-sm"
                   title="Search"
                 >
-                  <Search size={18} strokeWidth={2.4} />
+                  <Search size={15} strokeWidth={2.4} />
                 </button>
-              </div>
-
-              {isSearchFocused && searchQuery.trim() && (
-                <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden z-50">
-                  {searchResults.length > 0 ? (
-                    <div className="p-2 space-y-0.5">
-                      {searchResults.map((product) => (
-                        <Link
-                          key={product._id}
-                          href={`/products/${product.slug}`}
-                          onClick={() => setIsSearchFocused(false)}
-                          className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors"
-                        >
-                          <img
-                            src={product.images[0]?.url || '/placeholder.png'}
-                            alt={product.name}
-                            className="w-10 h-10 object-contain p-1 rounded-lg bg-slate-50 border border-slate-100 shrink-0"
-                          />
-                          <div className="flex-1 min-w-0">
-                            <div className="text-sm font-semibold text-slate-900 truncate">
-                              {product.name}
-                            </div>
-                            <div className="text-[11px] text-slate-500 font-medium">
-                              {product.brand || 'AZIP'}
-                            </div>
-                          </div>
-                          <div className="text-sm font-bold text-[#2B6BFF] shrink-0">
-                            Rs {product.price.toLocaleString()}
-                          </div>
-                        </Link>
-                      ))}
-                      <button
-                        type="submit"
-                        className="w-full py-2.5 bg-[#2B6BFF] text-white text-xs font-bold rounded-xl flex items-center justify-center gap-1.5 border-none mt-1 cursor-pointer"
-                      >
-                        View All Results
-                        <ArrowRight size={13} />
-                      </button>
-                    </div>
-                  ) : (
-                    <div className="p-5 text-center text-sm text-slate-500">
-                      No results for &ldquo;
-                      <span className="font-bold text-slate-800">{searchQuery}</span>&rdquo;
-                    </div>
-                  )}
-                </div>
-              )}
-            </form>
-
-            <button
-              type="button"
-              onClick={toggleCart}
-              className="flex items-center gap-3 text-slate-800 hover:bg-slate-50 rounded-full px-4 py-2.5 cursor-pointer border-none bg-transparent transition-colors"
-              title="Cart"
-            >
-              <div className="relative">
-                <ShoppingCart size={26} className="text-[#0066FF]" strokeWidth={2} />
-                <span className="absolute -top-2.5 -right-2.5 min-w-[20px] h-[20px] px-1 rounded-full bg-[#0066FF] text-white text-[11px] font-black flex items-center justify-center shadow-sm">
-                  {cartCount}
-                </span>
-              </div>
-              <span className="hidden sm:inline text-[15px] font-bold text-[#0F172A]">Cart</span>
-            </button>
+              </form>
+            </div>
           </div>
         </div>
 

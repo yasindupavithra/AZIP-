@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CartDrawer from '@/components/CartDrawer';
+import MobileBottomNav from '@/components/MobileBottomNav';
 
 export default function StoreShell({ children }: { children: React.ReactNode }) {
   return (
@@ -11,6 +12,7 @@ export default function StoreShell({ children }: { children: React.ReactNode }) 
       </main>
       <Footer />
       <CartDrawer />
+      <MobileBottomNav />
     </>
   );
 }

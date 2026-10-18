@@ -207,14 +207,14 @@ export default function HomePage() {
 
   return (
     <StoreShell>
-      <div className="bg-[#F4F7FC] font-sans">
+      <div className="bg-[#F4F7FC] font-sans pb-16 md:pb-0">
 
         {/* FULL-WIDTH HERO */}
-        <section className="container mx-auto px-4 pt-4 sm:pt-5">
+        <section className="container mx-auto px-3.5 sm:px-4 pt-3 sm:pt-5">
           <div
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
-            className="relative rounded-[22px] overflow-hidden min-h-[300px] sm:min-h-[360px] lg:min-h-[400px] shadow-[0_12px_36px_rgba(11,87,208,0.16)] group"
+            className="relative rounded-[20px] sm:rounded-[22px] overflow-hidden min-h-[290px] sm:min-h-[360px] lg:min-h-[400px] shadow-[0_12px_36px_rgba(11,87,208,0.16)] group"
           >
             {HERO_SLIDES.map((s, i) => (
               <div
@@ -233,27 +233,28 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#062554]/40 via-transparent to-transparent" />
 
                 <div className="relative z-10 h-full flex items-center">
-                  <div style={{ paddingLeft: '84px' }} className="pr-6 py-10 max-w-xl">
-                    <p className="text-[11px] sm:text-xs font-black tracking-[0.2em] uppercase text-[#38BDF8] mb-2">
+                  <div className="px-5 sm:px-10 lg:pl-[84px] lg:pr-6 py-7 sm:py-10 max-w-xl">
+                    <p className="text-[10.5px] sm:text-xs font-black tracking-[0.2em] uppercase text-[#38BDF8] mb-1.5 sm:mb-2">
                       {s.eyebrow}
                     </p>
-                    <h1 className="text-[2.2rem] sm:text-4xl lg:text-[3.25rem] font-black text-white tracking-tight leading-[1.06] mb-3">
+                    <h1 className="text-2xl sm:text-4xl lg:text-[3.25rem] font-black text-white tracking-tight leading-[1.08] mb-2 sm:mb-3">
                       {s.titleBefore}{' '}
                       <span className="text-[#38BDF8]">{s.titleAccent}</span>
                     </h1>
-                    <p className="text-sm sm:text-[15px] text-white/90 font-medium leading-relaxed mb-6 max-w-md">
+                    <p className="text-xs sm:text-[15px] text-white/90 font-medium leading-relaxed mb-4 sm:mb-6 max-w-md line-clamp-2 sm:line-clamp-none">
                       {s.subtitle}
                     </p>
 
-                    <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mb-6">
+                    <div className="flex flex-wrap items-center gap-x-4 sm:gap-x-6 gap-y-2 sm:gap-y-3 mb-4 sm:mb-6">
                       {HERO_TRUST.map((item) => {
                         const Icon = item.icon;
                         return (
-                          <div key={item.label} className="flex items-center gap-2.5 text-white">
-                            <div className="w-8 h-8 rounded-lg bg-white/12 border border-white/20 flex items-center justify-center shrink-0 shadow-sm">
-                              <Icon size={16} className="text-white" />
+                          <div key={item.label} className="flex items-center gap-2 sm:gap-2.5 text-white">
+                            <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg bg-white/12 border border-white/20 flex items-center justify-center shrink-0 shadow-sm">
+                              <Icon size={13} className="text-white sm:hidden" />
+                              <Icon size={16} className="text-white hidden sm:block" />
                             </div>
-                            <span className="text-[12px] font-semibold leading-tight">{item.label}</span>
+                            <span className="text-[11px] sm:text-[12px] font-semibold leading-tight">{item.label}</span>
                           </div>
                         );
                       })}
@@ -261,10 +262,10 @@ export default function HomePage() {
 
                     <Link
                       href={s.href}
-                      className="inline-flex items-center gap-2 px-7 py-3 bg-[#0066FF] hover:bg-[#0052CC] text-white font-bold text-sm rounded-full shadow-lg shadow-blue-900/30 transition-all hover:-translate-y-0.5"
+                      className="inline-flex items-center gap-2 px-5 sm:px-7 py-2.5 sm:py-3 bg-[#0066FF] hover:bg-[#0052CC] text-white font-bold text-xs sm:text-sm rounded-full shadow-lg shadow-blue-900/30 transition-all hover:-translate-y-0.5"
                     >
                       {s.cta}
-                      <ArrowRight size={16} />
+                      <ArrowRight size={15} />
                     </Link>
                   </div>
                 </div>
@@ -293,7 +294,7 @@ export default function HomePage() {
             <button
               type="button"
               onClick={prevSlide}
-              className="absolute left-3.5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/35 hover:bg-black/55 text-white flex items-center justify-center border border-white/20 backdrop-blur-sm cursor-pointer transition-all"
+              className="hidden sm:flex absolute left-3.5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/35 hover:bg-black/55 text-white items-center justify-center border border-white/20 backdrop-blur-sm cursor-pointer transition-all"
               aria-label="Previous slide"
             >
               <ChevronLeft size={22} />
@@ -301,13 +302,13 @@ export default function HomePage() {
             <button
               type="button"
               onClick={nextSlide}
-              className="absolute right-3.5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/35 hover:bg-black/55 text-white flex items-center justify-center border border-white/20 backdrop-blur-sm cursor-pointer transition-all"
+              className="hidden sm:flex absolute right-3.5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/35 hover:bg-black/55 text-white items-center justify-center border border-white/20 backdrop-blur-sm cursor-pointer transition-all"
               aria-label="Next slide"
             >
               <ChevronRight size={22} />
             </button>
 
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5">
+            <div className="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5">
               {HERO_SLIDES.map((_, i) => (
                 <button
                   key={i}
@@ -324,10 +325,10 @@ export default function HomePage() {
         </section>
 
         {/* SEASONAL FEST BANNER */}
-        <section className="container mx-auto px-4 mt-3.5">
+        <section className="container mx-auto px-3.5 sm:px-4 mt-3 sm:mt-3.5">
           <Link
             href="/offers"
-            className="relative block rounded-[20px] overflow-hidden min-h-[90px] sm:min-h-[100px] group shadow-[0_8px_24px_rgba(255,138,0,0.22)]"
+            className="relative block rounded-[18px] sm:rounded-[20px] overflow-hidden min-h-[82px] sm:min-h-[100px] group shadow-[0_8px_24px_rgba(255,138,0,0.22)]"
           >
             {/* Rich warm orange-gold gradient */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#FFB800] via-[#FF8A00] to-[#E65100]" />
@@ -367,9 +368,9 @@ export default function HomePage() {
               </svg>
             </div>
 
-            <div className="relative z-10 flex items-center justify-between gap-4 px-4 sm:px-6 py-3 h-full">
-              <div className="flex items-center gap-4 sm:gap-5 min-w-0">
-                <div className="hidden sm:flex items-center -space-x-2.5 shrink-0">
+            <div className="relative z-10 flex items-center justify-between gap-3 sm:gap-4 px-3.5 sm:px-6 py-2.5 sm:py-3 h-full">
+              <div className="flex items-center gap-3 sm:gap-5 min-w-0">
+                <div className="flex items-center -space-x-2 shrink-0">
                   {[
                     '/images/hd/categories/school-books.jpg',
                     '/images/hd/products/pilot-g2-pens.jpg',
@@ -377,17 +378,17 @@ export default function HomePage() {
                   ].map((src, idx) => (
                     <div
                       key={idx}
-                      className="w-13 h-13 sm:w-15 sm:h-15 rounded-full border-[3px] border-white bg-white shadow-md overflow-hidden flex items-center justify-center p-1"
+                      className="w-9 h-9 sm:w-15 sm:h-15 rounded-full border-2 sm:border-[3px] border-white bg-white shadow-md overflow-hidden flex items-center justify-center p-0.5 sm:p-1"
                     >
                       <img src={src} alt="" className="w-full h-full object-contain" />
                     </div>
                   ))}
                 </div>
                 <div className="min-w-0">
-                  <p className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.2em] text-white/95 mb-0.5">
+                  <p className="text-[9.5px] sm:text-[11px] font-black uppercase tracking-[0.18em] sm:tracking-[0.2em] text-white/95 mb-0.5">
                     Live Now · Seasonal Sale
                   </p>
-                  <h2 className="text-base sm:text-2xl lg:text-[1.65rem] font-black text-white tracking-tight leading-tight">
+                  <h2 className="text-[13px] sm:text-2xl lg:text-[1.65rem] font-black text-white tracking-tight leading-tight truncate sm:whitespace-normal">
                     Back to School Fest — Up to 25% Off
                   </h2>
                   <p className="text-xs sm:text-[13px] text-white/90 font-semibold tracking-wide mt-0.5 hidden sm:block">
@@ -398,9 +399,10 @@ export default function HomePage() {
 
               {/* Crimson Circular SHOP NOW button with shopping cart icon */}
               <div className="shrink-0 flex items-center">
-                <div className="w-[68px] h-[68px] sm:w-[76px] sm:h-[76px] rounded-full bg-[#E11D48] hover:bg-[#BE123C] text-white flex items-center justify-center gap-1.5 shadow-lg shadow-red-900/25 transition-transform group-hover:scale-105 cursor-pointer">
-                  <ShoppingCart size={17} className="text-white shrink-0 -ml-0.5" strokeWidth={2.2} />
-                  <span className="font-black text-[10.5px] sm:text-[11px] leading-tight uppercase tracking-tight text-left">
+                <div className="w-[52px] h-[52px] sm:w-[76px] sm:h-[76px] rounded-full bg-[#E11D48] hover:bg-[#BE123C] text-white flex items-center justify-center gap-1 shadow-lg shadow-red-900/25 transition-transform group-hover:scale-105 cursor-pointer">
+                  <ShoppingCart size={13} className="text-white shrink-0 sm:hidden" strokeWidth={2.2} />
+                  <ShoppingCart size={17} className="text-white shrink-0 hidden sm:block -ml-0.5" strokeWidth={2.2} />
+                  <span className="font-black text-[9px] sm:text-[11px] leading-[1.05] sm:leading-tight uppercase tracking-tight text-left">
                     SHOP<br />NOW
                   </span>
                 </div>
