@@ -129,8 +129,8 @@ export default function Navbar() {
         </div>
 
         {/* White main header */}
-        <div className="bg-white border-b border-slate-100 shadow-[0_2px_12px_rgba(15,23,42,0.03)]">
-          <div className="container mx-auto px-4 py-4 sm:py-4.5 flex items-center justify-between gap-4 md:gap-8">
+        <div className="bg-white border-b border-slate-100 shadow-[0_3px_14px_rgba(15,23,42,0.04)]">
+          <div className="container mx-auto px-4 py-6 sm:py-7 flex items-center justify-between gap-4 md:gap-8">
             <div className="flex items-center gap-3">
               <button
                 type="button"
@@ -138,14 +138,14 @@ export default function Navbar() {
                 className="lg:hidden p-2 text-slate-700 hover:bg-slate-100 rounded-lg cursor-pointer border-none bg-transparent"
                 aria-label="Toggle menu"
               >
-                {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
               </button>
 
               <Link href="/" className="shrink-0 group">
                 <img
                   src="/azip-logo.png"
                   alt="AZIP Store"
-                  className="h-11 sm:h-[50px] w-auto object-contain group-hover:scale-[1.02] transition-transform"
+                  className="h-12 sm:h-[58px] lg:h-[64px] w-auto object-contain group-hover:scale-[1.02] transition-transform"
                 />
               </Link>
             </div>
@@ -155,21 +155,21 @@ export default function Navbar() {
               onSubmit={handleSearchSubmit}
               className="relative flex-1 max-w-2xl hidden md:flex items-center"
             >
-              <div className="flex w-full items-center rounded-full bg-white border border-slate-200 shadow-[inset_0_1px_2px_rgba(15,23,42,0.03)] focus-within:border-[#0066FF] focus-within:ring-4 focus-within:ring-[#0066FF]/10 transition-all">
+              <div className="flex w-full items-center rounded-full bg-white border border-slate-200 shadow-[inset_0_1px_3px_rgba(15,23,42,0.04)] focus-within:border-[#0066FF] focus-within:ring-4 focus-within:ring-[#0066FF]/10 transition-all">
                 <input
                   type="text"
                   value={searchQuery}
                   onFocus={() => setIsSearchFocused(true)}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search for books, stationery, school bags, and more..."
-                  className="flex-1 h-12 pl-6 pr-3 text-[14px] text-slate-800 placeholder-slate-400 focus:outline-none bg-transparent font-normal"
+                  className="flex-1 h-12 sm:h-14 pl-6 sm:pl-7 pr-3 text-[14px] sm:text-[15px] text-slate-800 placeholder-slate-400 focus:outline-none bg-transparent font-normal"
                 />
                 <button
                   type="submit"
-                  className="h-10 w-10 mr-1.5 bg-[#0066FF] hover:bg-[#0052CC] text-white rounded-full flex items-center justify-center shrink-0 transition-colors cursor-pointer border-none shadow-sm"
+                  className="h-10 w-10 sm:h-11 sm:w-11 mr-1.5 bg-[#0066FF] hover:bg-[#0052CC] text-white rounded-full flex items-center justify-center shrink-0 transition-colors cursor-pointer border-none shadow-sm"
                   title="Search"
                 >
-                  <Search size={17} strokeWidth={2.2} />
+                  <Search size={18} strokeWidth={2.4} />
                 </button>
               </div>
 
@@ -223,16 +223,16 @@ export default function Navbar() {
             <button
               type="button"
               onClick={toggleCart}
-              className="flex items-center gap-2.5 text-slate-800 hover:bg-slate-50 rounded-full px-3.5 py-2 cursor-pointer border-none bg-transparent transition-colors"
+              className="flex items-center gap-3 text-slate-800 hover:bg-slate-50 rounded-full px-4 py-2.5 cursor-pointer border-none bg-transparent transition-colors"
               title="Cart"
             >
               <div className="relative">
-                <ShoppingCart size={24} className="text-[#0066FF]" strokeWidth={2} />
-                <span className="absolute -top-2.5 -right-2.5 min-w-[18px] h-[18px] px-1 rounded-full bg-[#0066FF] text-white text-[10px] font-black flex items-center justify-center shadow-sm">
+                <ShoppingCart size={26} className="text-[#0066FF]" strokeWidth={2} />
+                <span className="absolute -top-2.5 -right-2.5 min-w-[20px] h-[20px] px-1 rounded-full bg-[#0066FF] text-white text-[11px] font-black flex items-center justify-center shadow-sm">
                   {cartCount}
                 </span>
               </div>
-              <span className="hidden sm:inline text-sm font-bold text-[#0F172A]">Cart</span>
+              <span className="hidden sm:inline text-[15px] font-bold text-[#0F172A]">Cart</span>
             </button>
           </div>
         </div>
