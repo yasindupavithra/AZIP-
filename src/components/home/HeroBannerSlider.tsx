@@ -216,9 +216,11 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
 
   useEffect(() => {
     if (paused || slides.length <= 1) return;
-    const timer = setInterval(nextSlide, 4200);
+    // Primary banner (Mega Student Fest) stays longer (8500ms), other slides 6000ms
+    const delay = current === 0 ? 8500 : 6000;
+    const timer = setInterval(nextSlide, delay);
     return () => clearInterval(timer);
-  }, [paused, slides.length, nextSlide]);
+  }, [paused, slides.length, nextSlide, current]);
 
   const slide = slides[current] || DEFAULT_SLIDES[0];
   const themeKey =
@@ -247,14 +249,14 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 items-stretch">
         {/* LEFT / MAIN CAROUSEL (10 cols on xl, 9 on lg) */}
         <div
-          className="lg:col-span-9 xl:col-span-10 relative overflow-hidden rounded-none shadow-md select-none min-h-[290px] sm:min-h-[345px] md:min-h-[370px]"
+          className="lg:col-span-9 xl:col-span-10 relative overflow-hidden rounded-none shadow-md select-none min-h-[460px] xs:min-h-[490px] sm:min-h-[360px] md:min-h-[380px]"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
         >
           {slide.displayMode === 'full-image' ? (
             /* ── FULL UPLOADED BANNER IMAGE MODE ── */
             <div
-              className="group relative w-full h-full min-h-[290px] sm:min-h-[345px] md:min-h-[370px] flex flex-col md:items-center md:justify-center overflow-hidden"
+              className="group relative w-full h-full min-h-[460px] xs:min-h-[490px] sm:min-h-[360px] md:min-h-[380px] flex flex-col md:items-center md:justify-center overflow-hidden"
               style={{ backgroundColor: slide.bgColor || '#0B1B33' }}
             >
               {/* Soft edge glow so the artwork blends seamlessly into the stage */}
@@ -306,29 +308,37 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
                 )}
               </div>
 
-              {/* Mobile (< md): action strip fills the space below the artwork */}
+              {/* Mobile (< md): action strip fills the extended phone viewport space */}
               {slide.showOverlay && (
-                <div className="md:hidden relative z-10 flex-1 flex flex-col justify-center gap-2.5 px-4 pt-2 pb-8">
-                  <div className="flex items-center justify-between gap-2">
-                    <div className="flex flex-wrap items-center gap-1.5">
-                      <span className="inline-flex items-center gap-1 bg-white/95 text-[#041E42] text-[10px] font-extrabold px-2 py-1 shadow-sm">
-                        <Truck size={11} className="text-emerald-600" /> Free Delivery
-                      </span>
-                      <span className="inline-flex items-center gap-1 bg-white/95 text-[#041E42] text-[10px] font-extrabold px-2 py-1 shadow-sm">
-                        <ShieldCheck size={11} className="text-[#0077B6]" /> Genuine
-                      </span>
-                    </div>
+                <div className="md:hidden relative z-10 flex-1 flex flex-col justify-between gap-3 px-4 pt-2 pb-10">
+                  <div className="space-y-1 text-center">
+                    <span className="inline-flex items-center gap-1 bg-[#041E42] text-[#00E5FF] text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 shadow-xs">
+                      <Sparkles size={11} className="text-[#00E5FF]" /> MEGA STUDENT FEST 2026
+                    </span>
+                    <p className="text-xs font-black text-slate-900 tracking-tight">
+                      For Students Who Dream Big • Genuine School Gear
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap items-center justify-center gap-1.5">
+                    <span className="inline-flex items-center gap-1 bg-white/95 text-[#041E42] text-[10px] font-extrabold px-2.5 py-1 shadow-sm">
+                      <Truck size={11} className="text-emerald-600" /> Free Delivery
+                    </span>
+                    <span className="inline-flex items-center gap-1 bg-white/95 text-[#041E42] text-[10px] font-extrabold px-2.5 py-1 shadow-sm">
+                      <ShieldCheck size={11} className="text-[#0077B6]" /> 100% Genuine
+                    </span>
                     {slide.discountText && (
                       <span className="inline-flex items-center gap-1 bg-[#FFD60A] text-[#041E42] text-[10px] font-black uppercase px-2 py-1 shadow-sm shrink-0">
-                        <Flame size={11} /> {slide.discountText} OFF
+                        <Flame size={11} /> Up to {slide.discountText} OFF
                       </span>
                     )}
                   </div>
+
                   <Link
                     href={slide.linkUrl || '/offers'}
-                    className="w-full inline-flex items-center justify-center gap-2 bg-[#041E42] active:bg-[#0038A8] text-white text-sm font-black uppercase tracking-wide py-2.5 shadow-[0_8px_20px_rgba(4,30,66,0.35)]"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-[#041E42] active:bg-[#0038A8] text-white text-sm font-black uppercase tracking-wider py-3 shadow-[0_8px_20px_rgba(4,30,66,0.35)]"
                   >
-                    {slide.ctaText || 'Shop Now'} <ChevronRight size={16} />
+                    {slide.ctaText || 'Shop Student Fest'} <ChevronRight size={17} />
                   </Link>
                 </div>
               )}
@@ -336,7 +346,7 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
           ) : (
             /* ── DARAZ STARBURST CAMPAIGN STAGE MODE ── */
             <div
-              className="relative w-full h-full min-h-[290px] sm:min-h-[345px] md:min-h-[370px] flex items-center overflow-hidden transition-all duration-500"
+              className="relative w-full h-full min-h-[460px] xs:min-h-[490px] sm:min-h-[360px] md:min-h-[380px] flex items-center overflow-hidden transition-all duration-500"
               style={{ backgroundImage: theme.bgGradient }}
             >
               {/* Starburst Radial Rays Overlay */}
@@ -544,7 +554,7 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
                 type="button"
                 onClick={prevSlide}
                 aria-label="Previous banner"
-                className="absolute left-1.5 sm:left-2 top-[74%] md:top-1/2 -translate-y-1/2 z-30 w-7 h-7 sm:w-9 sm:h-9 rounded-none bg-black/35 hover:bg-black/60 text-white flex items-center justify-center transition-colors cursor-pointer border-none"
+                className="absolute left-1.5 sm:left-2 top-1/2 -translate-y-1/2 z-30 w-7 h-7 sm:w-9 sm:h-9 rounded-none bg-black/35 hover:bg-black/60 text-white flex items-center justify-center transition-colors cursor-pointer border-none"
               >
                 <ChevronLeft size={16} />
               </button>
@@ -552,7 +562,7 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
                 type="button"
                 onClick={nextSlide}
                 aria-label="Next banner"
-                className="absolute right-1.5 sm:right-2 top-[74%] md:top-1/2 -translate-y-1/2 z-30 w-7 h-7 sm:w-9 sm:h-9 rounded-none bg-black/35 hover:bg-black/60 text-white flex items-center justify-center transition-colors cursor-pointer border-none"
+                className="absolute right-1.5 sm:right-2 top-1/2 -translate-y-1/2 z-30 w-7 h-7 sm:w-9 sm:h-9 rounded-none bg-black/35 hover:bg-black/60 text-white flex items-center justify-center transition-colors cursor-pointer border-none"
               >
                 <ChevronRight size={16} />
               </button>
