@@ -70,7 +70,7 @@ export default function Navbar() {
 
     async function fetchProducts() {
       try {
-        const res = await fetch('/api/products?limit=50');
+        const res = await fetch('/api/products?limit=200');
         if (res.ok) {
           const data = await res.json();
           if (data.products && data.products.length > 0) {
@@ -189,7 +189,7 @@ export default function Navbar() {
         </div>
 
         {/* ── Main header ── */}
-        <div className="bg-white/95 backdrop-blur-md border-b border-[#00C4D8]/20">
+        <div className="relative z-40 bg-white border-b border-[#00C4D8]/20">
           <div className="w-full px-3 sm:px-6 lg:px-8 xl:px-12 py-2.5 sm:py-3.5">
             <div className="flex items-center justify-between gap-3 sm:gap-6 lg:gap-10">
               <div className="flex items-center gap-2 sm:gap-3">
@@ -208,15 +208,15 @@ export default function Navbar() {
                 </Link>
               </div>
 
-              {/* High-Tech Translucent Search Bar */}
+              {/* High-Tech Search Bar with High-Priority Stacking Context */}
               <form
                 ref={searchRef}
                 onSubmit={handleSearchSubmit}
-                className="relative flex-1 max-w-[760px] hidden md:flex items-center"
+                className="relative z-50 flex-1 max-w-[760px] hidden md:flex items-center"
                 role="search"
               >
-                <div className="flex w-full items-center rounded-none bg-slate-50/80 backdrop-blur-md border-[1.5px] border-[#00C4D8]/30 focus-within:border-[#00C4D8] focus-within:bg-white focus-within:shadow-[0_0_25px_rgba(0,196,216,0.3)] transition-all overflow-hidden">
-                  <Search size={18} className="ml-4 text-[#00C4D8] shrink-0" />
+                <div className="flex w-full items-center rounded-none bg-slate-50 border-[1.5px] border-[#00C4D8]/40 focus-within:border-[#0096C7] focus-within:bg-white focus-within:shadow-[0_0_20px_rgba(0,150,199,0.22)] transition-all overflow-hidden">
+                  <Search size={18} className="ml-4 text-[#0096C7] shrink-0" />
                   <input
                     id="nav-search-input"
                     type="text"
@@ -226,10 +226,20 @@ export default function Navbar() {
                     placeholder={t('nav.search_placeholder')}
                     className="flex-1 h-12 pl-3 pr-3 text-[14px] text-slate-800 placeholder-slate-400 focus:outline-none bg-transparent font-medium"
                   />
+                  {searchQuery && (
+                    <button
+                      type="button"
+                      onClick={() => setSearchQuery('')}
+                      className="px-2 text-slate-400 hover:text-slate-600 bg-transparent border-none cursor-pointer"
+                      aria-label="Clear search"
+                    >
+                      <X size={16} />
+                    </button>
+                  )}
                   <button
                     type="submit"
                     id="nav-search-submit"
-                    className="bg-gradient-to-r from-[#00C4D8] to-[#0096C7] hover:from-[#00E5FF] hover:to-[#00B4C8] h-12 w-14 text-white flex items-center justify-center shrink-0 cursor-pointer border-none transition-all shadow-[3px_0px_0px_rgba(0,110,138,0.3)]"
+                    className="bg-gradient-to-r from-[#0096C7] to-[#0077B6] hover:from-[#00B4D8] hover:to-[#0096C7] h-12 w-14 text-white flex items-center justify-center shrink-0 cursor-pointer border-none transition-all"
                     title="Search"
                     style={{ borderRadius: '0 !important' }}
                   >
@@ -238,41 +248,50 @@ export default function Navbar() {
                 </div>
 
                 {isSearchFocused && searchQuery.trim() && (
-                  <div className="absolute top-full left-0 right-0 mt-1 bg-white shadow-[5px_5px_0px_rgba(0,196,216,0.25)] border-2 border-[#00C4D8]/50 overflow-hidden z-50" style={{ borderRadius: '0 !important' }}>
+                  <div
+                    className="absolute top-full left-0 right-0 mt-1.5 bg-white shadow-[0_18px_40px_rgba(4,30,66,0.22)] border-2 border-[#0096C7] overflow-hidden z-[120]"
+                    style={{ borderRadius: '0 !important' }}
+                  >
+                    <div className="px-3.5 py-2 bg-[#F0F9FF] border-b border-sky-200 flex items-center justify-between text-[11px] font-extrabold text-[#0077B6] uppercase tracking-wider">
+                      <span>Matching Products ({searchResults.length})</span>
+                      <span>Press Enter for all results</span>
+                    </div>
                     {searchResults.length > 0 ? (
-                      <div className="p-2 space-y-0.5">
+                      <div className="divide-y divide-slate-100 max-h-[380px] overflow-y-auto bg-white">
                         {searchResults.map((product) => (
                           <Link
                             key={product._id}
                             href={`/products/${product.slug}`}
                             onClick={() => setIsSearchFocused(false)}
-                            className="flex items-center gap-3 p-2.5 hover:bg-[#E0F9FC] transition-colors border-b border-[#C7F0F5] last:border-0"
+                            className="flex items-center gap-3.5 px-3.5 py-2.5 bg-white hover:bg-[#EBF8FF] transition-colors"
                           >
                             <img
-                              src={product.images[0]?.url || '/placeholder.png'}
+                              src={product.images[0]?.url || '/images/hd/products/atlas-exercise-book.jpg'}
                               alt={product.name}
-                              className="w-11 h-11 object-contain p-1 rounded-none bg-white border border-slate-100 shrink-0"
+                              className="w-12 h-12 object-contain p-1 rounded-none bg-white border border-slate-200 shrink-0"
                             />
                             <div className="flex-1 min-w-0">
-                              <div className="text-sm font-semibold text-slate-900 truncate">{product.name}</div>
-                              <div className="text-[11px] text-slate-500 font-medium">{product.brand || 'AZIP'}</div>
+                              <div className="text-sm font-bold text-slate-900 truncate">{product.name}</div>
+                              <div className="text-[11px] text-slate-500 font-semibold">{product.brand || 'AZIP Genuine'}</div>
                             </div>
-                            <div className="text-sm font-bold text-[#008D9B] shrink-0">
-                              Rs {product.price.toLocaleString()}
+                            <div className="text-sm font-black text-[#0077B6] shrink-0">
+                              Rs. {product.price.toLocaleString()}
                             </div>
                           </Link>
                         ))}
-                        <button
-                          type="submit"
-                          className="btn-primary w-full py-2.5 text-xs uppercase tracking-wider mt-1"
-                        >
-                          View All Results
-                          <ArrowRight size={13} />
-                        </button>
+                        <div className="p-2 bg-slate-50">
+                          <button
+                            type="submit"
+                            className="w-full py-2.5 bg-[#0077B6] hover:bg-[#0052D4] text-white font-extrabold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 cursor-pointer border-none transition-colors"
+                          >
+                            View All Search Results
+                            <ArrowRight size={14} />
+                          </button>
+                        </div>
                       </div>
                     ) : (
-                      <div className="p-5 text-center text-sm text-slate-500">
-                        No results for &ldquo;
+                      <div className="p-6 text-center text-sm text-slate-500 bg-white">
+                        No matching products for &ldquo;
                         <span className="font-bold text-slate-800">{searchQuery}</span>&rdquo;
                       </div>
                     )}
@@ -280,14 +299,14 @@ export default function Navbar() {
                 )}
               </form>
 
-              {/* Wishlist, Orders & Quick Cart Drawer Trigger */}
-              <div className="flex items-center gap-1 sm:gap-3 lg:gap-5">
+              {/* Wishlist, Orders & Clean Executive Cart Button */}
+              <div className="flex items-center gap-1.5 sm:gap-3 lg:gap-4">
                 {/* Mobile Language Toggle */}
                 <div className="sm:hidden flex items-center bg-slate-100 rounded-none p-0.5 border border-slate-200">
                   <button
                     type="button"
                     onClick={() => setLanguage(language === 'en' ? 'si' : 'en')}
-                    className="px-2 py-0.5 rounded-none text-[10px] font-black bg-[#00C4D8] text-white"
+                    className="px-2 py-0.5 rounded-none text-[10px] font-black bg-[#0096C7] text-white"
                   >
                     {language.toUpperCase()}
                   </button>
@@ -296,34 +315,41 @@ export default function Navbar() {
                 <Link
                   href="/products"
                   id="nav-wishlist"
-                  className="hidden lg:flex items-center gap-2 px-2 py-1.5 text-slate-700 hover:text-[#00C4D8] transition-colors"
+                  className="hidden lg:flex items-center gap-2 px-2 py-1.5 text-slate-700 hover:text-[#0096C7] transition-colors"
                 >
-                  <Heart size={21} strokeWidth={1.8} />
+                  <Heart size={20} strokeWidth={1.9} />
                   <span className="text-[13px] font-semibold">{t('nav.wishlist')}</span>
                 </Link>
                 <Link
                   href="/checkout"
                   id="nav-orders"
-                  className="hidden lg:flex items-center gap-2 px-2 py-1.5 text-slate-700 hover:text-[#00C4D8] transition-colors"
+                  className="hidden lg:flex items-center gap-2 px-2 py-1.5 text-slate-700 hover:text-[#0096C7] transition-colors"
                 >
-                  <Package size={21} strokeWidth={1.8} />
+                  <Package size={20} strokeWidth={1.9} />
                   <span className="text-[13px] font-semibold">{t('nav.orders')}</span>
                 </Link>
                 <button
                   type="button"
                   id="nav-cart"
                   onClick={toggleCart}
-                  className="flex items-center gap-2 text-slate-800 hover:text-[#00C4D8] px-2.5 py-1.5 cursor-pointer border-2 border-[#00C4D8]/40 hover:border-[#00C4D8] bg-[#E0F9FC] hover:bg-[#C7F0F5] transition-all shadow-[3px_3px_0px_rgba(0,196,216,0.2)] hover:shadow-[4px_4px_0px_rgba(0,196,216,0.3)] hover:-translate-x-0.5 hover:-translate-y-0.5"
-                  title="Cart"
+                  className="group flex items-center gap-2.5 px-3.5 py-2 cursor-pointer border-2 border-[#0077B6] bg-[#041E42] hover:bg-[#0038A8] text-white transition-all shadow-[3px_3px_0px_rgba(0,150,199,0.3)]"
+                  title="Open Shopping Cart"
                   style={{ borderRadius: '0 !important' }}
                 >
-                  <div className="relative">
-                    <ShoppingCart size={22} className="text-[#0096C7]" strokeWidth={2.2} />
-                    <span className="absolute -top-2 -right-2.5 min-w-[19px] h-[19px] px-1 bg-gradient-to-r from-[#FB7185] to-[#F43F5E] text-white text-[10px] font-black flex items-center justify-center ring-2 ring-white shadow-[2px_2px_0px_rgba(244,63,94,0.4)]" style={{ borderRadius: '0 !important' }}>
-                      {cartCount}
-                    </span>
-                  </div>
-                  <span className="hidden sm:inline text-[13px] font-bold text-[#0096C7] font-['Outfit']">{t('nav.cart')}</span>
+                  <ShoppingCart size={19} className="text-[#00E5FF] shrink-0" strokeWidth={2.3} />
+                  <span className="hidden sm:inline text-[13px] font-extrabold tracking-wide text-white font-['Outfit']">
+                    {t('nav.cart')}
+                  </span>
+                  <span
+                    className={`min-w-[22px] h-[22px] px-1.5 text-[11px] font-black flex items-center justify-center transition-colors ${
+                      cartCount > 0
+                        ? 'bg-[#00E5FF] text-[#041E42]'
+                        : 'bg-white/15 text-white'
+                    }`}
+                    style={{ borderRadius: '0 !important' }}
+                  >
+                    {cartCount}
+                  </span>
                 </button>
               </div>
             </div>
@@ -354,7 +380,7 @@ export default function Navbar() {
         </div>
 
         {/* ── Category navigation row — Sharp Edge-to-Edge ── */}
-        <nav className="hidden lg:block bg-[#F0FDFA] border-y-2 border-[#C7F0F5]" aria-label="Product categories">
+        <nav className="relative z-20 hidden lg:block bg-[#F0FDFA] border-y-2 border-[#C7F0F5]" aria-label="Product categories">
           <div className="w-full px-3 sm:px-6 lg:px-8 xl:px-12">
             <div className="flex items-center text-[13px] font-semibold text-slate-700">
               <div
