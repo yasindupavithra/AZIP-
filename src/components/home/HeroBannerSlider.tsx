@@ -23,6 +23,10 @@ export interface BannerSlide {
   ctaText?: string;
   bgTheme?: string;
   displayMode?: 'daraz-stage' | 'full-image';
+  /** Solid stage colour behind a full-image banner (should match the artwork's edges) */
+  bgColor?: string;
+  /** Render built-in CTA / feature chips on top of a full-image banner */
+  showOverlay?: boolean;
   image: string;
   secondaryImages?: string[];
   linkUrl: string;
@@ -35,18 +39,16 @@ export interface BannerSlide {
 const DEFAULT_SLIDES: BannerSlide[] = [
   {
     _id: 'banner-1',
-    title: 'HOT DEALS',
-    subtitle: 'Too Hot to Last. Best Prices on School Kits.',
-    badge: '11.11 SHOPPING FEST',
+    title: 'AZIP.lk Mega Student Fest',
+    subtitle: 'For Students Who Dream',
+    badge: 'MEGA STUDENT FEST',
     discountText: '65%',
-    ctaText: 'Add to Cart',
-    bgTheme: 'orange',
-    displayMode: 'daraz-stage',
-    image: '/images/hd/products/school-backpack-blue.jpg',
-    secondaryImages: [
-      '/images/hd/products/atlas-exercise-book.jpg',
-      '/images/hd/products/water-bottle.jpg',
-    ],
+    ctaText: 'Shop Now',
+    bgTheme: 'teal',
+    displayMode: 'full-image',
+    bgColor: '#6ED7E5',
+    showOverlay: true,
+    image: '/images/banners/azip-mega-student-fest.jpg',
     linkUrl: '/offers',
     isActive: true,
     order: 1,
@@ -251,13 +253,86 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
         >
           {slide.displayMode === 'full-image' ? (
             /* ── FULL UPLOADED BANNER IMAGE MODE ── */
-            <Link href={slide.linkUrl || '/offers'} className="block w-full h-full min-h-[290px] sm:min-h-[370px] relative">
-              <img
-                src={slide.image}
-                alt={slide.title}
-                className="w-full h-full min-h-[290px] sm:min-h-[370px] object-cover"
+            <div
+              className="group relative w-full h-full min-h-[290px] sm:min-h-[345px] md:min-h-[370px] flex flex-col md:items-center md:justify-center overflow-hidden"
+              style={{ backgroundColor: slide.bgColor || '#0B1B33' }}
+            >
+              {/* Soft edge glow so the artwork blends seamlessly into the stage */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  backgroundImage:
+                    'radial-gradient(ellipse at 50% 45%, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0) 60%)',
+                }}
               />
-            </Link>
+
+              {/* Artwork box — locked to the banner's native aspect ratio so nothing is cropped */}
+              <div className="relative w-full md:max-w-[880px] mx-auto aspect-[1024/431] shrink-0">
+                <Link href={slide.linkUrl || '/offers'} className="absolute inset-0 block" aria-label={slide.title}>
+                  <img
+                    src={slide.image}
+                    alt={slide.title}
+                    className="w-full h-full object-contain transition-transform duration-[1200ms] ease-out group-hover:scale-[1.025]"
+                  />
+                </Link>
+
+                {slide.showOverlay && (
+                  <>
+                    {/* Desktop: feature chips under the "MEGA STUDENT FEST" logo */}
+                    <div className="hidden md:flex absolute left-[2.5%] top-[74%] items-center gap-1.5 z-10">
+                      <span className="inline-flex items-center gap-1 bg-white/95 text-[#041E42] text-[10px] lg:text-[11px] font-extrabold px-2 py-1 shadow-md">
+                        <Truck size={12} className="text-emerald-600" /> Free Delivery
+                      </span>
+                      <span className="inline-flex items-center gap-1 bg-white/95 text-[#041E42] text-[10px] lg:text-[11px] font-extrabold px-2 py-1 shadow-md">
+                        <ShieldCheck size={12} className="text-[#0077B6]" /> 100% Genuine
+                      </span>
+                    </div>
+
+                    {/* Desktop: CTA under "For Students Who Dream" */}
+                    <div className="hidden md:flex absolute right-[2.5%] top-[67%] flex-col items-end gap-1.5 z-10">
+                      <Link
+                        href={slide.linkUrl || '/offers'}
+                        className="inline-flex items-center gap-2 bg-[#041E42] hover:bg-[#0038A8] text-white text-xs lg:text-sm font-black uppercase tracking-wide px-5 lg:px-6 py-2 lg:py-2.5 shadow-[0_10px_24px_rgba(4,30,66,0.35)] transition-all hover:-translate-y-0.5"
+                      >
+                        {slide.ctaText || 'Shop Now'} <ChevronRight size={16} />
+                      </Link>
+                      {slide.discountText && (
+                        <span className="inline-flex items-center gap-1 bg-[#FFD60A] text-[#041E42] text-[10px] lg:text-[11px] font-black uppercase px-2 py-0.5 shadow-md">
+                          <Flame size={11} /> Up to {slide.discountText} OFF
+                        </span>
+                      )}
+                    </div>
+                  </>
+                )}
+              </div>
+
+              {/* Mobile (< md): action strip fills the space below the artwork */}
+              {slide.showOverlay && (
+                <div className="md:hidden relative z-10 flex-1 flex flex-col justify-center gap-2.5 px-4 pt-2 pb-8">
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="flex flex-wrap items-center gap-1.5">
+                      <span className="inline-flex items-center gap-1 bg-white/95 text-[#041E42] text-[10px] font-extrabold px-2 py-1 shadow-sm">
+                        <Truck size={11} className="text-emerald-600" /> Free Delivery
+                      </span>
+                      <span className="inline-flex items-center gap-1 bg-white/95 text-[#041E42] text-[10px] font-extrabold px-2 py-1 shadow-sm">
+                        <ShieldCheck size={11} className="text-[#0077B6]" /> Genuine
+                      </span>
+                    </div>
+                    {slide.discountText && (
+                      <span className="inline-flex items-center gap-1 bg-[#FFD60A] text-[#041E42] text-[10px] font-black uppercase px-2 py-1 shadow-sm shrink-0">
+                        <Flame size={11} /> {slide.discountText} OFF
+                      </span>
+                    )}
+                  </div>
+                  <Link
+                    href={slide.linkUrl || '/offers'}
+                    className="w-full inline-flex items-center justify-center gap-2 bg-[#041E42] active:bg-[#0038A8] text-white text-sm font-black uppercase tracking-wide py-2.5 shadow-[0_8px_20px_rgba(4,30,66,0.35)]"
+                  >
+                    {slide.ctaText || 'Shop Now'} <ChevronRight size={16} />
+                  </Link>
+                </div>
+              )}
+            </div>
           ) : (
             /* ── DARAZ STARBURST CAMPAIGN STAGE MODE ── */
             <div

@@ -201,6 +201,8 @@ export interface LocalBanner {
   ctaText?: string;
   bgTheme?: string;
   displayMode?: 'daraz-stage' | 'full-image';
+  bgColor?: string;
+  showOverlay?: boolean;
   image: string;
   secondaryImages?: string[];
   linkUrl: string;
@@ -214,18 +216,17 @@ export interface LocalBanner {
 export const INITIAL_HERO_BANNERS: LocalBanner[] = [
   {
     _id: 'banner-1',
-    title: 'HOT DEALS',
-    subtitle: 'Too Hot to Last. Best Prices on School Kits.',
-    badge: '11.11 SHOPPING FEST',
+    title: 'AZIP.lk Mega Student Fest',
+    subtitle: 'For Students Who Dream',
+    badge: 'MEGA STUDENT FEST',
     discountText: '65%',
-    ctaText: 'Add to Cart',
-    bgTheme: 'orange',
-    displayMode: 'daraz-stage',
-    image: '/images/hd/products/school-backpack-blue.jpg',
-    secondaryImages: [
-      '/images/hd/products/atlas-exercise-book.jpg',
-      '/images/hd/products/water-bottle.jpg',
-    ],
+    ctaText: 'Shop Now',
+    bgTheme: 'teal',
+    displayMode: 'full-image',
+    bgColor: '#6ED7E5',
+    showOverlay: true,
+    image: '/images/banners/azip-mega-student-fest.jpg',
+    secondaryImages: [],
     linkUrl: '/offers',
     isActive: true,
     order: 1,
