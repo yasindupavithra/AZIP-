@@ -120,7 +120,7 @@ export default function AzipLogo({
               <stop offset="100%" stopColor="#FF5100" />
             </linearGradient>
           </defs>
-          <rect x="2" y="2" width="44" height="44" rx="13" fill={`url(#df1-${uid})`} />
+          <rect x="2" y="2" width="44" height="44" rx="0" fill={`url(#df1-${uid})`} />
           {/* Origami Left Wing */}
           <path
             d="M12 35 L22 11 C23 8.8 25.5 8.8 26.5 11 L30 19 L19 35 H12 Z"
@@ -183,7 +183,7 @@ export default function AzipLogo({
               <stop offset="100%" stopColor="#00B4D8" />
             </linearGradient>
           </defs>
-          <rect x="2" y="2" width="44" height="44" rx="12" fill={`url(#rc1-${uid})`} />
+          <rect x="2" y="2" width="44" height="44" rx="0" fill={`url(#rc1-${uid})`} />
           <path
             d="M24 9 L37 37 H29.5 L26.8 30.5 H21.2 L18.5 37 H11 L24 9 Z M24 18.5 L22 24.5 H26 L24 18.5 Z"
             fill="#FFFFFF"
@@ -244,8 +244,8 @@ export default function AzipLogo({
           </linearGradient>
         </defs>
 
-        {/* Rounded App Squircle Base */}
-        <rect x="2" y="4" width="44" height="42" rx="13" fill={`url(#mmBg-${uid})`} />
+        {/* Sharp Square Base */}
+        <rect x="2" y="4" width="44" height="42" rx="0" fill={`url(#mmBg-${uid})`} />
 
         {/* Subtle Top Gloss */}
         <path
