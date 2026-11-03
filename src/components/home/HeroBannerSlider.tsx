@@ -121,54 +121,54 @@ interface StageThemeConfig {
 
 const STAGE_THEMES: Record<string, StageThemeConfig> = {
   orange: {
-    bgGradient: 'linear-gradient(135deg, #FF5100 0%, #FF8800 48%, #FFA800 100%)',
-    raysColor: 'rgba(255, 230, 0, 0.22)',
-    floorGradient: 'linear-gradient(180deg, rgba(217, 70, 0, 0) 0%, rgba(180, 45, 0, 0.85) 100%)',
-    ribbonText: 'text-[#E64800]',
-    sphereGradient: 'radial-gradient(circle at 32% 28%, #FFF580 0%, #FFD000 45%, #F59E0B 85%, #D97706 100%)',
-    sphereText: 'text-[#B91C1C]',
-    ctaGradient: 'linear-gradient(180deg, #FFF066 0%, #FFD000 55%, #F59E0B 100%)',
-    ctaText: 'text-[#991B1B]',
-    tagAccent: 'text-[#D9460F]',
+    bgGradient: 'linear-gradient(135deg, #041E42 0%, #0066B2 48%, #00C4D8 100%)',
+    raysColor: 'rgba(0, 229, 255, 0.22)',
+    floorGradient: 'linear-gradient(180deg, rgba(4, 30, 66, 0) 0%, rgba(2, 18, 44, 0.9) 100%)',
+    ribbonText: 'text-[#0077B6]',
+    sphereGradient: 'radial-gradient(circle at 32% 28%, #FFFFFF 0%, #E0F9FC 48%, #7CEEFF 85%, #00B4D8 100%)',
+    sphereText: 'text-[#041E42]',
+    ctaGradient: 'linear-gradient(180deg, #FFFFFF 0%, #E0F9FC 55%, #90E0EF 100%)',
+    ctaText: 'text-[#041E42]',
+    tagAccent: 'text-[#0077B6]',
   },
   blue: {
     bgGradient: 'linear-gradient(135deg, #001B87 0%, #0047FF 52%, #00A8FF 100%)',
     raysColor: 'rgba(0, 225, 255, 0.22)',
     floorGradient: 'linear-gradient(180deg, rgba(0, 24, 110, 0) 0%, rgba(0, 18, 85, 0.9) 100%)',
-    ribbonText: 'text-[#FF5500]',
+    ribbonText: 'text-[#0052D4]',
     sphereGradient: 'radial-gradient(circle at 32% 28%, #FFFFFF 0%, #C7F9FF 48%, #67E8F9 85%, #06B6D4 100%)',
     sphereText: 'text-[#002888]',
     ctaGradient: 'linear-gradient(180deg, #D9FBFF 0%, #7CEEFF 55%, #22D3EE 100%)',
     ctaText: 'text-[#002888]',
-    tagAccent: 'text-[#FF5500]',
+    tagAccent: 'text-[#0052D4]',
   },
   red: {
-    bgGradient: 'linear-gradient(135deg, #5C0004 0%, #B8000A 50%, #EF1120 100%)',
-    raysColor: 'rgba(255, 120, 120, 0.2)',
-    floorGradient: 'linear-gradient(180deg, rgba(70, 0, 4, 0) 0%, rgba(45, 0, 2, 0.92) 100%)',
-    ribbonText: 'text-[#D93800]',
-    sphereGradient: 'radial-gradient(circle at 32% 28%, #FFFFFF 0%, #F1F5F9 55%, #CBD5E1 90%, #94A3B8 100%)',
-    sphereText: 'text-[#6B0509]',
-    ctaGradient: 'linear-gradient(180deg, #FFFFFF 0%, #E2E8F0 65%, #CBD5E1 100%)',
-    ctaText: 'text-[#6B0509]',
-    tagAccent: 'text-[#EA580C]',
+    bgGradient: 'linear-gradient(135deg, #0A192F 0%, #0F4C81 50%, #0096C7 100%)',
+    raysColor: 'rgba(125, 211, 252, 0.2)',
+    floorGradient: 'linear-gradient(180deg, rgba(10, 25, 47, 0) 0%, rgba(6, 15, 30, 0.92) 100%)',
+    ribbonText: 'text-[#0077B6]',
+    sphereGradient: 'radial-gradient(circle at 32% 28%, #FFFFFF 0%, #E0F2FE 55%, #7DD3FC 90%, #0284C7 100%)',
+    sphereText: 'text-[#0A192F]',
+    ctaGradient: 'linear-gradient(180deg, #FFFFFF 0%, #E0F2FE 65%, #BAE6FD 100%)',
+    ctaText: 'text-[#0A192F]',
+    tagAccent: 'text-[#0077B6]',
   },
   teal: {
-    bgGradient: 'linear-gradient(135deg, #006D68 0%, #00A896 52%, #15E6CD 100%)',
+    bgGradient: 'linear-gradient(135deg, #005F73 0%, #0096C7 52%, #00E5FF 100%)',
     raysColor: 'rgba(180, 255, 245, 0.22)',
-    floorGradient: 'linear-gradient(180deg, rgba(0, 80, 75, 0) 0%, rgba(0, 58, 54, 0.9) 100%)',
-    ribbonText: 'text-[#E64800]',
-    sphereGradient: 'radial-gradient(circle at 32% 28%, #FFB07B 0%, #FF6B00 50%, #D94600 90%, #9A3412 100%)',
-    sphereText: 'text-white',
-    ctaGradient: 'linear-gradient(180deg, #FF944D 0%, #FF6600 60%, #DC4D00 100%)',
-    ctaText: 'text-white',
-    tagAccent: 'text-[#EA580C]',
+    floorGradient: 'linear-gradient(180deg, rgba(0, 80, 95, 0) 0%, rgba(0, 48, 64, 0.9) 100%)',
+    ribbonText: 'text-[#0077B6]',
+    sphereGradient: 'radial-gradient(circle at 32% 28%, #FFFFFF 0%, #E0F9FC 50%, #48CAE4 90%, #0096C7 100%)',
+    sphereText: 'text-[#003049]',
+    ctaGradient: 'linear-gradient(180deg, #FFFFFF 0%, #E0F9FC 60%, #90E0EF 100%)',
+    ctaText: 'text-[#003049]',
+    tagAccent: 'text-[#0077B6]',
   },
   emerald: {
     bgGradient: 'linear-gradient(135deg, #0F291E 0%, #165B36 52%, #229954 100%)',
     raysColor: 'rgba(134, 239, 172, 0.18)',
     floorGradient: 'linear-gradient(180deg, rgba(15, 41, 30, 0) 0%, rgba(10, 28, 20, 0.92) 100%)',
-    ribbonText: 'text-[#E64800]',
+    ribbonText: 'text-[#0077B6]',
     sphereGradient: 'radial-gradient(circle at 32% 28%, #FFF799 0%, #FACC15 50%, #CA8A04 95%)',
     sphereText: 'text-[#14532D]',
     ctaGradient: 'linear-gradient(180deg, #FFFFFF 0%, #F1F5F9 65%, #E2E8F0 100%)',
@@ -328,7 +328,7 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
                       style={{ transform: 'skewX(-12deg)' }}
                     >
                       <div className="flex items-center gap-1.5" style={{ transform: 'skewX(12deg)' }}>
-                        <span className="w-6 h-6 rounded-none bg-orange-500 text-white flex items-center justify-center shrink-0">
+                        <span className="w-6 h-6 rounded-none bg-[#0096C7] text-white flex items-center justify-center shrink-0">
                           <Ticket size={14} />
                         </span>
                         <div className={`text-[10px] sm:text-[11px] font-extrabold leading-tight ${theme.tagAccent}`}>
@@ -472,11 +472,11 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
           )}
         </div>
 
-        {/* RIGHT SIDEBAR PROMO CARD (Daraz Screenshot #5 style, 3 cols on lg, 2 on xl) */}
-        <div className="hidden lg:flex lg:col-span-3 xl:col-span-2 bg-white rounded-none border border-slate-200 p-3.5 flex-col justify-between shadow-sm">
+        {/* RIGHT SIDEBAR PROMO CARD (Blue/Cyan Theme) */}
+        <div className="hidden lg:flex lg:col-span-3 xl:col-span-2 bg-white rounded-none border border-[#C7F0F5] p-3.5 flex-col justify-between shadow-sm">
           <div>
             <div className="flex items-center gap-2 mb-2.5">
-              <span className="w-7 h-7 rounded-none bg-[#FF5500] text-white flex items-center justify-center font-black text-xs shrink-0">
+              <span className="w-7 h-7 rounded-none bg-gradient-to-br from-[#0052D4] to-[#00C4D8] text-white flex items-center justify-center font-black text-xs shrink-0">
                 AZ
               </span>
               <span className="text-xs font-extrabold text-slate-800 uppercase tracking-tight">
@@ -484,14 +484,14 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
               </span>
             </div>
 
-            {/* Orange-Pink Gradient Promo Box */}
+            {/* Royal Blue to Electric Cyan Gradient Promo Box */}
             <div
               className="rounded-none p-3 text-white shadow-inner"
               style={{
-                background: 'linear-gradient(145deg, #FF6A00 0%, #FF2A6D 100%)',
+                background: 'linear-gradient(145deg, #0038A8 0%, #0077B6 52%, #00C4D8 100%)',
               }}
             >
-              <div className="flex items-center gap-1 text-[11px] font-bold text-amber-200 mb-1">
+              <div className="flex items-center gap-1 text-[11px] font-bold text-cyan-200 mb-1">
                 <Star size={12} className="fill-amber-300 text-amber-300" />
                 <span>4.9 Rated Store</span>
               </div>
@@ -501,14 +501,14 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
 
               <div className="space-y-2">
                 <div className="flex items-center gap-2 bg-white/95 text-slate-900 rounded-none px-2.5 py-1.5 text-[11px] font-bold">
-                  <span className="w-6 h-6 rounded-none bg-teal-100 text-teal-700 flex items-center justify-center shrink-0">
+                  <span className="w-6 h-6 rounded-none bg-sky-100 text-[#0077B6] flex items-center justify-center shrink-0">
                     <Truck size={13} />
                   </span>
                   <span>Free Shipping</span>
                 </div>
 
                 <div className="flex items-center gap-2 bg-white/95 text-slate-900 rounded-none px-2.5 py-1.5 text-[11px] font-bold">
-                  <span className="w-6 h-6 rounded-none bg-rose-100 text-rose-600 flex items-center justify-center shrink-0">
+                  <span className="w-6 h-6 rounded-none bg-cyan-100 text-[#0096C7] flex items-center justify-center shrink-0">
                     <Ticket size={13} />
                   </span>
                   <span>Exclusive Vouchers</span>
@@ -529,52 +529,70 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
             </a>
             <Link
               href="/offers"
-              className="w-full py-1.5 px-3 rounded-none bg-slate-900 hover:bg-slate-800 text-white text-[11px] font-bold flex items-center justify-center gap-1 transition-colors"
+              className="w-full py-1.5 px-3 rounded-none bg-[#041E42] hover:bg-[#0038A8] text-white text-[11px] font-bold flex items-center justify-center gap-1 transition-colors"
             >
-              <Sparkles size={12} className="text-amber-300" /> Claim Vouchers
+              <Sparkles size={12} className="text-cyan-300" /> Claim Vouchers
             </Link>
           </div>
         </div>
       </div>
 
-      {/* ── BOTTOM PILL CAMPAIGN STRIP BANNER (Daraz Screenshot #5 bottom strip) ── */}
+      {/* ── BOTTOM CAMPAIGN STRIP BANNER (Matched to Store Blue / Cyan Theme) ── */}
       <Link
         href="/offers"
-        className="relative overflow-hidden rounded-none px-5 sm:px-8 py-2.5 sm:py-3 flex items-center justify-between gap-4 shadow-md hover:shadow-lg transition-shadow"
+        className="relative overflow-hidden rounded-none px-5 sm:px-8 py-3 sm:py-3.5 flex items-center justify-between gap-4 border border-[#00C4D8]/60 shadow-[0_6px_20px_rgba(0,150,199,0.22)] hover:shadow-[0_8px_28px_rgba(0,196,216,0.35)] transition-all"
         style={{
-          background: 'linear-gradient(90deg, #FF5E00 0%, #FF9900 35%, #FF5500 72%, #B91C1C 100%)',
+          background:
+            'linear-gradient(90deg, #041E42 0%, #004E98 35%, #0077B6 68%, #00B4D8 100%)',
         }}
       >
-        <div className="flex items-center gap-3">
-          <div className="hidden sm:flex items-center -space-x-2">
+        {/* Subtle Starburst Rays */}
+        <div
+          className="absolute inset-0 pointer-events-none opacity-30"
+          style={{
+            backgroundImage:
+              'repeating-conic-gradient(from 0deg at 30% 50%, rgba(0, 229, 255, 0.25) 0deg 6deg, transparent 6deg 14deg)',
+          }}
+        />
+
+        <div className="relative z-10 flex items-center gap-3.5">
+          <div className="hidden sm:flex items-center gap-1.5">
             <img
               src="/images/hd/products/casio-fx991cw.jpg"
               alt="Calculator"
-              className="w-9 h-9 rounded-none bg-white p-1 object-contain border-2 border-amber-300 shadow-xs"
+              className="w-10 h-10 rounded-none bg-white p-1 object-contain border-2 border-[#00E5FF] shadow-xs"
             />
             <img
               src="/images/hd/products/school-backpack-blue.jpg"
               alt="Backpack"
-              className="w-9 h-9 rounded-none bg-white p-1 object-contain border-2 border-amber-300 shadow-xs"
+              className="w-10 h-10 rounded-none bg-white p-1 object-contain border-2 border-[#00E5FF] shadow-xs"
+            />
+            <img
+              src="/images/hd/products/atlas-exercise-book.jpg"
+              alt="Exercise Book"
+              className="hidden md:block w-10 h-10 rounded-none bg-white p-1 object-contain border-2 border-[#00E5FF] shadow-xs"
             />
           </div>
-          <div className="flex items-center gap-2">
-            <Flame size={20} className="text-yellow-300 fill-yellow-300 shrink-0" />
+          <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
+            <span className="inline-flex items-center gap-1.5 bg-[#00E5FF] text-[#041E42] text-[10px] sm:text-xs font-black uppercase px-2.5 py-0.5 tracking-wider w-fit">
+              <Sparkles size={13} className="fill-[#041E42]" /> MEGA STUDENT SALE
+            </span>
             <span
-              className="text-base sm:text-2xl font-black text-yellow-200 tracking-tight uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.35)]"
+              className="text-base sm:text-2xl font-black text-white tracking-tight uppercase drop-shadow-[0_2px_6px_rgba(0,0,0,0.35)]"
               style={{ fontFamily: 'Outfit, sans-serif' }}
             >
-              11.11 Shopping Fest.
+              11.11 School &amp; Stationery Fest
             </span>
           </div>
         </div>
 
-        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-          <span className="hidden md:inline-block bg-red-700 text-white text-[11px] font-black uppercase px-3 py-1 rounded-none border border-yellow-300/60 shadow-xs">
+        <div className="relative z-10 flex items-center gap-2.5 sm:gap-3 shrink-0">
+          <span className="hidden md:inline-flex items-center gap-1.5 bg-[#0077B6] text-cyan-100 text-[11px] font-black uppercase px-3 py-1.5 rounded-none border border-[#00E5FF]/60 shadow-xs">
+            <span className="w-2 h-2 bg-[#00E5FF] animate-pulse" />
             LIVE NOW
           </span>
-          <span className="bg-[#7F1D1D] hover:bg-[#991B1B] text-white text-xs sm:text-sm font-black uppercase px-4 sm:px-5 py-1.5 rounded-none border-2 border-amber-300 shadow-md">
-            SHOP NOW
+          <span className="bg-white hover:bg-[#E0F9FC] text-[#041E42] text-xs sm:text-sm font-black uppercase px-5 sm:px-6 py-2 rounded-none border-2 border-[#00E5FF] shadow-md transition-colors">
+            SHOP NOW →
           </span>
         </div>
       </Link>

@@ -592,16 +592,16 @@ export default function HomePage() {
         {/* ── 3. FLASH SALE / DAILY SUPER DEALS (WITH LIVE COUNTDOWN) ── */}
         <section className={`${SECTION} mt-7`}>
           <div className="bg-white rounded-none border border-slate-200/90 overflow-hidden shadow-xs">
-            {/* Daraz-style Flash Sale Header Bar */}
+            {/* Blue-Cyan Flash Sale Header Bar */}
             <div
-              className="px-4 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-3 border-b border-slate-100"
+              className="px-4 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-3 border-b border-sky-200/70"
               style={{
-                background: 'linear-gradient(90deg, #FFF7ED 0%, #FFF1F2 50%, #F0F9FF 100%)',
+                background: 'linear-gradient(90deg, #EBF5FF 0%, #E0F2FE 50%, #ECFEFF 100%)',
               }}
             >
               <div className="flex flex-wrap items-center gap-3 sm:gap-5">
                 <div className="flex items-center gap-2">
-                  <span className="w-8 h-8 rounded-none bg-gradient-to-br from-orange-500 to-rose-600 text-white flex items-center justify-center shadow-xs">
+                  <span className="w-8 h-8 rounded-none bg-gradient-to-br from-[#0038A8] to-[#0096C7] text-white flex items-center justify-center shadow-xs">
                     <Flame size={18} className="fill-white" />
                   </span>
                   <div>
@@ -611,24 +611,24 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <span className="hidden sm:inline-flex items-center gap-1.5 text-xs font-extrabold text-orange-600 bg-orange-100/80 border border-orange-200 px-2.5 py-1 rounded-none">
+                <span className="hidden sm:inline-flex items-center gap-1.5 text-xs font-extrabold text-[#0052D4] bg-sky-100/90 border border-sky-300 px-2.5 py-1 rounded-none">
                   <Sparkles size={12} /> ON SALE NOW
                 </span>
 
                 {/* Live Countdown Clock */}
                 <div className="flex items-center gap-1.5 text-xs font-bold text-slate-600">
-                  <Clock size={14} className="text-rose-600" />
+                  <Clock size={14} className="text-[#0077B6]" />
                   <span className="hidden md:inline">Ending in:</span>
                   <div className="flex items-center gap-1">
-                    <span className="bg-slate-900 text-white font-black text-xs px-2 py-1 rounded-none min-w-[28px] text-center">
+                    <span className="bg-[#041E42] text-white font-black text-xs px-2 py-1 rounded-none min-w-[28px] text-center">
                       {String(timeLeft.hours).padStart(2, '0')}h
                     </span>
                     <span className="text-slate-900 font-black">:</span>
-                    <span className="bg-slate-900 text-white font-black text-xs px-2 py-1 rounded-none min-w-[28px] text-center">
+                    <span className="bg-[#041E42] text-white font-black text-xs px-2 py-1 rounded-none min-w-[28px] text-center">
                       {String(timeLeft.minutes).padStart(2, '0')}m
                     </span>
                     <span className="text-slate-900 font-black">:</span>
-                    <span className="bg-rose-600 text-white font-black text-xs px-2 py-1 rounded-none min-w-[28px] text-center">
+                    <span className="bg-[#0077B6] text-white font-black text-xs px-2 py-1 rounded-none min-w-[28px] text-center">
                       {String(timeLeft.seconds).padStart(2, '0')}s
                     </span>
                   </div>
@@ -637,7 +637,7 @@ export default function HomePage() {
 
               <Link
                 href="/offers"
-                className="px-4 py-1.5 rounded-none border-2 border-[#FF5500] text-[#FF5500] hover:bg-[#FF5500] hover:text-white text-xs sm:text-sm font-extrabold transition-colors flex items-center gap-1"
+                className="px-4 py-1.5 rounded-none border-2 border-[#0077B6] text-[#0077B6] hover:bg-[#0077B6] hover:text-white text-xs sm:text-sm font-extrabold transition-colors flex items-center gap-1"
               >
                 SHOP ALL DEALS <ChevronRight size={15} />
               </Link>
@@ -723,18 +723,18 @@ export default function HomePage() {
             <div
               className="relative rounded-none overflow-hidden p-5 sm:p-7 text-white shadow-md flex flex-col sm:flex-row items-center justify-between gap-5"
               style={{
-                background: 'linear-gradient(135deg, #7F1D1D 0%, #DC2626 48%, #F97316 100%)',
+                background: 'linear-gradient(135deg, #041E42 0%, #006699 48%, #00C4D8 100%)',
               }}
             >
               <div
                 className="absolute inset-0 pointer-events-none opacity-25"
                 style={{
                   backgroundImage:
-                    'repeating-conic-gradient(from 0deg at 75% 50%, rgba(255,230,130,0.25) 0deg 8deg, transparent 8deg 18deg)',
+                    'repeating-conic-gradient(from 0deg at 75% 50%, rgba(165,243,252,0.28) 0deg 8deg, transparent 8deg 18deg)',
                 }}
               />
               <div className="relative z-10 flex-1 space-y-2 text-center sm:text-left">
-                <span className="inline-block bg-white text-rose-700 text-[11px] font-black uppercase px-3 py-1 rounded-none shadow-xs">
+                <span className="inline-block bg-[#00E5FF] text-[#041E42] text-[11px] font-black uppercase px-3 py-1 rounded-none shadow-xs">
                   100% OFFICIAL WARRANTY
                 </span>
                 <h3
@@ -743,21 +743,21 @@ export default function HomePage() {
                 >
                   ART & CALCULATOR BRAND MALL
                 </h3>
-                <p className="text-xs sm:text-sm text-orange-100 font-medium max-w-md">
+                <p className="text-xs sm:text-sm text-cyan-100 font-medium max-w-md">
                   Original Casio ClassWiz FX-991CW, Faber-Castell Studio Art Kits & Stabilo Pastel Highlighters.
                 </p>
                 <div className="pt-2 flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
                   <button
                     type="button"
                     onClick={() => handleSelectDepartment('mathematical-instruments')}
-                    className="px-5 py-2 rounded-none bg-yellow-300 text-rose-950 font-extrabold text-xs uppercase shadow-md hover:scale-105 transition-transform cursor-pointer border-none"
+                    className="px-5 py-2 rounded-none bg-white text-[#041E42] font-extrabold text-xs uppercase shadow-md hover:scale-105 transition-transform cursor-pointer border-none"
                   >
                     Shop Calculators
                   </button>
                   <button
                     type="button"
                     onClick={() => handleSelectDepartment('art-craft')}
-                    className="px-4 py-2 rounded-none bg-white/20 hover:bg-white/30 text-white font-extrabold text-xs uppercase border border-white/40 transition-colors cursor-pointer"
+                    className="px-4 py-2 rounded-none bg-white/15 hover:bg-white/25 text-white font-extrabold text-xs uppercase border border-white/40 transition-colors cursor-pointer"
                   >
                     Art & Craft Deals
                   </button>
