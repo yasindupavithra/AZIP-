@@ -262,7 +262,7 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
             /* ── DARAZ STARBURST CAMPAIGN STAGE MODE ── */
             <div
               className="relative w-full h-full min-h-[290px] sm:min-h-[345px] md:min-h-[370px] flex items-center overflow-hidden transition-all duration-500"
-              style={{ background: theme.bgGradient }}
+              style={{ backgroundImage: theme.bgGradient }}
             >
               {/* Starburst Radial Rays Overlay */}
               <div
@@ -276,7 +276,7 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
               <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
-                  background:
+                  backgroundImage:
                     'radial-gradient(circle at 62% 48%, rgba(255,255,255,0.38) 0%, rgba(255,255,255,0.08) 38%, transparent 68%)',
                 }}
               />
@@ -285,12 +285,8 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
               <div
                 className="absolute bottom-0 left-0 right-0 h-16 sm:h-20 pointer-events-none border-t border-white/25"
                 style={{
-                  background: theme.floorGradient,
-                  backgroundImage: `
-                    linear-gradient(90deg, rgba(255,255,255,0.12) 1px, transparent 1px),
-                    linear-gradient(180deg, rgba(255,255,255,0.18) 1px, transparent 1px)
-                  `,
-                  backgroundSize: '48px 18px',
+                  backgroundImage: `linear-gradient(90deg, rgba(255,255,255,0.12) 1px, transparent 1px), linear-gradient(180deg, rgba(255,255,255,0.18) 1px, transparent 1px), ${theme.floorGradient}`,
+                  backgroundSize: '48px 18px, 48px 18px, 100% 100%',
                 }}
               />
 
@@ -358,7 +354,7 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
                   <Link
                     href={slide.linkUrl || '/offers'}
                     className={`mt-4 sm:mt-5 inline-flex items-center justify-center px-7 sm:px-9 py-2 sm:py-2.5 rounded-none font-extrabold text-xs sm:text-sm shadow-[0_6px_16px_rgba(0,0,0,0.28)] hover:scale-105 transition-transform ${theme.ctaText}`}
-                    style={{ background: theme.ctaGradient }}
+                    style={{ backgroundImage: theme.ctaGradient }}
                   >
                     {slide.ctaText || 'Add to Cart'}
                   </Link>
@@ -369,7 +365,7 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
                   <Link
                     href={slide.linkUrl || '/offers'}
                     className={`w-28 h-28 lg:w-32 lg:h-32 rounded-none flex flex-col items-center justify-center text-center shadow-[0_12px_28px_rgba(0,0,0,0.32),inset_0_3px_8px_rgba(255,255,255,0.8)] hover:scale-105 transition-transform shrink-0 ${theme.sphereText}`}
-                    style={{ background: theme.sphereGradient }}
+                    style={{ backgroundImage: theme.sphereGradient }}
                   >
                     <span className="text-[11px] lg:text-xs font-extrabold uppercase tracking-wider leading-none">
                       UP TO
