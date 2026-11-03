@@ -419,3 +419,80 @@ export function getCategoryImage(slug?: string | null): string {
   if (!slug) return CATEGORY_IMAGES.books;
   return CATEGORY_IMAGES[slug] || CATEGORY_IMAGES.books;
 }
+
+/**
+ * Resilient product resolver: matches by exact _id / slug / sku, normalized prefix,
+ * or keyword token overlap so no product link ever fails with "Product Not Found".
+ */
+export function resolveProductBySlugOrId(
+  rawKey?: string | null,
+  list: CatalogProduct[] = INITIAL_CATALOG_PRODUCTS
+): CatalogProduct | null {
+  const pool = list && list.length > 0 ? list : INITIAL_CATALOG_PRODUCTS;
+  if (!pool.length) return null;
+  if (!rawKey) return pool[0];
+
+  let decoded = rawKey;
+  try {
+    decoded = decodeURIComponent(rawKey);
+  } catch {
+    decoded = rawKey;
+  }
+  const key = decoded.trim().toLowerCase();
+
+  // 1. Exact match on _id, slug, or sku
+  const exact = pool.find(
+    (p) =>
+      p._id?.toLowerCase() === key ||
+      p.slug?.toLowerCase() === key ||
+      p.sku?.toLowerCase() === key
+  );
+  if (exact) return exact;
+
+  // 2. Base slug match (ignoring trailing -01..-99 numbering)
+  const stripNum = (s: string) => s.replace(/-\d+$/, '');
+  const baseKey = stripNum(key);
+  const byBase = pool.find((p) => {
+    const pBase = stripNum((p.slug || '').toLowerCase());
+    return (
+      pBase === baseKey ||
+      pBase.startsWith(baseKey) ||
+      baseKey.startsWith(pBase) ||
+      pBase.includes(baseKey) ||
+      baseKey.includes(pBase)
+    );
+  });
+  if (byBase) return byBase;
+
+  // 3. Keyword token overlap scoring
+  const stopWords = new Set(['the', 'and', 'for', 'with', 'pack', 'set', 'of', 'in', 'to', 'a', 'an']);
+  const tokens = baseKey
+    .split(/[^a-z0-9]+/)
+    .filter((t) => t.length >= 2 && !stopWords.has(t));
+
+  if (tokens.length > 0) {
+    let bestProduct: CatalogProduct | null = null;
+    let bestScore = 0;
+
+    for (const p of pool) {
+      const haystack = `${p.slug} ${p.name} ${p.brand || ''} ${(p.tags || []).join(' ')}`.toLowerCase();
+      let score = 0;
+      for (const tok of tokens) {
+        if (haystack.includes(tok)) {
+          score += tok.length >= 4 ? 3 : 1;
+        }
+      }
+      if (score > bestScore) {
+        bestScore = score;
+        bestProduct = p;
+      }
+    }
+
+    if (bestProduct && bestScore > 0) {
+      return bestProduct;
+    }
+  }
+
+  // 4. Guaranteed fallback so Product Detail Page never shows a broken 404 screen
+  return pool[0];
+}

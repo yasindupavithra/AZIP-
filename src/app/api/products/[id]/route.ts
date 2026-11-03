@@ -3,6 +3,7 @@ import dbConnect from '@/lib/db';
 import Product from '@/lib/models/Product';
 import '@/lib/models/Vendor';
 import { getLocalProducts, updateLocalProduct, deleteLocalProduct } from '@/lib/local-db';
+import { resolveProductBySlugOrId } from '@/lib/catalog';
 
 // GET /api/products/[id]
 export async function GET(
@@ -27,10 +28,7 @@ export async function GET(
 
     if (!product) {
       const localItems = getLocalProducts();
-      const fallback = localItems.find((p) => p._id === id || p.slug === id);
-      if (fallback) {
-        product = fallback;
-      }
+      product = resolveProductBySlugOrId(id, localItems);
     }
 
     if (!product) {

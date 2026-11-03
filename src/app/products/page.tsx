@@ -77,7 +77,7 @@ function ProductsContent() {
         const params = new URLSearchParams();
         if (selectedCategory !== 'all') params.set('category', selectedCategory);
         if (searchParam) params.set('search', searchParam);
-        params.set('limit', '100');
+        params.set('limit', '250');
 
         const res = await fetch(`/api/products?${params.toString()}`);
         if (res.ok) {

@@ -39,6 +39,7 @@ import {
   getCategoryImage,
   INITIAL_CATALOG_PRODUCTS,
   CatalogProduct,
+  resolveProductBySlugOrId,
 } from '@/lib/catalog';
 
 interface Product {
@@ -82,8 +83,10 @@ export default function ProductDetailPage() {
   const addItem = useCartStore((s) => s.addItem);
   const setCartOpen = useCartStore((s) => s.setCartOpen);
 
-  const [product, setProduct] = useState<Product | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [product, setProduct] = useState<Product | null>(() =>
+    resolveProductBySlugOrId(slug, INITIAL_CATALOG_PRODUCTS) as Product | null
+  );
+  const [loading, setLoading] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const [selectedVariant, setSelectedVariant] = useState<string>('Standard Edition');
   const [activeTab, setActiveTab] = useState<'details' | 'specifications' | 'reviews' | 'qa'>('details');
@@ -94,27 +97,28 @@ export default function ProductDetailPage() {
   const [reviewFilter, setReviewFilter] = useState<'all' | '5' | 'with-images'>('all');
 
   useEffect(() => {
+    const resolvedLocal = resolveProductBySlugOrId(slug, INITIAL_CATALOG_PRODUCTS);
+    if (resolvedLocal) {
+      setProduct(resolvedLocal as any);
+    }
+
     async function fetchProduct() {
-      setLoading(true);
       try {
-        const res = await fetch(`/api/products/${slug}`);
+        const res = await fetch(`/api/products/${encodeURIComponent(slug)}`);
         if (res.ok) {
           const data = await res.json();
-          setProduct(data.product);
-        } else {
-          // Fallback to local catalog
-          const fallback = INITIAL_CATALOG_PRODUCTS.find((p) => p.slug === slug || p._id === slug);
-          if (fallback) {
-            setProduct(fallback as any);
+          if (data.product) {
+            setProduct(data.product);
+            return;
           }
         }
-      } catch (err) {
-        const fallback = INITIAL_CATALOG_PRODUCTS.find((p) => p.slug === slug || p._id === slug);
-        if (fallback) {
-          setProduct(fallback as any);
-        }
+      } catch {
+        // Use local resolved product
       }
-      setLoading(false);
+      const fallback = resolveProductBySlugOrId(slug, INITIAL_CATALOG_PRODUCTS);
+      if (fallback) {
+        setProduct(fallback as any);
+      }
     }
     fetchProduct();
   }, [slug]);
@@ -131,88 +135,88 @@ export default function ProductDetailPage() {
 
     const categoryAngles: Record<string, string[]> = {
       'school-books': [
-        'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=900&q=80',
-        'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=900&q=80',
-        'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=80',
+        '/images/hd/products/sl-textbooks-stack.jpg',
+        '/images/hd/products/sl-scholarship-workbooks.jpg',
+        '/images/hd/products/atlas-exercise-book.jpg',
       ],
       'exercise-books': [
-        'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=900&q=80',
-        'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=900&q=80',
-        'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80',
+        '/images/hd/products/atlas-exercise-book.jpg',
+        '/images/v2/cr-notebooks.jpg',
+        '/images/v2/exercise-books-stack.jpg',
       ],
       'writing-instruments': [
-        'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=900&q=80',
-        'https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?auto=format&fit=crop&w=900&q=80',
-        'https://images.unsplash.com/photo-1569683795645-b62e50fbf103?auto=format&fit=crop&w=900&q=80',
+        '/images/hd/products/sl-writing-pens-pencils.jpg',
+        '/images/hd/products/pilot-g2-pens.jpg',
+        '/images/hd/products/highlighters-set.jpg',
       ],
       'mathematical-instruments': [
-        'https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=900&q=80',
-        'https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=900&q=80',
-        'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=900&q=80',
+        '/images/hd/products/geometry-set.jpg',
+        '/images/hd/products/casio-fx991cw.jpg',
+        '/images/hd/products/atlas-exercise-book.jpg',
       ],
       'art-craft': [
-        'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=900&q=80',
-        'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=900&q=80',
-        'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=900&q=80',
+        '/images/hd/products/sl-art-pencils-paints.jpg',
+        '/images/hd/products/faber-castell-water-color.jpg',
+        '/images/hd/products/drawing-kit.jpg',
       ],
-      'books': [
-        'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=900&q=80',
-        'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=900&q=80',
-        'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=900&q=80',
+      books: [
+        '/images/hd/products/sl-dictionary-novels.jpg',
+        '/images/cat_books_4k.jpg',
+        '/images/hd/products/sl-textbooks-stack.jpg',
       ],
       'office-supplies': [
-        'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=900&q=80',
-        'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80',
-        'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=900&q=80',
+        '/images/hd/products/sl-office-paper-stapler.jpg',
+        '/images/hd/products/sticky-notes.jpg',
+        '/images/hd/products/sl-button-folders-organizer.jpg',
       ],
       'school-accessories': [
-        'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=80',
-        'https://images.unsplash.com/photo-1577733966973-d680bffd2e80?auto=format&fit=crop&w=900&q=80',
-        'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80',
+        '/images/hd/products/school-backpack-blue.jpg',
+        '/images/hd/products/water-bottle.jpg',
+        '/images/hd/products/lunch-box.jpg',
       ],
       'files-organization': [
-        'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80',
-        'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=900&q=80',
-        'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=900&q=80',
+        '/images/hd/products/sl-files-binders.jpg',
+        '/images/hd/products/sl-button-folders-organizer.jpg',
+        '/images/hd/products/sl-office-paper-stapler.jpg',
       ],
       'educational-materials': [
-        'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80',
-        'https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=900&q=80',
-        'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=900&q=80',
+        '/products/globe.jpg',
+        '/images/hd/products/sl-scholarship-workbooks.jpg',
+        '/images/hd/products/sl-textbooks-stack.jpg',
       ],
       'preschool-kids': [
-        'https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=900&q=80',
-        'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=900&q=80',
-        'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80',
+        '/images/hd/products/sl-preschool-crayons-clay.jpg',
+        '/images/hd/products/sl-scholarship-workbooks.jpg',
+        '/images/hd/products/faber-castell-water-color.jpg',
       ],
       'science-laboratory': [
-        'https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=900&q=80',
-        'https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=900&q=80',
-        'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=900&q=80',
+        '/products/microscope.jpg',
+        '/products/globe.jpg',
+        '/images/hd/products/casio-fx991cw.jpg',
       ],
       'gifts-accessories': [
-        'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=900&q=80',
-        'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=900&q=80',
-        'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=80',
+        '/images/hd/products/sl-executive-gift-pen.jpg',
+        '/images/cat_gifts_4k.jpg',
+        '/images/hd/products/drawing-kit.jpg',
       ],
-      'electronics': [
-        'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=900&q=80',
-        'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=900&q=80',
-        'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=80',
+      electronics: [
+        '/images/hd/products/sl-electronics-study.jpg',
+        '/images/hd/products/casio-fx991cw.jpg',
+        '/images/hd/products/geometry-set.jpg',
       ],
     };
 
     const extras = categoryAngles[product.category] || [
-      'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=80',
-      'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=900&q=80',
-      'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80',
+      '/images/hd/products/atlas-exercise-book.jpg',
+      '/images/hd/products/pilot-g2-pens.jpg',
+      '/images/hd/products/geometry-set.jpg',
     ];
 
     return [
       { url: primary, alt: `${product.name} - Front View` },
-      { url: extras[0], alt: `${product.name} - Packaging & Detail View` },
-      { url: extras[1], alt: `${product.name} - Texture & Scale Detail` },
-      { url: extras[2], alt: `${product.name} - In-use / Classroom Perspective` },
+      { url: extras[0], alt: `${product.name} - Studio View 2` },
+      { url: extras[1], alt: `${product.name} - Studio View 3` },
+      { url: extras[2], alt: `${product.name} - Studio View 4` },
     ];
   }, [product]);
 

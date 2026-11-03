@@ -13,7 +13,7 @@ export default function OffersPage() {
   useEffect(() => {
     async function loadOffers() {
       try {
-        const res = await fetch('/api/products?limit=50');
+        const res = await fetch('/api/products?limit=250');
         if (res.ok) {
           const data = await res.json();
           if (data.products && data.products.length > 0) {

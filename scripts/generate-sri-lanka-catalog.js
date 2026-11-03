@@ -1936,3 +1936,4 @@ export const ALL_EXPANDED_PRODUCTS = ${JSON.stringify(allProducts, null, 2)};
 const tsFile = path.join(__dirname, '../src/lib/expanded-products.ts');
 fs.writeFileSync(tsFile, tsContent, 'utf8');
 console.log('Updated src/lib/expanded-products.ts');
+
