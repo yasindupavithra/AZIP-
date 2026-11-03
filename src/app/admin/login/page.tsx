@@ -35,7 +35,7 @@ export default function AdminLoginPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-100 via-gray-50 to-slate-200 flex items-center justify-center p-4">
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-xl border border-gray-200 p-8 sm:p-10">
+      <div className="w-full max-w-md bg-white rounded-none shadow-xl border border-gray-200 p-8 sm:p-10">
         
         {/* Logo and Header */}
         <div className="text-center mb-8">
@@ -49,7 +49,7 @@ export default function AdminLoginPage() {
         </div>
 
         {/* Demo Credentials Notice */}
-        <div className="mb-6 p-3.5 bg-blue-50 border border-blue-200 rounded-lg text-xs text-gray-700">
+        <div className="mb-6 p-3.5 bg-blue-50 border border-blue-200 rounded-none text-xs text-gray-700">
           <p className="font-bold text-[#007AFF] mb-1">🔑 Default Login Credentials:</p>
           <div className="space-y-0.5 font-mono text-[11px]">
             <div>Email: <span className="font-bold text-gray-900">admin@azipstore.lk</span></div>
@@ -69,7 +69,7 @@ export default function AdminLoginPage() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3.5 py-2.5 text-xs border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:border-[#007AFF] focus:ring-1 focus:ring-[#007AFF] transition-all bg-gray-50 focus:bg-white"
+              className="w-full px-3.5 py-2.5 text-xs border border-gray-300 rounded-none text-gray-900 focus:outline-none focus:border-[#007AFF] focus:ring-1 focus:ring-[#007AFF] transition-all bg-gray-50 focus:bg-white"
             />
           </div>
 
@@ -83,12 +83,12 @@ export default function AdminLoginPage() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-3.5 py-2.5 text-xs border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:border-[#007AFF] focus:ring-1 focus:ring-[#007AFF] transition-all bg-gray-50 focus:bg-white"
+              className="w-full px-3.5 py-2.5 text-xs border border-gray-300 rounded-none text-gray-900 focus:outline-none focus:border-[#007AFF] focus:ring-1 focus:ring-[#007AFF] transition-all bg-gray-50 focus:bg-white"
             />
           </div>
 
           {error && (
-            <div className="p-3 bg-red-100 border border-red-300 text-red-700 text-xs rounded-lg font-medium">
+            <div className="p-3 bg-red-100 border border-red-300 text-red-700 text-xs rounded-none font-medium">
               {error}
             </div>
           )}
@@ -96,7 +96,7 @@ export default function AdminLoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 px-4 bg-[#007AFF] hover:bg-[#0056B3] text-white font-bold text-xs uppercase tracking-wider rounded-lg shadow-md hover:shadow-lg transition-all cursor-pointer border-none disabled:opacity-50 mt-2"
+            className="w-full py-3 px-4 bg-[#007AFF] hover:bg-[#0056B3] text-white font-bold text-xs uppercase tracking-wider rounded-none shadow-md hover:shadow-lg transition-all cursor-pointer border-none disabled:opacity-50 mt-2"
           >
             {loading ? 'Authenticating...' : 'Sign In to Dashboard'}
           </button>

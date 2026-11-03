@@ -103,8 +103,8 @@ export default function CheckoutPage() {
     return (
       <StoreShell>
         <div className="container py-16 md:py-24 text-center max-w-xl mx-auto">
-          <div className="bg-white rounded-3xl border border-gray-200 p-8 sm:p-12 shadow-sm">
-            <div className="w-20 h-20 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6">
+          <div className="bg-white rounded-none border border-gray-200 p-8 sm:p-12 shadow-sm">
+            <div className="w-20 h-20 bg-emerald-50 text-emerald-600 rounded-none flex items-center justify-center mx-auto mb-6">
               <CheckCircle2 size={44} />
             </div>
 
@@ -115,7 +115,7 @@ export default function CheckoutPage() {
               Thank You for Your Order!
             </h1>
 
-            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-4 my-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-none p-4 my-6">
               <span className="text-xs text-gray-500 block mb-1">Your Order Reference</span>
               <span className="text-2xl font-black text-[#007AFF] font-['Outfit'] tracking-wider">
                 {orderNumber}
@@ -134,7 +134,7 @@ export default function CheckoutPage() {
                 href={`https://wa.me/94770000000?text=Hello%2C%20I%20just%20placed%20order%20${orderNumber}%20on%20AZIP%20Store.`}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-full shadow transition-all w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-none shadow transition-all w-full sm:w-auto"
               >
                 <MessageCircle size={16} /> Track on WhatsApp
               </a>
@@ -163,7 +163,7 @@ export default function CheckoutPage() {
           {/* Left Form */}
           <div className="lg:col-span-7 space-y-6">
             {/* Delivery Info */}
-            <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
+            <div className="bg-white rounded-none border border-gray-200 p-6 shadow-sm">
               <h2 className="text-lg font-black text-gray-900 font-['Outfit'] mb-4 flex items-center gap-2">
                 <Truck size={20} className="text-[#007AFF]" />
                 1. Delivery Details
@@ -178,7 +178,7 @@ export default function CheckoutPage() {
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                     placeholder="e.g. Kasun Perera"
-                    className="w-full px-4 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-red-500"
+                    className="w-full px-4 py-2.5 rounded-none border border-gray-300 text-sm focus:outline-none focus:border-red-500"
                   />
                 </div>
 
@@ -191,7 +191,7 @@ export default function CheckoutPage() {
                       value={form.phone}
                       onChange={(e) => setForm({ ...form, phone: e.target.value })}
                       placeholder="077 XXXXXXX"
-                      className="w-full px-4 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-red-500"
+                      className="w-full px-4 py-2.5 rounded-none border border-gray-300 text-sm focus:outline-none focus:border-red-500"
                     />
                   </div>
 
@@ -202,7 +202,7 @@ export default function CheckoutPage() {
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
                       placeholder="you@email.com (optional)"
-                      className="w-full px-4 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-red-500"
+                      className="w-full px-4 py-2.5 rounded-none border border-gray-300 text-sm focus:outline-none focus:border-red-500"
                     />
                   </div>
                 </div>
@@ -215,7 +215,7 @@ export default function CheckoutPage() {
                     value={form.street}
                     onChange={(e) => setForm({ ...form, street: e.target.value })}
                     placeholder="House No, Street, Landmark"
-                    className="w-full px-4 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-red-500"
+                    className="w-full px-4 py-2.5 rounded-none border border-gray-300 text-sm focus:outline-none focus:border-red-500"
                   />
                 </div>
 
@@ -228,7 +228,7 @@ export default function CheckoutPage() {
                       value={form.city}
                       onChange={(e) => setForm({ ...form, city: e.target.value })}
                       placeholder="Kandy"
-                      className="w-full px-4 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-red-500"
+                      className="w-full px-4 py-2.5 rounded-none border border-gray-300 text-sm focus:outline-none focus:border-red-500"
                     />
                   </div>
 
@@ -237,7 +237,7 @@ export default function CheckoutPage() {
                     <select
                       value={form.district}
                       onChange={(e) => setForm({ ...form, district: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-red-500 bg-white"
+                      className="w-full px-4 py-2.5 rounded-none border border-gray-300 text-sm focus:outline-none focus:border-red-500 bg-white"
                     >
                       <option value="Kandy">Kandy</option>
                       <option value="Colombo">Colombo</option>
@@ -264,7 +264,7 @@ export default function CheckoutPage() {
                       value={form.postalCode}
                       onChange={(e) => setForm({ ...form, postalCode: e.target.value })}
                       placeholder="20000"
-                      className="w-full px-4 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-red-500"
+                      className="w-full px-4 py-2.5 rounded-none border border-gray-300 text-sm focus:outline-none focus:border-red-500"
                     />
                   </div>
                 </div>
@@ -276,14 +276,14 @@ export default function CheckoutPage() {
                     value={form.notes}
                     onChange={(e) => setForm({ ...form, notes: e.target.value })}
                     placeholder="Special delivery instructions, gift wrapping requests, etc."
-                    className="w-full px-4 py-2 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-red-500"
+                    className="w-full px-4 py-2 rounded-none border border-gray-300 text-sm focus:outline-none focus:border-red-500"
                   />
                 </div>
               </div>
             </div>
 
             {/* Payment Method */}
-            <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
+            <div className="bg-white rounded-none border border-gray-200 p-6 shadow-sm">
               <h2 className="text-lg font-black text-gray-900 font-['Outfit'] mb-4 flex items-center gap-2">
                 <Banknote size={20} className="text-[#007AFF]" />
                 2. Select Payment Method
@@ -292,7 +292,7 @@ export default function CheckoutPage() {
               <div className="space-y-3">
                 <label
                   onClick={() => setForm({ ...form, paymentMethod: 'cod' })}
-                  className={`flex items-start gap-4 p-4 rounded-xl border-2 transition-all cursor-pointer ${
+                  className={`flex items-start gap-4 p-4 rounded-none border-2 transition-all cursor-pointer ${
                     form.paymentMethod === 'cod' ? 'border-[#007AFF] bg-blue-50/30' : 'border-gray-200 hover:border-gray-300'
                   }`}
                 >
@@ -311,7 +311,7 @@ export default function CheckoutPage() {
 
                 <label
                   onClick={() => setForm({ ...form, paymentMethod: 'whatsapp' })}
-                  className={`flex items-start gap-4 p-4 rounded-xl border-2 transition-all cursor-pointer ${
+                  className={`flex items-start gap-4 p-4 rounded-none border-2 transition-all cursor-pointer ${
                     form.paymentMethod === 'whatsapp' ? 'border-emerald-600 bg-emerald-50/30' : 'border-gray-200 hover:border-gray-300'
                   }`}
                 >
@@ -325,7 +325,7 @@ export default function CheckoutPage() {
                   <div>
                     <div className="text-sm font-bold text-gray-900 flex items-center gap-2">
                       <span>Order &amp; Confirm on WhatsApp</span>
-                      <span className="bg-emerald-100 text-emerald-800 text-[10px] px-2 py-0.5 rounded font-bold">Fastest</span>
+                      <span className="bg-emerald-100 text-emerald-800 text-[10px] px-2 py-0.5 rounded-none font-bold">Fastest</span>
                     </div>
                     <div className="text-xs text-gray-500 mt-0.5">Instant confirmation with our support agents.</div>
                   </div>
@@ -333,7 +333,7 @@ export default function CheckoutPage() {
 
                 <label
                   onClick={() => setForm({ ...form, paymentMethod: 'bank_transfer' })}
-                  className={`flex items-start gap-4 p-4 rounded-xl border-2 transition-all cursor-pointer ${
+                  className={`flex items-start gap-4 p-4 rounded-none border-2 transition-all cursor-pointer ${
                     form.paymentMethod === 'bank_transfer' ? 'border-blue-600 bg-blue-50/30' : 'border-gray-200 hover:border-gray-300'
                   }`}
                 >
@@ -355,7 +355,7 @@ export default function CheckoutPage() {
 
           {/* Right Summary */}
           <div className="lg:col-span-5">
-            <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm sticky top-28">
+            <div className="bg-white rounded-none border border-gray-200 p-6 shadow-sm sticky top-28">
               <h2 className="text-lg font-black text-gray-900 font-['Outfit'] pb-4 border-b border-gray-100 mb-4">
                 Order Summary ({items.length} items)
               </h2>
@@ -396,7 +396,7 @@ export default function CheckoutPage() {
               </div>
 
               {error && (
-                <div className="p-3 bg-red-50 text-red-700 text-xs rounded-xl mb-4 font-semibold">
+                <div className="p-3 bg-red-50 text-red-700 text-xs rounded-none mb-4 font-semibold">
                   {error}
                 </div>
               )}

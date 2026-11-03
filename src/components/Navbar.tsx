@@ -150,11 +150,11 @@ export default function Navbar() {
             </div>
             <div className="flex items-center gap-4 lg:gap-6 font-medium">
               {/* Sinhala / English Language Toggle */}
-              <div className="flex items-center bg-black/20 rounded-full p-0.5 border border-white/20 shadow-xs">
+              <div className="flex items-center bg-black/20 rounded-none p-0.5 border border-white/20 shadow-xs">
                 <button
                   type="button"
                   onClick={() => setLanguage('en')}
-                  className={`px-2.5 py-0.5 rounded-full text-[11px] font-black transition-all cursor-pointer border-none ${
+                  className={`px-2.5 py-0.5 rounded-none text-[11px] font-black transition-all cursor-pointer border-none ${
                     language === 'en'
                       ? 'bg-white text-[#008D9B] shadow-xs'
                       : 'text-white/80 hover:text-white bg-transparent'
@@ -165,7 +165,7 @@ export default function Navbar() {
                 <button
                   type="button"
                   onClick={() => setLanguage('si')}
-                  className={`px-2.5 py-0.5 rounded-full text-[11px] font-black transition-all cursor-pointer border-none ${
+                  className={`px-2.5 py-0.5 rounded-none text-[11px] font-black transition-all cursor-pointer border-none ${
                     language === 'si'
                       ? 'bg-white text-[#008D9B] shadow-xs'
                       : 'text-white/80 hover:text-white bg-transparent'
@@ -196,7 +196,7 @@ export default function Navbar() {
                 <button
                   type="button"
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                  className="lg:hidden p-1.5 -ml-1 text-slate-700 hover:bg-slate-100 rounded-lg cursor-pointer border-none bg-transparent"
+                  className="lg:hidden p-1.5 -ml-1 text-slate-700 hover:bg-slate-100 rounded-none cursor-pointer border-none bg-transparent"
                   aria-label="Toggle menu"
                   id="nav-menu-toggle"
                 >
@@ -215,7 +215,7 @@ export default function Navbar() {
                 className="relative flex-1 max-w-[760px] hidden md:flex items-center"
                 role="search"
               >
-                <div className="flex w-full items-center rounded-xl bg-slate-50/80 backdrop-blur-md border-[1.5px] border-[#00C4D8]/30 focus-within:border-[#00C4D8] focus-within:bg-white focus-within:shadow-[0_0_25px_rgba(0,196,216,0.3)] transition-all overflow-hidden">
+                <div className="flex w-full items-center rounded-none bg-slate-50/80 backdrop-blur-md border-[1.5px] border-[#00C4D8]/30 focus-within:border-[#00C4D8] focus-within:bg-white focus-within:shadow-[0_0_25px_rgba(0,196,216,0.3)] transition-all overflow-hidden">
                   <Search size={18} className="ml-4 text-[#00C4D8] shrink-0" />
                   <input
                     id="nav-search-input"
@@ -251,7 +251,7 @@ export default function Navbar() {
                             <img
                               src={product.images[0]?.url || '/placeholder.png'}
                               alt={product.name}
-                              className="w-11 h-11 object-contain p-1 rounded-lg bg-white border border-slate-100 shrink-0"
+                              className="w-11 h-11 object-contain p-1 rounded-none bg-white border border-slate-100 shrink-0"
                             />
                             <div className="flex-1 min-w-0">
                               <div className="text-sm font-semibold text-slate-900 truncate">{product.name}</div>
@@ -283,11 +283,11 @@ export default function Navbar() {
               {/* Wishlist, Orders & Quick Cart Drawer Trigger */}
               <div className="flex items-center gap-1 sm:gap-3 lg:gap-5">
                 {/* Mobile Language Toggle */}
-                <div className="sm:hidden flex items-center bg-slate-100 rounded-full p-0.5 border border-slate-200">
+                <div className="sm:hidden flex items-center bg-slate-100 rounded-none p-0.5 border border-slate-200">
                   <button
                     type="button"
                     onClick={() => setLanguage(language === 'en' ? 'si' : 'en')}
-                    className="px-2 py-0.5 rounded-full text-[10px] font-black bg-[#00C4D8] text-white"
+                    className="px-2 py-0.5 rounded-none text-[10px] font-black bg-[#00C4D8] text-white"
                   >
                     {language.toUpperCase()}
                   </button>
@@ -332,7 +332,7 @@ export default function Navbar() {
             <div className="mt-2.5 md:hidden">
               <form
                 onSubmit={handleSearchSubmit}
-                className="relative flex w-full items-center rounded-xl bg-white border-[1.5px] border-[#CFE2FF] focus-within:border-[#0A6CFF] overflow-hidden transition-all"
+                className="relative flex w-full items-center rounded-none bg-white border-[1.5px] border-[#CFE2FF] focus-within:border-[#0A6CFF] overflow-hidden transition-all"
               >
                 <input
                   type="text"

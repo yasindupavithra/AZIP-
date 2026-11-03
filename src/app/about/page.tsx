@@ -10,7 +10,7 @@ export default function AboutPage() {
       {/* Banner */}
       <section className="bg-[#0f172a] text-white py-14 sm:py-20 relative overflow-hidden">
         <div className="container relative z-10 text-center max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-600/30 text-blue-300 text-xs font-black uppercase rounded-full mb-3 tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-600/30 text-blue-300 text-xs font-black uppercase rounded-none mb-3 tracking-wider">
             Our Story &amp; Purpose
           </div>
           <h1 className="text-3xl sm:text-5xl font-black font-['Outfit'] mb-4">
@@ -41,11 +41,11 @@ export default function AboutPage() {
             </p>
 
             <div className="grid grid-cols-2 gap-4 pt-2">
-              <div className="p-4 bg-gray-50 rounded-xl border border-gray-200">
+              <div className="p-4 bg-gray-50 rounded-none border border-gray-200">
                 <div className="text-2xl font-black text-[#007AFF] font-['Outfit']">10,000+</div>
                 <div className="text-xs text-gray-500 font-semibold mt-0.5">Students Served</div>
               </div>
-              <div className="p-4 bg-gray-50 rounded-xl border border-gray-200">
+              <div className="p-4 bg-gray-50 rounded-none border border-gray-200">
                 <div className="text-2xl font-black text-[#007AFF] font-['Outfit']">500+</div>
                 <div className="text-xs text-gray-500 font-semibold mt-0.5">Official Brands</div>
               </div>
@@ -69,8 +69,8 @@ export default function AboutPage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm text-center">
-              <div className="w-12 h-12 bg-blue-50 text-[#007AFF] rounded-xl flex items-center justify-center mx-auto mb-4">
+            <div className="bg-white p-6 rounded-none border border-gray-200 shadow-sm text-center">
+              <div className="w-12 h-12 bg-blue-50 text-[#007AFF] rounded-none flex items-center justify-center mx-auto mb-4">
                 <Award size={24} />
               </div>
               <h3 className="font-bold text-gray-900 text-base mb-1">100% Genuine Brands</h3>
@@ -79,8 +79,8 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm text-center">
-              <div className="w-12 h-12 bg-blue-50 text-[#007AFF] rounded-xl flex items-center justify-center mx-auto mb-4">
+            <div className="bg-white p-6 rounded-none border border-gray-200 shadow-sm text-center">
+              <div className="w-12 h-12 bg-blue-50 text-[#007AFF] rounded-none flex items-center justify-center mx-auto mb-4">
                 <Truck size={24} />
               </div>
               <h3 className="font-bold text-gray-900 text-base mb-1">Island-Wide Delivery</h3>
@@ -89,8 +89,8 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm text-center">
-              <div className="w-12 h-12 bg-blue-50 text-[#007AFF] rounded-xl flex items-center justify-center mx-auto mb-4">
+            <div className="bg-white p-6 rounded-none border border-gray-200 shadow-sm text-center">
+              <div className="w-12 h-12 bg-blue-50 text-[#007AFF] rounded-none flex items-center justify-center mx-auto mb-4">
                 <BookOpen size={24} />
               </div>
               <h3 className="font-bold text-gray-900 text-base mb-1">School Booklist Packing</h3>
@@ -99,8 +99,8 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm text-center">
-              <div className="w-12 h-12 bg-blue-50 text-[#007AFF] rounded-xl flex items-center justify-center mx-auto mb-4">
+            <div className="bg-white p-6 rounded-none border border-gray-200 shadow-sm text-center">
+              <div className="w-12 h-12 bg-blue-50 text-[#007AFF] rounded-none flex items-center justify-center mx-auto mb-4">
                 <ShieldCheck size={24} />
               </div>
               <h3 className="font-bold text-gray-900 text-base mb-1">Secure &amp; Reliable</h3>
@@ -112,7 +112,7 @@ export default function AboutPage() {
         </div>
 
         {/* Visit Us in Kandy */}
-        <div className="bg-gray-900 text-white rounded-3xl p-8 sm:p-12 text-center">
+        <div className="bg-gray-900 text-white rounded-none p-8 sm:p-12 text-center">
           <h2 className="text-2xl sm:text-3xl font-black font-['Outfit'] mb-3">
             Visit Our Store or Order Online
           </h2>
@@ -125,7 +125,7 @@ export default function AboutPage() {
             </Link>
             <Link
               href="/contact"
-              className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-full text-xs font-bold transition-all"
+              className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-none text-xs font-bold transition-all"
             >
               Contact Our Kandy Branch
             </Link>

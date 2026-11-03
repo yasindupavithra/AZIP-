@@ -170,7 +170,7 @@ export default function Book360PreviewModal({
       />
 
       {/* Main Holographic Modal Container */}
-      <div className="relative w-full max-w-4xl bg-gradient-to-b from-[#0B1728] via-[#07101E] to-[#040810] border border-[#00C4D8]/40 shadow-[0_0_50px_rgba(0,196,216,0.25)] rounded-2xl overflow-hidden z-10 flex flex-col md:flex-row max-h-[92vh]">
+      <div className="relative w-full max-w-4xl bg-gradient-to-b from-[#0B1728] via-[#07101E] to-[#040810] border border-[#00C4D8]/40 shadow-[0_0_50px_rgba(0,196,216,0.25)] rounded-none overflow-hidden z-10 flex flex-col md:flex-row max-h-[92vh]">
         {/* Top Glow Bar */}
         <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#00C4D8] to-transparent shadow-[0_0_12px_#00C4D8]" />
 
@@ -185,7 +185,7 @@ export default function Book360PreviewModal({
         >
           {/* Top HUD Badges */}
           <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none z-20">
-            <div className="flex items-center gap-2 bg-[#00C4D8]/15 border border-[#00C4D8]/40 px-3 py-1 rounded-full backdrop-blur-md">
+            <div className="flex items-center gap-2 bg-[#00C4D8]/15 border border-[#00C4D8]/40 px-3 py-1 rounded-none backdrop-blur-md">
               <Compass size={14} className="text-[#00C4D8] animate-spin" style={{ animationDuration: '8s' }} />
               <span className="text-[11px] font-black text-[#00E5FF] tracking-wider uppercase font-mono">
                 ORBIT AZIMUTH: {Math.round(rotationAngle)}°
@@ -196,7 +196,7 @@ export default function Book360PreviewModal({
               <button
                 type="button"
                 onClick={() => setIsWireframe(!isWireframe)}
-                className={`px-2.5 py-1 text-[11px] font-bold rounded-lg border transition-all cursor-pointer ${
+                className={`px-2.5 py-1 text-[11px] font-bold rounded-none border transition-all cursor-pointer ${
                   isWireframe
                     ? 'bg-[#00C4D8] text-[#050B14] border-[#00E5FF] shadow-[0_0_10px_#00C4D8]'
                     : 'bg-white/5 text-slate-300 border-white/10 hover:border-[#00C4D8]/50'
@@ -209,7 +209,7 @@ export default function Book360PreviewModal({
               <button
                 type="button"
                 onClick={() => setIsAutoOrbit(!isAutoOrbit)}
-                className={`p-1.5 rounded-lg border transition-all cursor-pointer ${
+                className={`p-1.5 rounded-none border transition-all cursor-pointer ${
                   isAutoOrbit
                     ? 'bg-[#00C4D8]/20 text-[#00E5FF] border-[#00C4D8]'
                     : 'bg-white/5 text-slate-400 border-white/10 hover:text-white'
@@ -255,7 +255,7 @@ export default function Book360PreviewModal({
             >
               {/* Front Cover */}
               <div
-                className={`absolute inset-0 bg-white rounded-lg border overflow-hidden shadow-2xl backface-hidden ${
+                className={`absolute inset-0 bg-white rounded-none border overflow-hidden shadow-2xl backface-hidden ${
                   isWireframe
                     ? 'border-[#00E5FF] bg-[#071A2E]/90 shadow-[0_0_20px_#00C4D8]'
                     : 'border-slate-300'
@@ -298,7 +298,7 @@ export default function Book360PreviewModal({
 
               {/* Back Cover */}
               <div
-                className={`absolute inset-0 rounded-lg border overflow-hidden shadow-2xl p-4 flex flex-col justify-between ${
+                className={`absolute inset-0 rounded-none border overflow-hidden shadow-2xl p-4 flex flex-col justify-between ${
                   isWireframe
                     ? 'border-[#00E5FF] bg-[#071A2E]/90'
                     : 'bg-[#F8FAFC] border-slate-300'
@@ -356,7 +356,7 @@ export default function Book360PreviewModal({
                 key={btn.label}
                 type="button"
                 onClick={() => snapTo(btn.angle, btn.spread)}
-                className={`px-2.5 py-1 text-[10.5px] font-bold rounded-lg border transition-all cursor-pointer ${
+                className={`px-2.5 py-1 text-[10.5px] font-bold rounded-none border transition-all cursor-pointer ${
                   Math.abs(rotationAngle - btn.angle) < 25
                     ? 'bg-[#00C4D8] text-[#050B14] border-[#00E5FF] shadow-[0_0_12px_rgba(0,196,216,0.5)] font-extrabold'
                     : 'bg-white/5 text-slate-300 border-white/10 hover:border-[#00C4D8]/50'
@@ -379,7 +379,7 @@ export default function Book360PreviewModal({
             {/* Header / Close button */}
             <div className="flex items-start justify-between gap-3 mb-3">
               <div>
-                <span className="inline-flex items-center gap-1 text-[10px] font-black uppercase tracking-widest text-[#00C4D8] bg-[#00C4D8]/10 px-2 py-0.5 rounded border border-[#00C4D8]/30 mb-1.5">
+                <span className="inline-flex items-center gap-1 text-[10px] font-black uppercase tracking-widest text-[#00C4D8] bg-[#00C4D8]/10 px-2 py-0.5 rounded-none border border-[#00C4D8]/30 mb-1.5">
                   <Sparkles size={11} /> 360° Anti-Gravity Inspector
                 </span>
                 <h3 className="text-lg sm:text-xl font-black text-white leading-tight font-['Outfit']">
@@ -389,7 +389,7 @@ export default function Book360PreviewModal({
               <button
                 type="button"
                 onClick={onClose}
-                className="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white border border-white/10 flex items-center justify-center transition-colors cursor-pointer shrink-0"
+                className="w-8 h-8 rounded-none bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white border border-white/10 flex items-center justify-center transition-colors cursor-pointer shrink-0"
               >
                 <X size={16} />
               </button>
@@ -405,7 +405,7 @@ export default function Book360PreviewModal({
                   <span className="text-xs text-slate-400 line-through">
                     Rs. {product.compareAtPrice.toLocaleString()}
                   </span>
-                  <span className="text-[11px] font-bold text-[#FF3B5C] bg-[#FF3B5C]/15 px-2 py-0.5 rounded">
+                  <span className="text-[11px] font-bold text-[#FF3B5C] bg-[#FF3B5C]/15 px-2 py-0.5 rounded-none">
                     Save {Math.round(((product.compareAtPrice - product.price) / product.compareAtPrice) * 100)}%
                   </span>
                 </>
@@ -413,19 +413,19 @@ export default function Book360PreviewModal({
             </div>
 
             {/* Live Stock Counter Animation */}
-            <div className="p-3 rounded-xl bg-[#00C4D8]/10 border border-[#00C4D8]/30 mb-4">
+            <div className="p-3 rounded-none bg-[#00C4D8]/10 border border-[#00C4D8]/30 mb-4">
               <div className="flex items-center justify-between text-xs mb-1.5">
                 <span className="flex items-center gap-1.5 font-bold text-[#00E5FF]">
-                  <span className="w-2 h-2 rounded-full bg-[#00E5FF] animate-ping" />
+                  <span className="w-2 h-2 rounded-none bg-[#00E5FF] animate-ping" />
                   Live Orbit Inventory
                 </span>
                 <span className="font-extrabold text-white font-mono">
                   {product.stock || 18} {t('flash.stock_left')}
                 </span>
               </div>
-              <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+              <div className="w-full h-1.5 bg-slate-800 rounded-none overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-[#00C4D8] to-[#00E5FF] rounded-full"
+                  className="h-full bg-gradient-to-r from-[#00C4D8] to-[#00E5FF] rounded-none"
                   style={{ width: `${Math.min(100, ((product.stock || 18) / 30) * 100)}%` }}
                 />
               </div>
@@ -459,7 +459,7 @@ export default function Book360PreviewModal({
             <button
               type="button"
               onClick={handleAddToCart}
-              className={`w-full py-3.5 px-4 rounded-xl font-black text-sm flex items-center justify-center gap-2 transition-all cursor-pointer border ${
+              className={`w-full py-3.5 px-4 rounded-none font-black text-sm flex items-center justify-center gap-2 transition-all cursor-pointer border ${
                 added
                   ? 'bg-emerald-500 text-white border-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.5)]'
                   : 'bg-gradient-to-r from-[#00C4D8] to-[#009BB0] hover:from-[#00E5FF] hover:to-[#00B4C8] text-[#050B14] border-[#00E5FF] shadow-[0_0_25px_rgba(0,196,216,0.4)]'

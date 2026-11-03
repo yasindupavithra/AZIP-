@@ -34,8 +34,8 @@ export default function CartPage() {
         </div>
 
         {items.length === 0 ? (
-          <div className="bg-white rounded-2xl border border-gray-200 py-16 px-6 text-center max-w-lg mx-auto shadow-sm">
-            <div className="w-20 h-20 bg-blue-50 text-[#007AFF] rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="bg-white rounded-none border border-gray-200 py-16 px-6 text-center max-w-lg mx-auto shadow-sm">
+            <div className="w-20 h-20 bg-blue-50 text-[#007AFF] rounded-none flex items-center justify-center mx-auto mb-4">
               <ShoppingBag size={36} strokeWidth={1.5} />
             </div>
             <h2 className="text-xl font-bold text-gray-900 font-['Outfit'] mb-2">
@@ -52,7 +52,7 @@ export default function CartPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             {/* Left Items List */}
             <div className="lg:col-span-8 space-y-4">
-              <div className="bg-white rounded-2xl border border-gray-200 divide-y divide-gray-100 overflow-hidden shadow-sm">
+              <div className="bg-white rounded-none border border-gray-200 divide-y divide-gray-100 overflow-hidden shadow-sm">
                 {items.map((item) => (
                   <div key={item.id} className="p-4 sm:p-5 flex gap-4 sm:gap-6 items-center">
                     {/* Item Image */}
@@ -75,10 +75,10 @@ export default function CartPage() {
 
                       {/* Controls */}
                       <div className="flex items-center justify-between gap-4">
-                        <div className="flex items-center border border-gray-300 rounded-lg bg-gray-50 p-0.5">
+                        <div className="flex items-center border border-gray-300 rounded-none bg-gray-50 p-0.5">
                           <button
                             onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                            className="w-7 h-7 rounded bg-white text-gray-700 hover:bg-gray-100 flex items-center justify-center transition-colors cursor-pointer"
+                            className="w-7 h-7 rounded-none bg-white text-gray-700 hover:bg-gray-100 flex items-center justify-center transition-colors cursor-pointer"
                           >
                             <Minus size={13} />
                           </button>
@@ -87,7 +87,7 @@ export default function CartPage() {
                           </span>
                           <button
                             onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                            className="w-7 h-7 rounded bg-white text-gray-700 hover:bg-gray-100 flex items-center justify-center transition-colors cursor-pointer"
+                            className="w-7 h-7 rounded-none bg-white text-gray-700 hover:bg-gray-100 flex items-center justify-center transition-colors cursor-pointer"
                           >
                             <Plus size={13} />
                           </button>
@@ -100,7 +100,7 @@ export default function CartPage() {
 
                           <button
                             onClick={() => removeItem(item.id)}
-                            className="p-1.5 text-gray-400 hover:text-[#007AFF] transition-colors rounded-lg hover:bg-blue-50"
+                            className="p-1.5 text-gray-400 hover:text-[#007AFF] transition-colors rounded-none hover:bg-blue-50"
                             title="Remove item"
                           >
                             <Trash2 size={16} />
@@ -130,7 +130,7 @@ export default function CartPage() {
 
             {/* Right Summary */}
             <div className="lg:col-span-4">
-              <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm sticky top-28">
+              <div className="bg-white rounded-none border border-gray-200 p-6 shadow-sm sticky top-28">
                 <h2 className="text-lg font-black text-gray-900 font-['Outfit'] pb-4 border-b border-gray-100 mb-4">
                   Order Summary
                 </h2>

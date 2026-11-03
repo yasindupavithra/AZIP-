@@ -235,7 +235,7 @@ function ProductsContent() {
           {/* Slim Booklist Upload Pill - Clean & Non-Intrusive */}
           <button
             onClick={() => setIsUploadModalOpen(true)}
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0066FF] hover:text-[#0052CC] bg-blue-50/80 hover:bg-blue-100/80 px-3 py-1 rounded-full transition-colors cursor-pointer border border-blue-200"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0066FF] hover:text-[#0052CC] bg-blue-50/80 hover:bg-blue-100/80 px-3 py-1 rounded-none transition-colors cursor-pointer border border-blue-200"
           >
             <Upload size={13} />
             <span>Upload School Booklist for Instant Quote</span>
@@ -251,7 +251,7 @@ function ProductsContent() {
           {/* =========================================================================
               LEFT SIDEBAR: Daraz-Style Filter Panel (AZIP Blue Theme)
              ========================================================================= */}
-          <aside className="hidden lg:block lg:col-span-3 bg-white rounded-lg border border-slate-200/90 p-4 shadow-2xs space-y-5 sticky top-24">
+          <aside className="hidden lg:block lg:col-span-3 bg-white rounded-none border border-slate-200/90 p-4 shadow-2xs space-y-5 sticky top-24">
             
             {/* Header + Clear All */}
             <div className="flex items-center justify-between pb-3 border-b border-slate-100">
@@ -278,7 +278,7 @@ function ProductsContent() {
                 <li>
                   <button
                     onClick={() => handleCategorySelect('all')}
-                    className={`w-full text-left py-1 px-2 rounded transition-colors cursor-pointer border-none flex items-center justify-between ${
+                    className={`w-full text-left py-1 px-2 rounded-none transition-colors cursor-pointer border-none flex items-center justify-between ${
                       selectedCategory === 'all'
                         ? 'bg-blue-50 text-[#0066FF] font-bold'
                         : 'text-slate-600 hover:text-[#0066FF] hover:bg-slate-50 bg-transparent'
@@ -293,7 +293,7 @@ function ProductsContent() {
                     <li key={cat.slug}>
                       <button
                         onClick={() => handleCategorySelect(cat.slug)}
-                        className={`w-full text-left py-1 px-2 rounded transition-colors cursor-pointer border-none flex items-center justify-between ${
+                        className={`w-full text-left py-1 px-2 rounded-none transition-colors cursor-pointer border-none flex items-center justify-between ${
                           isSelected
                             ? 'bg-blue-50 text-[#0066FF] font-bold'
                             : 'text-slate-600 hover:text-[#0066FF] hover:bg-slate-50 bg-transparent'
@@ -332,7 +332,7 @@ function ProductsContent() {
                         type="checkbox"
                         checked={checked}
                         onChange={() => toggleItem(selectedBrands, setSelectedBrands, brand)}
-                        className="accent-[#0066FF] rounded cursor-pointer w-3.5 h-3.5"
+                        className="accent-[#0066FF] rounded-none cursor-pointer w-3.5 h-3.5"
                       />
                       <span className={checked ? 'font-bold text-[#0066FF]' : 'font-medium'}>
                         {brand}
@@ -362,7 +362,7 @@ function ProductsContent() {
                     type="checkbox"
                     checked={inStockOnly}
                     onChange={(e) => setInStockOnly(e.target.checked)}
-                    className="accent-[#0066FF] rounded cursor-pointer w-3.5 h-3.5"
+                    className="accent-[#0066FF] rounded-none cursor-pointer w-3.5 h-3.5"
                   />
                   <span className={inStockOnly ? 'font-bold text-[#0066FF]' : 'font-medium'}>
                     In Stock Only
@@ -373,7 +373,7 @@ function ProductsContent() {
                     type="checkbox"
                     checked={onSaleOnly}
                     onChange={(e) => setOnSaleOnly(e.target.checked)}
-                    className="accent-[#0066FF] rounded cursor-pointer w-3.5 h-3.5"
+                    className="accent-[#0066FF] rounded-none cursor-pointer w-3.5 h-3.5"
                   />
                   <span className={onSaleOnly ? 'font-bold text-[#0066FF]' : 'font-medium'}>
                     On Sale / Discounted
@@ -399,7 +399,7 @@ function ProductsContent() {
                         type="checkbox"
                         checked={checked}
                         onChange={() => toggleItem(selectedGrades, setSelectedGrades, grade)}
-                        className="accent-[#0066FF] rounded cursor-pointer w-3.5 h-3.5"
+                        className="accent-[#0066FF] rounded-none cursor-pointer w-3.5 h-3.5"
                       />
                       <span className={checked ? 'font-bold text-[#0066FF]' : 'font-medium'}>
                         {grade}
@@ -421,7 +421,7 @@ function ProductsContent() {
                   placeholder="Min"
                   value={minPriceInput}
                   onChange={(e) => setMinPriceInput(e.target.value)}
-                  className="w-full px-2 py-1 text-xs border border-slate-300 rounded focus:outline-none focus:border-[#0066FF] bg-white font-medium"
+                  className="w-full px-2 py-1 text-xs border border-slate-300 rounded-none focus:outline-none focus:border-[#0066FF] bg-white font-medium"
                 />
                 <span className="text-slate-400 font-bold">-</span>
                 <input
@@ -429,11 +429,11 @@ function ProductsContent() {
                   placeholder="Max"
                   value={maxPriceInput}
                   onChange={(e) => setMaxPriceInput(e.target.value)}
-                  className="w-full px-2 py-1 text-xs border border-slate-300 rounded focus:outline-none focus:border-[#0066FF] bg-white font-medium"
+                  className="w-full px-2 py-1 text-xs border border-slate-300 rounded-none focus:outline-none focus:border-[#0066FF] bg-white font-medium"
                 />
                 <button
                   type="submit"
-                  className="w-8 h-7 shrink-0 bg-[#0066FF] hover:bg-[#0052CC] text-white rounded flex items-center justify-center transition-colors cursor-pointer border-none shadow-xs font-bold"
+                  className="w-8 h-7 shrink-0 bg-[#0066FF] hover:bg-[#0052CC] text-white rounded-none flex items-center justify-center transition-colors cursor-pointer border-none shadow-xs font-bold"
                   title="Apply price filter"
                 >
                   <ArrowRight size={13} />
@@ -467,7 +467,7 @@ function ProductsContent() {
           <main className="lg:col-span-9 space-y-4">
             
             {/* Top Results Header + Toolbar (Daraz format) */}
-            <div className="bg-white rounded-lg border border-slate-200/90 px-4 py-3 shadow-2xs flex flex-wrap items-center justify-between gap-3">
+            <div className="bg-white rounded-none border border-slate-200/90 px-4 py-3 shadow-2xs flex flex-wrap items-center justify-between gap-3">
               {/* Result Title & Count */}
               <div>
                 <h1 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight leading-tight">
@@ -483,7 +483,7 @@ function ProductsContent() {
                 {/* Mobile Filter Button */}
                 <button
                   onClick={() => setIsMobileFilterOpen(true)}
-                  className="lg:hidden inline-flex items-center gap-1.5 px-3 py-1.5 border border-slate-200 rounded text-xs font-bold text-slate-700 hover:text-[#0066FF] hover:border-[#0066FF] bg-white cursor-pointer"
+                  className="lg:hidden inline-flex items-center gap-1.5 px-3 py-1.5 border border-slate-200 rounded-none text-xs font-bold text-slate-700 hover:text-[#0066FF] hover:border-[#0066FF] bg-white cursor-pointer"
                 >
                   <SlidersHorizontal size={13} />
                   <span>Filters {hasActiveFilters && '•'}</span>
@@ -495,7 +495,7 @@ function ProductsContent() {
                   <select
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value)}
-                    className="px-2.5 py-1.5 border border-slate-200 rounded bg-white text-xs font-medium text-slate-800 focus:outline-none focus:border-[#0066FF] cursor-pointer"
+                    className="px-2.5 py-1.5 border border-slate-200 rounded-none bg-white text-xs font-medium text-slate-800 focus:outline-none focus:border-[#0066FF] cursor-pointer"
                   >
                     <option value="popularity">Best Match</option>
                     <option value="price-low">Price: Low to High</option>
@@ -505,7 +505,7 @@ function ProductsContent() {
                 </div>
 
                 {/* View Mode Toggle (Grid / List) */}
-                <div className="flex items-center border border-slate-200 rounded overflow-hidden">
+                <div className="flex items-center border border-slate-200 rounded-none overflow-hidden">
                   <button
                     onClick={() => setViewMode('grid')}
                     className={`p-1.5 transition-colors cursor-pointer border-none ${
@@ -539,7 +539,7 @@ function ProductsContent() {
                 {selectedCategory !== 'all' && (
                   <span
                     onClick={() => handleCategorySelect('all')}
-                    className="bg-blue-50 text-[#0066FF] border border-blue-200 px-2 py-0.5 rounded text-[11px] font-semibold flex items-center gap-1 cursor-pointer hover:bg-blue-100"
+                    className="bg-blue-50 text-[#0066FF] border border-blue-200 px-2 py-0.5 rounded-none text-[11px] font-semibold flex items-center gap-1 cursor-pointer hover:bg-blue-100"
                   >
                     {categoryTitle} <X size={11} />
                   </span>
@@ -548,7 +548,7 @@ function ProductsContent() {
                   <span
                     key={b}
                     onClick={() => toggleItem(selectedBrands, setSelectedBrands, b)}
-                    className="bg-slate-100 text-slate-700 border border-slate-200 px-2 py-0.5 rounded text-[11px] font-semibold flex items-center gap-1 cursor-pointer hover:bg-slate-200"
+                    className="bg-slate-100 text-slate-700 border border-slate-200 px-2 py-0.5 rounded-none text-[11px] font-semibold flex items-center gap-1 cursor-pointer hover:bg-slate-200"
                   >
                     {b} <X size={11} />
                   </span>
@@ -557,7 +557,7 @@ function ProductsContent() {
                   <span
                     key={g}
                     onClick={() => toggleItem(selectedGrades, setSelectedGrades, g)}
-                    className="bg-slate-100 text-slate-700 border border-slate-200 px-2 py-0.5 rounded text-[11px] font-semibold flex items-center gap-1 cursor-pointer hover:bg-slate-200"
+                    className="bg-slate-100 text-slate-700 border border-slate-200 px-2 py-0.5 rounded-none text-[11px] font-semibold flex items-center gap-1 cursor-pointer hover:bg-slate-200"
                   >
                     {g} <X size={11} />
                   </span>
@@ -565,7 +565,7 @@ function ProductsContent() {
                 {inStockOnly && (
                   <span
                     onClick={() => setInStockOnly(false)}
-                    className="bg-slate-100 text-slate-700 border border-slate-200 px-2 py-0.5 rounded text-[11px] font-semibold flex items-center gap-1 cursor-pointer hover:bg-slate-200"
+                    className="bg-slate-100 text-slate-700 border border-slate-200 px-2 py-0.5 rounded-none text-[11px] font-semibold flex items-center gap-1 cursor-pointer hover:bg-slate-200"
                   >
                     In Stock <X size={11} />
                   </span>
@@ -573,7 +573,7 @@ function ProductsContent() {
                 {onSaleOnly && (
                   <span
                     onClick={() => setOnSaleOnly(false)}
-                    className="bg-slate-100 text-slate-700 border border-slate-200 px-2 py-0.5 rounded text-[11px] font-semibold flex items-center gap-1 cursor-pointer hover:bg-slate-200"
+                    className="bg-slate-100 text-slate-700 border border-slate-200 px-2 py-0.5 rounded-none text-[11px] font-semibold flex items-center gap-1 cursor-pointer hover:bg-slate-200"
                   >
                     On Sale <X size={11} />
                   </span>
@@ -589,13 +589,13 @@ function ProductsContent() {
 
             {/* Products Grid / List */}
             {loading ? (
-              <div className="py-24 text-center bg-white rounded-lg border border-slate-200">
-                <div className="w-8 h-8 border-3 border-[#0066FF] border-t-transparent rounded-full animate-spin mx-auto mb-3" />
+              <div className="py-24 text-center bg-white rounded-none border border-slate-200">
+                <div className="w-8 h-8 border-3 border-[#0066FF] border-t-transparent rounded-none animate-spin mx-auto mb-3" />
                 <p className="text-xs font-semibold text-slate-500">Loading catalog...</p>
               </div>
             ) : sortedProducts.length === 0 ? (
-              <div className="py-20 text-center bg-white rounded-lg border border-slate-200 px-6">
-                <div className="w-12 h-12 bg-blue-50 text-[#0066FF] rounded-full flex items-center justify-center mx-auto mb-3">
+              <div className="py-20 text-center bg-white rounded-none border border-slate-200 px-6">
+                <div className="w-12 h-12 bg-blue-50 text-[#0066FF] rounded-none flex items-center justify-center mx-auto mb-3">
                   <Search size={22} />
                 </div>
                 <h3 className="text-sm font-bold text-slate-900 mb-1">No products found</h3>
@@ -604,7 +604,7 @@ function ProductsContent() {
                 </p>
                 <button
                   onClick={handleClearAll}
-                  className="px-5 py-2 bg-[#0066FF] hover:bg-[#0052CC] text-white text-xs font-bold rounded-md transition-colors cursor-pointer border-none"
+                  className="px-5 py-2 bg-[#0066FF] hover:bg-[#0052CC] text-white text-xs font-bold rounded-none transition-colors cursor-pointer border-none"
                 >
                   Clear All Filters
                 </button>
@@ -637,18 +637,18 @@ function ProductsContent() {
                 </div>
 
                 {/* Pagination (Daraz Standard) */}
-                <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-3 bg-white rounded-lg border border-slate-200 px-4 py-3 text-xs text-slate-500">
+                <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-3 bg-white rounded-none border border-slate-200 px-4 py-3 text-xs text-slate-500">
                   <span>
                     Showing 1 - {sortedProducts.length} of {sortedProducts.length} items
                   </span>
                   <div className="flex items-center gap-1">
-                    <button className="px-3 py-1.5 border border-slate-200 rounded bg-white font-medium text-slate-600 hover:border-[#0066FF] cursor-pointer">
+                    <button className="px-3 py-1.5 border border-slate-200 rounded-none bg-white font-medium text-slate-600 hover:border-[#0066FF] cursor-pointer">
                       Previous
                     </button>
-                    <button className="w-7 h-7 rounded bg-[#0066FF] text-white font-bold flex items-center justify-center cursor-pointer shadow-xs border-none">
+                    <button className="w-7 h-7 rounded-none bg-[#0066FF] text-white font-bold flex items-center justify-center cursor-pointer shadow-xs border-none">
                       1
                     </button>
-                    <button className="px-3 py-1.5 border border-slate-200 rounded bg-white font-medium text-slate-600 hover:border-[#0066FF] cursor-pointer">
+                    <button className="px-3 py-1.5 border border-slate-200 rounded-none bg-white font-medium text-slate-600 hover:border-[#0066FF] cursor-pointer">
                       Next
                     </button>
                   </div>
@@ -689,7 +689,7 @@ function ProductsContent() {
                       handleCategorySelect('all');
                       setIsMobileFilterOpen(false);
                     }}
-                    className={`w-full text-left py-1 px-2 rounded block ${
+                    className={`w-full text-left py-1 px-2 rounded-none block ${
                       selectedCategory === 'all'
                         ? 'bg-blue-50 text-[#0066FF] font-bold'
                         : 'text-slate-700'
@@ -704,7 +704,7 @@ function ProductsContent() {
                         handleCategorySelect(c.slug);
                         setIsMobileFilterOpen(false);
                       }}
-                      className={`w-full text-left py-1 px-2 rounded block ${
+                      className={`w-full text-left py-1 px-2 rounded-none block ${
                         selectedCategory === c.slug
                           ? 'bg-blue-50 text-[#0066FF] font-bold'
                           : 'text-slate-700'
@@ -743,7 +743,7 @@ function ProductsContent() {
                     placeholder="Min"
                     value={minPriceInput}
                     onChange={(e) => setMinPriceInput(e.target.value)}
-                    className="w-full px-2 py-1 text-xs border rounded"
+                    className="w-full px-2 py-1 text-xs border rounded-none"
                   />
                   <span>-</span>
                   <input
@@ -751,7 +751,7 @@ function ProductsContent() {
                     placeholder="Max"
                     value={maxPriceInput}
                     onChange={(e) => setMaxPriceInput(e.target.value)}
-                    className="w-full px-2 py-1 text-xs border rounded"
+                    className="w-full px-2 py-1 text-xs border rounded-none"
                   />
                 </div>
               </div>
@@ -763,7 +763,7 @@ function ProductsContent() {
                   handleClearAll();
                   setIsMobileFilterOpen(false);
                 }}
-                className="flex-1 py-2 text-xs font-bold border border-slate-300 rounded text-slate-700"
+                className="flex-1 py-2 text-xs font-bold border border-slate-300 rounded-none text-slate-700"
               >
                 Clear
               </button>
@@ -772,7 +772,7 @@ function ProductsContent() {
                   handleApplyPrice();
                   setIsMobileFilterOpen(false);
                 }}
-                className="flex-1 py-2 text-xs font-bold bg-[#0066FF] text-white rounded"
+                className="flex-1 py-2 text-xs font-bold bg-[#0066FF] text-white rounded-none"
               >
                 Apply
               </button>

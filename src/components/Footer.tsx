@@ -36,15 +36,15 @@ export default function Footer() {
       {/* ── 1. Sleek Newsletter Strip (Compact, High-Converting, No Clutter) ── */}
       <div className="border-b border-white/[0.06] bg-gradient-to-b from-[#09152C] to-[#050C1A] py-8 sm:py-10">
         <div className="container mx-auto px-4">
-          <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-r from-[#0B1E3D] via-[#0D2650] to-[#0A1B36] p-5 sm:p-8 lg:p-9 shadow-[0_16px_40px_rgba(2,10,24,0.45)] border border-white/10">
+          <div className="relative overflow-hidden rounded-none sm:rounded-none bg-gradient-to-r from-[#0B1E3D] via-[#0D2650] to-[#0A1B36] p-5 sm:p-8 lg:p-9 shadow-[0_16px_40px_rgba(2,10,24,0.45)] border border-white/10">
             {/* Subtle ambient lighting */}
-            <div className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-sky-400/10 blur-3xl" />
-            <div className="pointer-events-none absolute -left-16 -bottom-16 h-64 w-64 rounded-full bg-blue-600/10 blur-3xl" />
+            <div className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-none bg-sky-400/10 blur-3xl" />
+            <div className="pointer-events-none absolute -left-16 -bottom-16 h-64 w-64 rounded-none bg-blue-600/10 blur-3xl" />
 
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
               {/* Text content - concise and crisp */}
               <div className="lg:col-span-7 space-y-1.5 sm:space-y-2">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-400/10 text-sky-300 text-[11px] font-bold uppercase tracking-wider border border-sky-400/20">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-none bg-sky-400/10 text-sky-300 text-[11px] font-bold uppercase tracking-wider border border-sky-400/20">
                   <Sparkles size={12} className="text-sky-300" />
                   <span>Exclusive Offer</span>
                 </div>
@@ -59,13 +59,13 @@ export default function Footer() {
               {/* Form - sleek frosted glass pill with controlled max-width */}
               <div className="lg:col-span-5">
                 {isSubscribed ? (
-                  <div className="flex items-center gap-2.5 p-3.5 rounded-2xl bg-emerald-500/15 border border-emerald-400/30 text-emerald-300 text-xs sm:text-sm font-semibold">
+                  <div className="flex items-center gap-2.5 p-3.5 rounded-none bg-emerald-500/15 border border-emerald-400/30 text-emerald-300 text-xs sm:text-sm font-semibold">
                     <CheckCircle2 size={18} className="text-emerald-400 shrink-0" />
                     <span>You’re subscribed! Check your inbox for your 10% promo code.</span>
                   </div>
                 ) : (
                   <form onSubmit={handleSubscribe} className="space-y-2 max-w-md lg:ml-auto">
-                    <div className="relative flex items-center rounded-full bg-black/40 backdrop-blur-md border border-white/20 p-1.5 shadow-inner focus-within:border-sky-400 focus-within:ring-2 focus-within:ring-sky-400/25 transition-all">
+                    <div className="relative flex items-center rounded-none bg-black/40 backdrop-blur-md border border-white/20 p-1.5 shadow-inner focus-within:border-sky-400 focus-within:ring-2 focus-within:ring-sky-400/25 transition-all">
                       <div className="pl-3 pr-2 text-slate-400 shrink-0">
                         <Mail size={17} />
                       </div>
@@ -79,7 +79,7 @@ export default function Footer() {
                       />
                       <button
                         type="submit"
-                        className="inline-flex items-center gap-1.5 px-5 sm:px-6 py-2.5 rounded-full bg-gradient-to-r from-[#0066FF] to-[#0052CC] hover:from-[#0052CC] hover:to-[#0040A0] text-white font-bold text-xs tracking-wide transition-all hover:shadow-lg hover:shadow-blue-500/30 active:scale-95 cursor-pointer border-none shrink-0"
+                        className="inline-flex items-center gap-1.5 px-5 sm:px-6 py-2.5 rounded-none bg-gradient-to-r from-[#0066FF] to-[#0052CC] hover:from-[#0052CC] hover:to-[#0040A0] text-white font-bold text-xs tracking-wide transition-all hover:shadow-lg hover:shadow-blue-500/30 active:scale-95 cursor-pointer border-none shrink-0"
                       >
                         <span>Subscribe</span>
                         <Send size={13} />
@@ -101,8 +101,8 @@ export default function Footer() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {/* Pillar 1 */}
-            <div className="flex items-center gap-3 p-2.5 sm:p-3 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:bg-white/[0.04] transition-colors">
-              <div className="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-400/20 text-sky-400 flex items-center justify-center shrink-0">
+            <div className="flex items-center gap-3 p-2.5 sm:p-3 rounded-none bg-white/[0.02] border border-white/[0.05] hover:bg-white/[0.04] transition-colors">
+              <div className="w-10 h-10 rounded-none bg-sky-500/10 border border-sky-400/20 text-sky-400 flex items-center justify-center shrink-0">
                 <Truck size={19} strokeWidth={2.2} />
               </div>
               <div className="min-w-0">
@@ -112,8 +112,8 @@ export default function Footer() {
             </div>
 
             {/* Pillar 2 */}
-            <div className="flex items-center gap-3 p-2.5 sm:p-3 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:bg-white/[0.04] transition-colors">
-              <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-400/20 text-emerald-400 flex items-center justify-center shrink-0">
+            <div className="flex items-center gap-3 p-2.5 sm:p-3 rounded-none bg-white/[0.02] border border-white/[0.05] hover:bg-white/[0.04] transition-colors">
+              <div className="w-10 h-10 rounded-none bg-emerald-500/10 border border-emerald-400/20 text-emerald-400 flex items-center justify-center shrink-0">
                 <ShieldCheck size={19} strokeWidth={2.2} />
               </div>
               <div className="min-w-0">
@@ -123,8 +123,8 @@ export default function Footer() {
             </div>
 
             {/* Pillar 3 */}
-            <div className="flex items-center gap-3 p-2.5 sm:p-3 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:bg-white/[0.04] transition-colors">
-              <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-400/20 text-amber-400 flex items-center justify-center shrink-0">
+            <div className="flex items-center gap-3 p-2.5 sm:p-3 rounded-none bg-white/[0.02] border border-white/[0.05] hover:bg-white/[0.04] transition-colors">
+              <div className="w-10 h-10 rounded-none bg-amber-500/10 border border-amber-400/20 text-amber-400 flex items-center justify-center shrink-0">
                 <CreditCard size={19} strokeWidth={2.2} />
               </div>
               <div className="min-w-0">
@@ -134,8 +134,8 @@ export default function Footer() {
             </div>
 
             {/* Pillar 4 */}
-            <div className="flex items-center gap-3 p-2.5 sm:p-3 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:bg-white/[0.04] transition-colors">
-              <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-400/20 text-purple-400 flex items-center justify-center shrink-0">
+            <div className="flex items-center gap-3 p-2.5 sm:p-3 rounded-none bg-white/[0.02] border border-white/[0.05] hover:bg-white/[0.04] transition-colors">
+              <div className="w-10 h-10 rounded-none bg-purple-500/10 border border-purple-400/20 text-purple-400 flex items-center justify-center shrink-0">
                 <RotateCcw size={19} strokeWidth={2.2} />
               </div>
               <div className="min-w-0">
@@ -161,8 +161,8 @@ export default function Footer() {
                 />
               </Link>
               
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-white/[0.07] text-white text-[11px] font-semibold border border-white/10">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-none bg-white/[0.07] text-white text-[11px] font-semibold border border-white/10">
+                <span className="w-1.5 h-1.5 rounded-none bg-emerald-400 animate-pulse" />
                 <span>Verified Educational Supplier · Sri Lanka</span>
               </div>
 
@@ -266,7 +266,7 @@ export default function Footer() {
 
               <div className="space-y-2.5 text-xs sm:text-[13px]">
                 <div className="flex items-center gap-2.5 text-slate-300">
-                  <div className="w-7 h-7 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center shrink-0">
+                  <div className="w-7 h-7 rounded-none bg-sky-500/10 text-sky-400 flex items-center justify-center shrink-0">
                     <Phone size={13} />
                   </div>
                   <div>
@@ -278,7 +278,7 @@ export default function Footer() {
                 </div>
 
                 <div className="flex items-center gap-2.5 text-slate-300">
-                  <div className="w-7 h-7 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+                  <div className="w-7 h-7 rounded-none bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
                     <Mail size={13} />
                   </div>
                   <div>
@@ -289,7 +289,7 @@ export default function Footer() {
                 </div>
 
                 <div className="flex items-center gap-2.5 text-slate-300">
-                  <div className="w-7 h-7 rounded-lg bg-white/[0.06] text-slate-400 flex items-center justify-center shrink-0">
+                  <div className="w-7 h-7 rounded-none bg-white/[0.06] text-slate-400 flex items-center justify-center shrink-0">
                     <MapPin size={13} />
                   </div>
                   <span className="text-slate-300">Colombo &amp; Kandy, Sri Lanka</span>
@@ -304,7 +304,7 @@ export default function Footer() {
                     href="https://facebook.com"
                     target="_blank"
                     rel="noreferrer"
-                    className="w-8 h-8 rounded-lg bg-white/[0.06] hover:bg-[#1877F2] text-white flex items-center justify-center transition-all hover:scale-110 shadow-sm"
+                    className="w-8 h-8 rounded-none bg-white/[0.06] hover:bg-[#1877F2] text-white flex items-center justify-center transition-all hover:scale-110 shadow-sm"
                     aria-label="Facebook"
                   >
                     <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -316,7 +316,7 @@ export default function Footer() {
                     href="https://instagram.com"
                     target="_blank"
                     rel="noreferrer"
-                    className="w-8 h-8 rounded-lg bg-white/[0.06] hover:bg-gradient-to-tr hover:from-amber-500 hover:via-pink-500 hover:to-purple-500 text-white flex items-center justify-center transition-all hover:scale-110 shadow-sm"
+                    className="w-8 h-8 rounded-none bg-white/[0.06] hover:bg-gradient-to-tr hover:from-amber-500 hover:via-pink-500 hover:to-purple-500 text-white flex items-center justify-center transition-all hover:scale-110 shadow-sm"
                     aria-label="Instagram"
                   >
                     <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -328,7 +328,7 @@ export default function Footer() {
                     href="https://youtube.com"
                     target="_blank"
                     rel="noreferrer"
-                    className="w-8 h-8 rounded-lg bg-white/[0.06] hover:bg-[#FF0000] text-white flex items-center justify-center transition-all hover:scale-110 shadow-sm"
+                    className="w-8 h-8 rounded-none bg-white/[0.06] hover:bg-[#FF0000] text-white flex items-center justify-center transition-all hover:scale-110 shadow-sm"
                     aria-label="YouTube"
                   >
                     <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -340,7 +340,7 @@ export default function Footer() {
                     href="https://tiktok.com"
                     target="_blank"
                     rel="noreferrer"
-                    className="w-8 h-8 rounded-lg bg-white/[0.06] hover:bg-black text-white flex items-center justify-center transition-all hover:scale-110 shadow-sm"
+                    className="w-8 h-8 rounded-none bg-white/[0.06] hover:bg-black text-white flex items-center justify-center transition-all hover:scale-110 shadow-sm"
                     aria-label="TikTok"
                   >
                     <svg className="w-3 h-3 fill-current" viewBox="0 0 24 24">
@@ -374,7 +374,7 @@ export default function Footer() {
               {['VISA', 'MASTERCARD', 'AMEX', 'CASH ON DELIVERY', 'BANK TRANSFER', 'KOKO / MINTPAY'].map((method) => (
                 <div
                   key={method}
-                  className="px-2 py-0.5 rounded bg-white/[0.06] hover:bg-white/[0.09] text-slate-200 font-bold text-[9px] tracking-wider border border-white/[0.08] transition-colors"
+                  className="px-2 py-0.5 rounded-none bg-white/[0.06] hover:bg-white/[0.09] text-slate-200 font-bold text-[9px] tracking-wider border border-white/[0.08] transition-colors"
                 >
                   {method}
                 </div>

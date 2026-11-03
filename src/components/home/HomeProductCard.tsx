@@ -84,7 +84,7 @@ export default function HomeProductCard({
     : 76;
 
   return (
-    <article className="group flex flex-col h-full bg-white rounded-xl border border-slate-200/90 hover:border-[#00C4D8] shadow-xs hover:shadow-md transition-all duration-200 overflow-hidden">
+    <article className="group flex flex-col h-full bg-white rounded-none border border-slate-200/90 hover:border-[#00C4D8] shadow-xs hover:shadow-md transition-all duration-200 overflow-hidden">
       {/* Product Image Box */}
       <Link
         href={`/products/${product.slug}`}
@@ -95,14 +95,14 @@ export default function HomeProductCard({
       >
         {/* Top-left Discount Badge */}
         {hasDiscount && (
-          <span className="absolute top-2.5 left-2.5 z-10 bg-rose-500 text-white text-[11px] font-extrabold px-2 py-0.5 rounded-md shadow-xs">
+          <span className="absolute top-2.5 left-2.5 z-10 bg-rose-500 text-white text-[11px] font-extrabold px-2 py-0.5 rounded-none shadow-xs">
             -{discount}%
           </span>
         )}
 
         {/* Top-right Custom Badge or Brand */}
         {(product.badge || product.isNew) && !compact && (
-          <span className="absolute top-2.5 right-2.5 z-10 bg-sky-50 text-[#0096C7] border border-sky-200/80 text-[10px] font-bold px-2 py-0.5 rounded-md">
+          <span className="absolute top-2.5 right-2.5 z-10 bg-sky-50 text-[#0096C7] border border-sky-200/80 text-[10px] font-bold px-2 py-0.5 rounded-none">
             {product.badge || 'NEW'}
           </span>
         )}
@@ -157,9 +157,9 @@ export default function HomeProductCard({
         {/* Flash Deal Sold Progress Bar */}
         {isFlashDeal && !compact && (
           <div className="mt-0.5">
-            <div className="w-full h-3.5 bg-rose-100 rounded-full overflow-hidden relative flex items-center">
+            <div className="w-full h-3.5 bg-rose-100 rounded-none overflow-hidden relative flex items-center">
               <div
-                className="h-full bg-gradient-to-r from-orange-500 to-rose-600 rounded-full"
+                className="h-full bg-gradient-to-r from-orange-500 to-rose-600 rounded-none"
                 style={{ width: `${soldPercent}%` }}
               />
               <span className="absolute inset-0 flex items-center justify-center text-[9px] font-extrabold text-rose-950 uppercase tracking-wider">
@@ -176,7 +176,7 @@ export default function HomeProductCard({
             type="button"
             onClick={handleAdd}
             aria-label={`Add ${product.name} to cart`}
-            className={`mt-auto pt-1 w-full py-2 rounded-lg flex items-center justify-center gap-1.5 text-xs font-bold border transition-all cursor-pointer ${
+            className={`mt-auto pt-1 w-full py-2 rounded-none flex items-center justify-center gap-1.5 text-xs font-bold border transition-all cursor-pointer ${
               added
                 ? 'bg-emerald-600 border-emerald-600 text-white shadow-xs'
                 : 'bg-sky-50/70 border-[#00C4D8]/60 text-[#0096C7] hover:bg-[#0096C7] hover:border-[#0096C7] hover:text-white'

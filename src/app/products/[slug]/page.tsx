@@ -220,7 +220,7 @@ export default function ProductDetailPage() {
     return (
       <StoreShell>
         <div className="container py-24 text-center">
-          <div className="w-10 h-10 border-3 border-[#0066FF] border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+          <div className="w-10 h-10 border-3 border-[#0066FF] border-t-transparent rounded-none animate-spin mx-auto mb-4" />
           <p className="text-sm font-semibold text-gray-500">Loading product details...</p>
         </div>
       </StoreShell>
@@ -231,7 +231,7 @@ export default function ProductDetailPage() {
     return (
       <StoreShell>
         <div className="container py-24 text-center max-w-md mx-auto">
-          <div className="w-16 h-16 bg-blue-50 text-[#0066FF] rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="w-16 h-16 bg-blue-50 text-[#0066FF] rounded-none flex items-center justify-center mx-auto mb-4">
             <RotateCcw size={28} />
           </div>
           <h1 className="text-2xl font-black text-gray-900 mb-2 font-['Outfit']">Product Not Found</h1>
@@ -336,7 +336,7 @@ export default function ProductDetailPage() {
               Column 2: Product Info, Price, Installment, Options, Buy Now / Add to Cart
               Column 3: Delivery Options, Cash on Delivery Reassurance, Return & Seller
              ═══════════════════════════════════════════════════════════════════════════ */}
-          <div className="bg-white rounded-2xl border border-gray-200/90 shadow-sm p-4 sm:p-6 mb-8">
+          <div className="bg-white rounded-none border border-gray-200/90 shadow-sm p-4 sm:p-6 mb-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
               
               {/* ─────────────────── COLUMN 1: IMAGE + HOVER ZOOM ─────────────────── */}
@@ -359,9 +359,9 @@ export default function ProductDetailPage() {
               <div className="lg:col-span-5 flex flex-col justify-between">
                 <div>
                   {/* Flash Sale / Limited Time Banner */}
-                  <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/70 rounded-xl p-2.5 mb-3 flex items-center justify-between">
+                  <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/70 rounded-none p-2.5 mb-3 flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <span className="bg-[#0066FF] text-white text-[10px] font-black uppercase px-2 py-0.5 rounded tracking-wider flex items-center gap-1 shadow-sm">
+                      <span className="bg-[#0066FF] text-white text-[10px] font-black uppercase px-2 py-0.5 rounded-none tracking-wider flex items-center gap-1 shadow-sm">
                         <Zap size={11} className="fill-white" /> FLASH SALE
                       </span>
                       <span className="text-xs font-bold text-gray-800">Verified Authentic Stock</span>
@@ -395,7 +395,7 @@ export default function ProductDetailPage() {
                     <div className="flex items-center gap-1.5">
                       <button
                         onClick={() => setIsWishlisted(!isWishlisted)}
-                        className={`p-1.5 rounded-full border transition-all ${
+                        className={`p-1.5 rounded-none border transition-all ${
                           isWishlisted
                             ? 'border-red-200 bg-red-50 text-red-500'
                             : 'border-gray-200 hover:bg-gray-100 text-gray-500 hover:text-[#0066FF]'
@@ -406,7 +406,7 @@ export default function ProductDetailPage() {
                       </button>
                       <button
                         onClick={handleShare}
-                        className="p-1.5 rounded-full border border-gray-200 hover:bg-gray-100 text-gray-500 transition-colors"
+                        className="p-1.5 rounded-none border border-gray-200 hover:bg-gray-100 text-gray-500 transition-colors"
                         title="Share product link"
                       >
                         {copied ? <Check size={16} className="text-emerald-600" /> : <Share2 size={16} />}
@@ -433,7 +433,7 @@ export default function ProductDetailPage() {
                   </div>
 
                   {/* Pricing Box (Daraz Style) */}
-                  <div className="bg-[#f8fafc] rounded-xl p-4 mb-4 border border-gray-200/80">
+                  <div className="bg-[#f8fafc] rounded-none p-4 mb-4 border border-gray-200/80">
                     <div className="flex items-baseline gap-3">
                       <span className="text-3xl font-black text-[#0066FF] font-['Outfit']">
                         Rs. {product.price.toLocaleString()}
@@ -443,7 +443,7 @@ export default function ProductDetailPage() {
                           <span className="text-sm text-gray-400 line-through">
                             Rs. {product.compareAtPrice.toLocaleString()}
                           </span>
-                          <span className="text-xs font-black text-rose-600 bg-rose-50 border border-rose-200 px-2 py-0.5 rounded">
+                          <span className="text-xs font-black text-rose-600 bg-rose-50 border border-rose-200 px-2 py-0.5 rounded-none">
                             -{discount}%
                           </span>
                         </>
@@ -472,7 +472,7 @@ export default function ProductDetailPage() {
                           key={opt}
                           type="button"
                           onClick={() => setSelectedVariant(opt)}
-                          className={`px-3 py-1.5 text-xs font-bold rounded-lg border transition-all cursor-pointer ${
+                          className={`px-3 py-1.5 text-xs font-bold rounded-none border transition-all cursor-pointer ${
                             selectedVariant === opt
                               ? 'border-[#0066FF] bg-blue-50 text-[#0066FF] shadow-sm ring-1 ring-[#0066FF]'
                               : 'border-gray-200 hover:border-gray-300 text-gray-700 bg-white'
@@ -487,7 +487,7 @@ export default function ProductDetailPage() {
                   {/* Quantity Selector */}
                   <div className="flex items-center gap-4 mb-5">
                     <span className="text-xs font-bold text-gray-700">Quantity:</span>
-                    <div className="flex items-center border border-gray-300 rounded-lg bg-white overflow-hidden shadow-xs">
+                    <div className="flex items-center border border-gray-300 rounded-none bg-white overflow-hidden shadow-xs">
                       <button
                         type="button"
                         onClick={() => setQuantity(Math.max(1, quantity - 1))}
@@ -526,7 +526,7 @@ export default function ProductDetailPage() {
                       <button
                         type="button"
                         onClick={handleBuyNow}
-                        className="w-full sm:flex-1 py-3.5 px-6 rounded-xl bg-[#0066FF] hover:bg-[#0052cc] text-white font-black text-sm uppercase tracking-wider transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer active:scale-98"
+                        className="w-full sm:flex-1 py-3.5 px-6 rounded-none bg-[#0066FF] hover:bg-[#0052cc] text-white font-black text-sm uppercase tracking-wider transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer active:scale-98"
                       >
                         <Zap size={17} className="fill-white" />
                         Buy Now
@@ -535,7 +535,7 @@ export default function ProductDetailPage() {
                       <button
                         type="button"
                         onClick={handleAddToCart}
-                        className="w-full sm:flex-1 py-3.5 px-6 rounded-xl bg-[#0A2540] hover:bg-[#0C3E7C] text-white font-black text-sm uppercase tracking-wider transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer active:scale-98"
+                        className="w-full sm:flex-1 py-3.5 px-6 rounded-none bg-[#0A2540] hover:bg-[#0C3E7C] text-white font-black text-sm uppercase tracking-wider transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer active:scale-98"
                       >
                         <ShoppingCart size={17} />
                         Add to Cart
@@ -547,7 +547,7 @@ export default function ProductDetailPage() {
                       href={`https://wa.me/94770000000?text=${whatsappMessage}`}
                       target="_blank"
                       rel="noreferrer"
-                      className="w-full py-3 px-4 bg-[#25D366] hover:bg-[#1ebe57] text-white font-bold text-xs sm:text-sm rounded-xl transition-all shadow-sm flex items-center justify-center gap-2 uppercase tracking-wide cursor-pointer active:scale-98"
+                      className="w-full py-3 px-4 bg-[#25D366] hover:bg-[#1ebe57] text-white font-bold text-xs sm:text-sm rounded-none transition-all shadow-sm flex items-center justify-center gap-2 uppercase tracking-wide cursor-pointer active:scale-98"
                     >
                       <MessageCircle size={18} />
                       Quick Order via WhatsApp (Cash on Delivery)
@@ -563,7 +563,7 @@ export default function ProductDetailPage() {
               </div>
 
               {/* ─────────────────── COLUMN 3: DELIVERY & SERVICE WIDGET ─────────────────── */}
-              <div className="lg:col-span-3 bg-[#f8fafc] rounded-2xl border border-gray-200 p-4 flex flex-col justify-between space-y-5">
+              <div className="lg:col-span-3 bg-[#f8fafc] rounded-none border border-gray-200 p-4 flex flex-col justify-between space-y-5">
                 {/* 1. Delivery Options */}
                 <div>
                   <div className="flex items-center justify-between text-xs font-bold text-gray-900 uppercase tracking-wider mb-3">
@@ -616,8 +616,8 @@ export default function ProductDetailPage() {
 
                   {/* Cash on Delivery Available Highlight (User's specific rule!) */}
                   <div className="pt-3">
-                    <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-3 flex items-start gap-2.5">
-                      <div className="w-7 h-7 rounded-lg bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-xs">
+                    <div className="bg-emerald-50 border border-emerald-200 rounded-none p-3 flex items-start gap-2.5">
+                      <div className="w-7 h-7 rounded-none bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-xs">
                         <Banknote size={15} />
                       </div>
                       <div>
@@ -673,12 +673,12 @@ export default function ProductDetailPage() {
                       <div className="text-[10px] text-gray-400 uppercase font-bold tracking-wider">Sold by</div>
                       <div className="text-sm font-black text-gray-900 font-['Outfit']">AZIP Store (Pvt) Ltd</div>
                     </div>
-                    <span className="text-[10px] font-bold bg-blue-100 text-[#0066FF] px-2 py-0.5 rounded-full">
+                    <span className="text-[10px] font-bold bg-blue-100 text-[#0066FF] px-2 py-0.5 rounded-none">
                       Verified
                     </span>
                   </div>
 
-                  <div className="grid grid-cols-3 gap-2 py-2 bg-white rounded-xl border border-gray-200 text-center mb-3">
+                  <div className="grid grid-cols-3 gap-2 py-2 bg-white rounded-none border border-gray-200 text-center mb-3">
                     <div>
                       <div className="text-xs font-black text-gray-900">98%</div>
                       <div className="text-[10px] text-gray-500">Positive Rating</div>
@@ -695,7 +695,7 @@ export default function ProductDetailPage() {
 
                   <Link
                     href="/products"
-                    className="w-full inline-flex items-center justify-center py-2 bg-white hover:bg-gray-100 text-gray-800 text-xs font-bold rounded-lg border border-gray-300 transition-colors"
+                    className="w-full inline-flex items-center justify-center py-2 bg-white hover:bg-gray-100 text-gray-800 text-xs font-bold rounded-none border border-gray-300 transition-colors"
                   >
                     VISIT STORE
                   </Link>
@@ -709,7 +709,7 @@ export default function ProductDetailPage() {
           {/* ═══════════════════════════════════════════════════════════════════════════
               DETAILED SPECIFICATIONS, REVIEWS, & Q&A TABS (DARAZ STYLE)
              ═══════════════════════════════════════════════════════════════════════════ */}
-          <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm mb-12">
+          <div className="bg-white rounded-none border border-gray-200 overflow-hidden shadow-sm mb-12">
             <div className="flex items-center gap-1 border-b border-gray-200 bg-gray-50/90 px-3 overflow-x-auto scrollbar-none">
               {[
                 { id: 'details', label: 'Product Details' },
@@ -774,7 +774,7 @@ export default function ProductDetailPage() {
               {activeTab === 'specifications' && (
                 <div>
                   <h3 className="text-base font-bold text-gray-900 mb-4">Product Specifications</h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 border border-gray-200 rounded-xl overflow-hidden divide-y sm:divide-y-0 sm:divide-x divide-gray-200">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 border border-gray-200 rounded-none overflow-hidden divide-y sm:divide-y-0 sm:divide-x divide-gray-200">
                     <div className="divide-y divide-gray-200">
                       <div className="flex justify-between p-3.5 text-xs sm:text-sm bg-gray-50">
                         <span className="text-gray-500 font-medium">Brand</span>
@@ -826,7 +826,7 @@ export default function ProductDetailPage() {
               {activeTab === 'reviews' && (
                 <div className="space-y-6">
                   {/* Reviews Summary Header */}
-                  <div className="grid grid-cols-1 md:grid-cols-12 gap-6 p-6 bg-gray-50 rounded-2xl border border-gray-200">
+                  <div className="grid grid-cols-1 md:grid-cols-12 gap-6 p-6 bg-gray-50 rounded-none border border-gray-200">
                     <div className="md:col-span-4 flex flex-col items-center justify-center text-center border-b md:border-b-0 md:border-r border-gray-200 pb-4 md:pb-0">
                       <div className="text-5xl font-black text-gray-900 font-['Outfit']">
                         {product.rating || 4.9}
@@ -855,9 +855,9 @@ export default function ProductDetailPage() {
                           <span className="w-12 text-gray-600 font-bold flex items-center gap-1">
                             {item.star} <Star size={11} className="fill-amber-400 text-amber-400" />
                           </span>
-                          <div className="flex-1 h-2.5 bg-gray-200 rounded-full overflow-hidden">
+                          <div className="flex-1 h-2.5 bg-gray-200 rounded-none overflow-hidden">
                             <div
-                              className="h-full bg-amber-400 rounded-full transition-all duration-500"
+                              className="h-full bg-amber-400 rounded-none transition-all duration-500"
                               style={{ width: `${item.pct}%` }}
                             />
                           </div>
@@ -872,7 +872,7 @@ export default function ProductDetailPage() {
                     <button
                       type="button"
                       onClick={() => setReviewFilter('all')}
-                      className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
+                      className={`px-3 py-1.5 rounded-none text-xs font-bold transition-all ${
                         reviewFilter === 'all'
                           ? 'bg-[#0066FF] text-white'
                           : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -883,7 +883,7 @@ export default function ProductDetailPage() {
                     <button
                       type="button"
                       onClick={() => setReviewFilter('5')}
-                      className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
+                      className={`px-3 py-1.5 rounded-none text-xs font-bold transition-all ${
                         reviewFilter === '5'
                           ? 'bg-[#0066FF] text-white'
                           : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -894,7 +894,7 @@ export default function ProductDetailPage() {
                     <button
                       type="button"
                       onClick={() => setReviewFilter('with-images')}
-                      className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
+                      className={`px-3 py-1.5 rounded-none text-xs font-bold transition-all ${
                         reviewFilter === 'with-images'
                           ? 'bg-[#0066FF] text-white'
                           : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -975,11 +975,11 @@ export default function ProductDetailPage() {
                   <div className="divide-y divide-gray-100">
                     <div className="py-3.5 space-y-1">
                       <div className="text-xs sm:text-sm font-bold text-gray-900 flex items-start gap-2">
-                        <span className="bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded text-[10px]">Q</span>
+                        <span className="bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded-none text-[10px]">Q</span>
                         <span>Is Cash on Delivery available for outstation districts?</span>
                       </div>
                       <div className="text-xs sm:text-sm text-gray-700 pl-6 flex items-start gap-2">
-                        <span className="bg-[#0066FF] text-white px-1.5 py-0.5 rounded text-[10px] font-bold">A</span>
+                        <span className="bg-[#0066FF] text-white px-1.5 py-0.5 rounded-none text-[10px] font-bold">A</span>
                         <span>
                           Yes! Cash on Delivery is available for all 25 districts in Sri Lanka. You pay the courier directly when your package arrives at your doorstep.
                         </span>
@@ -988,11 +988,11 @@ export default function ProductDetailPage() {
 
                     <div className="py-3.5 space-y-1">
                       <div className="text-xs sm:text-sm font-bold text-gray-900 flex items-start gap-2">
-                        <span className="bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded text-[10px]">Q</span>
+                        <span className="bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded-none text-[10px]">Q</span>
                         <span>How soon can I receive this in Kandy or Colombo?</span>
                       </div>
                       <div className="text-xs sm:text-sm text-gray-700 pl-6 flex items-start gap-2">
-                        <span className="bg-[#0066FF] text-white px-1.5 py-0.5 rounded text-[10px] font-bold">A</span>
+                        <span className="bg-[#0066FF] text-white px-1.5 py-0.5 rounded-none text-[10px] font-bold">A</span>
                         <span>
                           Deliveries within Kandy arrive within 24 hours. Deliveries to Colombo and Western Province take 1-2 business days.
                         </span>
@@ -1050,7 +1050,7 @@ export default function ProductDetailPage() {
           onClick={() => setIsLocationModalOpen(false)}
         >
           <div
-            className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden p-6"
+            className="relative w-full max-w-md bg-white rounded-none shadow-2xl overflow-hidden p-6"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between pb-4 border-b border-gray-100">
@@ -1063,7 +1063,7 @@ export default function ProductDetailPage() {
               <button
                 type="button"
                 onClick={() => setIsLocationModalOpen(false)}
-                className="p-1.5 rounded-full hover:bg-gray-100 text-gray-500 transition-colors"
+                className="p-1.5 rounded-none hover:bg-gray-100 text-gray-500 transition-colors"
               >
                 <X size={18} />
               </button>
@@ -1084,7 +1084,7 @@ export default function ProductDetailPage() {
                       setSelectedLocation(loc);
                       setIsLocationModalOpen(false);
                     }}
-                    className={`w-full text-left p-3 rounded-xl border transition-all flex items-center justify-between cursor-pointer ${
+                    className={`w-full text-left p-3 rounded-none border transition-all flex items-center justify-between cursor-pointer ${
                       isSelected
                         ? 'border-[#0066FF] bg-blue-50/70 shadow-xs ring-1 ring-[#0066FF]'
                         : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'

@@ -201,7 +201,7 @@ export default function AzipLogo({
               >
                 AZIP
               </span>
-              <span className="bg-[#0096C7] text-white text-[10px] font-black px-1.5 py-0.5 rounded-md uppercase tracking-wider">
+              <span className="bg-[#0096C7] text-white text-[10px] font-black px-1.5 py-0.5 rounded-none uppercase tracking-wider">
                 STORE
               </span>
             </span>
@@ -288,7 +288,7 @@ export default function AzipLogo({
             <span className="text-2xl sm:text-[28px] font-black tracking-tight text-[#0096C7]">
               IP
             </span>
-            <span className="ml-1 px-1.5 py-0.5 rounded-md bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 text-[10px] font-black uppercase tracking-wider shadow-2xs">
+            <span className="ml-1 px-1.5 py-0.5 rounded-none bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 text-[10px] font-black uppercase tracking-wider shadow-2xs">
               .LK
             </span>
           </span>

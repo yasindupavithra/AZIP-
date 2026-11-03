@@ -39,7 +39,7 @@ export default function FAQPage() {
     <StoreShell>
       <section className="bg-[#0f172a] text-white py-14 sm:py-20 text-center">
         <div className="container max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-600/30 text-blue-300 text-xs font-black uppercase rounded-full mb-3 tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-600/30 text-blue-300 text-xs font-black uppercase rounded-none mb-3 tracking-wider">
             Help &amp; Support
           </div>
           <h1 className="text-3xl sm:text-5xl font-black font-['Outfit'] mb-3">
@@ -58,7 +58,7 @@ export default function FAQPage() {
             return (
               <div
                 key={idx}
-                className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm transition-all"
+                className="bg-white rounded-none border border-gray-200 overflow-hidden shadow-sm transition-all"
               >
                 <button
                   onClick={() => setOpenIdx(isOpen ? null : idx)}
@@ -82,7 +82,7 @@ export default function FAQPage() {
         </div>
 
         {/* Still have questions? */}
-        <div className="mt-12 p-8 bg-gray-50 border border-gray-200 rounded-2xl text-center">
+        <div className="mt-12 p-8 bg-gray-50 border border-gray-200 rounded-none text-center">
           <h3 className="text-base font-bold text-gray-900 mb-1">Still have questions?</h3>
           <p className="text-xs text-gray-500 mb-6">Our customer support team is available 7 days a week on WhatsApp.</p>
           <a

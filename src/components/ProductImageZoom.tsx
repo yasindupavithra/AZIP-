@@ -88,11 +88,11 @@ export default function ProductImageZoom({
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           onClick={() => setIsLightboxOpen(true)}
-          className="relative aspect-square w-full bg-white rounded-xl border border-gray-200 overflow-hidden cursor-crosshair group flex items-center justify-center shadow-sm select-none"
+          className="relative aspect-square w-full bg-white rounded-none border border-gray-200 overflow-hidden cursor-crosshair group flex items-center justify-center shadow-sm select-none"
         >
           {/* Discount Badge */}
           {discountBadge && (
-            <div className="absolute top-3 left-3 z-20 bg-[#0066FF] text-white text-[11px] font-black px-2.5 py-1 rounded shadow-md tracking-wider">
+            <div className="absolute top-3 left-3 z-20 bg-[#0066FF] text-white text-[11px] font-black px-2.5 py-1 rounded-none shadow-md tracking-wider">
               {discountBadge}
             </div>
           )}
@@ -104,7 +104,7 @@ export default function ProductImageZoom({
               e.stopPropagation();
               setIsLightboxOpen(true);
             }}
-            className="absolute top-3 right-3 z-20 w-8 h-8 rounded-full bg-white/90 hover:bg-white text-gray-700 hover:text-[#0066FF] shadow-md flex items-center justify-center transition-all opacity-80 hover:opacity-100 cursor-pointer"
+            className="absolute top-3 right-3 z-20 w-8 h-8 rounded-none bg-white/90 hover:bg-white text-gray-700 hover:text-[#0066FF] shadow-md flex items-center justify-center transition-all opacity-80 hover:opacity-100 cursor-pointer"
             title="Click to view full image"
           >
             <Maximize2 size={15} />
@@ -128,7 +128,7 @@ export default function ProductImageZoom({
                 top: `${lensPos.y}px`,
               }}
             >
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-[#0066FF]" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-none bg-[#0066FF]" />
             </div>
           )}
         </div>
@@ -136,7 +136,7 @@ export default function ProductImageZoom({
         {/* Floating Zoom Window (Daraz style: appears to the right on desktop, overlays column with z-[9999]) */}
         {isHovering && (
           <div
-            className="hidden lg:block absolute left-[102%] top-0 w-[540px] h-[540px] z-[9999] bg-white border-2 border-gray-300 rounded-2xl shadow-2xl overflow-hidden pointer-events-none"
+            className="hidden lg:block absolute left-[102%] top-0 w-[540px] h-[540px] z-[9999] bg-white border-2 border-gray-300 rounded-none shadow-2xl overflow-hidden pointer-events-none"
             style={{
               backgroundImage: `url(${activeImage})`,
               backgroundPosition: `${zoomPercent.x}% ${zoomPercent.y}%`,
@@ -145,7 +145,7 @@ export default function ProductImageZoom({
             }}
           >
             {/* Visual zoom guide indicator */}
-            <div className="absolute bottom-3 right-3 bg-black/80 backdrop-blur-sm text-white text-[11px] font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 shadow-lg border border-white/20">
+            <div className="absolute bottom-3 right-3 bg-black/80 backdrop-blur-sm text-white text-[11px] font-bold px-3 py-1.5 rounded-none flex items-center gap-1.5 shadow-lg border border-white/20">
               <ZoomIn size={14} className="text-[#0066FF]" />
               <span>3.2x HD Macro Optical Zoom</span>
             </div>
@@ -159,7 +159,7 @@ export default function ProductImageZoom({
           <button
             type="button"
             onClick={handlePrevImage}
-            className="w-7 h-14 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 flex items-center justify-center shrink-0 transition-colors cursor-pointer"
+            className="w-7 h-14 rounded-none bg-gray-100 hover:bg-gray-200 text-gray-700 flex items-center justify-center shrink-0 transition-colors cursor-pointer"
             aria-label="Previous image"
           >
             <ChevronLeft size={16} />
@@ -175,7 +175,7 @@ export default function ProductImageZoom({
                 type="button"
                 onMouseEnter={() => setActiveIndex(index)}
                 onClick={() => setActiveIndex(index)}
-                className={`relative w-16 h-16 sm:w-18 sm:h-18 rounded-lg overflow-hidden border-2 bg-white p-1 transition-all shrink-0 cursor-pointer ${
+                className={`relative w-16 h-16 sm:w-18 sm:h-18 rounded-none overflow-hidden border-2 bg-white p-1 transition-all shrink-0 cursor-pointer ${
                   isSelected
                     ? 'border-[#0066FF] shadow-md ring-2 ring-[#0066FF]/20 scale-102'
                     : 'border-gray-200 hover:border-gray-400 opacity-75 hover:opacity-100'
@@ -195,7 +195,7 @@ export default function ProductImageZoom({
           <button
             type="button"
             onClick={handleNextImage}
-            className="w-7 h-14 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 flex items-center justify-center shrink-0 transition-colors cursor-pointer"
+            className="w-7 h-14 rounded-none bg-gray-100 hover:bg-gray-200 text-gray-700 flex items-center justify-center shrink-0 transition-colors cursor-pointer"
             aria-label="Next image"
           >
             <ChevronRight size={16} />
@@ -210,13 +210,13 @@ export default function ProductImageZoom({
           onClick={() => setIsLightboxOpen(false)}
         >
           <div
-            className="relative max-w-4xl max-h-[90vh] bg-white rounded-2xl overflow-hidden shadow-2xl p-4 flex flex-col items-center"
+            className="relative max-w-4xl max-h-[90vh] bg-white rounded-none overflow-hidden shadow-2xl p-4 flex flex-col items-center"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               type="button"
               onClick={() => setIsLightboxOpen(false)}
-              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors cursor-pointer"
+              className="absolute top-4 right-4 z-10 p-2 rounded-none bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors cursor-pointer"
             >
               <X size={20} />
             </button>
@@ -236,7 +236,7 @@ export default function ProductImageZoom({
                   key={i}
                   type="button"
                   onClick={() => setActiveIndex(i)}
-                  className={`w-14 h-14 rounded-lg border-2 p-1 bg-white cursor-pointer transition-all ${
+                  className={`w-14 h-14 rounded-none border-2 p-1 bg-white cursor-pointer transition-all ${
                     activeIndex === i
                       ? 'border-[#0066FF] ring-2 ring-[#0066FF]/20'
                       : 'border-gray-200 opacity-60 hover:opacity-100'

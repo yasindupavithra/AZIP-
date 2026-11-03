@@ -404,14 +404,14 @@ export default function GradeKitConfigurator() {
   return (
     <section className="relative w-full py-8 sm:py-12 px-3 sm:px-6 lg:px-8 bg-gradient-to-b from-[#F2F8FB] via-[#E8F5F8] to-[#F2F8FB] border-y border-[#00C4D8]/20 overflow-hidden">
       {/* Background Cyber Ambient Lights */}
-      <div className="absolute top-1/4 left-1/10 w-96 h-96 bg-[#00C4D8]/10 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/10 w-96 h-96 bg-[#00E5FF]/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/10 w-96 h-96 bg-[#00C4D8]/10 rounded-none blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/10 w-96 h-96 bg-[#00E5FF]/10 rounded-none blur-[100px] pointer-events-none" />
 
       <div className="w-full max-w-[1920px] mx-auto">
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-8">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#00C4D8]/15 border border-[#00C4D8]/40 text-[#008D9B] text-[11px] font-black tracking-wider uppercase mb-2">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-none bg-[#00C4D8]/15 border border-[#00C4D8]/40 text-[#008D9B] text-[11px] font-black tracking-wider uppercase mb-2">
               <Zap size={13} className="text-[#00C4D8] fill-[#00C4D8]" />
               {t('config.badge')}
             </div>
@@ -432,7 +432,7 @@ export default function GradeKitConfigurator() {
                   key={tier.id}
                   type="button"
                   onClick={() => handleSelectTier(tier)}
-                  className={`px-4 py-2 text-xs sm:text-sm font-bold rounded-xl transition-all cursor-pointer border ${
+                  className={`px-4 py-2 text-xs sm:text-sm font-bold rounded-none transition-all cursor-pointer border ${
                     active
                       ? 'bg-gradient-to-r from-[#00C4D8] to-[#009BB0] text-white border-[#00E5FF] shadow-[0_0_20px_rgba(0,196,216,0.35)] scale-105'
                       : 'bg-white/80 hover:bg-white text-slate-700 border-slate-200/80 hover:border-[#00C4D8]/60 shadow-xs'
@@ -452,7 +452,7 @@ export default function GradeKitConfigurator() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
           {/* Left Column: Interactive Checklist (7 cols) */}
           <div className="lg:col-span-7 space-y-3">
-            <div className="bg-white/90 backdrop-blur-md border border-[#00C4D8]/30 rounded-2xl p-4 sm:p-5 shadow-xs">
+            <div className="bg-white/90 backdrop-blur-md border border-[#00C4D8]/30 rounded-none p-4 sm:p-5 shadow-xs">
               <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
                 <div>
                   <h3 className="text-base sm:text-lg font-black text-slate-900 font-['Outfit']">
@@ -463,7 +463,7 @@ export default function GradeKitConfigurator() {
                   </p>
                 </div>
                 <div className="text-right">
-                  <span className="text-[11px] font-bold text-[#008D9B] bg-[#00C4D8]/10 px-2.5 py-1 rounded-full border border-[#00C4D8]/20">
+                  <span className="text-[11px] font-bold text-[#008D9B] bg-[#00C4D8]/10 px-2.5 py-1 rounded-none border border-[#00C4D8]/20">
                     Base Discount: -{currentTier.baseDiscount}%
                   </span>
                 </div>
@@ -479,7 +479,7 @@ export default function GradeKitConfigurator() {
                     <div
                       key={item.id}
                       onClick={() => toggleItem(item.id)}
-                      className={`group flex items-center justify-between gap-3 p-3 rounded-xl border transition-all cursor-pointer ${
+                      className={`group flex items-center justify-between gap-3 p-3 rounded-none border transition-all cursor-pointer ${
                         isChecked
                           ? 'bg-[#F2FCFD] border-[#00C4D8] shadow-[0_0_15px_rgba(0,196,216,0.15)]'
                           : 'bg-slate-50/70 border-slate-200/80 hover:border-slate-300 opacity-60'
@@ -488,7 +488,7 @@ export default function GradeKitConfigurator() {
                       <div className="flex items-center gap-3 min-w-0">
                         {/* Custom Checkbox */}
                         <div
-                          className={`w-5 h-5 rounded-md flex items-center justify-center shrink-0 transition-colors ${
+                          className={`w-5 h-5 rounded-none flex items-center justify-center shrink-0 transition-colors ${
                             isChecked
                               ? 'bg-[#00C4D8] text-white shadow-xs'
                               : 'bg-white border border-slate-300'
@@ -498,7 +498,7 @@ export default function GradeKitConfigurator() {
                         </div>
 
                         {/* Thumbnail */}
-                        <div className="w-12 h-12 rounded-lg bg-white border border-slate-200 p-1 flex items-center justify-center shrink-0">
+                        <div className="w-12 h-12 rounded-none bg-white border border-slate-200 p-1 flex items-center justify-center shrink-0">
                           <img
                             src={item.image}
                             alt={item.name}
@@ -533,11 +533,11 @@ export default function GradeKitConfigurator() {
                         </span>
 
                         {isChecked && (
-                          <div className="flex items-center border border-[#00C4D8]/50 rounded-lg bg-white p-0.5 shadow-xs">
+                          <div className="flex items-center border border-[#00C4D8]/50 rounded-none bg-white p-0.5 shadow-xs">
                             <button
                               type="button"
                               onClick={() => updateQuantity(item.id, -1)}
-                              className="w-5 h-5 flex items-center justify-center text-slate-600 hover:bg-slate-100 rounded cursor-pointer"
+                              className="w-5 h-5 flex items-center justify-center text-slate-600 hover:bg-slate-100 rounded-none cursor-pointer"
                               aria-label="Decrease"
                             >
                               <Minus size={11} />
@@ -548,7 +548,7 @@ export default function GradeKitConfigurator() {
                             <button
                               type="button"
                               onClick={() => updateQuantity(item.id, 1)}
-                              className="w-5 h-5 flex items-center justify-center text-slate-600 hover:bg-slate-100 rounded cursor-pointer"
+                              className="w-5 h-5 flex items-center justify-center text-slate-600 hover:bg-slate-100 rounded-none cursor-pointer"
                               aria-label="Increase"
                             >
                               <Plus size={11} />
@@ -566,13 +566,13 @@ export default function GradeKitConfigurator() {
           {/* Right Column: Zero-G Levitating Preview & Summary HUD (5 cols) */}
           <div className="lg:col-span-5 space-y-4">
             {/* Holographic Levitating Stage Preview */}
-            <div className="relative rounded-2xl bg-gradient-to-b from-[#0A1829] via-[#071322] to-[#040C16] border border-[#00C4D8]/40 p-5 shadow-[0_0_35px_rgba(0,196,216,0.2)] overflow-hidden text-white">
+            <div className="relative rounded-none bg-gradient-to-b from-[#0A1829] via-[#071322] to-[#040C16] border border-[#00C4D8]/40 p-5 shadow-[0_0_35px_rgba(0,196,216,0.2)] overflow-hidden text-white">
               {/* Top HUD Tag */}
               <div className="flex items-center justify-between text-xs mb-4">
                 <span className="flex items-center gap-1.5 text-[11px] font-black uppercase text-[#00E5FF] tracking-wider">
                   <Sparkles size={13} /> Zero-G Levitation Chamber
                 </span>
-                <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-[#00C4D8]/20 text-[#00E5FF] border border-[#00C4D8]/40">
+                <span className="px-2 py-0.5 rounded-none text-[10px] font-bold bg-[#00C4D8]/20 text-[#00E5FF] border border-[#00C4D8]/40">
                   {calculations.selectedCount} Items in Field
                 </span>
               </div>
@@ -591,7 +591,7 @@ export default function GradeKitConfigurator() {
                     .map((item, idx) => (
                       <div
                         key={item.id}
-                        className="relative w-20 h-24 sm:w-24 sm:h-28 rounded-xl bg-white/95 border border-[#00C4D8]/50 shadow-xl p-2 flex items-center justify-center antigravity-levitate"
+                        className="relative w-20 h-24 sm:w-24 sm:h-28 rounded-none bg-white/95 border border-[#00C4D8]/50 shadow-xl p-2 flex items-center justify-center antigravity-levitate"
                         style={{
                           animationDelay: `${idx * 0.4}s`,
                           zIndex: 10 + idx,
@@ -603,7 +603,7 @@ export default function GradeKitConfigurator() {
                           alt={item.name}
                           className="max-h-full max-w-full object-contain"
                         />
-                        <span className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-[#00C4D8] text-[#050B14] font-black text-[10px] flex items-center justify-center shadow-xs">
+                        <span className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-none bg-[#00C4D8] text-[#050B14] font-black text-[10px] flex items-center justify-center shadow-xs">
                           {itemQuantities[item.id] || 1}
                         </span>
                       </div>
@@ -612,7 +612,7 @@ export default function GradeKitConfigurator() {
               </div>
 
               {/* Anti-Gravity Physics Sensor Gauge */}
-              <div className="grid grid-cols-2 gap-2 p-3 rounded-xl bg-white/5 border border-white/10 my-4 text-xs">
+              <div className="grid grid-cols-2 gap-2 p-3 rounded-none bg-white/5 border border-white/10 my-4 text-xs">
                 <div>
                   <span className="text-[10px] text-slate-400 block">Earth Mass:</span>
                   <span className="text-sm font-bold text-slate-300 font-mono">
@@ -658,7 +658,7 @@ export default function GradeKitConfigurator() {
                 type="button"
                 onClick={handleAddBundleToCart}
                 disabled={calculations.selectedCount === 0}
-                className={`w-full mt-5 py-3.5 px-4 rounded-xl font-black text-sm flex items-center justify-center gap-2 transition-all cursor-pointer border shadow-lg ${
+                className={`w-full mt-5 py-3.5 px-4 rounded-none font-black text-sm flex items-center justify-center gap-2 transition-all cursor-pointer border shadow-lg ${
                   isKitAdded
                     ? 'bg-emerald-500 text-white border-emerald-400 shadow-[0_0_25px_rgba(16,185,129,0.5)]'
                     : 'bg-gradient-to-r from-[#00C4D8] to-[#009BB0] hover:from-[#00E5FF] hover:to-[#00B4C8] text-[#050B14] border-[#00E5FF] shadow-[0_0_25px_rgba(0,196,216,0.4)] active:scale-[0.99]'

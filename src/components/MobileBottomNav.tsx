@@ -41,7 +41,7 @@ export default function MobileBottomNav() {
             <Link
               key={item.href}
               href={item.href}
-              className={`flex flex-col items-center justify-center py-1 px-3 rounded-xl transition-all ${
+              className={`flex flex-col items-center justify-center py-1 px-3 rounded-none transition-all ${
                 isActive
                   ? 'text-[#008D9B] font-bold'
                   : 'text-slate-500 hover:text-slate-900 font-medium'
@@ -57,12 +57,12 @@ export default function MobileBottomNav() {
         <button
           type="button"
           onClick={toggleCart}
-          className="flex flex-col items-center justify-center py-1 px-3 rounded-xl text-slate-500 hover:text-slate-900 font-medium border-none bg-transparent cursor-pointer relative"
+          className="flex flex-col items-center justify-center py-1 px-3 rounded-none text-slate-500 hover:text-slate-900 font-medium border-none bg-transparent cursor-pointer relative"
         >
           <div className="relative">
             <ShoppingCart size={20} strokeWidth={1.8} />
             {cartCount > 0 && (
-              <span className="absolute -top-1.5 -right-2.5 min-w-[16px] h-[16px] px-1 rounded-full bg-[#00C4D8] text-white text-[9px] font-black flex items-center justify-center shadow-sm">
+              <span className="absolute -top-1.5 -right-2.5 min-w-[16px] h-[16px] px-1 rounded-none bg-[#00C4D8] text-white text-[9px] font-black flex items-center justify-center shadow-sm">
                 {cartCount}
               </span>
             )}
@@ -73,7 +73,7 @@ export default function MobileBottomNav() {
         {/* Support */}
         <Link
           href="/faq"
-          className={`flex flex-col items-center justify-center py-1 px-3 rounded-xl transition-all ${
+          className={`flex flex-col items-center justify-center py-1 px-3 rounded-none transition-all ${
             pathname === '/faq'
               ? 'text-[#008D9B] font-bold'
               : 'text-slate-500 hover:text-slate-900 font-medium'

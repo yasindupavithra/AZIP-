@@ -534,10 +534,10 @@ export default function HomePage() {
 
         {/* ── 2. VISUAL SHOP-BY-DEPARTMENT BAR ── */}
         <section className={`${SECTION} mt-6`}>
-          <div className="bg-white rounded-2xl border border-slate-200/90 p-4 sm:p-5 shadow-xs">
+          <div className="bg-white rounded-none border border-slate-200/90 p-4 sm:p-5 shadow-xs">
             <div className="flex items-center justify-between mb-3.5">
               <div className="flex items-center gap-2">
-                <span className="w-2 h-6 rounded-full bg-[#0096C7]" />
+                <span className="w-2 h-6 rounded-none bg-[#0096C7]" />
                 <h2 className="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight">
                   Shop by Department
                 </h2>
@@ -561,7 +561,7 @@ export default function HomePage() {
                     key={dept.slug}
                     type="button"
                     onClick={() => handleSelectDepartment(dept.slug)}
-                    className={`group text-left rounded-xl p-2.5 border transition-all cursor-pointer flex flex-col items-center text-center bg-gradient-to-b ${
+                    className={`group text-left rounded-none p-2.5 border transition-all cursor-pointer flex flex-col items-center text-center bg-gradient-to-b ${
                       dept.accent
                     } ${
                       isSelected
@@ -569,7 +569,7 @@ export default function HomePage() {
                         : 'hover:border-[#00C4D8] hover:shadow-sm hover:-translate-y-0.5'
                     }`}
                   >
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-white p-2 shadow-xs border border-slate-100 flex items-center justify-center mb-2 overflow-hidden">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-none bg-white p-2 shadow-xs border border-slate-100 flex items-center justify-center mb-2 overflow-hidden">
                       <img
                         src={dept.image}
                         alt={dept.title}
@@ -591,7 +591,7 @@ export default function HomePage() {
 
         {/* ── 3. FLASH SALE / DAILY SUPER DEALS (WITH LIVE COUNTDOWN) ── */}
         <section className={`${SECTION} mt-7`}>
-          <div className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-xs">
+          <div className="bg-white rounded-none border border-slate-200/90 overflow-hidden shadow-xs">
             {/* Daraz-style Flash Sale Header Bar */}
             <div
               className="px-4 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-3 border-b border-slate-100"
@@ -601,7 +601,7 @@ export default function HomePage() {
             >
               <div className="flex flex-wrap items-center gap-3 sm:gap-5">
                 <div className="flex items-center gap-2">
-                  <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-orange-500 to-rose-600 text-white flex items-center justify-center shadow-xs">
+                  <span className="w-8 h-8 rounded-none bg-gradient-to-br from-orange-500 to-rose-600 text-white flex items-center justify-center shadow-xs">
                     <Flame size={18} className="fill-white" />
                   </span>
                   <div>
@@ -611,7 +611,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <span className="hidden sm:inline-flex items-center gap-1.5 text-xs font-extrabold text-orange-600 bg-orange-100/80 border border-orange-200 px-2.5 py-1 rounded-full">
+                <span className="hidden sm:inline-flex items-center gap-1.5 text-xs font-extrabold text-orange-600 bg-orange-100/80 border border-orange-200 px-2.5 py-1 rounded-none">
                   <Sparkles size={12} /> ON SALE NOW
                 </span>
 
@@ -620,15 +620,15 @@ export default function HomePage() {
                   <Clock size={14} className="text-rose-600" />
                   <span className="hidden md:inline">Ending in:</span>
                   <div className="flex items-center gap-1">
-                    <span className="bg-slate-900 text-white font-black text-xs px-2 py-1 rounded-md min-w-[28px] text-center">
+                    <span className="bg-slate-900 text-white font-black text-xs px-2 py-1 rounded-none min-w-[28px] text-center">
                       {String(timeLeft.hours).padStart(2, '0')}h
                     </span>
                     <span className="text-slate-900 font-black">:</span>
-                    <span className="bg-slate-900 text-white font-black text-xs px-2 py-1 rounded-md min-w-[28px] text-center">
+                    <span className="bg-slate-900 text-white font-black text-xs px-2 py-1 rounded-none min-w-[28px] text-center">
                       {String(timeLeft.minutes).padStart(2, '0')}m
                     </span>
                     <span className="text-slate-900 font-black">:</span>
-                    <span className="bg-rose-600 text-white font-black text-xs px-2 py-1 rounded-md min-w-[28px] text-center">
+                    <span className="bg-rose-600 text-white font-black text-xs px-2 py-1 rounded-none min-w-[28px] text-center">
                       {String(timeLeft.seconds).padStart(2, '0')}s
                     </span>
                   </div>
@@ -637,7 +637,7 @@ export default function HomePage() {
 
               <Link
                 href="/offers"
-                className="px-4 py-1.5 rounded-lg border-2 border-[#FF5500] text-[#FF5500] hover:bg-[#FF5500] hover:text-white text-xs sm:text-sm font-extrabold transition-colors flex items-center gap-1"
+                className="px-4 py-1.5 rounded-none border-2 border-[#FF5500] text-[#FF5500] hover:bg-[#FF5500] hover:text-white text-xs sm:text-sm font-extrabold transition-colors flex items-center gap-1"
               >
                 SHOP ALL DEALS <ChevronRight size={15} />
               </Link>
@@ -657,7 +657,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {/* Left Promo Banner: Back-to-School Complete Grade Packs */}
             <div
-              className="relative rounded-2xl overflow-hidden p-5 sm:p-7 text-white shadow-md flex flex-col sm:flex-row items-center justify-between gap-5"
+              className="relative rounded-none overflow-hidden p-5 sm:p-7 text-white shadow-md flex flex-col sm:flex-row items-center justify-between gap-5"
               style={{
                 background: 'linear-gradient(135deg, #002888 0%, #0057FF 52%, #00B4D8 100%)',
               }}
@@ -670,7 +670,7 @@ export default function HomePage() {
                 }}
               />
               <div className="relative z-10 flex-1 space-y-2 text-center sm:text-left">
-                <span className="inline-block bg-amber-300 text-slate-950 text-[11px] font-black uppercase px-3 py-1 rounded-full shadow-xs">
+                <span className="inline-block bg-amber-300 text-slate-950 text-[11px] font-black uppercase px-3 py-1 rounded-none shadow-xs">
                   GRADE 1 TO A/L SYLLABUS
                 </span>
                 <h3
@@ -686,14 +686,14 @@ export default function HomePage() {
                   <button
                     type="button"
                     onClick={() => handleSelectDepartment('exercise-books')}
-                    className="px-5 py-2 rounded-full bg-white text-[#002888] font-extrabold text-xs uppercase shadow-md hover:scale-105 transition-transform cursor-pointer border-none"
+                    className="px-5 py-2 rounded-none bg-white text-[#002888] font-extrabold text-xs uppercase shadow-md hover:scale-105 transition-transform cursor-pointer border-none"
                   >
                     Explore Notebooks
                   </button>
                   <button
                     type="button"
                     onClick={() => setIsBooklistOpen(true)}
-                    className="px-4 py-2 rounded-full bg-amber-400 text-slate-950 font-extrabold text-xs uppercase shadow-md hover:bg-amber-300 transition-colors cursor-pointer border-none flex items-center gap-1.5"
+                    className="px-4 py-2 rounded-none bg-amber-400 text-slate-950 font-extrabold text-xs uppercase shadow-md hover:bg-amber-300 transition-colors cursor-pointer border-none flex items-center gap-1.5"
                   >
                     <Upload size={13} /> Upload Booklist
                   </button>
@@ -702,14 +702,14 @@ export default function HomePage() {
 
               {/* Floating Product Duo */}
               <div className="relative z-10 flex items-center gap-2 shrink-0">
-                <div className="w-24 h-28 sm:w-28 sm:h-32 bg-white rounded-xl p-2 shadow-xl -rotate-6 flex items-center justify-center">
+                <div className="w-24 h-28 sm:w-28 sm:h-32 bg-white rounded-none p-2 shadow-xl -rotate-6 flex items-center justify-center">
                   <img
                     src="/images/hd/products/atlas-exercise-book.jpg"
                     alt="Atlas Exercise Book"
                     className="max-w-full max-h-full object-contain"
                   />
                 </div>
-                <div className="w-28 h-32 sm:w-32 sm:h-36 bg-white rounded-xl p-2.5 shadow-2xl rotate-3 flex items-center justify-center">
+                <div className="w-28 h-32 sm:w-32 sm:h-36 bg-white rounded-none p-2.5 shadow-2xl rotate-3 flex items-center justify-center">
                   <img
                     src="/images/hd/products/school-backpack-blue.jpg"
                     alt="School Backpack"
@@ -721,7 +721,7 @@ export default function HomePage() {
 
             {/* Right Promo Banner: Genuine Brand Mall Fiesta */}
             <div
-              className="relative rounded-2xl overflow-hidden p-5 sm:p-7 text-white shadow-md flex flex-col sm:flex-row items-center justify-between gap-5"
+              className="relative rounded-none overflow-hidden p-5 sm:p-7 text-white shadow-md flex flex-col sm:flex-row items-center justify-between gap-5"
               style={{
                 background: 'linear-gradient(135deg, #7F1D1D 0%, #DC2626 48%, #F97316 100%)',
               }}
@@ -734,7 +734,7 @@ export default function HomePage() {
                 }}
               />
               <div className="relative z-10 flex-1 space-y-2 text-center sm:text-left">
-                <span className="inline-block bg-white text-rose-700 text-[11px] font-black uppercase px-3 py-1 rounded-full shadow-xs">
+                <span className="inline-block bg-white text-rose-700 text-[11px] font-black uppercase px-3 py-1 rounded-none shadow-xs">
                   100% OFFICIAL WARRANTY
                 </span>
                 <h3
@@ -750,14 +750,14 @@ export default function HomePage() {
                   <button
                     type="button"
                     onClick={() => handleSelectDepartment('mathematical-instruments')}
-                    className="px-5 py-2 rounded-full bg-yellow-300 text-rose-950 font-extrabold text-xs uppercase shadow-md hover:scale-105 transition-transform cursor-pointer border-none"
+                    className="px-5 py-2 rounded-none bg-yellow-300 text-rose-950 font-extrabold text-xs uppercase shadow-md hover:scale-105 transition-transform cursor-pointer border-none"
                   >
                     Shop Calculators
                   </button>
                   <button
                     type="button"
                     onClick={() => handleSelectDepartment('art-craft')}
-                    className="px-4 py-2 rounded-full bg-white/20 hover:bg-white/30 text-white font-extrabold text-xs uppercase border border-white/40 transition-colors cursor-pointer"
+                    className="px-4 py-2 rounded-none bg-white/20 hover:bg-white/30 text-white font-extrabold text-xs uppercase border border-white/40 transition-colors cursor-pointer"
                   >
                     Art & Craft Deals
                   </button>
@@ -766,14 +766,14 @@ export default function HomePage() {
 
               {/* Floating Product Duo */}
               <div className="relative z-10 flex items-center gap-2 shrink-0">
-                <div className="w-24 h-28 sm:w-28 sm:h-32 bg-white rounded-xl p-2 shadow-xl -rotate-6 flex items-center justify-center">
+                <div className="w-24 h-28 sm:w-28 sm:h-32 bg-white rounded-none p-2 shadow-xl -rotate-6 flex items-center justify-center">
                   <img
                     src="/images/hd/products/faber-castell-water-color.jpg"
                     alt="Faber-Castell Watercolors"
                     className="max-w-full max-h-full object-contain"
                   />
                 </div>
-                <div className="w-28 h-32 sm:w-32 sm:h-36 bg-white rounded-xl p-2.5 shadow-2xl rotate-3 flex items-center justify-center">
+                <div className="w-28 h-32 sm:w-32 sm:h-36 bg-white rounded-none p-2.5 shadow-2xl rotate-3 flex items-center justify-center">
                   <img
                     src="/images/hd/products/casio-fx991cw.jpg"
                     alt="Casio FX-991CW"
@@ -787,16 +787,16 @@ export default function HomePage() {
 
         {/* ── 5. DEDICATED INTERACTIVE CATEGORY SELECTION BAR & LIVE PRODUCT CATALOG ── */}
         <section ref={catalogSectionRef} className={`${SECTION} mt-8 scroll-mt-24`}>
-          <div className="bg-white rounded-2xl border border-slate-200/90 shadow-xs overflow-hidden">
+          <div className="bg-white rounded-none border border-slate-200/90 shadow-xs overflow-hidden">
             {/* Section Title Header */}
             <div className="px-4 sm:px-6 pt-5 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100">
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-6 rounded-full bg-gradient-to-b from-[#00C4D8] to-[#0096C7]" />
+                  <span className="w-2.5 h-6 rounded-none bg-gradient-to-b from-[#00C4D8] to-[#0096C7]" />
                   <h2 className="text-lg sm:text-2xl font-black text-slate-900 tracking-tight">
                     Browse Products by Category
                   </h2>
-                  <span className="bg-sky-50 text-[#0096C7] border border-sky-200 text-xs font-extrabold px-2.5 py-0.5 rounded-full">
+                  <span className="bg-sky-50 text-[#0096C7] border border-sky-200 text-xs font-extrabold px-2.5 py-0.5 rounded-none">
                     {filteredProducts.length} Items
                   </span>
                 </div>
@@ -819,7 +819,7 @@ export default function HomePage() {
                     setVisibleCount(18);
                   }}
                   placeholder="Quick search in catalog..."
-                  className="w-full pl-9 pr-4 py-2 text-xs sm:text-sm rounded-xl bg-slate-50 border border-slate-200 focus:border-[#0096C7] focus:bg-white focus:outline-none font-medium text-slate-800"
+                  className="w-full pl-9 pr-4 py-2 text-xs sm:text-sm rounded-none bg-slate-50 border border-slate-200 focus:border-[#0096C7] focus:bg-white focus:outline-none font-medium text-slate-800"
                 />
               </div>
             </div>
@@ -839,7 +839,7 @@ export default function HomePage() {
                         setSelectedCategory(tab.slug);
                         setVisibleCount(18);
                       }}
-                      className={`group flex items-center gap-2 px-3.5 py-2.5 rounded-xl text-xs sm:text-[13px] font-bold whitespace-nowrap transition-all cursor-pointer shrink-0 border ${
+                      className={`group flex items-center gap-2 px-3.5 py-2.5 rounded-none text-xs sm:text-[13px] font-bold whitespace-nowrap transition-all cursor-pointer shrink-0 border ${
                         active
                           ? 'bg-gradient-to-r from-[#0096C7] to-[#00C4D8] text-white border-[#0096C7] shadow-sm scale-[1.02]'
                           : 'bg-white text-slate-700 border-slate-200/90 hover:border-[#00C4D8] hover:text-[#0096C7]'
@@ -853,7 +853,7 @@ export default function HomePage() {
                       />
                       <span>{tab.label}</span>
                       <span
-                        className={`text-[10px] font-extrabold px-1.5 py-0.5 rounded-full ${
+                        className={`text-[10px] font-extrabold px-1.5 py-0.5 rounded-none ${
                           active
                             ? 'bg-white/25 text-white'
                             : 'bg-slate-100 text-slate-500 group-hover:bg-sky-50 group-hover:text-[#0096C7]'
@@ -886,7 +886,7 @@ export default function HomePage() {
                         setQuickFilter(f.id as typeof quickFilter);
                         setVisibleCount(18);
                       }}
-                      className={`px-3 py-1 rounded-lg text-xs font-bold transition-colors cursor-pointer border ${
+                      className={`px-3 py-1 rounded-none text-xs font-bold transition-colors cursor-pointer border ${
                         quickFilter === f.id
                           ? 'bg-slate-900 text-white border-slate-900'
                           : 'bg-white text-slate-600 border-slate-200 hover:border-slate-300'
@@ -903,7 +903,7 @@ export default function HomePage() {
                   <select
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
-                    className="bg-white border border-slate-200 rounded-lg px-2.5 py-1 text-xs font-bold text-slate-800 focus:outline-none focus:border-[#0096C7]"
+                    className="bg-white border border-slate-200 rounded-none px-2.5 py-1 text-xs font-bold text-slate-800 focus:outline-none focus:border-[#0096C7]"
                   >
                     <option value="popular">Most Popular</option>
                     <option value="discount">Biggest Discount %</option>
@@ -944,7 +944,7 @@ export default function HomePage() {
                         <button
                           type="button"
                           onClick={() => setVisibleCount((prev) => prev + 18)}
-                          className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#0096C7] to-[#00C4D8] hover:from-[#007EA7] hover:to-[#0096C7] text-white text-xs sm:text-sm font-extrabold shadow-sm cursor-pointer border-none transition-all"
+                          className="px-6 py-2.5 rounded-none bg-gradient-to-r from-[#0096C7] to-[#00C4D8] hover:from-[#007EA7] hover:to-[#0096C7] text-white text-xs sm:text-sm font-extrabold shadow-sm cursor-pointer border-none transition-all"
                         >
                           Load More Products (+{Math.min(18, filteredProducts.length - visibleCount)})
                         </button>
@@ -955,7 +955,7 @@ export default function HomePage() {
                             ? '/products'
                             : `/products?category=${selectedCategory}`
                         }
-                        className="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs sm:text-sm font-bold flex items-center gap-1.5 transition-colors"
+                        className="px-5 py-2.5 rounded-none bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs sm:text-sm font-bold flex items-center gap-1.5 transition-colors"
                       >
                         Open Full Filter Page <ArrowRight size={15} />
                       </Link>
@@ -974,7 +974,7 @@ export default function HomePage() {
                       setQuickFilter('all');
                       setSearchInCat('');
                     }}
-                    className="px-4 py-2 rounded-lg bg-[#0096C7] text-white text-xs font-bold cursor-pointer border-none"
+                    className="px-4 py-2 rounded-none bg-[#0096C7] text-white text-xs font-bold cursor-pointer border-none"
                   >
                     Reset Category Filters
                   </button>
@@ -986,11 +986,11 @@ export default function HomePage() {
 
         {/* ── 6. CURATED BACK-TO-SCHOOL MASTER BUNDLES ── */}
         <section className={`${SECTION} mt-8`}>
-          <div className="bg-white rounded-2xl border border-slate-200/90 p-4 sm:p-6 shadow-xs">
+          <div className="bg-white rounded-none border border-slate-200/90 p-4 sm:p-6 shadow-xs">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-5">
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-6 rounded-full bg-amber-500" />
+                  <span className="w-2.5 h-6 rounded-none bg-amber-500" />
                   <h2 className="text-lg sm:text-xl font-black text-slate-900 tracking-tight">
                     All-in-One School Grade Bundles
                   </h2>
@@ -1018,20 +1018,20 @@ export default function HomePage() {
                 return (
                   <div
                     key={bundle.id}
-                    className="rounded-xl border border-slate-200 hover:border-[#00C4D8] bg-gradient-to-b from-slate-50/70 to-white p-4 sm:p-5 flex flex-col justify-between transition-all hover:shadow-md"
+                    className="rounded-none border border-slate-200 hover:border-[#00C4D8] bg-gradient-to-b from-slate-50/70 to-white p-4 sm:p-5 flex flex-col justify-between transition-all hover:shadow-md"
                   >
                     <div>
                       <div className="flex items-center justify-between gap-2 mb-3">
-                        <span className="bg-amber-100 text-amber-800 border border-amber-200 text-[11px] font-extrabold px-2.5 py-0.5 rounded-full">
+                        <span className="bg-amber-100 text-amber-800 border border-amber-200 text-[11px] font-extrabold px-2.5 py-0.5 rounded-none">
                           {bundle.gradeBadge}
                         </span>
-                        <span className="bg-rose-500 text-white text-[11px] font-extrabold px-2.5 py-0.5 rounded-full">
+                        <span className="bg-rose-500 text-white text-[11px] font-extrabold px-2.5 py-0.5 rounded-none">
                           SAVE {bundle.savingsPercentage}%
                         </span>
                       </div>
 
                       <div className="flex items-center gap-3.5 mb-3">
-                        <div className="w-20 h-20 rounded-xl bg-white border border-slate-200 p-2 shrink-0 flex items-center justify-center">
+                        <div className="w-20 h-20 rounded-none bg-white border border-slate-200 p-2 shrink-0 flex items-center justify-center">
                           <img
                             src={bundleImages[idx % bundleImages.length]}
                             alt={bundle.name}
@@ -1072,7 +1072,7 @@ export default function HomePage() {
                     <button
                       type="button"
                       onClick={() => handleAddBundle(bundle)}
-                      className={`w-full py-2.5 rounded-xl font-extrabold text-xs uppercase tracking-wide flex items-center justify-center gap-2 transition-all cursor-pointer border-none ${
+                      className={`w-full py-2.5 rounded-none font-extrabold text-xs uppercase tracking-wide flex items-center justify-center gap-2 transition-all cursor-pointer border-none ${
                         isAdded
                           ? 'bg-emerald-600 text-white'
                           : 'bg-slate-900 hover:bg-[#0096C7] text-white'
@@ -1091,13 +1091,13 @@ export default function HomePage() {
         {/* ── 7. SCHOOL BOOKLIST CONCIERGE BANNER ── */}
         <section className={`${SECTION} mt-8`}>
           <div
-            className="rounded-2xl p-5 sm:p-8 text-white shadow-md flex flex-col lg:flex-row items-center justify-between gap-6"
+            className="rounded-none p-5 sm:p-8 text-white shadow-md flex flex-col lg:flex-row items-center justify-between gap-6"
             style={{
               background: 'linear-gradient(120deg, #0F172A 0%, #0E7490 60%, #00B4D8 100%)',
             }}
           >
             <div className="space-y-2 text-center lg:text-left max-w-2xl">
-              <div className="inline-flex items-center gap-1.5 bg-cyan-400/20 border border-cyan-300/40 text-cyan-200 text-xs font-extrabold px-3 py-1 rounded-full">
+              <div className="inline-flex items-center gap-1.5 bg-cyan-400/20 border border-cyan-300/40 text-cyan-200 text-xs font-extrabold px-3 py-1 rounded-none">
                 <ShieldCheck size={14} /> HASSLE-FREE PARENT CONCIERGE
               </div>
               <h2 className="text-xl sm:text-3xl font-black tracking-tight">
@@ -1112,7 +1112,7 @@ export default function HomePage() {
               <button
                 type="button"
                 onClick={() => setIsBooklistOpen(true)}
-                className="px-6 py-3 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs sm:text-sm flex items-center gap-2 shadow-lg cursor-pointer border-none transition-transform hover:scale-105"
+                className="px-6 py-3 rounded-none bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs sm:text-sm flex items-center gap-2 shadow-lg cursor-pointer border-none transition-transform hover:scale-105"
               >
                 <Upload size={16} /> Upload Booklist Now
               </button>
@@ -1120,7 +1120,7 @@ export default function HomePage() {
                 href={WA_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-3 rounded-xl bg-[#25D366] hover:bg-[#1EBE57] text-white font-black text-xs sm:text-sm flex items-center gap-2 shadow-lg transition-transform hover:scale-105"
+                className="px-5 py-3 rounded-none bg-[#25D366] hover:bg-[#1EBE57] text-white font-black text-xs sm:text-sm flex items-center gap-2 shadow-lg transition-transform hover:scale-105"
               >
                 <MessageCircle size={16} /> Send via WhatsApp
               </a>
@@ -1130,10 +1130,10 @@ export default function HomePage() {
 
         {/* ── 8. TRUST STRIP ── */}
         <section className={`${SECTION} mt-8`}>
-          <div className="bg-white rounded-2xl border border-slate-200 grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-slate-100 shadow-xs overflow-hidden">
+          <div className="bg-white rounded-none border border-slate-200 grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-slate-100 shadow-xs overflow-hidden">
             {trust.map(({ icon: Icon, title, sub }) => (
               <div key={title} className="flex items-center gap-3 px-4 sm:px-6 py-4 sm:py-5">
-                <div className="w-10 h-10 rounded-xl bg-sky-50 text-[#0096C7] flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-none bg-sky-50 text-[#0096C7] flex items-center justify-center shrink-0">
                   <Icon size={20} />
                 </div>
                 <div>
@@ -1151,7 +1151,7 @@ export default function HomePage() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat on WhatsApp"
-          className="fixed bottom-20 md:bottom-6 right-4 z-50 w-12 h-12 rounded-full flex items-center justify-center bg-[#25D366] hover:bg-[#20BA5A] text-white shadow-lg transition-transform hover:scale-105"
+          className="fixed bottom-20 md:bottom-6 right-4 z-50 w-12 h-12 rounded-none flex items-center justify-center bg-[#25D366] hover:bg-[#20BA5A] text-white shadow-lg transition-transform hover:scale-105"
         >
           <MessageCircle size={22} />
         </a>

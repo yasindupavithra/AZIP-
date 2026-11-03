@@ -42,7 +42,7 @@ export default function BrandMark({
     case 'Maped':
       return (
         <span
-          className="inline-flex items-center rounded-full bg-[#E3262F] px-3 py-0.5 font-black italic text-white shadow-sm"
+          className="inline-flex items-center rounded-none bg-[#E3262F] px-3 py-0.5 font-black italic text-white shadow-sm"
           style={{ fontFamily: 'Outfit, Inter, sans-serif', fontSize: 17 * s }}
         >
           Maped
@@ -51,7 +51,7 @@ export default function BrandMark({
     case 'deli':
       return (
         <span
-          className="inline-flex items-center rounded-md bg-[#E60012] px-2.5 py-0.5 font-black lowercase text-white shadow-sm"
+          className="inline-flex items-center rounded-none bg-[#E60012] px-2.5 py-0.5 font-black lowercase text-white shadow-sm"
           style={{ fontFamily: 'Outfit, Inter, sans-serif', fontSize: 19 * s, letterSpacing: '-0.01em' }}
         >
           deli

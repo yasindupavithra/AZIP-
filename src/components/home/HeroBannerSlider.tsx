@@ -245,7 +245,7 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 items-stretch">
         {/* LEFT / MAIN CAROUSEL (10 cols on xl, 9 on lg) */}
         <div
-          className="lg:col-span-9 xl:col-span-10 relative overflow-hidden rounded-xl shadow-md select-none min-h-[290px] sm:min-h-[345px] md:min-h-[370px]"
+          className="lg:col-span-9 xl:col-span-10 relative overflow-hidden rounded-none shadow-md select-none min-h-[290px] sm:min-h-[345px] md:min-h-[370px]"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
         >
@@ -299,7 +299,7 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
                 {/* LEFT COLUMN: Ribbon + Giant Headline + Subtitle + 2 Angled Badges + Pill CTA */}
                 <div className="md:col-span-5 flex flex-col items-start z-20">
                   {/* Flush Left White Festival Ribbon */}
-                  <div className="-ml-4 sm:-ml-8 md:-ml-10 mb-3 bg-white pl-4 sm:pl-8 md:pl-10 pr-5 py-1.5 rounded-r-xl shadow-md">
+                  <div className="-ml-4 sm:-ml-8 md:-ml-10 mb-3 bg-white pl-4 sm:pl-8 md:pl-10 pr-5 py-1.5 rounded-none shadow-md">
                     <span
                       className={`text-sm sm:text-lg md:text-xl font-black tracking-tight uppercase ${theme.ribbonText}`}
                       style={{ fontFamily: 'Outfit, sans-serif' }}
@@ -325,10 +325,10 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
                   <div className="mt-3.5 sm:mt-4 flex flex-wrap items-center gap-2.5 sm:gap-3">
                     <div
                       className="bg-white px-3 sm:px-3.5 py-1.5 shadow-md flex items-center gap-2"
-                      style={{ transform: 'skewX(-12deg)', borderRadius: '4px' }}
+                      style={{ transform: 'skewX(-12deg)' }}
                     >
                       <div className="flex items-center gap-1.5" style={{ transform: 'skewX(12deg)' }}>
-                        <span className="w-6 h-6 rounded bg-orange-500 text-white flex items-center justify-center shrink-0">
+                        <span className="w-6 h-6 rounded-none bg-orange-500 text-white flex items-center justify-center shrink-0">
                           <Ticket size={14} />
                         </span>
                         <div className={`text-[10px] sm:text-[11px] font-extrabold leading-tight ${theme.tagAccent}`}>
@@ -340,10 +340,10 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
 
                     <div
                       className="bg-white px-3 sm:px-3.5 py-1.5 shadow-md flex items-center gap-2"
-                      style={{ transform: 'skewX(-12deg)', borderRadius: '4px' }}
+                      style={{ transform: 'skewX(-12deg)' }}
                     >
                       <div className="flex items-center gap-1.5" style={{ transform: 'skewX(12deg)' }}>
-                        <span className="w-6 h-6 rounded bg-emerald-600 text-white flex items-center justify-center shrink-0">
+                        <span className="w-6 h-6 rounded-none bg-emerald-600 text-white flex items-center justify-center shrink-0">
                           <Truck size={14} />
                         </span>
                         <div className="text-[10px] sm:text-[11px] font-extrabold leading-tight text-emerald-700">
@@ -354,10 +354,10 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
                     </div>
                   </div>
 
-                  {/* Bottom-Left Rounded Pill CTA Button */}
+                  {/* Bottom-Left rounded-none Pill CTA Button */}
                   <Link
                     href={slide.linkUrl || '/offers'}
-                    className={`mt-4 sm:mt-5 inline-flex items-center justify-center px-7 sm:px-9 py-2 sm:py-2.5 rounded-full font-extrabold text-xs sm:text-sm shadow-[0_6px_16px_rgba(0,0,0,0.28)] hover:scale-105 transition-transform ${theme.ctaText}`}
+                    className={`mt-4 sm:mt-5 inline-flex items-center justify-center px-7 sm:px-9 py-2 sm:py-2.5 rounded-none font-extrabold text-xs sm:text-sm shadow-[0_6px_16px_rgba(0,0,0,0.28)] hover:scale-105 transition-transform ${theme.ctaText}`}
                     style={{ background: theme.ctaGradient }}
                   >
                     {slide.ctaText || 'Add to Cart'}
@@ -368,7 +368,7 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
                 <div className="hidden sm:flex md:col-span-2 items-center justify-center z-20">
                   <Link
                     href={slide.linkUrl || '/offers'}
-                    className={`w-28 h-28 lg:w-32 lg:h-32 rounded-full flex flex-col items-center justify-center text-center shadow-[0_12px_28px_rgba(0,0,0,0.32),inset_0_3px_8px_rgba(255,255,255,0.8)] hover:scale-105 transition-transform shrink-0 ${theme.sphereText}`}
+                    className={`w-28 h-28 lg:w-32 lg:h-32 rounded-none flex flex-col items-center justify-center text-center shadow-[0_12px_28px_rgba(0,0,0,0.32),inset_0_3px_8px_rgba(255,255,255,0.8)] hover:scale-105 transition-transform shrink-0 ${theme.sphereText}`}
                     style={{ background: theme.sphereGradient }}
                   >
                     <span className="text-[11px] lg:text-xs font-extrabold uppercase tracking-wider leading-none">
@@ -392,7 +392,7 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
                   {extraImgs[0] && (
                     <Link
                       href={slide.linkUrl || '/offers'}
-                      className="hidden sm:flex w-28 h-32 lg:w-32 lg:h-36 bg-white rounded-xl p-2 shadow-[0_14px_28px_rgba(0,0,0,0.35)] items-center justify-center -rotate-3 hover:rotate-0 hover:scale-105 transition-all"
+                      className="hidden sm:flex w-28 h-32 lg:w-32 lg:h-36 bg-white rounded-none p-2 shadow-[0_14px_28px_rgba(0,0,0,0.35)] items-center justify-center -rotate-3 hover:rotate-0 hover:scale-105 transition-all"
                     >
                       <img
                         src={extraImgs[0]}
@@ -405,7 +405,7 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
                   {/* Main Hero Product Centerpiece */}
                   <Link
                     href={slide.linkUrl || '/offers'}
-                    className="w-40 h-44 sm:w-44 sm:h-48 lg:w-52 lg:h-56 bg-white rounded-2xl p-3 shadow-[0_18px_36px_rgba(0,0,0,0.45)] flex items-center justify-center hover:scale-105 transition-transform z-10"
+                    className="w-40 h-44 sm:w-44 sm:h-48 lg:w-52 lg:h-56 bg-white rounded-none p-3 shadow-[0_18px_36px_rgba(0,0,0,0.45)] flex items-center justify-center hover:scale-105 transition-transform z-10"
                   >
                     <img
                       src={slide.image}
@@ -418,7 +418,7 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
                   {extraImgs[1] && (
                     <Link
                       href={slide.linkUrl || '/offers'}
-                      className="hidden xl:flex w-28 h-32 bg-white rounded-xl p-2 shadow-[0_14px_28px_rgba(0,0,0,0.35)] items-center justify-center rotate-3 hover:rotate-0 hover:scale-105 transition-all"
+                      className="hidden xl:flex w-28 h-32 bg-white rounded-none p-2 shadow-[0_14px_28px_rgba(0,0,0,0.35)] items-center justify-center rotate-3 hover:rotate-0 hover:scale-105 transition-all"
                     >
                       <img
                         src={extraImgs[1]}
@@ -439,7 +439,7 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
                 type="button"
                 onClick={prevSlide}
                 aria-label="Previous banner"
-                className="absolute left-2 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/30 hover:bg-black/55 text-white flex items-center justify-center transition-colors cursor-pointer border-none"
+                className="absolute left-2 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-9 sm:h-9 rounded-none bg-black/30 hover:bg-black/55 text-white flex items-center justify-center transition-colors cursor-pointer border-none"
               >
                 <ChevronLeft size={18} />
               </button>
@@ -447,7 +447,7 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
                 type="button"
                 onClick={nextSlide}
                 aria-label="Next banner"
-                className="absolute right-2 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/30 hover:bg-black/55 text-white flex items-center justify-center transition-colors cursor-pointer border-none"
+                className="absolute right-2 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-9 sm:h-9 rounded-none bg-black/30 hover:bg-black/55 text-white flex items-center justify-center transition-colors cursor-pointer border-none"
               >
                 <ChevronRight size={18} />
               </button>
@@ -460,7 +460,7 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
                     type="button"
                     onClick={() => setCurrent(idx)}
                     aria-label={`Slide ${idx + 1}`}
-                    className={`w-2.5 h-2.5 rounded-full transition-all cursor-pointer border-none ${
+                    className={`w-2.5 h-2.5 rounded-none transition-all cursor-pointer border-none ${
                       idx === current
                         ? 'bg-white scale-125 shadow-sm'
                         : 'bg-white/45 hover:bg-white/75'
@@ -473,10 +473,10 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
         </div>
 
         {/* RIGHT SIDEBAR PROMO CARD (Daraz Screenshot #5 style, 3 cols on lg, 2 on xl) */}
-        <div className="hidden lg:flex lg:col-span-3 xl:col-span-2 bg-white rounded-xl border border-slate-200 p-3.5 flex-col justify-between shadow-sm">
+        <div className="hidden lg:flex lg:col-span-3 xl:col-span-2 bg-white rounded-none border border-slate-200 p-3.5 flex-col justify-between shadow-sm">
           <div>
             <div className="flex items-center gap-2 mb-2.5">
-              <span className="w-7 h-7 rounded-lg bg-[#FF5500] text-white flex items-center justify-center font-black text-xs shrink-0">
+              <span className="w-7 h-7 rounded-none bg-[#FF5500] text-white flex items-center justify-center font-black text-xs shrink-0">
                 AZ
               </span>
               <span className="text-xs font-extrabold text-slate-800 uppercase tracking-tight">
@@ -486,7 +486,7 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
 
             {/* Orange-Pink Gradient Promo Box */}
             <div
-              className="rounded-xl p-3 text-white shadow-inner"
+              className="rounded-none p-3 text-white shadow-inner"
               style={{
                 background: 'linear-gradient(145deg, #FF6A00 0%, #FF2A6D 100%)',
               }}
@@ -500,15 +500,15 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
               </p>
 
               <div className="space-y-2">
-                <div className="flex items-center gap-2 bg-white/95 text-slate-900 rounded-lg px-2.5 py-1.5 text-[11px] font-bold">
-                  <span className="w-6 h-6 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center shrink-0">
+                <div className="flex items-center gap-2 bg-white/95 text-slate-900 rounded-none px-2.5 py-1.5 text-[11px] font-bold">
+                  <span className="w-6 h-6 rounded-none bg-teal-100 text-teal-700 flex items-center justify-center shrink-0">
                     <Truck size={13} />
                   </span>
                   <span>Free Shipping</span>
                 </div>
 
-                <div className="flex items-center gap-2 bg-white/95 text-slate-900 rounded-lg px-2.5 py-1.5 text-[11px] font-bold">
-                  <span className="w-6 h-6 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center shrink-0">
+                <div className="flex items-center gap-2 bg-white/95 text-slate-900 rounded-none px-2.5 py-1.5 text-[11px] font-bold">
+                  <span className="w-6 h-6 rounded-none bg-rose-100 text-rose-600 flex items-center justify-center shrink-0">
                     <Ticket size={13} />
                   </span>
                   <span>Exclusive Vouchers</span>
@@ -523,13 +523,13 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
               href={waUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-2 px-3 rounded-lg bg-[#25D366] hover:bg-[#1EBE57] text-white text-xs font-extrabold flex items-center justify-center gap-1.5 transition-colors shadow-xs"
+              className="w-full py-2 px-3 rounded-none bg-[#25D366] hover:bg-[#1EBE57] text-white text-xs font-extrabold flex items-center justify-center gap-1.5 transition-colors shadow-xs"
             >
               <MessageCircle size={14} /> WhatsApp Order
             </a>
             <Link
               href="/offers"
-              className="w-full py-1.5 px-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-[11px] font-bold flex items-center justify-center gap-1 transition-colors"
+              className="w-full py-1.5 px-3 rounded-none bg-slate-900 hover:bg-slate-800 text-white text-[11px] font-bold flex items-center justify-center gap-1 transition-colors"
             >
               <Sparkles size={12} className="text-amber-300" /> Claim Vouchers
             </Link>
@@ -540,7 +540,7 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
       {/* ── BOTTOM PILL CAMPAIGN STRIP BANNER (Daraz Screenshot #5 bottom strip) ── */}
       <Link
         href="/offers"
-        className="relative overflow-hidden rounded-full px-5 sm:px-8 py-2.5 sm:py-3 flex items-center justify-between gap-4 shadow-md hover:shadow-lg transition-shadow"
+        className="relative overflow-hidden rounded-none px-5 sm:px-8 py-2.5 sm:py-3 flex items-center justify-between gap-4 shadow-md hover:shadow-lg transition-shadow"
         style={{
           background: 'linear-gradient(90deg, #FF5E00 0%, #FF9900 35%, #FF5500 72%, #B91C1C 100%)',
         }}
@@ -550,12 +550,12 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
             <img
               src="/images/hd/products/casio-fx991cw.jpg"
               alt="Calculator"
-              className="w-9 h-9 rounded-full bg-white p-1 object-contain border-2 border-amber-300 shadow-xs"
+              className="w-9 h-9 rounded-none bg-white p-1 object-contain border-2 border-amber-300 shadow-xs"
             />
             <img
               src="/images/hd/products/school-backpack-blue.jpg"
               alt="Backpack"
-              className="w-9 h-9 rounded-full bg-white p-1 object-contain border-2 border-amber-300 shadow-xs"
+              className="w-9 h-9 rounded-none bg-white p-1 object-contain border-2 border-amber-300 shadow-xs"
             />
           </div>
           <div className="flex items-center gap-2">
@@ -570,10 +570,10 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
         </div>
 
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-          <span className="hidden md:inline-block bg-red-700 text-white text-[11px] font-black uppercase px-3 py-1 rounded-md border border-yellow-300/60 shadow-xs">
+          <span className="hidden md:inline-block bg-red-700 text-white text-[11px] font-black uppercase px-3 py-1 rounded-none border border-yellow-300/60 shadow-xs">
             LIVE NOW
           </span>
-          <span className="bg-[#7F1D1D] hover:bg-[#991B1B] text-white text-xs sm:text-sm font-black uppercase px-4 sm:px-5 py-1.5 rounded-full border-2 border-amber-300 shadow-md">
+          <span className="bg-[#7F1D1D] hover:bg-[#991B1B] text-white text-xs sm:text-sm font-black uppercase px-4 sm:px-5 py-1.5 rounded-none border-2 border-amber-300 shadow-md">
             SHOP NOW
           </span>
         </div>

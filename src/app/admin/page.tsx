@@ -558,7 +558,7 @@ export default function AdminDashboard() {
     return (
       <div className="min-h-screen bg-slate-50 flex items-center justify-center">
         <div className="flex flex-col items-center gap-3">
-          <div className="w-10 h-10 border-4 border-[#0096C7] border-t-transparent rounded-full animate-spin" />
+          <div className="w-10 h-10 border-4 border-[#0096C7] border-t-transparent rounded-none animate-spin" />
           <p className="text-sm font-semibold text-slate-600">Loading Control Center...</p>
         </div>
       </div>
@@ -569,7 +569,7 @@ export default function AdminDashboard() {
     <div className="min-h-screen bg-[#F4F7FB] font-sans text-slate-800 pb-20">
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-5 py-3.5 rounded-xl shadow-2xl text-xs font-bold flex items-center gap-2.5 border border-slate-700">
+        <div className="fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-5 py-3.5 rounded-none shadow-2xl text-xs font-bold flex items-center gap-2.5 border border-slate-700">
           <CheckCircle2 size={16} className="text-emerald-400 shrink-0" />
           <span>{toastMessage}</span>
         </div>
@@ -583,7 +583,7 @@ export default function AdminDashboard() {
               <AzipLogo className="h-10 w-auto" />
             </Link>
             <div className="h-5 w-px bg-slate-200 hidden sm:block" />
-            <span className="px-3 py-1 rounded-full text-xs font-bold bg-slate-900 text-white tracking-wide">
+            <span className="px-3 py-1 rounded-none text-xs font-bold bg-slate-900 text-white tracking-wide">
               Admin Control Center
             </span>
           </div>
@@ -592,7 +592,7 @@ export default function AdminDashboard() {
             <button
               type="button"
               onClick={loadData}
-              className="p-2.5 text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-xl transition-colors cursor-pointer border-none"
+              className="p-2.5 text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-none transition-colors cursor-pointer border-none"
               title="Refresh Data"
             >
               <RefreshCw size={16} />
@@ -600,7 +600,7 @@ export default function AdminDashboard() {
             <Link
               href="/"
               target="_blank"
-              className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl transition-colors"
+              className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-none transition-colors"
             >
               <span>View Live Store</span>
               <ExternalLink size={13} />
@@ -608,7 +608,7 @@ export default function AdminDashboard() {
             <button
               type="button"
               onClick={handleLogout}
-              className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold text-rose-600 bg-rose-50 hover:bg-rose-100 rounded-xl transition-colors border border-rose-200 cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold text-rose-600 bg-rose-50 hover:bg-rose-100 rounded-none transition-colors border border-rose-200 cursor-pointer"
             >
               <LogOut size={14} />
               <span className="hidden sm:inline">Logout</span>
@@ -620,7 +620,7 @@ export default function AdminDashboard() {
       {/* ── MAIN WORKSPACE ───────────────────────────────────────── */}
       <main className="max-w-[1440px] mx-auto px-4 sm:px-8 py-8 space-y-8">
         {/* Title Row + Primary Action Button */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-slate-200/90 shadow-xs">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-none border border-slate-200/90 shadow-xs">
           <div>
             <h1 className="text-2xl sm:text-3xl font-black text-slate-900 font-['Outfit'] tracking-tight">
               Store Management Dashboard
@@ -634,14 +634,14 @@ export default function AdminDashboard() {
             <button
               type="button"
               onClick={openCreateBannerModal}
-              className="inline-flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white px-4 py-2.5 rounded-xl font-bold text-xs shadow-sm transition-all border-none cursor-pointer"
+              className="inline-flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white px-4 py-2.5 rounded-none font-bold text-xs shadow-sm transition-all border-none cursor-pointer"
             >
               <Sparkles size={15} /> + New Offer Banner
             </button>
             <button
               type="button"
               onClick={openCreateModal}
-              className="inline-flex items-center gap-2 bg-[#0096C7] hover:bg-[#007BA8] text-white px-5 py-2.5 rounded-xl font-bold text-xs shadow-sm transition-all border-none cursor-pointer"
+              className="inline-flex items-center gap-2 bg-[#0096C7] hover:bg-[#007BA8] text-white px-5 py-2.5 rounded-none font-bold text-xs shadow-sm transition-all border-none cursor-pointer"
             >
               <Plus size={16} /> + Add New Product
             </button>
@@ -649,7 +649,7 @@ export default function AdminDashboard() {
         </div>
 
         {/* 1-Click Store Brand Logo Switcher */}
-        <div className="bg-white p-5 rounded-2xl border border-slate-200/90 shadow-xs">
+        <div className="bg-white p-5 rounded-none border border-slate-200/90 shadow-xs">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3.5">
             <div>
               <h2 className="text-sm font-black text-slate-900 uppercase tracking-wide">
@@ -668,7 +668,7 @@ export default function AdminDashboard() {
                   key={item.id}
                   type="button"
                   onClick={() => handleSelectLogoPreset(item.id)}
-                  className={`p-3.5 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between gap-2.5 ${
+                  className={`p-3.5 rounded-none border text-left transition-all cursor-pointer flex flex-col justify-between gap-2.5 ${
                     active
                       ? 'border-[#0096C7] bg-sky-50/50 ring-2 ring-[#0096C7]/30 shadow-xs'
                       : 'border-slate-200 bg-white hover:border-slate-300'
@@ -680,7 +680,7 @@ export default function AdminDashboard() {
                   <div className="flex items-center justify-between pt-2 border-t border-slate-100">
                     <span className="text-xs font-extrabold text-slate-800">{item.label}</span>
                     {active && (
-                      <span className="text-[10px] font-black uppercase bg-[#0096C7] text-white px-2 py-0.5 rounded-full">
+                      <span className="text-[10px] font-black uppercase bg-[#0096C7] text-white px-2 py-0.5 rounded-none">
                         Active
                       </span>
                     )}
@@ -695,7 +695,7 @@ export default function AdminDashboard() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           <div
             onClick={() => setActiveTab('products')}
-            className="bg-white p-5 rounded-2xl border border-slate-200/90 shadow-xs hover:border-[#0096C7] transition-all cursor-pointer flex items-start justify-between"
+            className="bg-white p-5 rounded-none border border-slate-200/90 shadow-xs hover:border-[#0096C7] transition-all cursor-pointer flex items-start justify-between"
           >
             <div>
               <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">
@@ -708,14 +708,14 @@ export default function AdminDashboard() {
                 {lowStockCount > 0 ? `${lowStockCount} items low stock` : 'All items well stocked'}
               </p>
             </div>
-            <div className="w-12 h-12 rounded-2xl bg-sky-50 text-[#0096C7] flex items-center justify-center shrink-0">
+            <div className="w-12 h-12 rounded-none bg-sky-50 text-[#0096C7] flex items-center justify-center shrink-0">
               <Package size={24} />
             </div>
           </div>
 
           <div
             onClick={() => setActiveTab('orders')}
-            className="bg-white p-5 rounded-2xl border border-slate-200/90 shadow-xs hover:border-blue-500 transition-all cursor-pointer flex items-start justify-between"
+            className="bg-white p-5 rounded-none border border-slate-200/90 shadow-xs hover:border-blue-500 transition-all cursor-pointer flex items-start justify-between"
           >
             <div>
               <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">
@@ -728,14 +728,14 @@ export default function AdminDashboard() {
                 Online &amp; WhatsApp COD
               </p>
             </div>
-            <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+            <div className="w-12 h-12 rounded-none bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
               <ShoppingBag size={24} />
             </div>
           </div>
 
           <div
             onClick={() => setActiveTab('banners')}
-            className="bg-white p-5 rounded-2xl border border-slate-200/90 shadow-xs hover:border-rose-500 transition-all cursor-pointer flex items-start justify-between"
+            className="bg-white p-5 rounded-none border border-slate-200/90 shadow-xs hover:border-rose-500 transition-all cursor-pointer flex items-start justify-between"
           >
             <div>
               <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">
@@ -748,12 +748,12 @@ export default function AdminDashboard() {
                 Daraz Starburst Slider Active
               </p>
             </div>
-            <div className="w-12 h-12 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center shrink-0">
+            <div className="w-12 h-12 rounded-none bg-rose-50 text-rose-600 flex items-center justify-center shrink-0">
               <ImageIcon size={24} />
             </div>
           </div>
 
-          <div className="bg-white p-5 rounded-2xl border border-slate-200/90 shadow-xs flex items-start justify-between">
+          <div className="bg-white p-5 rounded-none border border-slate-200/90 shadow-xs flex items-start justify-between">
             <div>
               <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">
                 Total Revenue
@@ -765,18 +765,18 @@ export default function AdminDashboard() {
                 Islandwide Deliveries
               </p>
             </div>
-            <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+            <div className="w-12 h-12 rounded-none bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
               <BarChart3 size={24} />
             </div>
           </div>
         </div>
 
         {/* Navigation Pill Tabs */}
-        <div className="bg-white p-2 rounded-2xl border border-slate-200/90 shadow-xs inline-flex flex-wrap gap-2">
+        <div className="bg-white p-2 rounded-none border border-slate-200/90 shadow-xs inline-flex flex-wrap gap-2">
           <button
             type="button"
             onClick={() => setActiveTab('products')}
-            className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold transition-all border-none cursor-pointer ${
+            className={`flex items-center gap-2 px-5 py-2.5 rounded-none text-xs font-bold transition-all border-none cursor-pointer ${
               activeTab === 'products'
                 ? 'bg-slate-900 text-white shadow-xs'
                 : 'bg-transparent text-slate-600 hover:bg-slate-100'
@@ -789,7 +789,7 @@ export default function AdminDashboard() {
           <button
             type="button"
             onClick={() => setActiveTab('banners')}
-            className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold transition-all border-none cursor-pointer ${
+            className={`flex items-center gap-2 px-5 py-2.5 rounded-none text-xs font-bold transition-all border-none cursor-pointer ${
               activeTab === 'banners'
                 ? 'bg-rose-600 text-white shadow-xs'
                 : 'bg-transparent text-slate-600 hover:bg-slate-100'
@@ -802,7 +802,7 @@ export default function AdminDashboard() {
           <button
             type="button"
             onClick={() => setActiveTab('orders')}
-            className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold transition-all border-none cursor-pointer ${
+            className={`flex items-center gap-2 px-5 py-2.5 rounded-none text-xs font-bold transition-all border-none cursor-pointer ${
               activeTab === 'orders'
                 ? 'bg-blue-600 text-white shadow-xs'
                 : 'bg-transparent text-slate-600 hover:bg-slate-100'
@@ -819,7 +819,7 @@ export default function AdminDashboard() {
         {activeTab === 'products' && (
           <div className="space-y-5">
             {/* Search + Category Filter + View Mode Toolbar */}
-            <div className="bg-white p-5 rounded-2xl border border-slate-200/90 shadow-xs space-y-4">
+            <div className="bg-white p-5 rounded-none border border-slate-200/90 shadow-xs space-y-4">
               <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
                 {/* Search Input */}
                 <div className="relative flex-1 w-full">
@@ -832,7 +832,7 @@ export default function AdminDashboard() {
                     placeholder="Search products by name, SKU code, or tag..."
                     value={productSearch}
                     onChange={(e) => setProductSearch(e.target.value)}
-                    className="w-full pl-11 pr-4 py-2.5 text-sm border border-slate-200 rounded-xl focus:outline-none focus:border-[#0096C7] bg-slate-50 focus:bg-white text-slate-800"
+                    className="w-full pl-11 pr-4 py-2.5 text-sm border border-slate-200 rounded-none focus:outline-none focus:border-[#0096C7] bg-slate-50 focus:bg-white text-slate-800"
                   />
                 </div>
 
@@ -843,7 +843,7 @@ export default function AdminDashboard() {
                     <select
                       value={selectedCategory}
                       onChange={(e) => setSelectedCategory(e.target.value)}
-                      className="w-full lg:w-56 px-3.5 py-2.5 text-xs border border-slate-200 rounded-xl focus:outline-none focus:border-[#0096C7] bg-slate-50 font-bold text-slate-700 cursor-pointer"
+                      className="w-full lg:w-56 px-3.5 py-2.5 text-xs border border-slate-200 rounded-none focus:outline-none focus:border-[#0096C7] bg-slate-50 font-bold text-slate-700 cursor-pointer"
                     >
                       <option value="all">All Categories ({products.length})</option>
                       {STORE_CATEGORIES.map((c) => (
@@ -855,11 +855,11 @@ export default function AdminDashboard() {
                   </div>
 
                   {/* Table / Grid View Toggle */}
-                  <div className="flex items-center bg-slate-100 p-1 rounded-xl border border-slate-200 shrink-0">
+                  <div className="flex items-center bg-slate-100 p-1 rounded-none border border-slate-200 shrink-0">
                     <button
                       type="button"
                       onClick={() => setProductViewMode('table')}
-                      className={`px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 cursor-pointer border-none transition-all ${
+                      className={`px-3 py-1.5 rounded-none text-xs font-bold flex items-center gap-1.5 cursor-pointer border-none transition-all ${
                         productViewMode === 'table'
                           ? 'bg-white text-slate-900 shadow-xs'
                           : 'bg-transparent text-slate-500 hover:text-slate-800'
@@ -870,7 +870,7 @@ export default function AdminDashboard() {
                     <button
                       type="button"
                       onClick={() => setProductViewMode('grid')}
-                      className={`px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 cursor-pointer border-none transition-all ${
+                      className={`px-3 py-1.5 rounded-none text-xs font-bold flex items-center gap-1.5 cursor-pointer border-none transition-all ${
                         productViewMode === 'grid'
                           ? 'bg-white text-slate-900 shadow-xs'
                           : 'bg-transparent text-slate-500 hover:text-slate-800'
@@ -887,7 +887,7 @@ export default function AdminDashboard() {
                 <button
                   type="button"
                   onClick={() => setSelectedCategory('all')}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition-all cursor-pointer border ${
+                  className={`px-3.5 py-1.5 rounded-none text-xs font-bold whitespace-nowrap transition-all cursor-pointer border ${
                     selectedCategory === 'all'
                       ? 'bg-[#0096C7] text-white border-[#0096C7]'
                       : 'bg-slate-50 text-slate-600 border-slate-200 hover:border-slate-300'
@@ -900,7 +900,7 @@ export default function AdminDashboard() {
                     key={cat.slug}
                     type="button"
                     onClick={() => setSelectedCategory(cat.slug)}
-                    className={`px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition-all cursor-pointer border ${
+                    className={`px-3.5 py-1.5 rounded-none text-xs font-bold whitespace-nowrap transition-all cursor-pointer border ${
                       selectedCategory === cat.slug
                         ? 'bg-[#0096C7] text-white border-[#0096C7]'
                         : 'bg-slate-50 text-slate-600 border-slate-200 hover:border-slate-300'
@@ -918,17 +918,17 @@ export default function AdminDashboard() {
                 {paginatedProducts.map((p) => (
                   <div
                     key={p._id}
-                    className="bg-white rounded-2xl border border-slate-200/90 shadow-xs hover:shadow-md transition-all overflow-hidden flex flex-col justify-between p-4"
+                    className="bg-white rounded-none border border-slate-200/90 shadow-xs hover:shadow-md transition-all overflow-hidden flex flex-col justify-between p-4"
                   >
                     <div>
-                      <div className="relative h-40 w-full bg-slate-50 rounded-xl border border-slate-100 p-3 flex items-center justify-center mb-3">
+                      <div className="relative h-40 w-full bg-slate-50 rounded-none border border-slate-100 p-3 flex items-center justify-center mb-3">
                         {p.badge && (
-                          <span className="absolute top-2 left-2 bg-rose-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-md">
+                          <span className="absolute top-2 left-2 bg-rose-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-none">
                             {p.badge}
                           </span>
                         )}
                         <span
-                          className={`absolute top-2 right-2 px-2 py-0.5 rounded-full text-[10px] font-bold ${
+                          className={`absolute top-2 right-2 px-2 py-0.5 rounded-none text-[10px] font-bold ${
                             p.stock > 10
                               ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                               : 'bg-amber-50 text-amber-700 border border-amber-200'
@@ -970,14 +970,14 @@ export default function AdminDashboard() {
                         <button
                           type="button"
                           onClick={() => openEditModal(p)}
-                          className="px-3 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-lg text-xs font-bold flex items-center gap-1 border border-blue-200 cursor-pointer"
+                          className="px-3 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-none text-xs font-bold flex items-center gap-1 border border-blue-200 cursor-pointer"
                         >
                           <Edit2 size={13} /> Edit
                         </button>
                         <button
                           type="button"
                           onClick={() => handleDeleteProduct(p._id, p.name)}
-                          className="p-1.5 bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg border border-rose-200 cursor-pointer"
+                          className="p-1.5 bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-none border border-rose-200 cursor-pointer"
                           title="Delete"
                         >
                           <Trash2 size={14} />
@@ -988,7 +988,7 @@ export default function AdminDashboard() {
                 ))}
               </div>
             ) : (
-              <div className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-xs">
+              <div className="bg-white rounded-none border border-slate-200/90 overflow-hidden shadow-xs">
                 <div className="overflow-x-auto">
                   <table className="w-full text-left border-collapse">
                     <thead>
@@ -1007,7 +1007,7 @@ export default function AdminDashboard() {
                           <tr key={p._id} className="hover:bg-slate-50/90 transition-colors">
                             <td className="py-4 px-5">
                               <div className="flex items-center gap-4">
-                                <div className="w-14 h-14 rounded-xl bg-slate-50 border border-slate-200 p-1.5 flex items-center justify-center shrink-0">
+                                <div className="w-14 h-14 rounded-none bg-slate-50 border border-slate-200 p-1.5 flex items-center justify-center shrink-0">
                                   <img
                                     src={p.images?.[0]?.url || PRESET_IMAGES[0].url}
                                     alt={p.name}
@@ -1026,7 +1026,7 @@ export default function AdminDashboard() {
                             </td>
 
                             <td className="py-4 px-4">
-                              <span className="inline-block px-3 py-1 rounded-lg bg-slate-100 text-slate-700 text-xs font-semibold">
+                              <span className="inline-block px-3 py-1 rounded-none bg-slate-100 text-slate-700 text-xs font-semibold">
                                 {getCategoryLabel(p.category)}
                               </span>
                             </td>
@@ -1044,7 +1044,7 @@ export default function AdminDashboard() {
 
                             <td className="py-4 px-4">
                               <span
-                                className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold ${
+                                className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-none text-xs font-bold ${
                                   p.stock > 10
                                     ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                                     : 'bg-amber-50 text-amber-700 border border-amber-200'
@@ -1057,7 +1057,7 @@ export default function AdminDashboard() {
 
                             <td className="py-4 px-4">
                               {p.badge ? (
-                                <span className="px-2.5 py-1 rounded-md text-xs font-bold bg-rose-50 text-rose-600 border border-rose-200">
+                                <span className="px-2.5 py-1 rounded-none text-xs font-bold bg-rose-50 text-rose-600 border border-rose-200">
                                   {p.badge}
                                 </span>
                               ) : (
@@ -1070,14 +1070,14 @@ export default function AdminDashboard() {
                                 <button
                                   type="button"
                                   onClick={() => openEditModal(p)}
-                                  className="px-3 py-1.5 text-xs font-bold text-blue-700 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors border border-blue-200 cursor-pointer inline-flex items-center gap-1"
+                                  className="px-3 py-1.5 text-xs font-bold text-blue-700 bg-blue-50 hover:bg-blue-100 rounded-none transition-colors border border-blue-200 cursor-pointer inline-flex items-center gap-1"
                                 >
                                   <Edit2 size={13} /> Edit
                                 </button>
                                 <button
                                   type="button"
                                   onClick={() => handleDeleteProduct(p._id, p.name)}
-                                  className="px-3 py-1.5 text-xs font-bold text-rose-600 bg-rose-50 hover:bg-rose-100 rounded-lg transition-colors border border-rose-200 cursor-pointer inline-flex items-center gap-1"
+                                  className="px-3 py-1.5 text-xs font-bold text-rose-600 bg-rose-50 hover:bg-rose-100 rounded-none transition-colors border border-rose-200 cursor-pointer inline-flex items-center gap-1"
                                 >
                                   <Trash2 size={13} /> Delete
                                 </button>
@@ -1110,7 +1110,7 @@ export default function AdminDashboard() {
                         type="button"
                         disabled={currentPage === 1}
                         onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-                        className="px-3 py-1.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-100 disabled:opacity-40 text-xs font-bold text-slate-700 flex items-center gap-1 cursor-pointer"
+                        className="px-3 py-1.5 rounded-none border border-slate-200 bg-white hover:bg-slate-100 disabled:opacity-40 text-xs font-bold text-slate-700 flex items-center gap-1 cursor-pointer"
                       >
                         <ChevronLeft size={14} /> Prev
                       </button>
@@ -1120,7 +1120,7 @@ export default function AdminDashboard() {
                           key={page}
                           type="button"
                           onClick={() => setCurrentPage(page)}
-                          className={`w-8 h-8 rounded-lg text-xs font-bold cursor-pointer border ${
+                          className={`w-8 h-8 rounded-none text-xs font-bold cursor-pointer border ${
                             currentPage === page
                               ? 'bg-slate-900 text-white border-slate-900'
                               : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-100'
@@ -1134,7 +1134,7 @@ export default function AdminDashboard() {
                         type="button"
                         disabled={currentPage === totalPages}
                         onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-                        className="px-3 py-1.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-100 disabled:opacity-40 text-xs font-bold text-slate-700 flex items-center gap-1 cursor-pointer"
+                        className="px-3 py-1.5 rounded-none border border-slate-200 bg-white hover:bg-slate-100 disabled:opacity-40 text-xs font-bold text-slate-700 flex items-center gap-1 cursor-pointer"
                       >
                         Next <ChevronRight size={14} />
                       </button>
@@ -1150,7 +1150,7 @@ export default function AdminDashboard() {
             TAB 2: ORDER MANAGEMENT
            ════════════════════════════════════════════════════════════ */}
         {activeTab === 'orders' && (
-          <div className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-xs">
+          <div className="bg-white rounded-none border border-slate-200/90 overflow-hidden shadow-xs">
             <div className="p-5 border-b border-slate-200 bg-slate-50 flex items-center justify-between">
               <h3 className="font-bold text-sm text-slate-800">Customer Order Queue</h3>
               <span className="text-xs text-slate-500 font-bold">{orders.length} total orders</span>
@@ -1211,7 +1211,7 @@ export default function AdminDashboard() {
 
                         <td className="py-4 px-4">
                           <span
-                            className={`px-3 py-1 rounded-full text-xs font-bold capitalize ${
+                            className={`px-3 py-1 rounded-none text-xs font-bold capitalize ${
                               o.status === 'completed' || o.status === 'delivered'
                                 ? 'bg-emerald-100 text-emerald-800 border border-emerald-200'
                                 : o.status === 'cancelled'
@@ -1228,7 +1228,7 @@ export default function AdminDashboard() {
                             value={o.status}
                             disabled={updatingOrderId === o._id}
                             onChange={(e) => handleUpdateOrderStatus(o._id, e.target.value)}
-                            className="px-3 py-1.5 text-xs border border-slate-300 rounded-xl bg-white font-bold text-slate-700 focus:outline-none focus:border-blue-600 cursor-pointer"
+                            className="px-3 py-1.5 text-xs border border-slate-300 rounded-none bg-white font-bold text-slate-700 focus:outline-none focus:border-blue-600 cursor-pointer"
                           >
                             <option value="pending">Pending</option>
                             <option value="processing">Processing</option>
@@ -1259,9 +1259,9 @@ export default function AdminDashboard() {
         {activeTab === 'banners' && (
           <div className="space-y-6">
             {/* Header Banner Control Bar */}
-            <div className="bg-gradient-to-r from-slate-900 via-rose-950 to-slate-900 p-6 sm:p-8 rounded-2xl text-white shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="bg-gradient-to-r from-slate-900 via-rose-950 to-slate-900 p-6 sm:p-8 rounded-none text-white shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-rose-500/25 text-rose-200 rounded-full text-xs font-bold uppercase tracking-wider mb-2 border border-rose-400/30">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-rose-500/25 text-rose-200 rounded-none text-xs font-bold uppercase tracking-wider mb-2 border border-rose-400/30">
                   <Sparkles size={13} className="text-amber-300" /> Live Daraz Campaign Slider
                 </div>
                 <h2 className="text-xl sm:text-2xl font-black font-['Outfit']">
@@ -1275,7 +1275,7 @@ export default function AdminDashboard() {
               <button
                 type="button"
                 onClick={openCreateBannerModal}
-                className="px-5 py-3 bg-rose-600 hover:bg-rose-500 text-white text-xs font-black rounded-xl shadow-md transition-all uppercase tracking-wider shrink-0 cursor-pointer border-none"
+                className="px-5 py-3 bg-rose-600 hover:bg-rose-500 text-white text-xs font-black rounded-none shadow-md transition-all uppercase tracking-wider shrink-0 cursor-pointer border-none"
               >
                 + Add New Offer Banner
               </button>
@@ -1296,7 +1296,7 @@ export default function AdminDashboard() {
                 return (
                   <div
                     key={b._id}
-                    className={`bg-white rounded-2xl border ${
+                    className={`bg-white rounded-none border ${
                       b.isActive && !isExpired
                         ? 'border-slate-200 shadow-xs'
                         : 'border-slate-200 opacity-65 bg-slate-50'
@@ -1305,13 +1305,13 @@ export default function AdminDashboard() {
                     <div className="p-6 bg-slate-50/70 border-b border-slate-100 flex items-center justify-between gap-5 min-h-[180px]">
                       <div className="flex-1 min-w-0">
                         <div className="flex flex-wrap items-center gap-2 mb-2.5">
-                          <span className="bg-slate-900 text-white text-[11px] font-bold px-2.5 py-0.5 rounded-md">
+                          <span className="bg-slate-900 text-white text-[11px] font-bold px-2.5 py-0.5 rounded-none">
                             Slide #{b.order || idx + 1}
                           </span>
-                          <span className="bg-orange-500 text-white text-[11px] font-bold px-2.5 py-0.5 rounded-md uppercase">
+                          <span className="bg-orange-500 text-white text-[11px] font-bold px-2.5 py-0.5 rounded-none uppercase">
                             {b.badge || '11.11 SHOPPING FEST'}
                           </span>
-                          <span className="bg-amber-100 text-amber-900 text-[11px] font-black px-2.5 py-0.5 rounded-md">
+                          <span className="bg-amber-100 text-amber-900 text-[11px] font-black px-2.5 py-0.5 rounded-none">
                             UP TO {b.discountText || '65%'} OFF
                           </span>
                         </div>
@@ -1322,7 +1322,7 @@ export default function AdminDashboard() {
                         <p className="text-xs text-slate-600 line-clamp-2 mt-1">{b.subtitle}</p>
 
                         {(b.startDate || b.endDate) && (
-                          <div className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 bg-white border border-slate-200 rounded-lg px-3 py-1">
+                          <div className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 bg-white border border-slate-200 rounded-none px-3 py-1">
                             <span>📅</span>
                             <span>{b.startDate || 'Now'}</span>
                             <span>→</span>
@@ -1331,7 +1331,7 @@ export default function AdminDashboard() {
                         )}
                       </div>
 
-                      <div className="w-28 h-28 bg-white rounded-xl border border-slate-200 p-2.5 flex items-center justify-center shrink-0 shadow-2xs">
+                      <div className="w-28 h-28 bg-white rounded-none border border-slate-200 p-2.5 flex items-center justify-center shrink-0 shadow-2xs">
                         <img
                           src={b.image}
                           alt={b.title}
@@ -1345,7 +1345,7 @@ export default function AdminDashboard() {
                         <button
                           type="button"
                           onClick={() => handleToggleBannerActive(b)}
-                          className={`px-3.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer border-none ${
+                          className={`px-3.5 py-1.5 rounded-none text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer border-none ${
                             !b.isActive
                               ? 'bg-slate-200 text-slate-700 hover:bg-slate-300'
                               : isExpired
@@ -1376,14 +1376,14 @@ export default function AdminDashboard() {
                         <button
                           type="button"
                           onClick={() => openEditBannerModal(b)}
-                          className="px-3.5 py-1.5 text-xs font-bold text-blue-700 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors border border-blue-200 cursor-pointer"
+                          className="px-3.5 py-1.5 text-xs font-bold text-blue-700 bg-blue-50 hover:bg-blue-100 rounded-none transition-colors border border-blue-200 cursor-pointer"
                         >
                           Edit Slide
                         </button>
                         <button
                           type="button"
                           onClick={() => handleDeleteBanner(b._id, b.title)}
-                          className="px-3.5 py-1.5 text-xs font-bold text-rose-600 bg-rose-50 hover:bg-rose-100 rounded-lg transition-colors border border-rose-200 cursor-pointer"
+                          className="px-3.5 py-1.5 text-xs font-bold text-rose-600 bg-rose-50 hover:bg-rose-100 rounded-none transition-colors border border-rose-200 cursor-pointer"
                         >
                           Delete
                         </button>
@@ -1402,7 +1402,7 @@ export default function AdminDashboard() {
          ════════════════════════════════════════════════════════════ */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/65 backdrop-blur-xs flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
-          <div className="bg-white rounded-2xl max-w-4xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 my-8">
+          <div className="bg-white rounded-none max-w-4xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 my-8">
             {/* Modal Header */}
             <div className="flex items-center justify-between border-b border-slate-200 pb-5 mb-6">
               <div>
@@ -1416,7 +1416,7 @@ export default function AdminDashboard() {
               <button
                 type="button"
                 onClick={() => setIsModalOpen(false)}
-                className="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center text-sm font-bold border-none cursor-pointer"
+                className="w-9 h-9 rounded-none bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center text-sm font-bold border-none cursor-pointer"
               >
                 ✕
               </button>
@@ -1425,18 +1425,18 @@ export default function AdminDashboard() {
             <form onSubmit={handleProductSubmit} className="space-y-6">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
                 {/* LEFT COLUMN (4 cols): Live Image Preview + Upload + Presets */}
-                <div className="lg:col-span-4 bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-4">
+                <div className="lg:col-span-4 bg-slate-50 p-4 rounded-none border border-slate-200 space-y-4">
                   <div className="text-xs font-bold text-slate-700 flex items-center justify-between">
                     <span>Product Preview</span>
                     {modalDiscountPreview > 0 && (
-                      <span className="bg-rose-600 text-white text-[10px] font-bold px-2 py-0.5 rounded">
+                      <span className="bg-rose-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-none">
                         -{modalDiscountPreview}% OFF
                       </span>
                     )}
                   </div>
 
                   {/* Preview Image Box */}
-                  <div className="w-full aspect-square bg-white rounded-xl border border-slate-200 p-4 flex items-center justify-center overflow-hidden">
+                  <div className="w-full aspect-square bg-white rounded-none border border-slate-200 p-4 flex items-center justify-center overflow-hidden">
                     <img
                       src={formData.imageUrl || PRESET_IMAGES[0].url}
                       alt={formData.name || 'Preview'}
@@ -1445,7 +1445,7 @@ export default function AdminDashboard() {
                   </div>
 
                   {/* Upload from PC / Phone Button */}
-                  <label className="w-full py-2.5 px-4 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-xl flex items-center justify-center gap-2 cursor-pointer transition-colors shadow-xs">
+                  <label className="w-full py-2.5 px-4 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-none flex items-center justify-center gap-2 cursor-pointer transition-colors shadow-xs">
                     <Upload size={14} />
                     <span>{uploadingProductImg ? 'Uploading Photo...' : 'Upload Photo from PC / Phone'}</span>
                     <input
@@ -1468,7 +1468,7 @@ export default function AdminDashboard() {
                       placeholder="/images/hd/products/..."
                       value={formData.imageUrl}
                       onChange={(e) => setFormData({ ...formData, imageUrl: e.target.value })}
-                      className="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg bg-white focus:outline-none focus:border-[#0096C7] text-slate-800 font-mono"
+                      className="w-full px-3 py-2 text-xs border border-slate-300 rounded-none bg-white focus:outline-none focus:border-[#0096C7] text-slate-800 font-mono"
                     />
                   </div>
 
@@ -1483,7 +1483,7 @@ export default function AdminDashboard() {
                           key={preset.label}
                           type="button"
                           onClick={() => setFormData({ ...formData, imageUrl: preset.url })}
-                          className={`px-2.5 py-1 text-[11px] font-semibold rounded-lg border cursor-pointer transition-colors ${
+                          className={`px-2.5 py-1 text-[11px] font-semibold rounded-none border cursor-pointer transition-colors ${
                             formData.imageUrl === preset.url
                               ? 'bg-[#0096C7] text-white border-[#0096C7]'
                               : 'bg-white hover:bg-slate-100 text-slate-700 border-slate-200'
@@ -1509,7 +1509,7 @@ export default function AdminDashboard() {
                       placeholder="e.g. Atlas CR 80GSM 120 Pages Single Ruled Book"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-none focus:border-[#0096C7] font-semibold text-slate-900"
+                      className="w-full px-4 py-2.5 text-sm border border-slate-300 rounded-none focus:outline-none focus:border-[#0096C7] font-semibold text-slate-900"
                     />
                   </div>
 
@@ -1522,7 +1522,7 @@ export default function AdminDashboard() {
                       <select
                         value={formData.category}
                         onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                        className="w-full px-4 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-none focus:border-[#0096C7] font-semibold text-slate-800 bg-white"
+                        className="w-full px-4 py-2.5 text-sm border border-slate-300 rounded-none focus:outline-none focus:border-[#0096C7] font-semibold text-slate-800 bg-white"
                       >
                         {STORE_CATEGORIES.map((c) => (
                           <option key={c.slug} value={c.slug}>
@@ -1541,13 +1541,13 @@ export default function AdminDashboard() {
                         placeholder="e.g. CR Books, Scientific Calculators"
                         value={formData.subcategory}
                         onChange={(e) => setFormData({ ...formData, subcategory: e.target.value })}
-                        className="w-full px-4 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-none focus:border-[#0096C7] text-slate-900"
+                        className="w-full px-4 py-2.5 text-sm border border-slate-300 rounded-none focus:outline-none focus:border-[#0096C7] text-slate-900"
                       />
                     </div>
                   </div>
 
                   {/* Price, Compare Price & Stock */}
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-slate-50 p-4 rounded-xl border border-slate-200">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-slate-50 p-4 rounded-none border border-slate-200">
                     <div>
                       <label className="block text-xs font-bold text-slate-700 mb-1.5">
                         Selling Price (Rs.) *
@@ -1559,7 +1559,7 @@ export default function AdminDashboard() {
                         placeholder="450"
                         value={formData.price}
                         onChange={(e) => setFormData({ ...formData, price: e.target.value })}
-                        className="w-full px-3.5 py-2 text-sm border border-slate-300 rounded-xl bg-white focus:outline-none focus:border-[#0096C7] font-bold text-slate-900"
+                        className="w-full px-3.5 py-2 text-sm border border-slate-300 rounded-none bg-white focus:outline-none focus:border-[#0096C7] font-bold text-slate-900"
                       />
                     </div>
 
@@ -1573,7 +1573,7 @@ export default function AdminDashboard() {
                         placeholder="600 (optional)"
                         value={formData.compareAtPrice}
                         onChange={(e) => setFormData({ ...formData, compareAtPrice: e.target.value })}
-                        className="w-full px-3.5 py-2 text-sm border border-slate-300 rounded-xl bg-white focus:outline-none focus:border-[#0096C7] text-slate-900"
+                        className="w-full px-3.5 py-2 text-sm border border-slate-300 rounded-none bg-white focus:outline-none focus:border-[#0096C7] text-slate-900"
                       />
                     </div>
 
@@ -1588,7 +1588,7 @@ export default function AdminDashboard() {
                         placeholder="50"
                         value={formData.stock}
                         onChange={(e) => setFormData({ ...formData, stock: e.target.value })}
-                        className="w-full px-3.5 py-2 text-sm border border-slate-300 rounded-xl bg-white focus:outline-none focus:border-[#0096C7] font-bold text-slate-900"
+                        className="w-full px-3.5 py-2 text-sm border border-slate-300 rounded-none bg-white focus:outline-none focus:border-[#0096C7] font-bold text-slate-900"
                       />
                     </div>
                   </div>
@@ -1603,7 +1603,7 @@ export default function AdminDashboard() {
                       placeholder="Write a clear, helpful description of this item..."
                       value={formData.description}
                       onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                      className="w-full px-4 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-none focus:border-[#0096C7] text-slate-900"
+                      className="w-full px-4 py-2.5 text-sm border border-slate-300 rounded-none focus:outline-none focus:border-[#0096C7] text-slate-900"
                     />
                   </div>
 
@@ -1618,7 +1618,7 @@ export default function AdminDashboard() {
                         placeholder="AZ-NB-001"
                         value={formData.sku}
                         onChange={(e) => setFormData({ ...formData, sku: e.target.value })}
-                        className="w-full px-3.5 py-2 text-xs border border-slate-300 rounded-xl focus:outline-none focus:border-[#0096C7] font-mono text-slate-900"
+                        className="w-full px-3.5 py-2 text-xs border border-slate-300 rounded-none focus:outline-none focus:border-[#0096C7] font-mono text-slate-900"
                       />
                     </div>
 
@@ -1631,7 +1631,7 @@ export default function AdminDashboard() {
                         placeholder="a4, notebook, atlas"
                         value={formData.tags}
                         onChange={(e) => setFormData({ ...formData, tags: e.target.value })}
-                        className="w-full px-3.5 py-2 text-xs border border-slate-300 rounded-xl focus:outline-none focus:border-[#0096C7] text-slate-900"
+                        className="w-full px-3.5 py-2 text-xs border border-slate-300 rounded-none focus:outline-none focus:border-[#0096C7] text-slate-900"
                       />
                     </div>
 
@@ -1644,7 +1644,7 @@ export default function AdminDashboard() {
                         placeholder="Best Seller, Exam Special"
                         value={formData.badge}
                         onChange={(e) => setFormData({ ...formData, badge: e.target.value })}
-                        className="w-full px-3.5 py-2 text-xs border border-slate-300 rounded-xl focus:outline-none focus:border-[#0096C7] text-slate-900"
+                        className="w-full px-3.5 py-2 text-xs border border-slate-300 rounded-none focus:outline-none focus:border-[#0096C7] text-slate-900"
                       />
                     </div>
                   </div>
@@ -1652,14 +1652,14 @@ export default function AdminDashboard() {
                   {/* Featured Toggle */}
                   <label
                     htmlFor="isFeatured"
-                    className="flex items-center gap-3 p-3.5 rounded-xl bg-sky-50/70 border border-sky-200/80 cursor-pointer select-none"
+                    className="flex items-center gap-3 p-3.5 rounded-none bg-sky-50/70 border border-sky-200/80 cursor-pointer select-none"
                   >
                     <input
                       type="checkbox"
                       id="isFeatured"
                       checked={formData.isFeatured}
                       onChange={(e) => setFormData({ ...formData, isFeatured: e.target.checked })}
-                      className="w-4 h-4 accent-[#0096C7] rounded cursor-pointer"
+                      className="w-4 h-4 accent-[#0096C7] rounded-none cursor-pointer"
                     />
                     <span className="text-xs font-bold text-slate-800">
                       Feature this product on Homepage &amp; Special Offers Page
@@ -1673,14 +1673,14 @@ export default function AdminDashboard() {
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="px-5 py-2.5 text-xs font-bold text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-xl cursor-pointer border-none"
+                  className="px-5 py-2.5 text-xs font-bold text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-none cursor-pointer border-none"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="px-7 py-2.5 bg-[#0096C7] hover:bg-[#007BA8] text-white font-bold text-xs rounded-xl shadow-md transition-all cursor-pointer border-none disabled:opacity-50"
+                  className="px-7 py-2.5 bg-[#0096C7] hover:bg-[#007BA8] text-white font-bold text-xs rounded-none shadow-md transition-all cursor-pointer border-none disabled:opacity-50"
                 >
                   {submitting
                     ? 'Saving...'
@@ -1699,7 +1699,7 @@ export default function AdminDashboard() {
          ════════════════════════════════════════════════════════════ */}
       {isBannerModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/65 backdrop-blur-xs flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
-          <div className="bg-white rounded-2xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 my-8">
+          <div className="bg-white rounded-none max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 my-8">
             <div className="flex items-center justify-between border-b border-slate-200 pb-4 mb-6">
               <div>
                 <span className="text-[11px] font-bold uppercase tracking-wider text-rose-600">
@@ -1712,7 +1712,7 @@ export default function AdminDashboard() {
               <button
                 type="button"
                 onClick={() => setIsBannerModalOpen(false)}
-                className="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center text-sm font-bold border-none cursor-pointer"
+                className="w-9 h-9 rounded-none bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center text-sm font-bold border-none cursor-pointer"
               >
                 ✕
               </button>
@@ -1731,7 +1731,7 @@ export default function AdminDashboard() {
                     placeholder="e.g. HOT DEALS or 11.11 TECH ZONE"
                     value={bannerFormData.title}
                     onChange={(e) => setBannerFormData({ ...bannerFormData, title: e.target.value })}
-                    className="w-full px-4 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-none focus:border-rose-600 font-black text-slate-900"
+                    className="w-full px-4 py-2.5 text-sm border border-slate-300 rounded-none focus:outline-none focus:border-rose-600 font-black text-slate-900"
                   />
                 </div>
 
@@ -1747,7 +1747,7 @@ export default function AdminDashboard() {
                     onChange={(e) =>
                       setBannerFormData({ ...bannerFormData, subtitle: e.target.value })
                     }
-                    className="w-full px-4 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-none focus:border-rose-600 text-slate-900"
+                    className="w-full px-4 py-2.5 text-sm border border-slate-300 rounded-none focus:outline-none focus:border-rose-600 text-slate-900"
                   />
                 </div>
               </div>
@@ -1763,7 +1763,7 @@ export default function AdminDashboard() {
                     placeholder="11.11 SHOPPING FEST"
                     value={bannerFormData.badge}
                     onChange={(e) => setBannerFormData({ ...bannerFormData, badge: e.target.value })}
-                    className="w-full px-3.5 py-2 text-xs border border-slate-300 rounded-xl focus:outline-none focus:border-rose-600 text-slate-900 font-bold"
+                    className="w-full px-3.5 py-2 text-xs border border-slate-300 rounded-none focus:outline-none focus:border-rose-600 text-slate-900 font-bold"
                   />
                 </div>
 
@@ -1778,7 +1778,7 @@ export default function AdminDashboard() {
                     onChange={(e) =>
                       setBannerFormData({ ...bannerFormData, discountText: e.target.value })
                     }
-                    className="w-full px-3.5 py-2 text-xs border border-slate-300 rounded-xl focus:outline-none focus:border-rose-600 text-slate-900 font-black"
+                    className="w-full px-3.5 py-2 text-xs border border-slate-300 rounded-none focus:outline-none focus:border-rose-600 text-slate-900 font-black"
                   />
                 </div>
 
@@ -1793,7 +1793,7 @@ export default function AdminDashboard() {
                     onChange={(e) =>
                       setBannerFormData({ ...bannerFormData, ctaText: e.target.value })
                     }
-                    className="w-full px-3.5 py-2 text-xs border border-slate-300 rounded-xl focus:outline-none focus:border-rose-600 text-slate-900 font-semibold"
+                    className="w-full px-3.5 py-2 text-xs border border-slate-300 rounded-none focus:outline-none focus:border-rose-600 text-slate-900 font-semibold"
                   />
                 </div>
               </div>
@@ -1812,7 +1812,7 @@ export default function AdminDashboard() {
                         displayMode: e.target.value as 'daraz-stage' | 'full-image',
                       })
                     }
-                    className="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white focus:outline-none focus:border-rose-600 text-slate-900 font-semibold"
+                    className="w-full px-3 py-2 text-xs border border-slate-300 rounded-none bg-white focus:outline-none focus:border-rose-600 text-slate-900 font-semibold"
                   >
                     <option value="daraz-stage">Daraz Starburst Stage</option>
                     <option value="full-image">Full Banner Image</option>
@@ -1828,7 +1828,7 @@ export default function AdminDashboard() {
                     onChange={(e) =>
                       setBannerFormData({ ...bannerFormData, bgTheme: e.target.value })
                     }
-                    className="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white focus:outline-none focus:border-rose-600 text-slate-900 font-semibold"
+                    className="w-full px-3 py-2 text-xs border border-slate-300 rounded-none bg-white focus:outline-none focus:border-rose-600 text-slate-900 font-semibold"
                   >
                     <option value="orange">🔥 Fiery Orange</option>
                     <option value="blue">⚡ Tech Blue</option>
@@ -1849,7 +1849,7 @@ export default function AdminDashboard() {
                     onChange={(e) =>
                       setBannerFormData({ ...bannerFormData, linkUrl: e.target.value })
                     }
-                    className="w-full px-3.5 py-2 text-xs border border-slate-300 rounded-xl focus:outline-none focus:border-rose-600 text-slate-900 font-mono"
+                    className="w-full px-3.5 py-2 text-xs border border-slate-300 rounded-none focus:outline-none focus:border-rose-600 text-slate-900 font-mono"
                   />
                 </div>
 
@@ -1864,13 +1864,13 @@ export default function AdminDashboard() {
                     onChange={(e) =>
                       setBannerFormData({ ...bannerFormData, order: e.target.value })
                     }
-                    className="w-full px-3.5 py-2 text-xs border border-slate-300 rounded-xl focus:outline-none focus:border-rose-600 text-slate-900 font-bold"
+                    className="w-full px-3.5 py-2 text-xs border border-slate-300 rounded-none focus:outline-none focus:border-rose-600 text-slate-900 font-bold"
                   />
                 </div>
               </div>
 
               {/* Schedule Dates */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-slate-50 p-4 rounded-xl border border-slate-200">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-slate-50 p-4 rounded-none border border-slate-200">
                 <div>
                   <label className="block text-xs font-bold text-slate-700 mb-1">
                     Start Date (Optional — Auto Show)
@@ -1881,7 +1881,7 @@ export default function AdminDashboard() {
                     onChange={(e) =>
                       setBannerFormData({ ...bannerFormData, startDate: e.target.value })
                     }
-                    className="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg bg-white focus:outline-none focus:border-rose-600 text-slate-900"
+                    className="w-full px-3 py-2 text-xs border border-slate-300 rounded-none bg-white focus:outline-none focus:border-rose-600 text-slate-900"
                   />
                 </div>
 
@@ -1895,7 +1895,7 @@ export default function AdminDashboard() {
                     onChange={(e) =>
                       setBannerFormData({ ...bannerFormData, endDate: e.target.value })
                     }
-                    className="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg bg-white focus:outline-none focus:border-rose-600 text-slate-900"
+                    className="w-full px-3 py-2 text-xs border border-slate-300 rounded-none bg-white focus:outline-none focus:border-rose-600 text-slate-900"
                   />
                 </div>
               </div>
@@ -1906,7 +1906,7 @@ export default function AdminDashboard() {
                   <label className="text-xs font-bold text-slate-700">
                     Banner Product / Campaign Image *
                   </label>
-                  <label className="px-3.5 py-1.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-lg cursor-pointer transition-colors inline-flex items-center gap-1.5">
+                  <label className="px-3.5 py-1.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-none cursor-pointer transition-colors inline-flex items-center gap-1.5">
                     <Upload size={13} />
                     <span>{uploadingBannerImg ? 'Uploading...' : 'Upload from PC / Phone'}</span>
                     <input
@@ -1925,7 +1925,7 @@ export default function AdminDashboard() {
                   placeholder="/images/hd/products/school-backpack-blue.jpg"
                   value={bannerFormData.image}
                   onChange={(e) => setBannerFormData({ ...bannerFormData, image: e.target.value })}
-                  className="w-full px-3.5 py-2 text-xs border border-slate-300 rounded-xl focus:outline-none focus:border-rose-600 text-slate-900 font-mono"
+                  className="w-full px-3.5 py-2 text-xs border border-slate-300 rounded-none focus:outline-none focus:border-rose-600 text-slate-900 font-mono"
                 />
 
                 <div className="flex flex-wrap gap-1.5 mt-2.5">
@@ -1940,7 +1940,7 @@ export default function AdminDashboard() {
                           displayMode: preset.mode || bannerFormData.displayMode,
                         })
                       }
-                      className="px-2.5 py-1 bg-rose-50 hover:bg-rose-100 text-rose-800 text-[11px] font-semibold rounded-lg border border-rose-200 cursor-pointer transition-colors"
+                      className="px-2.5 py-1 bg-rose-50 hover:bg-rose-100 text-rose-800 text-[11px] font-semibold rounded-none border border-rose-200 cursor-pointer transition-colors"
                     >
                       🖼️ {preset.label}
                     </button>
@@ -1951,7 +1951,7 @@ export default function AdminDashboard() {
               {/* Active Checkbox */}
               <label
                 htmlFor="isBannerActive"
-                className="flex items-center gap-3 p-3.5 rounded-xl bg-rose-50/70 border border-rose-200 cursor-pointer select-none"
+                className="flex items-center gap-3 p-3.5 rounded-none bg-rose-50/70 border border-rose-200 cursor-pointer select-none"
               >
                 <input
                   type="checkbox"
@@ -1960,7 +1960,7 @@ export default function AdminDashboard() {
                   onChange={(e) =>
                     setBannerFormData({ ...bannerFormData, isActive: e.target.checked })
                   }
-                  className="w-4 h-4 accent-rose-600 rounded cursor-pointer"
+                  className="w-4 h-4 accent-rose-600 rounded-none cursor-pointer"
                 />
                 <span className="text-xs font-bold text-slate-800">
                   Show this banner slide on the Homepage right now
@@ -1972,14 +1972,14 @@ export default function AdminDashboard() {
                 <button
                   type="button"
                   onClick={() => setIsBannerModalOpen(false)}
-                  className="px-5 py-2.5 text-xs font-bold text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-xl cursor-pointer border-none"
+                  className="px-5 py-2.5 text-xs font-bold text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-none cursor-pointer border-none"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={submittingBanner}
-                  className="px-7 py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs rounded-xl shadow-md transition-all cursor-pointer border-none disabled:opacity-50"
+                  className="px-7 py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs rounded-none shadow-md transition-all cursor-pointer border-none disabled:opacity-50"
                 >
                   {submittingBanner
                     ? 'Publishing...'

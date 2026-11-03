@@ -19,7 +19,7 @@ export default function ContactPage() {
       {/* Header */}
       <section className="bg-[#0f172a] text-white py-14 sm:py-20 text-center">
         <div className="container max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-600/30 text-blue-300 text-xs font-black uppercase rounded-full mb-3 tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-600/30 text-blue-300 text-xs font-black uppercase rounded-none mb-3 tracking-wider">
             Customer Support &amp; Branch Info
           </div>
           <h1 className="text-3xl sm:text-5xl font-black font-['Outfit'] mb-3">
@@ -36,13 +36,13 @@ export default function ContactPage() {
           
           {/* Left: Contact Info Cards */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm space-y-6">
+            <div className="bg-white p-6 rounded-none border border-gray-200 shadow-sm space-y-6">
               <h2 className="text-xl font-black text-gray-900 font-['Outfit'] pb-3 border-b border-gray-100">
                 Store Location &amp; Contact
               </h2>
 
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#007AFF] flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-none bg-blue-50 text-[#007AFF] flex items-center justify-center shrink-0">
                   <MapPin size={20} />
                 </div>
                 <div>
@@ -54,7 +54,7 @@ export default function ContactPage() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#007AFF] flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-none bg-blue-50 text-[#007AFF] flex items-center justify-center shrink-0">
                   <Phone size={20} />
                 </div>
                 <div>
@@ -64,7 +64,7 @@ export default function ContactPage() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-none bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
                   <MessageCircle size={20} />
                 </div>
                 <div>
@@ -82,7 +82,7 @@ export default function ContactPage() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#007AFF] flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-none bg-blue-50 text-[#007AFF] flex items-center justify-center shrink-0">
                   <Mail size={20} />
                 </div>
                 <div>
@@ -92,7 +92,7 @@ export default function ContactPage() {
               </div>
 
               <div className="flex items-start gap-4 pt-2 border-t border-gray-100">
-                <div className="w-10 h-10 rounded-xl bg-gray-100 text-gray-700 flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-none bg-gray-100 text-gray-700 flex items-center justify-center shrink-0">
                   <Clock size={20} />
                 </div>
                 <div>
@@ -108,7 +108,7 @@ export default function ContactPage() {
 
           {/* Right: Contact Form */}
           <div className="lg:col-span-7">
-            <div className="bg-white p-6 sm:p-8 rounded-2xl border border-gray-200 shadow-sm">
+            <div className="bg-white p-6 sm:p-8 rounded-none border border-gray-200 shadow-sm">
               <h2 className="text-xl font-black text-gray-900 font-['Outfit'] mb-2">
                 Send Us a Message
               </h2>
@@ -118,7 +118,7 @@ export default function ContactPage() {
 
               {submitted ? (
                 <div className="py-12 text-center">
-                  <div className="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-none flex items-center justify-center mx-auto mb-4">
                     <CheckCircle2 size={36} />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 font-['Outfit'] mb-1">Message Sent Successfully!</h3>
@@ -143,7 +143,7 @@ export default function ContactPage() {
                         value={form.name}
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
                         placeholder="Kasun Perera"
-                        className="w-full px-4 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#007AFF]"
+                        className="w-full px-4 py-2.5 rounded-none border border-gray-300 text-sm focus:outline-none focus:border-[#007AFF]"
                       />
                     </div>
                     <div>
@@ -154,7 +154,7 @@ export default function ContactPage() {
                         value={form.phone}
                         onChange={(e) => setForm({ ...form, phone: e.target.value })}
                         placeholder="077 XXXXXXX"
-                        className="w-full px-4 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#007AFF]"
+                        className="w-full px-4 py-2.5 rounded-none border border-gray-300 text-sm focus:outline-none focus:border-[#007AFF]"
                       />
                     </div>
                   </div>
@@ -167,7 +167,7 @@ export default function ContactPage() {
                         value={form.email}
                         onChange={(e) => setForm({ ...form, email: e.target.value })}
                         placeholder="you@email.com"
-                        className="w-full px-4 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#007AFF]"
+                        className="w-full px-4 py-2.5 rounded-none border border-gray-300 text-sm focus:outline-none focus:border-[#007AFF]"
                       />
                     </div>
                     <div>
@@ -177,7 +177,7 @@ export default function ContactPage() {
                         value={form.subject}
                         onChange={(e) => setForm({ ...form, subject: e.target.value })}
                         placeholder="School Booklist / Product Inquiry"
-                        className="w-full px-4 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#007AFF]"
+                        className="w-full px-4 py-2.5 rounded-none border border-gray-300 text-sm focus:outline-none focus:border-[#007AFF]"
                       />
                     </div>
                   </div>
@@ -190,7 +190,7 @@ export default function ContactPage() {
                       value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
                       placeholder="Write your questions, product names, or book details..."
-                      className="w-full px-4 py-2.5 rounded-xl border border-gray-300 text-sm focus:outline-none focus:border-[#007AFF]"
+                      className="w-full px-4 py-2.5 rounded-none border border-gray-300 text-sm focus:outline-none focus:border-[#007AFF]"
                     />
                   </div>
 

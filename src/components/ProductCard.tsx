@@ -63,7 +63,7 @@ export default function ProductCard({
       onClick={handleAddToCart}
       disabled={outOfStock}
       aria-label={outOfStock ? 'Out of stock' : `Add ${name} to cart`}
-      className={`flex items-center justify-center gap-1.5 text-xs font-bold rounded-lg border transition-all ${
+      className={`flex items-center justify-center gap-1.5 text-xs font-bold rounded-none border transition-all ${
         added
           ? 'bg-emerald-600 border-emerald-600 text-white'
           : outOfStock
@@ -88,7 +88,7 @@ export default function ProductCard({
   );
 
   const discountTag = hasDiscount && (
-    <span className="absolute top-2.5 left-2.5 z-10 bg-rose-500 text-white text-[11px] font-extrabold px-2 py-0.5 rounded-md shadow-xs">
+    <span className="absolute top-2.5 left-2.5 z-10 bg-rose-500 text-white text-[11px] font-extrabold px-2 py-0.5 rounded-none shadow-xs">
       -{discount}%
     </span>
   );
@@ -96,10 +96,10 @@ export default function ProductCard({
   // ── List view ──
   if (viewMode === 'list') {
     return (
-      <div className="group flex items-center gap-4 bg-white rounded-xl border border-slate-200 hover:border-[#00C4D8] shadow-xs hover:shadow-md transition-all p-3.5">
+      <div className="group flex items-center gap-4 bg-white rounded-none border border-slate-200 hover:border-[#00C4D8] shadow-xs hover:shadow-md transition-all p-3.5">
         <Link
           href={`/products/${slug}`}
-          className="relative w-28 h-28 sm:w-32 sm:h-32 shrink-0 bg-white rounded-lg border border-slate-100 flex items-center justify-center p-2"
+          className="relative w-28 h-28 sm:w-32 sm:h-32 shrink-0 bg-white rounded-none border border-slate-100 flex items-center justify-center p-2"
         >
           {discountTag}
           <img
@@ -130,14 +130,14 @@ export default function ProductCard({
 
   // ── Grid view ──
   return (
-    <div className="group flex flex-col h-full bg-white rounded-xl border border-slate-200/90 hover:border-[#00C4D8] shadow-xs hover:shadow-md transition-all duration-200 overflow-hidden">
+    <div className="group flex flex-col h-full bg-white rounded-none border border-slate-200/90 hover:border-[#00C4D8] shadow-xs hover:shadow-md transition-all duration-200 overflow-hidden">
       <Link
         href={`/products/${slug}`}
         className="relative block w-full aspect-square bg-white p-4 border-b border-slate-100 overflow-hidden"
       >
         {discountTag}
         {badge && (
-          <span className="absolute top-2.5 right-2.5 z-10 bg-sky-50 text-[#0096C7] border border-sky-200/80 text-[10px] font-bold px-2 py-0.5 rounded-md">
+          <span className="absolute top-2.5 right-2.5 z-10 bg-sky-50 text-[#0096C7] border border-sky-200/80 text-[10px] font-bold px-2 py-0.5 rounded-none">
             {badge}
           </span>
         )}

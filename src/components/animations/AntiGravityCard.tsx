@@ -70,7 +70,7 @@ export default function AntiGravityCard({
       }}
     >
       <div
-        className="w-full h-full transition-transform duration-200 ease-out transform-style-3d relative rounded-xl"
+        className="w-full h-full transition-transform duration-200 ease-out transform-style-3d relative rounded-none"
         style={{
           transform: isHovered
             ? `rotateX(${rotation.x.toFixed(2)}deg) rotateY(${rotation.y.toFixed(2)}deg) translateZ(12px) scale(1.015)`
@@ -84,7 +84,7 @@ export default function AntiGravityCard({
       >
         {/* Specular Holographic Glare Sheen Overlay */}
         <div
-          className="absolute inset-0 pointer-events-none z-30 transition-opacity duration-300 rounded-xl overflow-hidden"
+          className="absolute inset-0 pointer-events-none z-30 transition-opacity duration-300 rounded-none overflow-hidden"
           style={{
             opacity: shine.opacity,
             background: `radial-gradient(circle at ${shine.x}% ${shine.y}%, rgba(0, 229, 255, 0.45) 0%, rgba(255, 255, 255, 0.2) 25%, transparent 65%)`,

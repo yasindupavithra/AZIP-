@@ -29,7 +29,7 @@ export const BrandLogo: FC<BrandLogoProps> = ({ name, className = 'h-6 w-auto' }
 
     case 'maped':
       return (
-        <div className={`px-2.5 py-0.5 rounded-full bg-[#E50027] text-white font-black italic text-[14px] sm:text-[15px] tracking-tight select-none shadow-sm flex items-center justify-center ${className}`}>
+        <div className={`px-2.5 py-0.5 rounded-none bg-[#E50027] text-white font-black italic text-[14px] sm:text-[15px] tracking-tight select-none shadow-sm flex items-center justify-center ${className}`}>
           Maped
         </div>
       );

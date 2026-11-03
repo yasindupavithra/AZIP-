@@ -176,12 +176,12 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fade-in font-sans">
-      <div className="relative w-full max-w-xl bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 flex flex-col max-h-[90vh]">
+      <div className="relative w-full max-w-xl bg-white rounded-none shadow-2xl overflow-hidden border border-gray-100 flex flex-col max-h-[90vh]">
         
         {/* Header */}
         <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 px-6 py-5 text-white flex items-center justify-between shrink-0">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-[#007AFF] flex items-center justify-center text-white shadow-md">
+            <div className="w-10 h-10 rounded-none bg-[#007AFF] flex items-center justify-center text-white shadow-md">
               <Upload size={20} />
             </div>
             <div>
@@ -196,7 +196,7 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
           </div>
           <button
             onClick={resetModal}
-            className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors border-none cursor-pointer"
+            className="w-8 h-8 rounded-none bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors border-none cursor-pointer"
           >
             <X size={18} />
           </button>
@@ -205,17 +205,17 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
         {/* Progress Bar */}
         <div className="bg-slate-100 px-6 py-2.5 border-b border-gray-200 flex items-center justify-between text-xs font-bold text-gray-500 shrink-0">
           <div className={`flex items-center gap-2 ${step >= 1 ? 'text-[#007AFF]' : ''}`}>
-            <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] ${step >= 1 ? 'bg-[#007AFF] text-white' : 'bg-gray-300 text-gray-600'}`}>1</span>
+            <span className={`w-5 h-5 rounded-none flex items-center justify-center text-[10px] ${step >= 1 ? 'bg-[#007AFF] text-white' : 'bg-gray-300 text-gray-600'}`}>1</span>
             <span>Upload File</span>
           </div>
           <div className="h-0.5 flex-1 bg-gray-200 mx-3" />
           <div className={`flex items-center gap-2 ${step >= 2 ? 'text-[#007AFF]' : ''}`}>
-            <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] ${step >= 2 ? 'bg-[#007AFF] text-white' : 'bg-gray-300 text-gray-600'}`}>2</span>
+            <span className={`w-5 h-5 rounded-none flex items-center justify-center text-[10px] ${step >= 2 ? 'bg-[#007AFF] text-white' : 'bg-gray-300 text-gray-600'}`}>2</span>
             <span>Contact Info</span>
           </div>
           <div className="h-0.5 flex-1 bg-gray-200 mx-3" />
           <div className={`flex items-center gap-2 ${step >= 3 ? 'text-emerald-600' : ''}`}>
-            <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] ${step >= 3 ? 'bg-emerald-600 text-white' : 'bg-gray-300 text-gray-600'}`}>3</span>
+            <span className={`w-5 h-5 rounded-none flex items-center justify-center text-[10px] ${step >= 3 ? 'bg-emerald-600 text-white' : 'bg-gray-300 text-gray-600'}`}>3</span>
             <span>Done</span>
           </div>
         </div>
@@ -223,7 +223,7 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
         {/* Modal Body */}
         <div className="p-6 overflow-y-auto flex-1">
           {errorMsg && (
-            <div className="mb-4 p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs font-semibold flex items-center gap-2">
+            <div className="mb-4 p-3 rounded-none bg-red-50 border border-red-200 text-red-700 text-xs font-semibold flex items-center gap-2">
               <AlertCircle size={16} className="shrink-0 text-red-500" />
               <span>{errorMsg}</span>
             </div>
@@ -237,7 +237,7 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
                 onDragLeave={handleDrag}
                 onDragOver={handleDrag}
                 onDrop={handleDrop}
-                className={`relative border-2 border-dashed rounded-2xl p-8 text-center transition-all cursor-pointer ${
+                className={`relative border-2 border-dashed rounded-none p-8 text-center transition-all cursor-pointer ${
                   dragActive
                     ? 'border-[#007AFF] bg-blue-50/50 scale-[0.99]'
                     : file
@@ -254,7 +254,7 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
 
                 {file ? (
                   <div className="space-y-2">
-                    <div className="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto shadow-sm">
+                    <div className="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-none flex items-center justify-center mx-auto shadow-sm">
                       <FileCheck size={28} />
                     </div>
                     <div className="text-sm font-bold text-gray-900">{file.name}</div>
@@ -274,7 +274,7 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
                   </div>
                 ) : (
                   <div className="space-y-3">
-                    <div className="w-14 h-14 bg-blue-50 text-[#007AFF] rounded-2xl flex items-center justify-center mx-auto shadow-sm">
+                    <div className="w-14 h-14 bg-blue-50 text-[#007AFF] rounded-none flex items-center justify-center mx-auto shadow-sm">
                       <Upload size={26} />
                     </div>
                     <div>
@@ -289,7 +289,7 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
                 )}
               </div>
 
-              <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-xs text-amber-800 flex items-start gap-3">
+              <div className="bg-amber-50 border border-amber-200 rounded-none p-4 text-xs text-amber-800 flex items-start gap-3">
                 <Sparkles size={18} className="text-amber-600 shrink-0 mt-0.5" />
                 <div>
                   <span className="font-bold block mb-0.5">Parent Tip:</span>
@@ -302,7 +302,7 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
                   type="button"
                   onClick={handleNextToStep2}
                   disabled={!file}
-                  className={`px-6 py-3 rounded-xl font-bold text-xs sm:text-sm text-white transition-all flex items-center gap-2 ${
+                  className={`px-6 py-3 rounded-none font-bold text-xs sm:text-sm text-white transition-all flex items-center gap-2 ${
                     file
                       ? 'bg-[#007AFF] hover:bg-[#0056B3] shadow-md cursor-pointer hover:scale-[1.02]'
                       : 'bg-gray-300 cursor-not-allowed'
@@ -331,7 +331,7 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
                     value={studentName}
                     onChange={(e) => setStudentName(e.target.value)}
                     placeholder="e.g. Kasun Perera"
-                    className="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-xs sm:text-sm font-medium focus:outline-none focus:border-[#007AFF] focus:ring-2 focus:ring-blue-500/10"
+                    className="w-full px-3.5 py-2.5 border border-gray-200 rounded-none text-xs sm:text-sm font-medium focus:outline-none focus:border-[#007AFF] focus:ring-2 focus:ring-blue-500/10"
                   />
                 </div>
 
@@ -343,7 +343,7 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
                   <select
                     value={grade}
                     onChange={(e) => setGrade(e.target.value)}
-                    className="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-xs sm:text-sm font-medium focus:outline-none focus:border-[#007AFF] bg-white"
+                    className="w-full px-3.5 py-2.5 border border-gray-200 rounded-none text-xs sm:text-sm font-medium focus:outline-none focus:border-[#007AFF] bg-white"
                   >
                     <option value="Grade 1-5 Primary">Grade 1 - 5 (Primary)</option>
                     <option value="Grade 6">Grade 6</option>
@@ -367,7 +367,7 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
                     value={schoolName}
                     onChange={(e) => setSchoolName(e.target.value)}
                     placeholder="e.g. Dharmaraja College, Kandy"
-                    className="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-xs sm:text-sm font-medium focus:outline-none focus:border-[#007AFF] focus:ring-2 focus:ring-blue-500/10"
+                    className="w-full px-3.5 py-2.5 border border-gray-200 rounded-none text-xs sm:text-sm font-medium focus:outline-none focus:border-[#007AFF] focus:ring-2 focus:ring-blue-500/10"
                   />
                 </div>
 
@@ -382,7 +382,7 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
                     value={parentPhone}
                     onChange={(e) => setParentPhone(e.target.value)}
                     placeholder="e.g. 077 123 4567"
-                    className="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-xs sm:text-sm font-medium focus:outline-none focus:border-[#007AFF] focus:ring-2 focus:ring-blue-500/10"
+                    className="w-full px-3.5 py-2.5 border border-gray-200 rounded-none text-xs sm:text-sm font-medium focus:outline-none focus:border-[#007AFF] focus:ring-2 focus:ring-blue-500/10"
                   />
                 </div>
               </div>
@@ -397,7 +397,7 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
                   placeholder="e.g. Kandy, Peradeniya, Colombo, Galle..."
-                  className="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-xs sm:text-sm font-medium focus:outline-none focus:border-[#007AFF]"
+                  className="w-full px-3.5 py-2.5 border border-gray-200 rounded-none text-xs sm:text-sm font-medium focus:outline-none focus:border-[#007AFF]"
                 />
               </div>
 
@@ -411,7 +411,7 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
                   placeholder="e.g. Please use Atlas CR books & Pilot gel pens if available..."
-                  className="w-full px-3.5 py-2 border border-gray-200 rounded-xl text-xs sm:text-sm font-medium focus:outline-none focus:border-[#007AFF]"
+                  className="w-full px-3.5 py-2 border border-gray-200 rounded-none text-xs sm:text-sm font-medium focus:outline-none focus:border-[#007AFF]"
                 />
               </div>
 
@@ -419,18 +419,18 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
                 <button
                   type="button"
                   onClick={() => setStep(1)}
-                  className="px-4 py-2.5 text-xs font-bold text-gray-600 hover:text-gray-900 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors"
+                  className="px-4 py-2.5 text-xs font-bold text-gray-600 hover:text-gray-900 border border-gray-200 rounded-none hover:bg-gray-50 transition-colors"
                 >
                   Back to File
                 </button>
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="px-6 py-3 bg-[#007AFF] hover:bg-[#0056B3] text-white text-xs sm:text-sm font-bold rounded-xl shadow-md hover:shadow-lg transition-all flex items-center gap-2 cursor-pointer border-none"
+                  className="px-6 py-3 bg-[#007AFF] hover:bg-[#0056B3] text-white text-xs sm:text-sm font-bold rounded-none shadow-md hover:shadow-lg transition-all flex items-center gap-2 cursor-pointer border-none"
                 >
                   {isSubmitting ? (
                     <>
-                      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-none animate-spin" />
                       <span>Processing...</span>
                     </>
                   ) : (
@@ -447,7 +447,7 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
           {/* STEP 3: Success Confirmation State */}
           {step === 3 && (
             <div className="text-center py-6 space-y-4">
-              <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto shadow-md animate-scale-in">
+              <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-none flex items-center justify-center mx-auto shadow-md animate-scale-in">
                 <CheckCircle2 size={36} />
               </div>
 
@@ -460,7 +460,7 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
                 </p>
               </div>
 
-              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-left max-w-md mx-auto text-xs space-y-2">
+              <div className="bg-slate-50 border border-slate-200 rounded-none p-4 text-left max-w-md mx-auto text-xs space-y-2">
                 <div className="flex justify-between border-b border-slate-200 pb-1.5">
                   <span className="text-gray-500 font-medium">Student:</span>
                   <span className="font-bold text-gray-900">{studentName} ({grade})</span>
@@ -495,7 +495,7 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
                   href={generateWhatsAppMessage()}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-full py-3.5 px-5 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white text-xs sm:text-sm font-extrabold rounded-2xl shadow-lg hover:shadow-emerald-500/25 transition-all flex items-center justify-center gap-2 border border-emerald-400/30 cursor-pointer"
+                  className="w-full py-3.5 px-5 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white text-xs sm:text-sm font-extrabold rounded-none shadow-lg hover:shadow-emerald-500/25 transition-all flex items-center justify-center gap-2 border border-emerald-400/30 cursor-pointer"
                 >
                   <MessageCircle size={18} className="fill-white text-emerald-600" />
                   <span>Send Booklist via WhatsApp for Instant Response</span>

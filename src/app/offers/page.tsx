@@ -34,7 +34,7 @@ export default function OffersPage() {
       {/* Banner */}
       <section className="bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900 text-white py-14 sm:py-18 text-center relative overflow-hidden">
         <div className="container relative z-10 max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/20 rounded-full text-xs font-black uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/20 rounded-none text-xs font-black uppercase tracking-wider mb-3">
             <Flame size={14} className="text-amber-300" /> HOT DEALS &amp; PROMOTIONS
           </div>
           <h1 className="text-3xl sm:text-5xl font-black font-['Outfit'] mb-3">
@@ -49,9 +49,9 @@ export default function OffersPage() {
       <div className="container py-10 sm:py-14">
         {/* Promo Coupons */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          <div className="bg-white p-5 rounded-2xl border-2 border-dashed border-blue-300 shadow-sm flex items-center justify-between gap-4">
+          <div className="bg-white p-5 rounded-none border-2 border-dashed border-blue-300 shadow-sm flex items-center justify-between gap-4">
             <div>
-              <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#007AFF] bg-blue-50 px-2 py-0.5 rounded">
+              <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#007AFF] bg-blue-50 px-2 py-0.5 rounded-none">
                 FREE DELIVERY
               </span>
               <h3 className="font-bold text-gray-900 text-sm sm:text-base mt-1">Orders Over Rs. 5,000</h3>
@@ -60,9 +60,9 @@ export default function OffersPage() {
             <div className="font-['Outfit'] font-black text-xl text-[#007AFF]">FREE</div>
           </div>
 
-          <div className="bg-white p-5 rounded-2xl border-2 border-dashed border-blue-300 shadow-sm flex items-center justify-between gap-4">
+          <div className="bg-white p-5 rounded-none border-2 border-dashed border-blue-300 shadow-sm flex items-center justify-between gap-4">
             <div>
-              <span className="text-[10px] font-extrabold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">
+              <span className="text-[10px] font-extrabold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-none">
                 STUDENT BUNDLE
               </span>
               <h3 className="font-bold text-gray-900 text-sm sm:text-base mt-1">A/L &amp; O/L Math Packs</h3>
@@ -71,9 +71,9 @@ export default function OffersPage() {
             <div className="font-['Outfit'] font-black text-xl text-emerald-600">-20%</div>
           </div>
 
-          <div className="bg-white p-5 rounded-2xl border-2 border-dashed border-blue-300 shadow-sm flex items-center justify-between gap-4">
+          <div className="bg-white p-5 rounded-none border-2 border-dashed border-blue-300 shadow-sm flex items-center justify-between gap-4">
             <div>
-              <span className="text-[10px] font-extrabold uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded">
+              <span className="text-[10px] font-extrabold uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded-none">
                 ARTIST PASS
               </span>
               <h3 className="font-bold text-gray-900 text-sm sm:text-base mt-1">Faber-Castell &amp; Paints</h3>
