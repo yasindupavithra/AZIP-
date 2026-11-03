@@ -283,7 +283,7 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
 
               {/* 3D Perspective Floor Stage Reflection at Bottom */}
               <div
-                className="absolute bottom-0 left-0 right-0 h-16 sm:h-20 pointer-events-none border-t border-white/25"
+                className="absolute bottom-0 left-0 right-0 h-20 sm:h-24 md:h-20 pointer-events-none border-t border-white/25"
                 style={{
                   backgroundImage: `linear-gradient(90deg, rgba(255,255,255,0.12) 1px, transparent 1px), linear-gradient(180deg, rgba(255,255,255,0.18) 1px, transparent 1px), ${theme.floorGradient}`,
                   backgroundSize: '48px 18px, 48px 18px, 100% 100%',
@@ -291,43 +291,68 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
               />
 
               {/* Content Grid */}
-              <div className="relative z-10 w-full grid grid-cols-1 md:grid-cols-12 items-center gap-4 px-4 sm:px-8 md:px-10 py-6">
-                {/* LEFT COLUMN: Ribbon + Giant Headline + Subtitle + 2 Angled Badges + Pill CTA */}
-                <div className="md:col-span-5 flex flex-col items-start z-20">
-                  {/* Flush Left White Festival Ribbon */}
-                  <div className="-ml-4 sm:-ml-8 md:-ml-10 mb-3 bg-white pl-4 sm:pl-8 md:pl-10 pr-5 py-1.5 rounded-none shadow-md">
-                    <span
-                      className={`text-sm sm:text-lg md:text-xl font-black tracking-tight uppercase ${theme.ribbonText}`}
-                      style={{ fontFamily: 'Outfit, sans-serif' }}
+              <div className="relative z-10 w-full grid grid-cols-1 md:grid-cols-12 items-center gap-3 sm:gap-4 px-4 sm:px-8 md:px-11 pt-3.5 pb-8 sm:py-6">
+                {/* LEFT COLUMN: Ribbon + Giant Headline + Subtitle + 2 Angled Badges + CTA */}
+                <div className="md:col-span-5 flex flex-col items-start z-20 w-full">
+                  {/* Top Row on Mobile: Left Ribbon+Headline & Right 3D "UP TO 65% OFF" Square */}
+                  <div className="w-full flex items-start justify-between gap-2">
+                    <div className="flex flex-col items-start min-w-0 flex-1">
+                      {/* Flush Left White Festival Ribbon */}
+                      <div className="-ml-4 sm:-ml-8 md:-ml-11 mb-2 sm:mb-3 bg-white pl-4 sm:pl-8 md:pl-11 pr-3.5 sm:pr-5 py-1 sm:py-1.5 rounded-none shadow-md">
+                        <span
+                          className={`text-[11px] sm:text-base md:text-xl font-black tracking-tight uppercase ${theme.ribbonText}`}
+                          style={{ fontFamily: 'Outfit, sans-serif' }}
+                        >
+                          {slide.badge || '11.11 SHOPPING FEST'}
+                        </span>
+                      </div>
+
+                      {/* Giant Bold Headline */}
+                      <h2
+                        className="text-2xl sm:text-4xl lg:text-[3.1rem] font-black text-white uppercase tracking-tight leading-[0.98] drop-shadow-[0_3px_10px_rgba(0,0,0,0.28)]"
+                        style={{ fontFamily: 'Outfit, sans-serif' }}
+                      >
+                        {slide.title}
+                      </h2>
+
+                      {/* Subtitle */}
+                      <p className="mt-1 sm:mt-2 text-xs sm:text-base md:text-[1.08rem] font-semibold text-white/95 drop-shadow-xs line-clamp-1">
+                        {slide.subtitle}
+                      </p>
+                    </div>
+
+                    {/* Mobile / Tablet 3D Glossy Square "UP TO 65% OFF" Badge in Top-Right (visible below md) */}
+                    <Link
+                      href={slide.linkUrl || '/offers'}
+                      className={`flex md:hidden w-[72px] h-[72px] sm:w-24 sm:h-24 rounded-none flex-col items-center justify-center text-center shadow-[0_10px_24px_rgba(0,0,0,0.32),inset_0_2px_6px_rgba(255,255,255,0.85)] shrink-0 ${theme.sphereText}`}
+                      style={{ backgroundImage: theme.sphereGradient }}
                     >
-                      {slide.badge || '11.11 SHOPPING FEST'}
-                    </span>
+                      <span className="text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wider leading-none">
+                        UP TO
+                      </span>
+                      <span
+                        className="text-xl sm:text-2xl font-black leading-none my-0.5 tracking-tight"
+                        style={{ fontFamily: 'Outfit, sans-serif' }}
+                      >
+                        {slide.discountText || '65%'}
+                      </span>
+                      <span className="text-[9px] sm:text-[11px] font-extrabold uppercase leading-none">
+                        OFF
+                      </span>
+                    </Link>
                   </div>
 
-                  {/* Giant Bold Headline */}
-                  <h2
-                    className="text-3xl sm:text-5xl lg:text-[3.35rem] font-black text-white uppercase tracking-tight leading-[0.98] drop-shadow-[0_3px_10px_rgba(0,0,0,0.28)]"
-                    style={{ fontFamily: 'Outfit, sans-serif' }}
-                  >
-                    {slide.title}
-                  </h2>
-
-                  {/* Subtitle */}
-                  <p className="mt-1.5 sm:mt-2 text-sm sm:text-lg md:text-[1.2rem] font-semibold text-white/95 drop-shadow-xs line-clamp-1">
-                    {slide.subtitle}
-                  </p>
-
-                  {/* Two Angled Parallelogram Feature Badges (Daraz Signature) */}
-                  <div className="mt-3.5 sm:mt-4 flex flex-wrap items-center gap-2.5 sm:gap-3">
+                  {/* Badges + CTA Action Area */}
+                  <div className="mt-2.5 sm:mt-4 flex flex-wrap items-center gap-2 sm:gap-2.5 w-full">
                     <div
-                      className="bg-white px-3 sm:px-3.5 py-1.5 shadow-md flex items-center gap-2"
+                      className="bg-white px-2.5 sm:px-3.5 py-1 sm:py-1.5 shadow-md flex items-center gap-1.5"
                       style={{ transform: 'skewX(-12deg)' }}
                     >
                       <div className="flex items-center gap-1.5" style={{ transform: 'skewX(12deg)' }}>
-                        <span className="w-6 h-6 rounded-none bg-[#0096C7] text-white flex items-center justify-center shrink-0">
-                          <Ticket size={14} />
+                        <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-none bg-[#0096C7] text-white flex items-center justify-center shrink-0">
+                          <Ticket size={12} />
                         </span>
-                        <div className={`text-[10px] sm:text-[11px] font-extrabold leading-tight ${theme.tagAccent}`}>
+                        <div className={`text-[9px] sm:text-[11px] font-extrabold leading-tight ${theme.tagAccent}`}>
                           <div>Discount</div>
                           <div>Vouchers</div>
                         </div>
@@ -335,36 +360,45 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
                     </div>
 
                     <div
-                      className="bg-white px-3 sm:px-3.5 py-1.5 shadow-md flex items-center gap-2"
+                      className="bg-white px-2.5 sm:px-3.5 py-1 sm:py-1.5 shadow-md flex items-center gap-1.5"
                       style={{ transform: 'skewX(-12deg)' }}
                     >
                       <div className="flex items-center gap-1.5" style={{ transform: 'skewX(12deg)' }}>
-                        <span className="w-6 h-6 rounded-none bg-emerald-600 text-white flex items-center justify-center shrink-0">
-                          <Truck size={14} />
+                        <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-none bg-emerald-600 text-white flex items-center justify-center shrink-0">
+                          <Truck size={12} />
                         </span>
-                        <div className="text-[10px] sm:text-[11px] font-extrabold leading-tight text-emerald-700">
+                        <div className="text-[9px] sm:text-[11px] font-extrabold leading-tight text-emerald-700">
                           <div>Free</div>
                           <div>Delivery</div>
                         </div>
                       </div>
                     </div>
+
+                    {/* On Mobile (< md), place CTA inline/next to badges so banner stays sleek and compact */}
+                    <Link
+                      href={slide.linkUrl || '/offers'}
+                      className={`md:hidden ml-auto inline-flex items-center justify-center px-4 sm:px-6 py-1.5 sm:py-2 rounded-none font-extrabold text-xs sm:text-sm shadow-[0_6px_16px_rgba(0,0,0,0.28)] hover:scale-105 transition-transform ${theme.ctaText}`}
+                      style={{ backgroundImage: theme.ctaGradient }}
+                    >
+                      {slide.ctaText || 'Add to Cart'}
+                    </Link>
                   </div>
 
-                  {/* Bottom-Left rounded-none Pill CTA Button */}
+                  {/* Desktop (md+) Bottom-Left CTA Button */}
                   <Link
                     href={slide.linkUrl || '/offers'}
-                    className={`mt-4 sm:mt-5 inline-flex items-center justify-center px-7 sm:px-9 py-2 sm:py-2.5 rounded-none font-extrabold text-xs sm:text-sm shadow-[0_6px_16px_rgba(0,0,0,0.28)] hover:scale-105 transition-transform ${theme.ctaText}`}
+                    className={`hidden md:inline-flex mt-4 sm:mt-5 items-center justify-center px-8 py-2.5 rounded-none font-extrabold text-sm shadow-[0_6px_16px_rgba(0,0,0,0.28)] hover:scale-105 transition-transform ${theme.ctaText}`}
                     style={{ backgroundImage: theme.ctaGradient }}
                   >
                     {slide.ctaText || 'Add to Cart'}
                   </Link>
                 </div>
 
-                {/* CENTER COLUMN: 3D Glossy Circular "UP TO 65% OFF" Sphere */}
-                <div className="hidden sm:flex md:col-span-2 items-center justify-center z-20">
+                {/* CENTER COLUMN: 3D Glossy Square "UP TO 65% OFF" Badge (Desktop md+) */}
+                <div className="hidden md:flex md:col-span-2 items-center justify-center z-20">
                   <Link
                     href={slide.linkUrl || '/offers'}
-                    className={`w-28 h-28 lg:w-32 lg:h-32 rounded-none flex flex-col items-center justify-center text-center shadow-[0_12px_28px_rgba(0,0,0,0.32),inset_0_3px_8px_rgba(255,255,255,0.8)] hover:scale-105 transition-transform shrink-0 ${theme.sphereText}`}
+                    className={`w-[104px] h-[104px] lg:w-32 lg:h-32 rounded-none flex flex-col items-center justify-center text-center shadow-[0_12px_28px_rgba(0,0,0,0.32),inset_0_3px_8px_rgba(255,255,255,0.8)] hover:scale-105 transition-transform shrink-0 ${theme.sphereText}`}
                     style={{ backgroundImage: theme.sphereGradient }}
                   >
                     <span className="text-[11px] lg:text-xs font-extrabold uppercase tracking-wider leading-none">
@@ -382,13 +416,13 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
                   </Link>
                 </div>
 
-                {/* RIGHT COLUMN: Multi-Product Stage Showcase */}
-                <div className="md:col-span-5 flex items-end justify-center md:justify-end gap-2 sm:gap-3 z-20 pt-2 md:pt-0">
+                {/* RIGHT COLUMN: Full 3-Product Stage Showcase on BOTH Mobile & Desktop */}
+                <div className="md:col-span-5 flex items-end justify-center md:justify-end gap-2.5 sm:gap-3 z-20 pt-2 md:pt-0 px-6 sm:px-0">
                   {/* Left companion product */}
                   {extraImgs[0] && (
                     <Link
                       href={slide.linkUrl || '/offers'}
-                      className="hidden sm:flex w-28 h-32 lg:w-32 lg:h-36 bg-white rounded-none p-2 shadow-[0_14px_28px_rgba(0,0,0,0.35)] items-center justify-center hover:scale-105 transition-all"
+                      className="flex w-[82px] h-[92px] sm:w-28 sm:h-32 md:w-24 md:h-28 lg:w-28 lg:h-32 xl:w-[118px] xl:h-[134px] bg-white rounded-none p-1.5 sm:p-2 shadow-[0_12px_24px_rgba(0,0,0,0.32)] items-center justify-center hover:scale-105 transition-all shrink-0"
                     >
                       <img
                         src={extraImgs[0]}
@@ -401,7 +435,7 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
                   {/* Main Hero Product Centerpiece */}
                   <Link
                     href={slide.linkUrl || '/offers'}
-                    className="w-40 h-44 sm:w-44 sm:h-48 lg:w-52 lg:h-56 bg-white rounded-none p-3 shadow-[0_18px_36px_rgba(0,0,0,0.45)] flex items-center justify-center hover:scale-105 transition-transform z-10"
+                    className="w-[112px] h-[124px] sm:w-36 sm:h-40 md:w-36 md:h-40 lg:w-44 lg:h-48 xl:w-52 xl:h-56 bg-white rounded-none p-2 sm:p-3 shadow-[0_18px_36px_rgba(0,0,0,0.45)] flex items-center justify-center hover:scale-105 transition-transform z-10 shrink-0"
                   >
                     <img
                       src={slide.image}
@@ -414,7 +448,7 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
                   {extraImgs[1] && (
                     <Link
                       href={slide.linkUrl || '/offers'}
-                      className="hidden xl:flex w-28 h-32 bg-white rounded-none p-2 shadow-[0_14px_28px_rgba(0,0,0,0.35)] items-center justify-center hover:scale-105 transition-all"
+                      className="flex w-[82px] h-[92px] sm:w-28 sm:h-32 md:w-24 md:h-28 lg:w-28 lg:h-32 xl:w-[118px] xl:h-[134px] bg-white rounded-none p-1.5 sm:p-2 shadow-[0_12px_24px_rgba(0,0,0,0.32)] items-center justify-center hover:scale-105 transition-all shrink-0"
                     >
                       <img
                         src={extraImgs[1]}
@@ -428,35 +462,35 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
             </div>
           )}
 
-          {/* Left / Right Circular Edge Arrows (Daraz signature) */}
+          {/* Left / Right Edge Arrows — Positioned cleanly away from CTA on mobile */}
           {slides.length > 1 && (
             <>
               <button
                 type="button"
                 onClick={prevSlide}
                 aria-label="Previous banner"
-                className="absolute left-2 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-9 sm:h-9 rounded-none bg-black/30 hover:bg-black/55 text-white flex items-center justify-center transition-colors cursor-pointer border-none"
+                className="absolute left-1.5 sm:left-2 top-[74%] md:top-1/2 -translate-y-1/2 z-30 w-7 h-7 sm:w-9 sm:h-9 rounded-none bg-black/35 hover:bg-black/60 text-white flex items-center justify-center transition-colors cursor-pointer border-none"
               >
-                <ChevronLeft size={18} />
+                <ChevronLeft size={16} />
               </button>
               <button
                 type="button"
                 onClick={nextSlide}
                 aria-label="Next banner"
-                className="absolute right-2 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-9 sm:h-9 rounded-none bg-black/30 hover:bg-black/55 text-white flex items-center justify-center transition-colors cursor-pointer border-none"
+                className="absolute right-1.5 sm:right-2 top-[74%] md:top-1/2 -translate-y-1/2 z-30 w-7 h-7 sm:w-9 sm:h-9 rounded-none bg-black/35 hover:bg-black/60 text-white flex items-center justify-center transition-colors cursor-pointer border-none"
               >
-                <ChevronRight size={18} />
+                <ChevronRight size={16} />
               </button>
 
-              {/* Bottom Center Circular Pagination Dots */}
-              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2">
+              {/* Bottom Center Pagination Dots */}
+              <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2">
                 {slides.map((s, idx) => (
                   <button
                     key={s._id || idx}
                     type="button"
                     onClick={() => setCurrent(idx)}
                     aria-label={`Slide ${idx + 1}`}
-                    className={`w-2.5 h-2.5 rounded-none transition-all cursor-pointer border-none ${
+                    className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-none transition-all cursor-pointer border-none ${
                       idx === current
                         ? 'bg-white scale-125 shadow-sm'
                         : 'bg-white/45 hover:bg-white/75'
