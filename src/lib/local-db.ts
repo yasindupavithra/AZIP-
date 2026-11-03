@@ -197,63 +197,100 @@ export interface LocalBanner {
   title: string;
   subtitle: string;
   badge: string;
+  discountText?: string;
+  ctaText?: string;
+  bgTheme?: string;
+  displayMode?: 'daraz-stage' | 'full-image';
   image: string;
+  secondaryImages?: string[];
   linkUrl: string;
   isActive: boolean;
   order: number;
+  startDate?: string;
+  endDate?: string;
   createdAt?: string;
 }
 
 export const INITIAL_HERO_BANNERS: LocalBanner[] = [
   {
     _id: 'banner-1',
-    title: 'Vibrant Art & School Supplies',
-    subtitle: 'Atlas, Pilot gel pens, geometry sets & watercolor sketchbooks.',
-    badge: 'Complete Stationery Sets',
-    image: '/hero/slide1.jpg',
-    linkUrl: '/products',
+    title: 'HOT DEALS',
+    subtitle: 'Too Hot to Last. Best Prices on School Kits.',
+    badge: '11.11 SHOPPING FEST',
+    discountText: '65%',
+    ctaText: 'Add to Cart',
+    bgTheme: 'orange',
+    displayMode: 'daraz-stage',
+    image: '/images/hd/products/school-backpack-blue.jpg',
+    secondaryImages: [
+      '/images/hd/products/atlas-exercise-book.jpg',
+      '/images/hd/products/water-bottle.jpg',
+    ],
+    linkUrl: '/offers',
     isActive: true,
     order: 1,
+    startDate: '',
+    endDate: '',
   },
   {
     _id: 'banner-2',
-    title: 'Grade Textbooks & CR Books',
-    subtitle: 'High-grade 80gsm paper CR books from Grade 1 to A/L.',
-    badge: 'School Education',
-    image: '/hero/slide2.jpg',
-    linkUrl: '/products?category=exercise-books',
+    title: '11.11 TECH ZONE',
+    subtitle: 'Real Deals on Casio Calculators & Study Gear',
+    badge: '11.11 SHOPPING FEST',
+    discountText: '50%',
+    ctaText: 'Add to Cart',
+    bgTheme: 'blue',
+    displayMode: 'daraz-stage',
+    image: '/images/hd/products/casio-fx991cw.jpg',
+    secondaryImages: [
+      '/images/hd/products/geometry-set.jpg',
+      '/images/hd/products/pilot-g2-pens.jpg',
+    ],
+    linkUrl: '/products?category=mathematical-instruments',
     isActive: true,
     order: 2,
+    startDate: '',
+    endDate: '',
   },
   {
     _id: 'banner-3',
-    title: 'Faber-Castell & Mont Marte',
-    subtitle: 'Watercolour pencils, acrylic paints, brushes & drawing pads.',
-    badge: 'Artist Studio Corner',
-    image: '/hero/slide3.jpg',
+    title: 'STATIONERY FIESTA',
+    subtitle: 'Write More. Spend Less on Genuine Brands.',
+    badge: '11.11 SHOPPING FEST',
+    discountText: '65%',
+    ctaText: 'Add to Cart',
+    bgTheme: 'red',
+    displayMode: 'daraz-stage',
+    image: '/images/hd/products/faber-castell-water-color.jpg',
+    secondaryImages: [
+      '/images/hd/products/highlighters-set.jpg',
+      '/images/hd/products/drawing-kit.jpg',
+    ],
     linkUrl: '/products?category=art-craft',
     isActive: true,
     order: 3,
+    startDate: '',
+    endDate: '',
   },
   {
     _id: 'banner-4',
-    title: 'Casio Scientific Calculators',
-    subtitle: 'Authentic FX-991CW ClassWiz with 3-year warranty & USB drives.',
-    badge: 'Exam Approved Tech',
-    image: '/hero/slide4.jpg',
-    linkUrl: '/products?category=mathematical-instruments',
+    title: 'BOOKS & LIFESTYLE',
+    subtitle: 'Student Saver Deals on CR Books & Lunch Boxes',
+    badge: '11.11 SHOPPING FEST',
+    discountText: '45%',
+    ctaText: 'Shop Now',
+    bgTheme: 'teal',
+    displayMode: 'daraz-stage',
+    image: '/images/hd/products/atlas-exercise-book.jpg',
+    secondaryImages: [
+      '/images/hd/products/lunch-box.jpg',
+      '/images/hd/products/sticky-notes.jpg',
+    ],
+    linkUrl: '/products?category=exercise-books',
     isActive: true,
     order: 4,
-  },
-  {
-    _id: 'banner-5',
-    title: 'Ergonomic School Backpacks',
-    subtitle: 'Waterproof multi-pocket backpacks & essential student gear.',
-    badge: 'Backpacks & Gear',
-    image: '/hero/slide5.jpg',
-    linkUrl: '/products?category=school-accessories',
-    isActive: true,
-    order: 5,
+    startDate: '',
+    endDate: '',
   },
 ];
 
@@ -292,16 +329,24 @@ export function addLocalBanner(data: Partial<LocalBanner>): LocalBanner {
   const banners = getLocalBanners();
   const newBanner: LocalBanner = {
     _id: 'banner-' + Date.now().toString(36),
-    title: data.title || 'Special Promotion Banner',
-    subtitle: data.subtitle || 'Exclusive discount on school stationery and educational supplies.',
-    badge: data.badge || 'Special Offer',
-    image: data.image || '/hero/slide1.jpg',
+    title: data.title || 'HOT DEALS',
+    subtitle: data.subtitle || 'Too Hot to Last. Best Prices.',
+    badge: data.badge || '11.11 SHOPPING FEST',
+    discountText: data.discountText || '65%',
+    ctaText: data.ctaText || 'Add to Cart',
+    bgTheme: data.bgTheme || 'orange',
+    displayMode: data.displayMode || 'daraz-stage',
+    image: data.image || '/images/hd/products/school-backpack-blue.jpg',
+    secondaryImages: data.secondaryImages || [],
     linkUrl: data.linkUrl || '/products',
     isActive: data.isActive !== undefined ? Boolean(data.isActive) : true,
     order: Number(data.order) || banners.length + 1,
+    startDate: data.startDate || '',
+    endDate: data.endDate || '',
     createdAt: new Date().toISOString(),
   };
-  banners.unshift(newBanner);
+  banners.push(newBanner);
+  banners.sort((a, b) => (a.order || 99) - (b.order || 99));
   saveLocalBanners(banners);
   return newBanner;
 }
@@ -328,4 +373,64 @@ export function deleteLocalBanner(id: string): boolean {
   saveLocalBanners(filtered);
   return true;
 }
+
+// ── Booklist Inquiries Store ──────────────────────────────────
+export interface LocalBooklist {
+  _id: string;
+  studentName: string;
+  grade: string;
+  schoolName: string;
+  parentPhone: string;
+  city: string;
+  notes: string;
+  fileUrl: string;
+  fileName: string;
+  createdAt: string;
+}
+
+const BOOKLISTS_FILE = path.join(DATA_DIR, 'booklists.json');
+let memoryBooklistsCache: LocalBooklist[] | null = null;
+
+export function getLocalBooklists(): LocalBooklist[] {
+  if (memoryBooklistsCache && memoryBooklistsCache.length > 0) {
+    return memoryBooklistsCache;
+  }
+  ensureDataDir();
+  if (!fs.existsSync(BOOKLISTS_FILE)) {
+    return [];
+  }
+  try {
+    const raw = fs.readFileSync(BOOKLISTS_FILE, 'utf-8');
+    const lists = JSON.parse(raw);
+    const valid = Array.isArray(lists) ? lists : [];
+    memoryBooklistsCache = valid;
+    return valid;
+  } catch (err) {
+    console.error('Failed reading local booklists JSON:', err);
+    return [];
+  }
+}
+
+export function saveLocalBooklists(lists: LocalBooklist[]): void {
+  ensureDataDir();
+  memoryBooklistsCache = lists;
+  try {
+    fs.writeFileSync(BOOKLISTS_FILE, JSON.stringify(lists, null, 2), 'utf-8');
+  } catch (err) {
+    console.error('Failed writing local booklists JSON:', err);
+  }
+}
+
+export function addLocalBooklist(data: Omit<LocalBooklist, '_id' | 'createdAt'>): LocalBooklist {
+  const lists = getLocalBooklists();
+  const newItem: LocalBooklist = {
+    _id: 'bl-' + Date.now().toString(36) + Math.random().toString(36).substring(2, 5),
+    ...data,
+    createdAt: new Date().toISOString(),
+  };
+  lists.unshift(newItem);
+  saveLocalBooklists(lists);
+  return newItem;
+}
+
 

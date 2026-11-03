@@ -3,40 +3,31 @@
 import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { 
-  Search, 
-  ChevronDown, 
-  ChevronUp, 
-  LayoutGrid, 
-  List, 
-  Check, 
+import {
+  Search,
+  ChevronDown,
+  ChevronUp,
+  LayoutGrid,
+  List,
   SlidersHorizontal,
-  ArrowRight,
-  RotateCcw,
-  Sparkles,
+  X,
   Upload,
-  GraduationCap,
-  BookOpen,
-  PenTool,
-  Layers,
-  CheckCircle2,
-  Package
+  ArrowRight,
+  Filter,
+  Star,
+  Check,
 } from 'lucide-react';
 import StoreShell from '@/components/StoreShell';
 import ProductCard from '@/components/ProductCard';
-import BackToSchoolBundleCard from '@/components/BackToSchoolBundleCard';
 import BooklistUploadModal from '@/components/BooklistUploadModal';
-import { 
-  getCategoryLabel, 
-  getCategoryImage, 
-  STORE_CATEGORIES, 
-  INITIAL_CATALOG_PRODUCTS, 
+import {
+  getCategoryLabel,
+  STORE_CATEGORIES,
+  INITIAL_CATALOG_PRODUCTS,
   CatalogProduct,
   GRADES_LIST,
   LANGUAGES_LIST,
-  RULING_TYPES_LIST,
   BRANDS_LIST,
-  BACK_TO_SCHOOL_BUNDLES
 } from '@/lib/catalog';
 
 function ProductsContent() {
@@ -45,47 +36,40 @@ function ProductsContent() {
   const categoryParam = searchParams.get('category') || 'all';
   const searchParam = searchParams.get('search') || '';
   const gradeParam = searchParams.get('grade') || '';
-  const languageParam = searchParams.get('language') || '';
-  const rulingParam = searchParams.get('ruling') || '';
+  const brandParam = searchParams.get('brand') || '';
 
   const [products, setProducts] = useState<CatalogProduct[]>(INITIAL_CATALOG_PRODUCTS);
   const [loading, setLoading] = useState(false);
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
-  const [itemsPerPage, setItemsPerPage] = useState('20');
   const [sortBy, setSortBy] = useState('popularity');
-  const [inStockOnly, setInStockOnly] = useState(false);
   const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
+  const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
 
-  // Filter Accordion Collapsible States
-  const [isGradeOpen, setIsGradeOpen] = useState(true);
-  const [isPriceOpen, setIsPriceOpen] = useState(true);
-  const [isCatOpen, setIsCatOpen] = useState(true);
-  const [isBrandOpen, setIsBrandOpen] = useState(true);
-  const [isLanguageOpen, setIsLanguageOpen] = useState(false);
-  const [isRulingOpen, setIsRulingOpen] = useState(false);
-  const [isAvailOpen, setIsAvailOpen] = useState(true);
+  // Filter View More / View Less Toggles (Daraz pattern)
+  const [showAllCategories, setShowAllCategories] = useState(false);
+  const [showAllBrands, setShowAllBrands] = useState(false);
 
-  // Faceted Filter Selected Values
+  // Filter States
   const [selectedCategory, setSelectedCategory] = useState<string>(categoryParam);
   const [selectedGrades, setSelectedGrades] = useState<string[]>(gradeParam ? [gradeParam] : []);
-  const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
-  const [selectedLanguages, setSelectedLanguages] = useState<string[]>(languageParam ? [languageParam] : []);
-  const [selectedRulings, setSelectedRulings] = useState<string[]>(rulingParam ? [rulingParam] : []);
-  
-  const [minPrice, setMinPrice] = useState<number>(0);
-  const [maxPrice, setMaxPrice] = useState<number>(15000);
-  const [appliedMinPrice, setAppliedMinPrice] = useState<number>(0);
-  const [appliedMaxPrice, setAppliedMaxPrice] = useState<number>(15000);
+  const [selectedBrands, setSelectedBrands] = useState<string[]>(brandParam ? [brandParam] : []);
+  const [inStockOnly, setInStockOnly] = useState(false);
+  const [onSaleOnly, setOnSaleOnly] = useState(false);
 
-  // Sync search parameters from URL
+  // Price Range (Daraz style: Min - Max inputs with submit button)
+  const [minPriceInput, setMinPriceInput] = useState('');
+  const [maxPriceInput, setMaxPriceInput] = useState('');
+  const [appliedMinPrice, setAppliedMinPrice] = useState<number>(0);
+  const [appliedMaxPrice, setAppliedMaxPrice] = useState<number>(100000);
+
+  // Sync with searchParams
   useEffect(() => {
     setSelectedCategory(categoryParam);
     if (gradeParam && !selectedGrades.includes(gradeParam)) setSelectedGrades([gradeParam]);
-    if (languageParam && !selectedLanguages.includes(languageParam)) setSelectedLanguages([languageParam]);
-    if (rulingParam && !selectedRulings.includes(rulingParam)) setSelectedRulings([rulingParam]);
-  }, [categoryParam, gradeParam, languageParam, rulingParam]);
+    if (brandParam && !selectedBrands.includes(brandParam)) setSelectedBrands([brandParam]);
+  }, [categoryParam, gradeParam, brandParam]);
 
-  // Fetch products from backend API or initial local fallback catalog
+  // Fetch products from backend
   useEffect(() => {
     async function fetchProducts() {
       setLoading(true);
@@ -93,7 +77,7 @@ function ProductsContent() {
         const params = new URLSearchParams();
         if (selectedCategory !== 'all') params.set('category', selectedCategory);
         if (searchParam) params.set('search', searchParam);
-        params.set('limit', '50');
+        params.set('limit', '100');
 
         const res = await fetch(`/api/products?${params.toString()}`);
         if (res.ok) {
@@ -110,38 +94,20 @@ function ProductsContent() {
     fetchProducts();
   }, [selectedCategory, searchParam]);
 
-  // Faceted Filter Application Handler
-  const handleApplyFilter = () => {
-    setAppliedMinPrice(minPrice);
-    setAppliedMaxPrice(maxPrice);
-    
-    const params = new URLSearchParams();
-    if (selectedCategory !== 'all') params.set('category', selectedCategory);
-    if (searchParam) params.set('search', searchParam);
-    if (selectedGrades.length > 0) params.set('grade', selectedGrades[0]);
-    if (selectedLanguages.length > 0) params.set('language', selectedLanguages[0]);
-    if (selectedRulings.length > 0) params.set('ruling', selectedRulings[0]);
-    
+  // Handle Category Selection
+  const handleCategorySelect = (slug: string) => {
+    setSelectedCategory(slug);
+    const params = new URLSearchParams(searchParams.toString());
+    if (slug === 'all') {
+      params.delete('category');
+    } else {
+      params.set('category', slug);
+    }
     router.push(`/products?${params.toString()}`);
   };
 
-  // Reset All Filters
-  const handleClearAll = () => {
-    setSelectedCategory('all');
-    setSelectedGrades([]);
-    setSelectedBrands([]);
-    setSelectedLanguages([]);
-    setSelectedRulings([]);
-    setMinPrice(0);
-    setMaxPrice(15000);
-    setAppliedMinPrice(0);
-    setAppliedMaxPrice(15000);
-    setInStockOnly(false);
-    router.push('/products');
-  };
-
-  // Toggle Selection Helpers
-  const toggleSelection = (list: string[], setList: (val: string[]) => void, item: string) => {
+  // Toggle Checkbox Item
+  const toggleItem = (list: string[], setList: (val: string[]) => void, item: string) => {
     if (list.includes(item)) {
       setList(list.filter((i) => i !== item));
     } else {
@@ -149,593 +115,509 @@ function ProductsContent() {
     }
   };
 
-  // Comprehensive Multi-faceted Filtering Algorithm
+  // Apply Price Range Filter (Daraz pattern)
+  const handleApplyPrice = (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    const min = minPriceInput ? parseFloat(minPriceInput) : 0;
+    const max = maxPriceInput ? parseFloat(maxPriceInput) : 100000;
+    setAppliedMinPrice(min);
+    setAppliedMaxPrice(max);
+  };
+
+  // Clear All Filters
+  const handleClearAll = () => {
+    setSelectedCategory('all');
+    setSelectedGrades([]);
+    setSelectedBrands([]);
+    setInStockOnly(false);
+    setOnSaleOnly(false);
+    setMinPriceInput('');
+    setMaxPriceInput('');
+    setAppliedMinPrice(0);
+    setAppliedMaxPrice(100000);
+    router.push('/products');
+  };
+
+  // Filter products
   const filteredProducts = products.filter((p) => {
-    // 1. Category Filter
+    // Category filter
     if (selectedCategory !== 'all' && p.category !== selectedCategory) return false;
-    
-    // 2. Price Range Filter
+
+    // Price filter
     if (p.price < appliedMinPrice || p.price > appliedMaxPrice) return false;
-    
-    // 3. Availability Filter
+
+    // Stock availability filter
     if (inStockOnly && p.stock <= 0) return false;
 
-    // 4. Grade / Level Filter
+    // Sale filter
+    if (onSaleOnly && (!p.compareAtPrice || p.compareAtPrice <= p.price)) return false;
+
+    // Grade filter
     if (selectedGrades.length > 0) {
-      if (!p.grade || !selectedGrades.some((g) => p.grade?.toLowerCase().includes(g.toLowerCase()))) {
-        // Fallback search in tags or name
-        const matchTag = selectedGrades.some((g) => p.name.toLowerCase().includes(g.toLowerCase()) || p.tags?.some((t) => t.toLowerCase().includes(g.toLowerCase())));
-        if (!matchTag) return false;
-      }
+      const matchGrade = selectedGrades.some(
+        (g) =>
+          (p.grade && p.grade.toLowerCase().includes(g.toLowerCase())) ||
+          p.name.toLowerCase().includes(g.toLowerCase()) ||
+          p.tags?.some((t) => t.toLowerCase().includes(g.toLowerCase()))
+      );
+      if (!matchGrade) return false;
     }
 
-    // 5. Brand Filter
+    // Brand filter
     if (selectedBrands.length > 0) {
       const pName = p.name.toLowerCase();
-      const matchBrand = selectedBrands.some((b) => (p.brand && p.brand.toLowerCase() === b.toLowerCase()) || pName.includes(b.toLowerCase()));
+      const matchBrand = selectedBrands.some(
+        (b) =>
+          (p.brand && p.brand.toLowerCase() === b.toLowerCase()) ||
+          pName.includes(b.toLowerCase())
+      );
       if (!matchBrand) return false;
-    }
-
-    // 6. Language / Medium Filter
-    if (selectedLanguages.length > 0) {
-      if (!p.language || !selectedLanguages.includes(p.language)) {
-        const matchLang = selectedLanguages.some((l) => p.name.toLowerCase().includes(l.toLowerCase()) || p.tags?.some((t) => t.toLowerCase().includes(l.toLowerCase())));
-        if (!matchLang) return false;
-      }
-    }
-
-    // 7. Ruling Type Filter
-    if (selectedRulings.length > 0) {
-      if (!p.rulingType || !selectedRulings.includes(p.rulingType)) {
-        const matchRuling = selectedRulings.some((r) => p.name.toLowerCase().includes(r.toLowerCase()) || p.tags?.some((t) => t.toLowerCase().includes(r.toLowerCase())));
-        if (!matchRuling) return false;
-      }
     }
 
     return true;
   });
 
-  // Sorting
+  // Sort products
   const sortedProducts = [...filteredProducts].sort((a, b) => {
     if (sortBy === 'price-low') return a.price - b.price;
     if (sortBy === 'price-high') return b.price - a.price;
     if (sortBy === 'name') return a.name.localeCompare(b.name);
-    return 0; // popularity default
+    return 0; // popularity / best match
   });
 
-  const categoryTitle = selectedCategory === 'all' ? 'All Products' : getCategoryLabel(selectedCategory);
+  const categoryTitle =
+    selectedCategory === 'all' ? 'All Products' : getCategoryLabel(selectedCategory);
+
+  const displayedCategories = showAllCategories
+    ? STORE_CATEGORIES
+    : STORE_CATEGORIES.slice(0, 8);
+
+  const displayedBrands = showAllBrands ? BRANDS_LIST : BRANDS_LIST.slice(0, 7);
+
+  const hasActiveFilters =
+    selectedCategory !== 'all' ||
+    selectedGrades.length > 0 ||
+    selectedBrands.length > 0 ||
+    inStockOnly ||
+    onSaleOnly ||
+    appliedMinPrice > 0 ||
+    appliedMaxPrice < 100000;
 
   return (
-    <div className="bg-[#f8fafc] min-h-screen pb-20 font-sans">
+    <div className="bg-[#F5F7FA] min-h-screen pb-16 font-sans">
       
-      {/* 1. Hero Promotional Banner */}
-      <section className="w-full bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white border-b border-slate-800 overflow-hidden relative py-8 md:py-10">
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            
-            <div className="max-w-xl text-center md:text-left">
-              <div className="inline-flex items-center gap-2 bg-[#007AFF] text-white text-[11px] font-black px-3 py-1 rounded-full uppercase tracking-wider mb-3">
-                <Sparkles size={12} className="fill-white" />
-                <span>Premium Educational Stationery Catalog</span>
-              </div>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight leading-tight font-['Outfit']">
-                Complete Educational &amp; Stationery Catalog
-              </h1>
-              <p className="text-xs sm:text-sm text-slate-300 mt-2 font-medium leading-relaxed">
-                Filter through over 5,000+ textbooks, CR exercise books, Pilot gel pens, Casio scientific calculators, and Faber-Castell art supplies.
-              </p>
-            </div>
-
-            {/* Direct Upload Booklist Banner Action */}
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-3xl shrink-0 max-w-xs text-center space-y-3">
-              <div className="text-xs font-black text-white flex items-center justify-center gap-2">
-                <Upload size={16} className="text-[#007AFF]" />
-                <span>School Booklist Direct Upload</span>
-              </div>
-              <p className="text-[11px] text-slate-300 font-medium">
-                Got a school booklist? Upload your list image or PDF & get instant price estimation!
-              </p>
-              <button
-                onClick={() => setIsUploadModalOpen(true)}
-                className="w-full py-2.5 px-4 bg-gradient-to-r from-[#007AFF] to-[#0284C7] hover:from-[#0056B3] hover:to-[#0369A1] text-white text-xs font-bold rounded-xl shadow-md transition-all hover:scale-[1.02] border-none cursor-pointer"
-              >
-                Upload Booklist Now
-              </button>
-            </div>
-
+      {/* ── 1. Top Breadcrumb & Slim Booklist Alert ───────────────── */}
+      <div className="bg-white border-b border-slate-200">
+        <div className="container mx-auto px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 text-xs">
+          {/* Breadcrumb */}
+          <div className="flex items-center gap-1.5 text-slate-500 font-medium">
+            <Link href="/" className="hover:text-[#0066FF] transition-colors">
+              Home
+            </Link>
+            <span className="text-slate-300">/</span>
+            <Link href="/products" className="hover:text-[#0066FF] transition-colors">
+              Catalog
+            </Link>
+            {selectedCategory !== 'all' && (
+              <>
+                <span className="text-slate-300">/</span>
+                <span className="text-slate-800 font-semibold">{categoryTitle}</span>
+              </>
+            )}
+            {searchParam && (
+              <>
+                <span className="text-slate-300">/</span>
+                <span className="text-slate-800 font-semibold">"{searchParam}"</span>
+              </>
+            )}
           </div>
-        </div>
-      </section>
 
-      {/* 2. Breadcrumb Navigation */}
-      <div className="bg-white border-b border-gray-200 py-2.5">
-        <div className="container mx-auto px-4 flex items-center gap-2 text-[12px] text-gray-500 font-medium">
-          <Link href="/" className="hover:text-[#007AFF] transition-colors">Home</Link>
-          <span className="text-gray-300">/</span>
-          <Link href="/products" className="hover:text-[#007AFF] transition-colors">Catalog</Link>
-          {selectedCategory !== 'all' && (
-            <>
-              <span className="text-gray-300">/</span>
-              <span className="text-gray-800 font-bold">{categoryTitle}</span>
-            </>
-          )}
+          {/* Slim Booklist Upload Pill - Clean & Non-Intrusive */}
+          <button
+            onClick={() => setIsUploadModalOpen(true)}
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0066FF] hover:text-[#0052CC] bg-blue-50/80 hover:bg-blue-100/80 px-3 py-1 rounded-full transition-colors cursor-pointer border border-blue-200"
+          >
+            <Upload size={13} />
+            <span>Upload School Booklist for Instant Quote</span>
+            <ArrowRight size={12} />
+          </button>
         </div>
       </div>
 
-      {/* 3. Pillar 2 Requirement: Explicit Legible Featured Category Grid Cards */}
-      <div className="bg-white border-b border-gray-200 py-6">
-        <div className="container mx-auto px-4">
-          <div className="text-xs font-extrabold uppercase tracking-wider text-gray-400 mb-3">
-            Browse Featured Categories
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
-            {STORE_CATEGORIES.slice(0, 7).map((cat) => {
-              const isSelected = selectedCategory === cat.slug;
-              return (
-                <button
-                  key={cat.slug}
-                  onClick={() => setSelectedCategory(cat.slug)}
-                  className={`group relative rounded-none p-3 border transition-all duration-300 cursor-pointer text-left flex flex-col items-center justify-center text-center ${
-                    isSelected
-                      ? 'border-[#007AFF] bg-blue-50/70 shadow-sm ring-2 ring-blue-500/20'
-                      : 'border-gray-200 bg-gray-50/60 hover:border-[#007AFF] hover:bg-white hover:shadow-md hover:scale-[1.02]'
-                  }`}
-                >
-                  <div className="w-12 h-12 rounded-none overflow-hidden mb-2 bg-white border border-gray-100 p-1 flex items-center justify-center">
-                    <img
-                      src={getCategoryImage(cat.slug)}
-                      alt={cat.label}
-                      className="w-full h-full object-cover rounded-none group-hover:scale-110 transition-transform duration-300"
-                    />
-                  </div>
-                  
-                  {/* Legible explicit typography label */}
-                  <span className={`text-xs font-black line-clamp-1 transition-colors ${
-                    isSelected ? 'text-[#007AFF]' : 'text-gray-800 group-hover:text-[#007AFF]'
-                  }`}>
-                    {cat.label}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-
-      {/* 4. Main 2-Column Catalog Container */}
-      <div className="container mx-auto px-4 pt-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      {/* ── 2. Main Catalog 2-Column Grid (Daraz Standard) ────────── */}
+      <div className="container mx-auto px-4 pt-4 sm:pt-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
           
           {/* =========================================================================
-              LEFT SIDEBAR: Pillar 3 Faceted Filtering System
+              LEFT SIDEBAR: Daraz-Style Filter Panel (AZIP Blue Theme)
              ========================================================================= */}
-          <aside className="lg:col-span-3 bg-white rounded-3xl border border-gray-200 p-5 shadow-xs sticky top-28 space-y-5">
+          <aside className="hidden lg:block lg:col-span-3 bg-white rounded-lg border border-slate-200/90 p-4 shadow-2xs space-y-5 sticky top-24">
             
             {/* Header + Clear All */}
-            <div className="flex items-center justify-between pb-3 border-b border-gray-200">
-              <span className="text-base font-black text-gray-900 tracking-tight flex items-center gap-2">
-                <SlidersHorizontal size={17} className="text-[#007AFF]" />
-                <span>Faceted Filters</span>
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+              <span className="text-sm font-bold text-slate-900 tracking-tight flex items-center gap-1.5">
+                <Filter size={15} className="text-[#0066FF]" />
+                <span>Filters</span>
               </span>
-              <button
-                onClick={handleClearAll}
-                className="text-[11px] font-bold uppercase tracking-wider text-[#007AFF] hover:underline bg-transparent border-none cursor-pointer p-0"
-              >
-                Clear All
-              </button>
-            </div>
-
-            {/* Big Apply Filter Action */}
-            <button
-              onClick={handleApplyFilter}
-              className="w-full py-3 px-4 bg-[#007AFF] hover:bg-[#0056B3] text-white text-xs font-bold rounded-xl shadow-md transition-all cursor-pointer border-none uppercase tracking-wider flex items-center justify-center gap-2"
-            >
-              <CheckCircle2 size={15} />
-              <span>Apply Filters</span>
-            </button>
-
-            {/* Filter 1: Grade / Level (Grades 1-13 / OL & AL) */}
-            <div className="border-b border-gray-200 pb-4">
-              <button
-                onClick={() => setIsGradeOpen(!isGradeOpen)}
-                className="w-full flex items-center justify-between text-left text-xs font-extrabold text-gray-900 hover:text-[#007AFF] cursor-pointer bg-transparent border-none p-0 mb-3"
-              >
-                <span className="flex items-center gap-2">
-                  <GraduationCap size={15} className="text-[#007AFF]" /> Grade / School Level
-                </span>
-                {isGradeOpen ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
-              </button>
-
-              {isGradeOpen && (
-                <div className="space-y-1.5 pt-1">
-                  {GRADES_LIST.map((g) => (
-                    <label
-                      key={g}
-                      onClick={() => toggleSelection(selectedGrades, setSelectedGrades, g)}
-                      className="flex items-center gap-2.5 text-xs text-gray-700 py-1 hover:text-[#007AFF] cursor-pointer font-medium"
-                    >
-                      <input
-                        type="checkbox"
-                        checked={selectedGrades.includes(g)}
-                        onChange={() => {}}
-                        className="accent-[#007AFF] rounded cursor-pointer"
-                      />
-                      <span className={selectedGrades.includes(g) ? 'font-bold text-[#007AFF]' : ''}>
-                        {g}
-                      </span>
-                    </label>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* Filter 2: Category Taxonomy */}
-            <div className="border-b border-gray-200 pb-4">
-              <button
-                onClick={() => setIsCatOpen(!isCatOpen)}
-                className="w-full flex items-center justify-between text-left text-xs font-extrabold text-gray-900 hover:text-[#007AFF] cursor-pointer bg-transparent border-none p-0 mb-3"
-              >
-                <span className="flex items-center gap-2">
-                  <BookOpen size={15} className="text-[#007AFF]" /> Categories
-                </span>
-                {isCatOpen ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
-              </button>
-
-              {isCatOpen && (
-                <div className="space-y-1.5 max-h-56 overflow-y-auto pr-1">
-                  <label
-                    onClick={() => setSelectedCategory('all')}
-                    className="flex items-center gap-2 text-xs text-gray-800 py-1 hover:text-[#007AFF] cursor-pointer font-bold border-b border-gray-100 pb-1.5 mb-1"
-                  >
-                    <input
-                      type="checkbox"
-                      checked={selectedCategory === 'all'}
-                      onChange={() => {}}
-                      className="accent-[#007AFF] rounded cursor-pointer"
-                    />
-                    <span>All Products</span>
-                  </label>
-
-                  {STORE_CATEGORIES.map((cat) => (
-                    <label
-                      key={cat.slug}
-                      onClick={() => setSelectedCategory(cat.slug)}
-                      className="flex items-center gap-2 text-xs text-gray-600 py-1 hover:text-[#007AFF] cursor-pointer font-medium"
-                    >
-                      <input
-                        type="checkbox"
-                        checked={selectedCategory === cat.slug}
-                        onChange={() => {}}
-                        className="accent-[#007AFF] rounded cursor-pointer"
-                      />
-                      <span className={selectedCategory === cat.slug ? 'font-bold text-[#007AFF]' : ''}>
-                        {cat.label}
-                      </span>
-                    </label>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* Filter 3: Brand */}
-            <div className="border-b border-gray-200 pb-4">
-              <button
-                onClick={() => setIsBrandOpen(!isBrandOpen)}
-                className="w-full flex items-center justify-between text-left text-xs font-extrabold text-gray-900 hover:text-[#007AFF] cursor-pointer bg-transparent border-none p-0 mb-3"
-              >
-                <span>Brands (Atlas, Casio, Pilot...)</span>
-                {isBrandOpen ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
-              </button>
-
-              {isBrandOpen && (
-                <div className="space-y-1.5 max-h-44 overflow-y-auto pr-1">
-                  {BRANDS_LIST.map((b) => (
-                    <label
-                      key={b}
-                      onClick={() => toggleSelection(selectedBrands, setSelectedBrands, b)}
-                      className="flex items-center gap-2.5 text-xs text-gray-700 py-1 hover:text-[#007AFF] cursor-pointer font-medium"
-                    >
-                      <input
-                        type="checkbox"
-                        checked={selectedBrands.includes(b)}
-                        onChange={() => {}}
-                        className="accent-[#007AFF] rounded cursor-pointer"
-                      />
-                      <span className={selectedBrands.includes(b) ? 'font-bold text-[#007AFF]' : ''}>
-                        {b}
-                      </span>
-                    </label>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* Filter 4: Language / Medium */}
-            <div className="border-b border-gray-200 pb-4">
-              <button
-                onClick={() => setIsLanguageOpen(!isLanguageOpen)}
-                className="w-full flex items-center justify-between text-left text-xs font-extrabold text-gray-900 hover:text-[#007AFF] cursor-pointer bg-transparent border-none p-0 mb-3"
-              >
-                <span>Language / Medium (Sinhala/Eng/Tam)</span>
-                {isLanguageOpen ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
-              </button>
-
-              {isLanguageOpen && (
-                <div className="space-y-1.5 pt-1">
-                  {LANGUAGES_LIST.map((l) => (
-                    <label
-                      key={l}
-                      onClick={() => toggleSelection(selectedLanguages, setSelectedLanguages, l)}
-                      className="flex items-center gap-2.5 text-xs text-gray-700 py-1 hover:text-[#007AFF] cursor-pointer font-medium"
-                    >
-                      <input
-                        type="checkbox"
-                        checked={selectedLanguages.includes(l)}
-                        onChange={() => {}}
-                        className="accent-[#007AFF] rounded cursor-pointer"
-                      />
-                      <span className={selectedLanguages.includes(l) ? 'font-bold text-[#007AFF]' : ''}>
-                        {l}
-                      </span>
-                    </label>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* Filter 5: Ruling Type */}
-            <div className="border-b border-gray-200 pb-4">
-              <button
-                onClick={() => setIsRulingOpen(!isRulingOpen)}
-                className="w-full flex items-center justify-between text-left text-xs font-extrabold text-gray-900 hover:text-[#007AFF] cursor-pointer bg-transparent border-none p-0 mb-3"
-              >
-                <span className="flex items-center gap-2">
-                  <Layers size={14} className="text-[#007AFF]" /> Ruling &amp; Paper Type
-                </span>
-                {isRulingOpen ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
-              </button>
-
-              {isRulingOpen && (
-                <div className="space-y-1.5 pt-1">
-                  {RULING_TYPES_LIST.map((r) => (
-                    <label
-                      key={r}
-                      onClick={() => toggleSelection(selectedRulings, setSelectedRulings, r)}
-                      className="flex items-center gap-2.5 text-xs text-gray-700 py-1 hover:text-[#007AFF] cursor-pointer font-medium"
-                    >
-                      <input
-                        type="checkbox"
-                        checked={selectedRulings.includes(r)}
-                        onChange={() => {}}
-                        className="accent-[#007AFF] rounded cursor-pointer"
-                      />
-                      <span className={selectedRulings.includes(r) ? 'font-bold text-[#007AFF]' : ''}>
-                        {r}
-                      </span>
-                    </label>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* Filter 6: Price Range */}
-            <div className="border-b border-gray-200 pb-4">
-              <button
-                onClick={() => setIsPriceOpen(!isPriceOpen)}
-                className="w-full flex items-center justify-between text-left text-xs font-extrabold text-gray-900 hover:text-[#007AFF] cursor-pointer bg-transparent border-none p-0 mb-3"
-              >
-                <span>Price Range (Rs.)</span>
-                {isPriceOpen ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
-              </button>
-
-              {isPriceOpen && (
-                <div className="space-y-3 pt-1">
-                  <div className="flex items-center gap-2 text-xs">
-                    <div className="flex-1">
-                      <span className="text-[10px] text-gray-400 font-bold block mb-1">Min</span>
-                      <input
-                        type="number"
-                        value={minPrice}
-                        onChange={(e) => setMinPrice(Number(e.target.value))}
-                        className="w-full px-2.5 py-1 border border-gray-300 rounded-lg text-xs font-medium focus:outline-none focus:border-[#007AFF]"
-                      />
-                    </div>
-                    <span className="text-gray-400 mt-4">-</span>
-                    <div className="flex-1">
-                      <span className="text-[10px] text-gray-400 font-bold block mb-1">Max</span>
-                      <input
-                        type="number"
-                        value={maxPrice}
-                        onChange={(e) => setMaxPrice(Number(e.target.value))}
-                        className="w-full px-2.5 py-1 border border-gray-300 rounded-lg text-xs font-medium focus:outline-none focus:border-[#007AFF]"
-                      />
-                    </div>
-                  </div>
-
-                  <input
-                    type="range"
-                    min={0}
-                    max={15000}
-                    step={250}
-                    value={maxPrice}
-                    onChange={(e) => setMaxPrice(Number(e.target.value))}
-                    className="w-full accent-[#007AFF] cursor-pointer"
-                  />
-                  <div className="text-[11px] text-gray-500 flex justify-between font-bold">
-                    <span>Rs. {minPrice.toLocaleString()}</span>
-                    <span>Rs. {maxPrice.toLocaleString()}</span>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Filter 7: Availability */}
-            <div>
-              <button
-                onClick={() => setIsAvailOpen(!isAvailOpen)}
-                className="w-full flex items-center justify-between text-left text-xs font-extrabold text-gray-900 hover:text-[#007AFF] cursor-pointer bg-transparent border-none p-0 mb-3"
-              >
-                <span>Stock Availability</span>
-                {isAvailOpen ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
-              </button>
-
-              {isAvailOpen && (
-                <label
-                  onClick={() => setInStockOnly(!inStockOnly)}
-                  className="flex items-center gap-2.5 text-xs text-gray-700 py-1 hover:text-[#007AFF] cursor-pointer font-medium"
+              {hasActiveFilters && (
+                <button
+                  onClick={handleClearAll}
+                  className="text-xs font-bold text-[#0066FF] hover:underline bg-transparent border-none cursor-pointer p-0"
                 >
+                  Clear All
+                </button>
+              )}
+            </div>
+
+            {/* 1. Category Tree Filter (Daraz signature list) */}
+            <div>
+              <div className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-2.5">
+                Categories
+              </div>
+              <ul className="space-y-1 text-xs">
+                <li>
+                  <button
+                    onClick={() => handleCategorySelect('all')}
+                    className={`w-full text-left py-1 px-2 rounded transition-colors cursor-pointer border-none flex items-center justify-between ${
+                      selectedCategory === 'all'
+                        ? 'bg-blue-50 text-[#0066FF] font-bold'
+                        : 'text-slate-600 hover:text-[#0066FF] hover:bg-slate-50 bg-transparent'
+                    }`}
+                  >
+                    <span>All Products</span>
+                  </button>
+                </li>
+                {displayedCategories.map((cat) => {
+                  const isSelected = selectedCategory === cat.slug;
+                  return (
+                    <li key={cat.slug}>
+                      <button
+                        onClick={() => handleCategorySelect(cat.slug)}
+                        className={`w-full text-left py-1 px-2 rounded transition-colors cursor-pointer border-none flex items-center justify-between ${
+                          isSelected
+                            ? 'bg-blue-50 text-[#0066FF] font-bold'
+                            : 'text-slate-600 hover:text-[#0066FF] hover:bg-slate-50 bg-transparent'
+                        }`}
+                      >
+                        <span className="truncate">{cat.label}</span>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+              {STORE_CATEGORIES.length > 8 && (
+                <button
+                  onClick={() => setShowAllCategories(!showAllCategories)}
+                  className="mt-2 text-[11px] font-bold text-[#0066FF] hover:underline bg-transparent border-none cursor-pointer p-0"
+                >
+                  {showAllCategories ? 'VIEW LESS' : 'VIEW MORE'}
+                </button>
+              )}
+            </div>
+
+            {/* 2. Brand Checkboxes Filter (Daraz pattern) */}
+            <div className="border-t border-slate-100 pt-4">
+              <div className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-2.5">
+                Brand
+              </div>
+              <div className="space-y-1.5 text-xs max-h-48 overflow-y-auto pr-1">
+                {displayedBrands.map((brand) => {
+                  const checked = selectedBrands.includes(brand);
+                  return (
+                    <label
+                      key={brand}
+                      className="flex items-center gap-2 text-slate-700 py-0.5 hover:text-[#0066FF] cursor-pointer"
+                    >
+                      <input
+                        type="checkbox"
+                        checked={checked}
+                        onChange={() => toggleItem(selectedBrands, setSelectedBrands, brand)}
+                        className="accent-[#0066FF] rounded cursor-pointer w-3.5 h-3.5"
+                      />
+                      <span className={checked ? 'font-bold text-[#0066FF]' : 'font-medium'}>
+                        {brand}
+                      </span>
+                    </label>
+                  );
+                })}
+              </div>
+              {BRANDS_LIST.length > 7 && (
+                <button
+                  onClick={() => setShowAllBrands(!showAllBrands)}
+                  className="mt-2 text-[11px] font-bold text-[#0066FF] hover:underline bg-transparent border-none cursor-pointer p-0"
+                >
+                  {showAllBrands ? 'VIEW LESS' : 'VIEW MORE'}
+                </button>
+              )}
+            </div>
+
+            {/* 3. Service & Promotion Filter (Daraz standard) */}
+            <div className="border-t border-slate-100 pt-4">
+              <div className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-2.5">
+                Service &amp; Promotion
+              </div>
+              <div className="space-y-1.5 text-xs">
+                <label className="flex items-center gap-2 text-slate-700 py-0.5 hover:text-[#0066FF] cursor-pointer">
                   <input
                     type="checkbox"
                     checked={inStockOnly}
-                    onChange={() => {}}
-                    className="accent-[#007AFF] rounded cursor-pointer"
+                    onChange={(e) => setInStockOnly(e.target.checked)}
+                    className="accent-[#0066FF] rounded cursor-pointer w-3.5 h-3.5"
                   />
-                  <span className={inStockOnly ? 'font-bold text-[#007AFF]' : ''}>In Stock Only</span>
+                  <span className={inStockOnly ? 'font-bold text-[#0066FF]' : 'font-medium'}>
+                    In Stock Only
+                  </span>
                 </label>
+                <label className="flex items-center gap-2 text-slate-700 py-0.5 hover:text-[#0066FF] cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={onSaleOnly}
+                    onChange={(e) => setOnSaleOnly(e.target.checked)}
+                    className="accent-[#0066FF] rounded cursor-pointer w-3.5 h-3.5"
+                  />
+                  <span className={onSaleOnly ? 'font-bold text-[#0066FF]' : 'font-medium'}>
+                    On Sale / Discounted
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            {/* 4. Grade / School Level Filter */}
+            <div className="border-t border-slate-100 pt-4">
+              <div className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-2.5">
+                Grade / School Level
+              </div>
+              <div className="space-y-1.5 text-xs">
+                {GRADES_LIST.map((grade) => {
+                  const checked = selectedGrades.includes(grade);
+                  return (
+                    <label
+                      key={grade}
+                      className="flex items-center gap-2 text-slate-700 py-0.5 hover:text-[#0066FF] cursor-pointer"
+                    >
+                      <input
+                        type="checkbox"
+                        checked={checked}
+                        onChange={() => toggleItem(selectedGrades, setSelectedGrades, grade)}
+                        className="accent-[#0066FF] rounded cursor-pointer w-3.5 h-3.5"
+                      />
+                      <span className={checked ? 'font-bold text-[#0066FF]' : 'font-medium'}>
+                        {grade}
+                      </span>
+                    </label>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* 5. Price Filter (Daraz Exact Format: Min - Max + Button) */}
+            <div className="border-t border-slate-100 pt-4">
+              <div className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-2.5">
+                Price (Rs.)
+              </div>
+              <form onSubmit={handleApplyPrice} className="flex items-center gap-2">
+                <input
+                  type="number"
+                  placeholder="Min"
+                  value={minPriceInput}
+                  onChange={(e) => setMinPriceInput(e.target.value)}
+                  className="w-full px-2 py-1 text-xs border border-slate-300 rounded focus:outline-none focus:border-[#0066FF] bg-white font-medium"
+                />
+                <span className="text-slate-400 font-bold">-</span>
+                <input
+                  type="number"
+                  placeholder="Max"
+                  value={maxPriceInput}
+                  onChange={(e) => setMaxPriceInput(e.target.value)}
+                  className="w-full px-2 py-1 text-xs border border-slate-300 rounded focus:outline-none focus:border-[#0066FF] bg-white font-medium"
+                />
+                <button
+                  type="submit"
+                  className="w-8 h-7 shrink-0 bg-[#0066FF] hover:bg-[#0052CC] text-white rounded flex items-center justify-center transition-colors cursor-pointer border-none shadow-xs font-bold"
+                  title="Apply price filter"
+                >
+                  <ArrowRight size={13} />
+                </button>
+              </form>
+              {(appliedMinPrice > 0 || appliedMaxPrice < 100000) && (
+                <div className="mt-1.5 flex items-center justify-between text-[11px] text-slate-500">
+                  <span>
+                    Rs. {appliedMinPrice.toLocaleString()} - Rs. {appliedMaxPrice.toLocaleString()}
+                  </span>
+                  <button
+                    onClick={() => {
+                      setMinPriceInput('');
+                      setMaxPriceInput('');
+                      setAppliedMinPrice(0);
+                      setAppliedMaxPrice(100000);
+                    }}
+                    className="text-[#0066FF] hover:underline cursor-pointer bg-transparent border-none p-0 text-[10.5px]"
+                  >
+                    Reset
+                  </button>
+                </div>
               )}
             </div>
 
           </aside>
 
           {/* =========================================================================
-              RIGHT COLUMN: BUNDLE SHOWCASE & PRODUCTS GRID
+              RIGHT COLUMN: Products Listing (Daraz Layout)
              ========================================================================= */}
-          <main className="lg:col-span-9 space-y-8">
+          <main className="lg:col-span-9 space-y-4">
             
-            {/* Pillar 4 Feature: High-Conversion Back-to-School Bundles Section */}
-            {selectedCategory === 'all' && (
-              <section className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h2 className="text-lg font-black text-gray-900 tracking-tight flex items-center gap-2">
-                      <Package size={20} className="text-[#007AFF]" />
-                      <span>Back to School Master Kits &amp; Bundles</span>
-                    </h2>
-                    <p className="text-xs text-gray-500 font-medium">
-                      One-click pre-packaged grade bundles with instant discount savings!
-                    </p>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                  {BACK_TO_SCHOOL_BUNDLES.map((bundle) => (
-                    <BackToSchoolBundleCard key={bundle.id} bundle={bundle} />
-                  ))}
-                </div>
-              </section>
-            )}
-
-            {/* Catalog Controls Toolbar */}
-            <div className="bg-white rounded-2xl border border-gray-200 px-5 py-3 flex flex-wrap items-center justify-between gap-4 text-xs font-semibold text-gray-700 shadow-xs">
-              
-              {/* Left View Toggles */}
-              <div className="flex items-center gap-4">
-                <div className="flex items-center gap-2">
-                  <span className="text-gray-400">View:</span>
-                  <select
-                    value={itemsPerPage}
-                    onChange={(e) => setItemsPerPage(e.target.value)}
-                    className="px-2.5 py-1 border border-gray-200 rounded-lg bg-white text-xs font-bold focus:outline-none focus:border-[#007AFF]"
-                  >
-                    <option value="20">20 Items</option>
-                    <option value="40">40 Items</option>
-                    <option value="60">60 Items</option>
-                  </select>
-                </div>
-
-                <div className="flex items-center gap-1 border-l border-gray-200 pl-3">
-                  <button
-                    onClick={() => setViewMode('grid')}
-                    className={`p-1.5 rounded-lg transition-colors ${viewMode === 'grid' ? 'bg-blue-50 text-[#007AFF] font-bold' : 'text-gray-400 hover:text-gray-700'}`}
-                    title="Grid View"
-                  >
-                    <LayoutGrid size={16} />
-                  </button>
-                  <button
-                    onClick={() => setViewMode('list')}
-                    className={`p-1.5 rounded-lg transition-colors ${viewMode === 'list' ? 'bg-blue-50 text-[#007AFF] font-bold' : 'text-gray-400 hover:text-gray-700'}`}
-                    title="List View"
-                  >
-                    <List size={16} />
-                  </button>
-                </div>
+            {/* Top Results Header + Toolbar (Daraz format) */}
+            <div className="bg-white rounded-lg border border-slate-200/90 px-4 py-3 shadow-2xs flex flex-wrap items-center justify-between gap-3">
+              {/* Result Title & Count */}
+              <div>
+                <h1 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight leading-tight">
+                  {searchParam ? `Results for "${searchParam}"` : categoryTitle}
+                </h1>
+                <p className="text-xs text-slate-500 mt-0.5 font-medium">
+                  Showing {sortedProducts.length} items
+                </p>
               </div>
 
-              {/* Right Sort By Dropdown */}
-              <div className="flex items-center gap-4">
-                <div className="flex items-center gap-2">
-                  <span className="text-gray-400">Sort By:</span>
+              {/* Controls: Sort By + View Mode Toggle + Mobile Filter Trigger */}
+              <div className="flex items-center gap-3">
+                {/* Mobile Filter Button */}
+                <button
+                  onClick={() => setIsMobileFilterOpen(true)}
+                  className="lg:hidden inline-flex items-center gap-1.5 px-3 py-1.5 border border-slate-200 rounded text-xs font-bold text-slate-700 hover:text-[#0066FF] hover:border-[#0066FF] bg-white cursor-pointer"
+                >
+                  <SlidersHorizontal size={13} />
+                  <span>Filters {hasActiveFilters && '•'}</span>
+                </button>
+
+                {/* Sort By Dropdown */}
+                <div className="flex items-center gap-1.5 text-xs text-slate-500 font-medium">
+                  <span className="hidden sm:inline">Sort By:</span>
                   <select
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value)}
-                    className="px-3 py-1.5 border border-gray-200 rounded-xl bg-white text-xs font-bold focus:outline-none focus:border-[#007AFF]"
+                    className="px-2.5 py-1.5 border border-slate-200 rounded bg-white text-xs font-medium text-slate-800 focus:outline-none focus:border-[#0066FF] cursor-pointer"
                   >
-                    <option value="popularity">Popularity</option>
+                    <option value="popularity">Best Match</option>
                     <option value="price-low">Price: Low to High</option>
                     <option value="price-high">Price: High to Low</option>
                     <option value="name">Product Name</option>
                   </select>
                 </div>
-              </div>
 
+                {/* View Mode Toggle (Grid / List) */}
+                <div className="flex items-center border border-slate-200 rounded overflow-hidden">
+                  <button
+                    onClick={() => setViewMode('grid')}
+                    className={`p-1.5 transition-colors cursor-pointer border-none ${
+                      viewMode === 'grid'
+                        ? 'bg-blue-50 text-[#0066FF]'
+                        : 'bg-white text-slate-400 hover:text-slate-700'
+                    }`}
+                    title="Grid View"
+                  >
+                    <LayoutGrid size={15} />
+                  </button>
+                  <button
+                    onClick={() => setViewMode('list')}
+                    className={`p-1.5 transition-colors cursor-pointer border-none border-l border-slate-200 ${
+                      viewMode === 'list'
+                        ? 'bg-blue-50 text-[#0066FF]'
+                        : 'bg-white text-slate-400 hover:text-slate-700'
+                    }`}
+                    title="List View"
+                  >
+                    <List size={15} />
+                  </button>
+                </div>
+              </div>
             </div>
 
-            {/* Results Counter & Active Filter Badges */}
-            <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
-              <span className="font-extrabold text-gray-800">
-                Showing {sortedProducts.length} Items
-              </span>
-
-              {/* Active Filter Badges */}
-              <div className="flex flex-wrap items-center gap-1.5">
-                {selectedGrades.map((g) => (
-                  <span key={g} onClick={() => toggleSelection(selectedGrades, setSelectedGrades, g)} className="bg-blue-50 text-[#007AFF] border border-blue-200 px-2.5 py-0.5 rounded-full font-bold flex items-center gap-1 cursor-pointer">
-                    {g} ×
+            {/* Active Filter Chips */}
+            {hasActiveFilters && (
+              <div className="flex flex-wrap items-center gap-1.5 text-xs">
+                <span className="text-slate-400 font-medium">Active Filters:</span>
+                {selectedCategory !== 'all' && (
+                  <span
+                    onClick={() => handleCategorySelect('all')}
+                    className="bg-blue-50 text-[#0066FF] border border-blue-200 px-2 py-0.5 rounded text-[11px] font-semibold flex items-center gap-1 cursor-pointer hover:bg-blue-100"
+                  >
+                    {categoryTitle} <X size={11} />
                   </span>
-                ))}
+                )}
                 {selectedBrands.map((b) => (
-                  <span key={b} onClick={() => toggleSelection(selectedBrands, setSelectedBrands, b)} className="bg-slate-100 text-slate-800 border border-slate-200 px-2.5 py-0.5 rounded-full font-bold flex items-center gap-1 cursor-pointer">
-                    {b} ×
+                  <span
+                    key={b}
+                    onClick={() => toggleItem(selectedBrands, setSelectedBrands, b)}
+                    className="bg-slate-100 text-slate-700 border border-slate-200 px-2 py-0.5 rounded text-[11px] font-semibold flex items-center gap-1 cursor-pointer hover:bg-slate-200"
+                  >
+                    {b} <X size={11} />
                   </span>
                 ))}
-                {selectedLanguages.map((l) => (
-                  <span key={l} onClick={() => toggleSelection(selectedLanguages, setSelectedLanguages, l)} className="bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-0.5 rounded-full font-bold flex items-center gap-1 cursor-pointer">
-                    {l} ×
+                {selectedGrades.map((g) => (
+                  <span
+                    key={g}
+                    onClick={() => toggleItem(selectedGrades, setSelectedGrades, g)}
+                    className="bg-slate-100 text-slate-700 border border-slate-200 px-2 py-0.5 rounded text-[11px] font-semibold flex items-center gap-1 cursor-pointer hover:bg-slate-200"
+                  >
+                    {g} <X size={11} />
                   </span>
                 ))}
+                {inStockOnly && (
+                  <span
+                    onClick={() => setInStockOnly(false)}
+                    className="bg-slate-100 text-slate-700 border border-slate-200 px-2 py-0.5 rounded text-[11px] font-semibold flex items-center gap-1 cursor-pointer hover:bg-slate-200"
+                  >
+                    In Stock <X size={11} />
+                  </span>
+                )}
+                {onSaleOnly && (
+                  <span
+                    onClick={() => setOnSaleOnly(false)}
+                    className="bg-slate-100 text-slate-700 border border-slate-200 px-2 py-0.5 rounded text-[11px] font-semibold flex items-center gap-1 cursor-pointer hover:bg-slate-200"
+                  >
+                    On Sale <X size={11} />
+                  </span>
+                )}
+                <button
+                  onClick={handleClearAll}
+                  className="text-[#0066FF] hover:underline font-bold text-[11px] ml-1 cursor-pointer bg-transparent border-none p-0"
+                >
+                  Clear All
+                </button>
               </div>
-            </div>
+            )}
 
-            {/* Products Grid */}
+            {/* Products Grid / List */}
             {loading ? (
-              <div className="py-24 text-center bg-white rounded-3xl border border-gray-200">
-                <div className="w-8 h-8 border-3 border-[#007AFF] border-t-transparent rounded-full animate-spin mx-auto mb-3" />
-                <p className="text-xs font-bold text-gray-500">Loading stationery catalog...</p>
+              <div className="py-24 text-center bg-white rounded-lg border border-slate-200">
+                <div className="w-8 h-8 border-3 border-[#0066FF] border-t-transparent rounded-full animate-spin mx-auto mb-3" />
+                <p className="text-xs font-semibold text-slate-500">Loading catalog...</p>
               </div>
             ) : sortedProducts.length === 0 ? (
-              <div className="py-20 text-center bg-white rounded-3xl border border-gray-200 px-6">
-                <div className="w-14 h-14 bg-blue-50 text-[#007AFF] rounded-none flex items-center justify-center mx-auto mb-3">
-                  <Search size={24} />
+              <div className="py-20 text-center bg-white rounded-lg border border-slate-200 px-6">
+                <div className="w-12 h-12 bg-blue-50 text-[#0066FF] rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Search size={22} />
                 </div>
-                <h3 className="text-base font-bold text-gray-900 mb-1">No products found</h3>
-                <p className="text-xs text-gray-500 mb-5 max-w-sm mx-auto">
-                  We couldn't find any products matching your active filters or price criteria.
+                <h3 className="text-sm font-bold text-slate-900 mb-1">No products found</h3>
+                <p className="text-xs text-slate-500 mb-4 max-w-sm mx-auto">
+                  We couldn't find any products matching your active filters. Try clearing some filters.
                 </p>
                 <button
                   onClick={handleClearAll}
-                  className="px-6 py-2.5 bg-[#007AFF] text-white text-xs font-bold rounded-xl uppercase tracking-wider cursor-pointer border-none"
+                  className="px-5 py-2 bg-[#0066FF] hover:bg-[#0052CC] text-white text-xs font-bold rounded-md transition-colors cursor-pointer border-none"
                 >
                   Clear All Filters
                 </button>
               </div>
             ) : (
               <>
-                <div className={
-                  viewMode === 'grid'
-                    ? 'grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-4'
-                    : 'space-y-3'
-                }>
+                <div
+                  className={
+                    viewMode === 'grid'
+                      ? 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-3.5'
+                      : 'space-y-3'
+                  }
+                >
                   {sortedProducts.map((product) => (
                     <ProductCard
                       key={product._id}
@@ -744,27 +626,29 @@ function ProductsContent() {
                       slug={product.slug}
                       price={product.price}
                       compareAtPrice={product.compareAtPrice}
-                      image={product.images?.[0]?.url || getCategoryImage(product.category)}
+                      image={product.images?.[0]?.url || ''}
                       category={product.category}
                       stock={product.stock}
                       brand={product.brand}
                       badge={product.badge}
-                      variants={product.variants}
+                      viewMode={viewMode}
                     />
                   ))}
                 </div>
 
-                {/* Pagination */}
-                <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-gray-200 pt-6 text-xs text-gray-500">
-                  <span>Showing 1 - {sortedProducts.length} of {sortedProducts.length} items</span>
-                  <div className="flex items-center gap-1.5">
-                    <button className="px-3.5 py-2 border border-gray-200 rounded-xl bg-white font-bold text-gray-700 cursor-pointer">
+                {/* Pagination (Daraz Standard) */}
+                <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-3 bg-white rounded-lg border border-slate-200 px-4 py-3 text-xs text-slate-500">
+                  <span>
+                    Showing 1 - {sortedProducts.length} of {sortedProducts.length} items
+                  </span>
+                  <div className="flex items-center gap-1">
+                    <button className="px-3 py-1.5 border border-slate-200 rounded bg-white font-medium text-slate-600 hover:border-[#0066FF] cursor-pointer">
                       Previous
                     </button>
-                    <button className="w-8 h-8 rounded-xl bg-[#007AFF] text-white font-black flex items-center justify-center cursor-pointer shadow-xs">
+                    <button className="w-7 h-7 rounded bg-[#0066FF] text-white font-bold flex items-center justify-center cursor-pointer shadow-xs border-none">
                       1
                     </button>
-                    <button className="px-3.5 py-2 border border-gray-200 rounded-xl bg-white font-bold text-gray-700 cursor-pointer">
+                    <button className="px-3 py-1.5 border border-slate-200 rounded bg-white font-medium text-slate-600 hover:border-[#0066FF] cursor-pointer">
                       Next
                     </button>
                   </div>
@@ -777,7 +661,127 @@ function ProductsContent() {
         </div>
       </div>
 
-      {/* Booklist Upload Modal Triggered from Catalog Hero */}
+      {/* ── 3. Mobile Filter Drawer ─────────────────────────────────── */}
+      {isMobileFilterOpen && (
+        <div className="fixed inset-0 z-50 lg:hidden flex">
+          <div
+            className="fixed inset-0 bg-black/40 backdrop-blur-xs"
+            onClick={() => setIsMobileFilterOpen(false)}
+          />
+          <div className="relative ml-auto w-4/5 max-w-sm bg-white h-full shadow-2xl p-5 overflow-y-auto z-10 flex flex-col justify-between">
+            <div className="space-y-5">
+              <div className="flex items-center justify-between pb-3 border-b border-slate-200">
+                <span className="font-bold text-slate-900 text-sm">Filters</span>
+                <button
+                  onClick={() => setIsMobileFilterOpen(false)}
+                  className="p-1 text-slate-400 hover:text-slate-700 cursor-pointer bg-transparent border-none"
+                >
+                  <X size={18} />
+                </button>
+              </div>
+
+              {/* Mobile Categories */}
+              <div>
+                <div className="text-xs font-bold text-slate-900 uppercase mb-2">Categories</div>
+                <div className="space-y-1 text-xs max-h-40 overflow-y-auto">
+                  <button
+                    onClick={() => {
+                      handleCategorySelect('all');
+                      setIsMobileFilterOpen(false);
+                    }}
+                    className={`w-full text-left py-1 px-2 rounded block ${
+                      selectedCategory === 'all'
+                        ? 'bg-blue-50 text-[#0066FF] font-bold'
+                        : 'text-slate-700'
+                    }`}
+                  >
+                    All Products
+                  </button>
+                  {STORE_CATEGORIES.map((c) => (
+                    <button
+                      key={c.slug}
+                      onClick={() => {
+                        handleCategorySelect(c.slug);
+                        setIsMobileFilterOpen(false);
+                      }}
+                      className={`w-full text-left py-1 px-2 rounded block ${
+                        selectedCategory === c.slug
+                          ? 'bg-blue-50 text-[#0066FF] font-bold'
+                          : 'text-slate-700'
+                      }`}
+                    >
+                      {c.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Mobile Brands */}
+              <div className="border-t border-slate-100 pt-3">
+                <div className="text-xs font-bold text-slate-900 uppercase mb-2">Brands</div>
+                <div className="space-y-1.5 text-xs max-h-36 overflow-y-auto">
+                  {BRANDS_LIST.map((b) => (
+                    <label key={b} className="flex items-center gap-2 text-slate-700">
+                      <input
+                        type="checkbox"
+                        checked={selectedBrands.includes(b)}
+                        onChange={() => toggleItem(selectedBrands, setSelectedBrands, b)}
+                        className="accent-[#0066FF]"
+                      />
+                      <span>{b}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+
+              {/* Mobile Price */}
+              <div className="border-t border-slate-100 pt-3">
+                <div className="text-xs font-bold text-slate-900 uppercase mb-2">Price (Rs.)</div>
+                <div className="flex items-center gap-2">
+                  <input
+                    type="number"
+                    placeholder="Min"
+                    value={minPriceInput}
+                    onChange={(e) => setMinPriceInput(e.target.value)}
+                    className="w-full px-2 py-1 text-xs border rounded"
+                  />
+                  <span>-</span>
+                  <input
+                    type="number"
+                    placeholder="Max"
+                    value={maxPriceInput}
+                    onChange={(e) => setMaxPriceInput(e.target.value)}
+                    className="w-full px-2 py-1 text-xs border rounded"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-4 border-t border-slate-200 mt-6 flex gap-2">
+              <button
+                onClick={() => {
+                  handleClearAll();
+                  setIsMobileFilterOpen(false);
+                }}
+                className="flex-1 py-2 text-xs font-bold border border-slate-300 rounded text-slate-700"
+              >
+                Clear
+              </button>
+              <button
+                onClick={() => {
+                  handleApplyPrice();
+                  setIsMobileFilterOpen(false);
+                }}
+                className="flex-1 py-2 text-xs font-bold bg-[#0066FF] text-white rounded"
+              >
+                Apply
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Booklist Upload Modal */}
       <BooklistUploadModal
         isOpen={isUploadModalOpen}
         onClose={() => setIsUploadModalOpen(false)}
@@ -790,7 +794,13 @@ function ProductsContent() {
 export default function ProductsPage() {
   return (
     <StoreShell>
-      <Suspense fallback={<div className="container py-12 text-center text-sm font-bold text-gray-500">Loading AZIP Catalog...</div>}>
+      <Suspense
+        fallback={
+          <div className="container mx-auto px-4 py-16 text-center text-sm font-bold text-slate-500">
+            Loading AZIP Catalog...
+          </div>
+        }
+      >
         <ProductsContent />
       </Suspense>
     </StoreShell>

@@ -25,6 +25,7 @@ interface BooklistUploadModalProps {
 export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadModalProps) {
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [file, setFile] = useState<File | null>(null);
+  const [uploadedUrl, setUploadedUrl] = useState('');
   const [dragActive, setDragActive] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
@@ -66,11 +67,20 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
   };
 
   const validateAndSetFile = (f: File) => {
-    // Allow images, PDFs, word documents, HEIC and general files up to 25MB
-    if (f.size > 25 * 1024 * 1024) {
-      setErrorMsg('File size exceeds 25MB limit. Please upload a smaller file.');
+    // Whitelist supported extensions and MIME types
+    const allowedExtensions = ['.jpg', '.jpeg', '.png', '.webp', '.gif', '.heic', '.pdf', '.doc', '.docx'];
+    const ext = '.' + (f.name.split('.').pop() || '').toLowerCase();
+
+    if (!allowedExtensions.includes(ext) && !f.type.startsWith('image/') && f.type !== 'application/pdf') {
+      setErrorMsg('Invalid file format. Please upload an image (JPG, PNG, WEBP) or document (PDF, Word).');
       return;
     }
+
+    if (f.size > 15 * 1024 * 1024) {
+      setErrorMsg('File size exceeds 15MB limit. Please upload a smaller file or photo.');
+      return;
+    }
+
     setErrorMsg('');
     setFile(f);
   };
@@ -95,39 +105,66 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
     setErrorMsg('');
 
     try {
-      // Create FormData to upload file to backend or save metadata
+      // Create FormData to upload file to backend
       const formData = new FormData();
       if (file) formData.append('file', file);
-      formData.append('studentName', studentName);
-      formData.append('grade', grade);
-      formData.append('schoolName', schoolName);
-      formData.append('parentPhone', parentPhone);
-      formData.append('city', city);
-      formData.append('notes', notes);
+      formData.append('studentName', studentName.trim());
+      formData.append('grade', grade.trim());
+      formData.append('schoolName', schoolName.trim());
+      formData.append('parentPhone', parentPhone.trim());
+      formData.append('city', (city || 'Kandy').trim());
+      formData.append('notes', notes.trim());
+      formData.append('folder', 'azip-store/booklists');
 
       const res = await fetch('/api/upload', {
         method: 'POST',
         body: formData,
       });
 
-      // Advance to step 3 success state regardless of network response
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to upload booklist. Please try again.');
+      }
+
+      setUploadedUrl(data.url || '');
       setStep(3);
-    } catch (err) {
-      // Fallback directly to success step
-      setStep(3);
+    } catch (err: any) {
+      console.error('Booklist upload error:', err);
+      setErrorMsg(err.message || 'Failed to upload booklist. Please check your network and try again.');
     } finally {
       setIsSubmitting(false);
     }
   };
 
   const generateWhatsAppMessage = () => {
-    const text = `Hello AZIP Store! 📚\nI have uploaded a school booklist:\n\n• *Student*: ${studentName}\n• *Grade*: ${grade}\n• *School*: ${schoolName}\n• *Phone*: ${parentPhone}\n• *City/District*: ${city || 'Kandy'}\n• *Notes*: ${notes || 'None'}\n\nPlease check my booklist file (*${file?.name || 'Uploaded File'}*) and send me a quotation with available discounts!`;
-    return `https://wa.me/94770000000?text=${encodeURIComponent(text)}`;
+    let fileLink = '';
+    if (uploadedUrl) {
+      if (uploadedUrl.startsWith('http://') || uploadedUrl.startsWith('https://')) {
+        fileLink = uploadedUrl;
+      } else if (typeof window !== 'undefined') {
+        fileLink = `${window.location.origin}${uploadedUrl}`;
+      }
+    }
+
+    let text = `Hello AZIP Store! 📚\nI have uploaded a school booklist:\n\n• *Student*: ${studentName}\n• *Grade*: ${grade}\n• *School*: ${schoolName}\n• *Phone*: ${parentPhone}\n• *City/District*: ${city || 'Kandy'}\n• *Notes*: ${notes || 'None'}`;
+    
+    if (fileLink) {
+      text += `\n• *Booklist File Link*: ${fileLink}`;
+    } else if (file?.name) {
+      text += `\n• *File*: ${file.name}`;
+    }
+
+    text += `\n\nPlease check my booklist and send me a quotation with available discounts!`;
+    const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '94770000000';
+    const cleanNumber = rawNumber.replace(/[^0-9]/g, '');
+    return `https://wa.me/${cleanNumber}?text=${encodeURIComponent(text)}`;
   };
 
   const resetModal = () => {
     setStep(1);
     setFile(null);
+    setUploadedUrl('');
     setErrorMsg('');
     setStudentName('');
     setSchoolName('');
@@ -432,10 +469,24 @@ export default function BooklistUploadModal({ isOpen, onClose }: BooklistUploadM
                   <span className="text-gray-500 font-medium">Contact Phone:</span>
                   <span className="font-bold text-gray-900">{parentPhone}</span>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex justify-between border-b border-slate-200 pb-1.5">
                   <span className="text-gray-500 font-medium">Delivery:</span>
                   <span className="font-bold text-gray-900">{city || 'Kandy'}</span>
                 </div>
+                {uploadedUrl && (
+                  <div className="flex justify-between pt-1 items-center">
+                    <span className="text-gray-500 font-medium">Uploaded File:</span>
+                    <a
+                      href={uploadedUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-bold text-[#007AFF] hover:underline flex items-center gap-1"
+                    >
+                      <FileText size={13} />
+                      View Uploaded List
+                    </a>
+                  </div>
+                )}
               </div>
 
               {/* Direct WhatsApp Call to Action */}

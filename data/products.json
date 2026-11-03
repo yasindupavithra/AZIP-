@@ -1,9 +1,167 @@
 [
   {
-    "_id": "prod-001",
-    "name": "Atlas Premium A4 Hardcover CR Notebook",
-    "slug": "premium-a4-hardcover-cr-notebook-200-pages",
-    "description": "High-grade 80gsm smooth paper CR book with durable hardcover binding. Ruled lines for neat, effortless writing in schools, universities, and offices.",
+    "_id": "prod-sb-02",
+    "name": "G.C.E. O/L Mathematics 10-Year Past Papers Book",
+    "slug": "gce-ol-mathematics-10-year-past-papers-book",
+    "description": "Official Department of Examinations O/L Mathematics question papers from 2014-2024 with step-by-step marking schemes and theory summaries.",
+    "category": "school-books",
+    "subcategory": "O/L Examination",
+    "price": 1250,
+    "compareAtPrice": 1500,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=900&q=80",
+        "alt": "O/L Mathematics Past Papers"
+      }
+    ],
+    "stock": 95,
+    "sku": "AZ-SB-OL-MTH",
+    "tags": [
+      "ol",
+      "mathematics",
+      "past papers",
+      "grade 10-11",
+      "exam"
+    ],
+    "isFeatured": true,
+    "rating": 4.9,
+    "reviewsCount": 64,
+    "badge": "Exam Special",
+    "brand": "AZIP",
+    "grade": "Grade 10-11 (O/L)",
+    "language": "English"
+  },
+  {
+    "_id": "prod-sb-03",
+    "name": "G.C.E. O/L Science Past Papers & Model Answers Guide",
+    "slug": "gce-ol-science-past-papers-model-answers-guide",
+    "description": "Complete O/L Science syllabus past paper collection with color diagrams, lab experiment guides, and structured essay sample answers.",
+    "category": "school-books",
+    "subcategory": "O/L Examination",
+    "price": 1150,
+    "compareAtPrice": 1400,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=900&q=80",
+        "alt": "O/L Science Guide"
+      }
+    ],
+    "stock": 75,
+    "sku": "AZ-SB-OL-SCI",
+    "tags": [
+      "ol",
+      "science",
+      "chemistry",
+      "physics",
+      "biology"
+    ],
+    "isFeatured": false,
+    "rating": 4.8,
+    "reviewsCount": 42,
+    "badge": "Popular",
+    "brand": "AZIP",
+    "grade": "Grade 10-11 (O/L)",
+    "language": "Sinhala"
+  },
+  {
+    "_id": "prod-sb-04",
+    "name": "G.C.E. A/L Combined Mathematics Resource Book (Pure & Applied)",
+    "slug": "gce-al-combined-mathematics-resource-book-pure-applied",
+    "description": "National Institute of Education (NIE) standard resource reference book for A/L Physical Science stream containing calculus, trigonometry, and dynamics.",
+    "category": "school-books",
+    "subcategory": "A/L Examination",
+    "price": 1650,
+    "compareAtPrice": 1950,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=900&q=80",
+        "alt": "A/L Combined Maths"
+      }
+    ],
+    "stock": 50,
+    "sku": "AZ-SB-AL-CMB",
+    "tags": [
+      "al",
+      "combined maths",
+      "pure maths",
+      "applied maths",
+      "grade 12-13"
+    ],
+    "isFeatured": true,
+    "rating": 5,
+    "reviewsCount": 38,
+    "badge": "NIE Syllabus",
+    "brand": "AZIP",
+    "grade": "Grade 12-13 (A/L)",
+    "language": "English"
+  },
+  {
+    "_id": "prod-sb-05",
+    "name": "G.C.E. A/L Biology Resource Book & Practical Handbook",
+    "slug": "gce-al-biology-resource-book-practical-handbook",
+    "description": "Official A/L Biology reference handbook covering genetics, physiology, molecular biology, and mandatory laboratory practical techniques.",
+    "category": "school-books",
+    "subcategory": "A/L Examination",
+    "price": 1850,
+    "compareAtPrice": 2200,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=900&q=80",
+        "alt": "A/L Biology Guide"
+      }
+    ],
+    "stock": 60,
+    "sku": "AZ-SB-AL-BIO",
+    "tags": [
+      "al",
+      "biology",
+      "botany",
+      "zoology",
+      "resource book"
+    ],
+    "isFeatured": false,
+    "rating": 4.9,
+    "reviewsCount": 29,
+    "brand": "AZIP",
+    "grade": "Grade 12-13 (A/L)",
+    "language": "Sinhala"
+  },
+  {
+    "_id": "prod-sb-06",
+    "name": "Grade 1-5 Environmental Studies & Activity Workbook",
+    "slug": "grade-1-5-environmental-studies-activity-workbook",
+    "description": "Engaging full-color activity book with puzzles, diagrams, and exercises covering Sri Lankan geography, history, and flora & fauna.",
+    "category": "school-books",
+    "subcategory": "Primary & Scholarship",
+    "price": 650,
+    "compareAtPrice": 800,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80",
+        "alt": "Primary Activity Workbook"
+      }
+    ],
+    "stock": 140,
+    "sku": "AZ-SB-G15-ENV",
+    "tags": [
+      "primary",
+      "grade 1-5",
+      "activity book",
+      "environmental studies"
+    ],
+    "isFeatured": false,
+    "rating": 4.7,
+    "reviewsCount": 51,
+    "badge": "Kids Favourite",
+    "brand": "AZIP",
+    "grade": "Grade 1-5",
+    "language": "Sinhala"
+  },
+  {
+    "_id": "prod-ex-01",
+    "name": "Atlas Premium A4 Hardcover CR Notebook (200 Pages Single Ruled)",
+    "slug": "atlas-premium-a4-hardcover-cr-notebook-200-pages",
+    "description": "High-grade 80gsm whiteness smooth paper CR book with durable binding. Ruled lines for neat, effortless writing in schools and universities.",
     "category": "exercise-books",
     "subcategory": "CR Books",
     "price": 490,
@@ -44,17 +202,18 @@
     ]
   },
   {
-    "_id": "prod-013",
+    "_id": "prod-ex-02",
     "name": "Atlas Single Ruled 80-Page Exercise Books (Pack of 5)",
     "slug": "atlas-single-ruled-80-page-exercise-books-pack-of-5",
-    "description": "High whiteness smooth paper standard exercise books for primary and secondary school daily classwork.",
+    "description": "High whiteness smooth paper standard exercise books for primary and secondary school daily classwork and note taking.",
     "category": "exercise-books",
     "subcategory": "Ruled Books",
     "price": 450,
     "compareAtPrice": 550,
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=900&q=80"
+        "url": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=900&q=80",
+        "alt": "Atlas Exercise Books"
       }
     ],
     "stock": 200,
@@ -73,262 +232,662 @@
     "rulingType": "Single Ruled"
   },
   {
-    "_id": "prod-014",
+    "_id": "prod-ex-03",
     "name": "Atlas Square Grid 80-Page Primary Mathematics Book (Pack of 5)",
     "slug": "atlas-square-grid-80-page-maths-book-pack-of-5",
-    "description": "Precision square ruled lines designed for primary school arithmetic, geometry diagrams, and mathematics exercises.",
+    "description": "Precision square grid ruled lines designed for primary school arithmetic, geometry diagrams, and mathematics exercises.",
     "category": "exercise-books",
     "subcategory": "Maths Books",
     "price": 450,
     "compareAtPrice": 550,
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=80"
+        "url": "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=900&q=80",
+        "alt": "Square Grid Maths Book"
       }
     ],
     "stock": 180,
-    "sku": "AZ-EX-SQ",
+    "sku": "AZ-EX-SQ80",
     "tags": [
-      "atlas",
       "square grid",
       "maths",
+      "atlas",
       "primary"
     ],
     "isFeatured": false,
-    "rating": 4.9,
+    "rating": 4.8,
     "reviewsCount": 22,
     "brand": "Atlas",
     "grade": "Grade 1-5",
     "rulingType": "Square Grid"
   },
   {
-    "_id": "prod-015",
-    "name": "Premium A4 Science Practical Lab Book 120 Pages",
-    "slug": "premium-a4-science-practical-lab-book-120-pages",
-    "description": "Interleaved ruling with blank graph pages for drawing scientific diagrams, chemical formulas, and physics experiments.",
+    "_id": "prod-ex-04",
+    "name": "Atlas Premium A4 Science Practical Lab Book (120 Pages)",
+    "slug": "atlas-premium-a4-science-practical-lab-book-120-pages",
+    "description": "Alternate ruled and plain pages format designed specifically for secondary and O/L science practical observations and diagrams.",
     "category": "exercise-books",
-    "subcategory": "Practical Books",
+    "subcategory": "Science Practical",
     "price": 620,
     "compareAtPrice": 750,
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=900&q=80"
+        "url": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=900&q=80",
+        "alt": "Science Lab Book"
       }
     ],
-    "stock": 95,
-    "sku": "AZ-EX-LAB",
+    "stock": 80,
+    "sku": "AZ-CR-PRAC",
     "tags": [
       "practical",
       "science",
+      "a4",
       "lab book",
-      "a4"
+      "atlas"
     ],
     "isFeatured": true,
-    "rating": 5,
+    "rating": 4.9,
     "reviewsCount": 19,
-    "badge": "Lab Choice",
     "brand": "Atlas",
     "grade": "Grade 10-11 (O/L)",
     "rulingType": "Practical"
   },
   {
-    "_id": "prod-002",
-    "name": "Casio FX-991CW ClassWiz Scientific Calculator",
-    "slug": "casio-fx-991cw-scientific-calculator",
-    "description": "Authentic Casio ClassWiz FX-991CW with 540+ functions, high-resolution natural textbook display, and QR code integration for Sri Lankan O/L, A/L, and University examinations.",
-    "category": "electronics",
-    "subcategory": "Calculators",
-    "price": 9800,
-    "compareAtPrice": 11500,
+    "_id": "prod-ex-05",
+    "name": "Atlas CR Hardcover 120-Page A4 Notebook (Pack of 3)",
+    "slug": "atlas-cr-hardcover-120-page-a4-notebook-pack-of-3",
+    "description": "Sturdy laminated hardcover CR books bundle, resistant to moisture and wear. Ideal for term notes and tuition classes.",
+    "category": "exercise-books",
+    "subcategory": "CR Books",
+    "price": 1050,
+    "compareAtPrice": 1300,
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1611125832047-1d7ad1e8e48f?auto=format&fit=crop&w=900&q=80",
-        "alt": "Scientific Calculator"
+        "url": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=900&q=80",
+        "alt": "Atlas CR Bundle"
       }
     ],
-    "stock": 35,
-    "sku": "AZ-EL-991",
+    "stock": 90,
+    "sku": "AZ-CR-120P-3PK",
     "tags": [
-      "calculator",
-      "casio",
-      "scientific",
-      "al exam",
-      "maths"
-    ],
-    "isFeatured": true,
-    "rating": 5,
-    "reviewsCount": 82,
-    "badge": "Top Pick",
-    "brand": "Casio",
-    "grade": "Grade 12-13 (A/L)"
-  },
-  {
-    "_id": "prod-009",
-    "name": "SanDisk Ultra Dual Drive Luxe 64GB Type-C & USB 3.1",
-    "slug": "sandisk-ultra-dual-drive-luxe-64gb",
-    "description": "All-metal 2-in-1 flash drive with reversible USB Type-C and traditional Type-A connector. Seamlessly move files between smartphones, tablets, MacBooks, and PCs.",
-    "category": "electronics",
-    "subcategory": "Storage",
-    "price": 2950,
-    "compareAtPrice": 3600,
-    "images": [
-      {
-        "url": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=900&q=80"
-      }
-    ],
-    "stock": 55,
-    "sku": "AZ-SD-64G",
-    "tags": [
-      "sandisk",
-      "usb",
-      "type c",
-      "flash drive",
-      "storage"
-    ],
-    "isFeatured": true,
-    "rating": 4.9,
-    "reviewsCount": 42,
-    "badge": "Tech Deal",
-    "brand": "SanDisk"
-  },
-  {
-    "_id": "prod-016",
-    "name": "Rechargeable Eye-Care LED Student Study Desk Lamp",
-    "slug": "rechargeable-eye-care-led-student-study-desk-lamp",
-    "description": "Touch dimmable 3-color LED desk lamp with flexible goose-neck arm and long-lasting USB rechargeable lithium battery for late night study.",
-    "category": "electronics",
-    "subcategory": "Desk Lamps",
-    "price": 2250,
-    "compareAtPrice": 2800,
-    "images": [
-      {
-        "url": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=900&q=80"
-      }
-    ],
-    "stock": 40,
-    "sku": "AZ-EL-LMP",
-    "tags": [
-      "desk lamp",
-      "led",
-      "study",
-      "rechargeable"
+      "cr book",
+      "bundle",
+      "atlas",
+      "a4"
     ],
     "isFeatured": false,
     "rating": 4.8,
-    "reviewsCount": 17,
-    "brand": "AZIP Genuine"
+    "reviewsCount": 35,
+    "badge": "Value Pack",
+    "brand": "Atlas",
+    "grade": "Grade 6-9",
+    "rulingType": "CR Hardcover"
   },
   {
-    "_id": "prod-003",
-    "name": "Pilot G2 Retractable Gel Pen 0.7mm (Pack of 5)",
-    "slug": "pilot-g2-gel-pen-pack-of-5",
-    "description": "The world-famous smooth writing gel pen with dynamic gel ink formula and comfortable rubberized grip. Longest writing gel pen in the market.",
+    "_id": "prod-ex-06",
+    "name": "Oxford Spiral Bound Project Book A4 (160 Pages Micro-Perforated)",
+    "slug": "oxford-spiral-bound-project-book-a4-160-pages",
+    "description": "Premium twin-wire spiral bound notebook with 4 repositionable dividers and 90gsm Optik paper that resists ink bleed-through.",
+    "category": "exercise-books",
+    "subcategory": "Spiral Notebooks",
+    "price": 790,
+    "compareAtPrice": 950,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=900&q=80",
+        "alt": "Oxford Spiral Book"
+      }
+    ],
+    "stock": 65,
+    "sku": "AZ-OX-SP160",
+    "tags": [
+      "oxford",
+      "spiral",
+      "project book",
+      "campus"
+    ],
+    "isFeatured": false,
+    "rating": 4.9,
+    "reviewsCount": 27,
+    "brand": "Oxford",
+    "grade": "Grade 12-13 (A/L)",
+    "rulingType": "Single Ruled"
+  },
+  {
+    "_id": "prod-wr-01",
+    "name": "Pilot G2 Retractable Gel Pen 0.7mm (Pack of 3 - Blue, Black, Red)",
+    "slug": "pilot-g2-retractable-gel-pen-pack-of-3",
+    "description": "Dynamic gel ink formula with rubber comfort grip. Longest-writing gel pen providing ultra-smooth, skip-free exam writing.",
     "category": "writing-instruments",
-    "subcategory": "Pens",
+    "subcategory": "Gel Pens",
     "price": 1350,
     "compareAtPrice": 1600,
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=900&q=80"
+        "url": "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=900&q=80",
+        "alt": "Pilot G2 Pens"
       }
     ],
-    "stock": 250,
+    "stock": 140,
     "sku": "AZ-PLT-G2",
     "tags": [
       "pilot",
       "gel pen",
-      "pens",
-      "stationery"
+      "exam pen",
+      "writing"
     ],
     "isFeatured": true,
-    "rating": 4.9,
-    "reviewsCount": 65,
+    "rating": 5,
+    "reviewsCount": 84,
     "badge": "Popular",
-    "brand": "Pilot",
-    "variants": [
-      {
-        "name": "Ink Color",
-        "options": [
-          "Blue",
-          "Black",
-          "Red",
-          "Assorted Pack"
-        ]
-      }
-    ]
+    "brand": "Pilot"
   },
   {
-    "_id": "prod-011",
-    "name": "Stabilo Boss Original Pastel Highlighters (Set of 6)",
-    "slug": "stabilo-boss-pastel-highlighters-set-of-6",
-    "description": "Subtle, aesthetic pastel hues for textbook study and bullet journaling. Anti-dry-out technology allows up to 4 hours cap-off time without drying.",
+    "_id": "prod-wr-02",
+    "name": "Stabilo Boss Original Pastel Highlighters (Set of 6 Assorted)",
+    "slug": "stabilo-boss-original-pastel-highlighters-set-of-6",
+    "description": "Soft subtle pastel shades with anti-dry-out technology (up to 4 hours cap-off). Dual chisel tip for 2mm and 5mm highlighting.",
     "category": "writing-instruments",
     "subcategory": "Highlighters",
     "price": 1650,
     "compareAtPrice": 1950,
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=900&q=80"
+        "url": "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=900&q=80",
+        "alt": "Stabilo Highlighters"
       }
     ],
-    "stock": 90,
-    "sku": "AZ-STB-PST",
+    "stock": 85,
+    "sku": "AZ-STB-P6",
     "tags": [
       "stabilo",
       "highlighter",
       "pastel",
-      "study",
-      "stationery"
+      "revision"
     ],
     "isFeatured": true,
-    "rating": 5,
-    "reviewsCount": 68,
-    "badge": "Trend",
+    "rating": 4.9,
+    "reviewsCount": 52,
+    "badge": "Top Pick",
     "brand": "Stabilo"
   },
   {
-    "_id": "prod-017",
+    "_id": "prod-wr-03",
     "name": "Nataraj 2B Exam Graphite Pencils Box (10 Pencils + Eraser & Sharpener)",
     "slug": "nataraj-2b-exam-graphite-pencils-box",
-    "description": "Dark 2B graphite core engineered for O/L and A/L multiple choice answer sheets. Break-resistant wood bonding.",
+    "description": "Dark, smooth 2B lead pencils ideal for OMR exam sheets, sketching, and everyday handwriting. Break-resistant bonded lead.",
     "category": "writing-instruments",
     "subcategory": "Pencils",
     "price": 320,
     "compareAtPrice": 400,
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=900&q=80"
+        "url": "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=900&q=80",
+        "alt": "Nataraj 2B Pencils"
       }
     ],
-    "stock": 300,
-    "sku": "AZ-NTR-2B",
+    "stock": 250,
+    "sku": "AZ-NT-2B",
     "tags": [
       "nataraj",
-      "pencil",
+      "pencils",
       "2b",
-      "exam"
+      "exam",
+      "graphite"
     ],
     "isFeatured": false,
-    "rating": 4.9,
-    "reviewsCount": 52,
+    "rating": 4.8,
+    "reviewsCount": 76,
     "brand": "Nataraj"
   },
   {
-    "_id": "prod-004",
-    "name": "Oxford English-Sinhala-Tamil Student Dictionary",
-    "slug": "oxford-trilingual-student-dictionary",
-    "description": "Comprehensive trilingual dictionary for Sri Lankan students containing over 45,000 definitions, pronunciation guides, grammar charts, and real-world example sentences.",
+    "_id": "prod-wr-04",
+    "name": "Atlas Chooty Ballpoint Pens Box (50 Pens - Blue 0.7mm)",
+    "slug": "atlas-chooty-ballpoint-pens-box-50-pens",
+    "description": "Sri Lanka’s most trusted classroom ballpoint pen. High ink yield, low friction tungsten carbide ball tip for effortless writing.",
+    "category": "writing-instruments",
+    "subcategory": "Ballpoint Pens",
+    "price": 1250,
+    "compareAtPrice": 1500,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?auto=format&fit=crop&w=900&q=80",
+        "alt": "Atlas Chooty Ballpoint Pens Box (50 Pens - Blue 0.7mm)"
+      }
+    ],
+    "stock": 190,
+    "sku": "AZ-AT-CH50",
+    "tags": [
+      "atlas",
+      "chooty",
+      "ballpoint",
+      "bulk pack",
+      "pens"
+    ],
+    "isFeatured": true,
+    "rating": 4.9,
+    "reviewsCount": 110,
+    "badge": "Best Value",
+    "brand": "Atlas"
+  },
+  {
+    "_id": "prod-wr-05",
+    "name": "Faber-Castell Grip 2011 Ballpoint Pen 0.7mm (Ergonomic Dot Grip)",
+    "slug": "faber-castell-grip-2011-ballpoint-pen",
+    "description": "Award-winning ergonomic triangular barrel with raised non-slip grip dots. Document-proof archival blue ink with pocket clip.",
+    "category": "writing-instruments",
+    "subcategory": "Ballpoint Pens",
+    "price": 680,
+    "compareAtPrice": 850,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1569683795645-b62e50fbf103?auto=format&fit=crop&w=900&q=80",
+        "alt": "Faber-Castell Grip Pen"
+      }
+    ],
+    "stock": 70,
+    "sku": "AZ-FC-GRIP",
+    "tags": [
+      "faber-castell",
+      "grip",
+      "ergonomic",
+      "ballpoint"
+    ],
+    "isFeatured": false,
+    "rating": 4.8,
+    "reviewsCount": 24,
+    "brand": "Faber-Castell"
+  },
+  {
+    "_id": "prod-wr-06",
+    "name": "Pilot V5 Hi-Tecpoint Extra Fine Liquid Ink Rollerball Pen (Pack of 2)",
+    "slug": "pilot-v5-hitecpoint-extra-fine-liquid-ink-rollerball-pen",
+    "description": "Multi-dimple precision tip delivers liquid ink with consistent flow. Clear ink window lets you monitor remaining supply.",
+    "category": "writing-instruments",
+    "subcategory": "Rollerball Pens",
+    "price": 890,
+    "compareAtPrice": 1100,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=900&q=80",
+        "alt": "Pilot V5 Pens"
+      }
+    ],
+    "stock": 85,
+    "sku": "AZ-PLT-V5",
+    "tags": [
+      "pilot",
+      "v5",
+      "rollerball",
+      "liquid ink",
+      "precision"
+    ],
+    "isFeatured": false,
+    "rating": 4.9,
+    "reviewsCount": 39,
+    "brand": "Pilot"
+  },
+  {
+    "_id": "prod-mt-01",
+    "name": "Casio FX-991CW ClassWiz Scientific Calculator (Official Exam Edition)",
+    "slug": "casio-fx-991cw-classwiz-scientific-calculator",
+    "description": "540+ advanced mathematical functions, high-definition 4-gradation display, spreadsheet calculations, QR code graph visualization, and solar backup.",
+    "category": "mathematical-instruments",
+    "subcategory": "Scientific Calculators",
+    "price": 9800,
+    "compareAtPrice": 11500,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1611125832047-1d7ad1e8e48f?auto=format&fit=crop&w=900&q=80",
+        "alt": "Casio FX-991CW Calculator"
+      }
+    ],
+    "stock": 45,
+    "sku": "AZ-CS-991CW",
+    "tags": [
+      "casio",
+      "calculator",
+      "fx-991cw",
+      "scientific",
+      "exam"
+    ],
+    "isFeatured": true,
+    "rating": 5,
+    "reviewsCount": 92,
+    "badge": "3-Year Warranty",
+    "brand": "Casio"
+  },
+  {
+    "_id": "prod-mt-02",
+    "name": "Casio FX-570VN Plus 2nd Edition Scientific Calculator",
+    "slug": "casio-fx-570vn-plus-2nd-edition-scientific-calculator",
+    "description": "453 functions natural textbook display. Solves matrices, complex numbers, vectors, regressions, and inequalities for A/L and college exams.",
+    "category": "mathematical-instruments",
+    "subcategory": "Scientific Calculators",
+    "price": 7450,
+    "compareAtPrice": 8900,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1594980596870-8aa52a78d8cd?auto=format&fit=crop&w=900&q=80",
+        "alt": "Casio FX-570VN"
+      }
+    ],
+    "stock": 35,
+    "sku": "AZ-CS-570VN",
+    "tags": [
+      "casio",
+      "fx-570",
+      "scientific calculator",
+      "al maths"
+    ],
+    "isFeatured": false,
+    "rating": 4.8,
+    "reviewsCount": 47,
+    "brand": "Casio"
+  },
+  {
+    "_id": "prod-mt-03",
+    "name": "Helix Oxford Complete Metal Geometry Precision Box Set (9 Pieces)",
+    "slug": "helix-oxford-complete-metal-geometry-precision-box-set",
+    "description": "Traditional metal embossed tin containing self-centring compass, 9cm pencil, 15cm ruler, 180° protractor, set squares, eraser, and sharpener.",
+    "category": "mathematical-instruments",
+    "subcategory": "Geometry Sets",
+    "price": 950,
+    "compareAtPrice": 1200,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=900&q=80",
+        "alt": "Helix Oxford Maths Set"
+      }
+    ],
+    "stock": 110,
+    "sku": "AZ-HLX-OX9",
+    "tags": [
+      "helix",
+      "oxford",
+      "geometry box",
+      "maths set",
+      "compass"
+    ],
+    "isFeatured": true,
+    "rating": 4.9,
+    "reviewsCount": 68,
+    "badge": "Best Seller",
+    "brand": "Helix Oxford"
+  },
+  {
+    "_id": "prod-mt-04",
+    "name": "Casio FX-82MS 2nd Edition Standard Scientific Calculator",
+    "slug": "casio-fx-82ms-2nd-edition-standard-scientific-calculator",
+    "description": "240 functions 2-line display calculator. Fraction calculations, combination/permutation, statistics, and 9 variable memories for O/L students.",
+    "category": "mathematical-instruments",
+    "subcategory": "Scientific Calculators",
+    "price": 4850,
+    "compareAtPrice": 5800,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1611125832047-1d7ad1e8e48f?auto=format&fit=crop&w=900&q=80",
+        "alt": "Casio FX-82MS"
+      }
+    ],
+    "stock": 55,
+    "sku": "AZ-CS-82MS",
+    "tags": [
+      "casio",
+      "fx-82ms",
+      "ol calculator",
+      "school"
+    ],
+    "isFeatured": false,
+    "rating": 4.8,
+    "reviewsCount": 33,
+    "brand": "Casio"
+  },
+  {
+    "_id": "prod-mt-05",
+    "name": "Maped Precision Technical Drawing Compass with Extension Bar",
+    "slug": "maped-precision-technical-drawing-compass",
+    "description": "Heavy metal engineering compass with micro-metric gear wheel adjustment. Includes universal pen adapter and spare lead tube.",
+    "category": "mathematical-instruments",
+    "subcategory": "Technical Drawing",
+    "price": 1450,
+    "compareAtPrice": 1800,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=900&q=80",
+        "alt": "Maped Compass"
+      }
+    ],
+    "stock": 40,
+    "sku": "AZ-MPD-CMP",
+    "tags": [
+      "compass",
+      "technical drawing",
+      "maped",
+      "engineering"
+    ],
+    "isFeatured": false,
+    "rating": 4.7,
+    "reviewsCount": 18,
+    "brand": "Maped"
+  },
+  {
+    "_id": "prod-mt-06",
+    "name": "Stainless Steel 30cm Metric & Imperial Engineering Scale Ruler",
+    "slug": "stainless-steel-30cm-metric-imperial-scale-ruler",
+    "description": "Non-bendable laser-etched stainless steel ruler with conversion tables on the reverse. Straight zero-edge for accurate technical measuring.",
+    "category": "mathematical-instruments",
+    "subcategory": "Rulers & Scales",
+    "price": 420,
+    "compareAtPrice": 550,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=900&q=80",
+        "alt": "Stainless Steel 30cm Metric & Imperial Engineering Scale Ruler"
+      }
+    ],
+    "stock": 160,
+    "sku": "AZ-HLX-RL30",
+    "tags": [
+      "ruler",
+      "steel scale",
+      "30cm",
+      "helix",
+      "measuring"
+    ],
+    "isFeatured": false,
+    "rating": 4.9,
+    "reviewsCount": 54,
+    "brand": "Helix Oxford"
+  },
+  {
+    "_id": "prod-art-01",
+    "name": "Faber-Castell 36 Watercolour Eco Pencils Set with Brush",
+    "slug": "faber-castell-36-watercolour-eco-pencils-set",
+    "description": "Water-soluble pigment cores transform drawing into vibrant watercolour paintings with a wet brush. SV bonded break-resistant leads.",
+    "category": "art-craft",
+    "subcategory": "Coloured Pencils",
+    "price": 2450,
+    "compareAtPrice": 2950,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=900&q=80",
+        "alt": "Faber-Castell Watercolour Pencils"
+      }
+    ],
+    "stock": 75,
+    "sku": "AZ-FC-WC36",
+    "tags": [
+      "faber-castell",
+      "watercolour",
+      "colour pencils",
+      "art supplies"
+    ],
+    "isFeatured": true,
+    "rating": 5,
+    "reviewsCount": 65,
+    "badge": "Popular",
+    "brand": "Faber-Castell"
+  },
+  {
+    "_id": "prod-art-02",
+    "name": "Mont Marte Studio Acrylic Colour Paint Set (18 x 36ml Tubes)",
+    "slug": "mont-marte-studio-acrylic-colour-paint-set",
+    "description": "Fast-drying acrylic paints with satin finish, high viscosity, and brilliant pigment clarity. Suitable for canvas, wood, paper, and pottery.",
+    "category": "art-craft",
+    "subcategory": "Acrylic Paints",
+    "price": 3600,
+    "compareAtPrice": 4400,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=900&q=80",
+        "alt": "Mont Marte Acrylic Paints"
+      }
+    ],
+    "stock": 45,
+    "sku": "AZ-MM-AC18",
+    "tags": [
+      "mont marte",
+      "acrylic paint",
+      "canvas painting",
+      "artist"
+    ],
+    "isFeatured": true,
+    "rating": 4.9,
+    "reviewsCount": 41,
+    "badge": "Studio Grade",
+    "brand": "Mont Marte"
+  },
+  {
+    "_id": "prod-art-03",
+    "name": "Mont Marte Visual Art Diary A4 Spiral Bound Sketchbook (120gsm)",
+    "slug": "mont-marte-visual-art-diary-a4-spiral-sketchbook",
+    "description": "75 acid-free heavy 120gsm sheets with durable polypropylene black front & back covers. Perfect for graphite, charcoal, pens, and pastels.",
+    "category": "art-craft",
+    "subcategory": "Sketchbooks",
+    "price": 1250,
+    "compareAtPrice": 1550,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=900&q=80",
+        "alt": "Mont Marte Art Diary"
+      }
+    ],
+    "stock": 80,
+    "sku": "AZ-MM-SK75",
+    "tags": [
+      "sketchbook",
+      "art diary",
+      "a4",
+      "mont marte",
+      "drawing"
+    ],
+    "isFeatured": false,
+    "rating": 4.8,
+    "reviewsCount": 29,
+    "brand": "Mont Marte"
+  },
+  {
+    "_id": "prod-art-04",
+    "name": "Faber-Castell Oil Pastels Art Studio Box (24 Rich Pigment Shades)",
+    "slug": "faber-castell-oil-pastels-art-studio-box",
+    "description": "Smooth, buttery oil pastels offering intense colour coverage, effortless blending, and scraper tool included for sgraffito effects.",
+    "category": "art-craft",
+    "subcategory": "Pastels",
+    "price": 1150,
+    "compareAtPrice": 1400,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=900&q=80",
+        "alt": "Faber-Castell Pastels"
+      }
+    ],
+    "stock": 90,
+    "sku": "AZ-FC-OP24",
+    "tags": [
+      "oil pastels",
+      "faber-castell",
+      "colouring",
+      "art"
+    ],
+    "isFeatured": false,
+    "rating": 4.8,
+    "reviewsCount": 36,
+    "brand": "Faber-Castell"
+  },
+  {
+    "_id": "prod-art-05",
+    "name": "Professional Paint Brush Set (10 Assorted Nylon Brushes with Case)",
+    "slug": "professional-paint-brush-set-10-assorted-nylon-brushes",
+    "description": "Round, flat, filbert, and fan brushes with anti-shedding nickel ferrules and ergonomic handles. Compatible with watercolour, acrylic, and oil.",
+    "category": "art-craft",
+    "subcategory": "Paint Brushes",
+    "price": 1750,
+    "compareAtPrice": 2200,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=900&q=80",
+        "alt": "Artist Paint Brushes"
+      }
+    ],
+    "stock": 60,
+    "sku": "AZ-MM-BR10",
+    "tags": [
+      "brushes",
+      "paint brushes",
+      "acrylic",
+      "watercolour"
+    ],
+    "isFeatured": false,
+    "rating": 4.9,
+    "reviewsCount": 23,
+    "brand": "Mont Marte"
+  },
+  {
+    "_id": "prod-art-06",
+    "name": "Camel Camlin Student Artist Water Color Cakes Set (24 Shades)",
+    "slug": "camel-camlin-student-artist-water-color-cakes-set",
+    "description": "Organic rich dye watercolor tablets with built-in mixing palette and nylon bristle brush in compact, travel-friendly travel case.",
+    "category": "art-craft",
+    "subcategory": "Watercolour",
+    "price": 890,
+    "compareAtPrice": 1100,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=900&q=80",
+        "alt": "Camlin Watercolour Cakes"
+      }
+    ],
+    "stock": 100,
+    "sku": "AZ-CML-WC24",
+    "tags": [
+      "camlin",
+      "water color cakes",
+      "painting",
+      "students"
+    ],
+    "isFeatured": false,
+    "rating": 4.7,
+    "reviewsCount": 45,
+    "brand": "Camlin"
+  },
+  {
+    "_id": "prod-bk-01",
+    "name": "Oxford English-Sinhala-Tamil Student Illustrated Dictionary",
+    "slug": "oxford-english-sinhala-tamil-student-illustrated-dictionary",
+    "description": "Trilingual reference dictionary with over 45,000 definitions, IPA phonetic pronunciation, and full-color thematic illustration plates.",
     "category": "books",
     "subcategory": "Dictionaries",
     "price": 2850,
     "compareAtPrice": 3400,
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=900&q=80"
+        "url": "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=900&q=80",
+        "alt": "Oxford Trilingual Dictionary"
       }
     ],
-    "stock": 45,
-    "sku": "AZ-BK-OXF",
+    "stock": 55,
+    "sku": "AZ-OX-DIC",
     "tags": [
       "dictionary",
       "oxford",
@@ -337,518 +896,1199 @@
       "tamil"
     ],
     "isFeatured": true,
-    "rating": 4.8,
-    "reviewsCount": 39,
-    "brand": "Oxford",
-    "language": "English",
-    "grade": "Grade 6-9"
+    "rating": 4.9,
+    "reviewsCount": 58,
+    "badge": "Essential",
+    "brand": "Oxford"
   },
   {
-    "_id": "prod-018",
-    "name": "Grade 5 Scholarship Past Papers & Model Test Pack",
-    "slug": "grade-5-scholarship-past-papers-model-test-pack",
-    "description": "Complete collection of 10-year official scholarship question papers with full step-by-step model answers and mark breakdown.",
-    "category": "school-books",
-    "subcategory": "Scholarship",
-    "price": 850,
-    "compareAtPrice": 1100,
+    "_id": "prod-bk-02",
+    "name": "Malalasekera English-Sinhala Comprehensive Dictionary (Hardcover)",
+    "slug": "malalasekera-english-sinhala-comprehensive-dictionary",
+    "description": "The authoritative gold standard English-Sinhala dictionary by Prof. G.P. Malalasekera. Indispensable for university students and translators.",
+    "category": "books",
+    "subcategory": "Dictionaries",
+    "price": 3500,
+    "compareAtPrice": 4200,
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80"
+        "url": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=900&q=80",
+        "alt": "Malalasekera Dictionary"
       }
     ],
-    "stock": 110,
-    "sku": "AZ-SB-G5",
+    "stock": 35,
+    "sku": "AZ-ML-DIC",
     "tags": [
-      "scholarship",
-      "grade 5",
-      "past papers",
-      "exam"
+      "malalasekera",
+      "dictionary",
+      "sinhala",
+      "translation"
     ],
-    "isFeatured": true,
+    "isFeatured": false,
     "rating": 5,
-    "reviewsCount": 74,
-    "badge": "Top Seller",
-    "grade": "Grade 1-5",
-    "language": "Sinhala"
+    "reviewsCount": 71,
+    "brand": "Gunasena"
   },
   {
-    "_id": "prod-019",
-    "name": "G.C.E. O/L Mathematics 10-Year Past Papers Book",
-    "slug": "gce-ol-mathematics-10-year-past-papers-book",
-    "description": "Official Department of Examinations O/L Mathematics past papers with marking schemes and revision summary notes.",
-    "category": "school-books",
-    "subcategory": "O/L Books",
-    "price": 1250,
-    "compareAtPrice": 1500,
+    "_id": "prod-bk-03",
+    "name": "Madol Doova by Martin Wickramasinghe (Classic Children Literature)",
+    "slug": "madol-doova-by-martin-wickramasinghe",
+    "description": "Sri Lanka’s most celebrated coming-of-age adventure classic following Upali and Jinadasa. Prescribed literature for school curriculum.",
+    "category": "books",
+    "subcategory": "Literature",
+    "price": 450,
+    "compareAtPrice": 550,
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80"
+        "url": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=900&q=80",
+        "alt": "Madol Doova Book"
       }
     ],
-    "stock": 85,
-    "sku": "AZ-SB-OLM",
+    "stock": 90,
+    "sku": "AZ-MW-MDD",
     "tags": [
-      "ol exam",
-      "maths",
-      "past papers",
-      "revision"
+      "madol doova",
+      "martin wickramasinghe",
+      "sinhala literature",
+      "novel"
     ],
     "isFeatured": true,
     "rating": 4.9,
-    "reviewsCount": 41,
-    "grade": "Grade 10-11 (O/L)",
-    "language": "Sinhala"
+    "reviewsCount": 82,
+    "badge": "National Classic",
+    "brand": "Sarvodaya"
   },
   {
-    "_id": "prod-005",
-    "name": "Faber-Castell 36 Watercolour Eco Pencils Set with Brush",
-    "slug": "faber-castell-36-watercolour-pencils-set",
-    "description": "Hexagonal coloured pencils with water-soluble lead. Easily converts into brilliant watercolour paintings with just a few wet brush strokes.",
-    "category": "art-craft",
-    "subcategory": "Colour Pencils",
-    "price": 2450,
-    "compareAtPrice": 2950,
+    "_id": "prod-bk-04",
+    "name": "The Great Gatsby & Classic World Literature Omnibus Edition",
+    "slug": "great-gatsby-classic-world-literature-edition",
+    "description": "F. Scott Fitzgerald’s iconic masterpiece complete and unabridged with introduction, historical footnotes, and study guide for English literature.",
+    "category": "books",
+    "subcategory": "Literature",
+    "price": 1650,
+    "compareAtPrice": 1950,
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=900&q=80"
-      }
-    ],
-    "stock": 80,
-    "sku": "AZ-FC-36",
-    "tags": [
-      "faber castell",
-      "art",
-      "colour pencils",
-      "watercolour"
-    ],
-    "isFeatured": true,
-    "rating": 5,
-    "reviewsCount": 54,
-    "badge": "Artist Choice",
-    "brand": "Faber-Castell"
-  },
-  {
-    "_id": "prod-010",
-    "name": "Mont Marte Studio Acrylic Colour Paint Set (18 x 36ml)",
-    "slug": "mont-marte-studio-acrylic-paint-set-18-tubes",
-    "description": "High quality pigments with smooth buttery consistency, brilliant lightfastness, and fast drying satin finish. Ideal for paper, canvas, wood, and craft projects.",
-    "category": "art-craft",
-    "subcategory": "Paints",
-    "price": 3600,
-    "compareAtPrice": 4400,
-    "images": [
-      {
-        "url": "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=900&q=80"
+        "url": "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=900&q=80",
+        "alt": "Great Gatsby Book"
       }
     ],
     "stock": 40,
-    "sku": "AZ-ART-MM18",
+    "sku": "AZ-LIT-GAT",
     "tags": [
-      "acrylic paints",
-      "art",
-      "mont marte",
-      "canvas"
+      "literature",
+      "english novel",
+      "classics",
+      "reading"
     ],
     "isFeatured": false,
     "rating": 4.8,
-    "reviewsCount": 29,
-    "brand": "Mont Marte"
+    "reviewsCount": 26,
+    "brand": "Penguin"
   },
   {
-    "_id": "prod-006",
-    "name": "Helix Oxford Maths Geometry Precision Box (9-Piece Set)",
-    "slug": "helix-oxford-maths-geometry-precision-set",
-    "description": "The traditional metal tin mathematical instrument set featuring embossed metal storage tin, precision metal compass, ruler, set squares, and 180 protractor.",
-    "category": "mathematical-instruments",
-    "subcategory": "Geometry Sets",
-    "price": 950,
-    "compareAtPrice": 1200,
+    "_id": "prod-bk-05",
+    "name": "Sinhala Grammar & Composition Master Guide for Secondary Students",
+    "slug": "sinhala-grammar-composition-master-guide",
+    "description": "Authoritative grammar textbook detailing sandhi, samasa, vibhakti, and essay writing techniques for O/L and A/L Sinhala language examinations.",
+    "category": "books",
+    "subcategory": "Educational & Language",
+    "price": 780,
+    "compareAtPrice": 950,
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=900&q=80"
+        "url": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=80",
+        "alt": "Sinhala Grammar Guide"
       }
     ],
-    "stock": 140,
-    "sku": "AZ-MAT-HLX",
+    "stock": 70,
+    "sku": "AZ-SG-001",
     "tags": [
-      "geometry",
-      "maths",
-      "helix oxford",
-      "compass"
+      "sinhala grammar",
+      "composition",
+      "ol sinhala",
+      "language"
+    ],
+    "isFeatured": false,
+    "rating": 4.9,
+    "reviewsCount": 37,
+    "brand": "AZIP"
+  },
+  {
+    "_id": "prod-bk-06",
+    "name": "Complete World Atlas & Sri Lanka Physical Geography Map Book",
+    "slug": "complete-world-atlas-sri-lanka-geography-map-book",
+    "description": "Updated political and physical maps, climatic zones, ocean currents, and detailed district-by-district maps of Sri Lanka for students.",
+    "category": "books",
+    "subcategory": "Atlas & Reference",
+    "price": 1200,
+    "compareAtPrice": 1500,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=900&q=80",
+        "alt": "World Atlas Book"
+      }
+    ],
+    "stock": 65,
+    "sku": "AZ-AT-MAP",
+    "tags": [
+      "atlas",
+      "geography",
+      "world map",
+      "sri lanka map"
+    ],
+    "isFeatured": false,
+    "rating": 4.7,
+    "reviewsCount": 44,
+    "brand": "AZIP"
+  },
+  {
+    "_id": "prod-of-01",
+    "name": "Atlas High Quality A4 Copier Paper (80 GSM / 500 Sheets Ream)",
+    "slug": "atlas-high-quality-a4-copier-paper-80-gsm-500-sheets",
+    "description": "High whiteness jam-free photocopy and laser printing paper. Super smooth surface finish optimized for high-speed printing and double-sided copies.",
+    "category": "office-supplies",
+    "subcategory": "Paper Products",
+    "price": 1850,
+    "compareAtPrice": 2200,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=900&q=80",
+        "alt": "Atlas A4 Paper Ream"
+      }
+    ],
+    "stock": 220,
+    "sku": "AZ-PAP-80G",
+    "tags": [
+      "paper",
+      "a4",
+      "photocopy",
+      "printing",
+      "atlas"
     ],
     "isFeatured": true,
     "rating": 4.9,
-    "reviewsCount": 71,
+    "reviewsCount": 95,
     "badge": "Essential",
-    "brand": "Helix Oxford"
+    "brand": "Atlas"
   },
   {
-    "_id": "prod-007",
+    "_id": "prod-of-02",
+    "name": "Kangaro HD-45 Heavy Duty Metal Desk Stapler with 24/6 Pins Box",
+    "slug": "kangaro-hd-45-heavy-duty-metal-desk-stapler",
+    "description": "All-metal construction with quick-loading mechanism and rotating anvil for pinning and permanent stapling up to 30 sheets.",
+    "category": "office-supplies",
+    "subcategory": "Desk Accessories",
+    "price": 1250,
+    "compareAtPrice": 1550,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=900&q=80",
+        "alt": "Kangaro Desk Stapler"
+      }
+    ],
+    "stock": 85,
+    "sku": "AZ-KNG-HD45",
+    "tags": [
+      "stapler",
+      "kangaro",
+      "office",
+      "metal stapler",
+      "pins"
+    ],
+    "isFeatured": false,
+    "rating": 4.8,
+    "reviewsCount": 48,
+    "brand": "Kangaro"
+  },
+  {
+    "_id": "prod-of-03",
+    "name": "Double A Premium Multipurpose A4 Copier Paper Ream (80gsm)",
+    "slug": "double-a-premium-multipurpose-a4-copier-paper",
+    "description": "World-renowned ultra-smooth farmed eucalyptus fiber paper. Delivers crystal clear black text, brilliant contrast, and no paper jams.",
+    "category": "office-supplies",
+    "subcategory": "Paper Products",
+    "price": 2100,
+    "compareAtPrice": 2450,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=900&q=80",
+        "alt": "Double A Copier Paper"
+      }
+    ],
+    "stock": 160,
+    "sku": "AZ-DBL-A480",
+    "tags": [
+      "double a",
+      "copier paper",
+      "a4",
+      "laser printing"
+    ],
+    "isFeatured": true,
+    "rating": 5,
+    "reviewsCount": 81,
+    "badge": "Premium Whiteness",
+    "brand": "Double A"
+  },
+  {
+    "_id": "prod-of-04",
+    "name": "Kangaro Heavy Duty 2-Hole Paper Puncher (30 Sheets Capacity)",
+    "slug": "kangaro-heavy-duty-2-hole-paper-puncher",
+    "description": "Tough metal body with guide bar for accurate A4/A5 center punching. Removable chip tray prevents paper debris on desk.",
+    "category": "office-supplies",
+    "subcategory": "Desk Accessories",
+    "price": 1450,
+    "compareAtPrice": 1800,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=900&q=80",
+        "alt": "Paper Puncher"
+      }
+    ],
+    "stock": 70,
+    "sku": "AZ-KNG-PNC",
+    "tags": [
+      "puncher",
+      "kangaro",
+      "hole punch",
+      "office"
+    ],
+    "isFeatured": false,
+    "rating": 4.8,
+    "reviewsCount": 31,
+    "brand": "Kangaro"
+  },
+  {
+    "_id": "prod-of-05",
+    "name": "Post-it Super Sticky Notes Cube (3x3 Inches 400 Sheets Assorted Neon)",
+    "slug": "post-it-super-sticky-notes-cube-400-sheets",
+    "description": "Super-sticky adhesive formula holds firmly to computer monitors, books, doors, and walls. Removes cleanly without paper residue.",
+    "category": "office-supplies",
+    "subcategory": "Sticky Notes",
+    "price": 850,
+    "compareAtPrice": 1050,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=900&q=80",
+        "alt": "Post-it Sticky Notes"
+      }
+    ],
+    "stock": 120,
+    "sku": "AZ-3M-PI400",
+    "tags": [
+      "post-it",
+      "sticky notes",
+      "neon",
+      "memo",
+      "reminder"
+    ],
+    "isFeatured": false,
+    "rating": 4.9,
+    "reviewsCount": 57,
+    "brand": "3M"
+  },
+  {
+    "_id": "prod-of-06",
+    "name": "Faber-Castell Textliner 48 Refillable Highlighters Box (10 Pens)",
+    "slug": "faber-castell-textliner-48-refillable-highlighters-box",
+    "description": "Luminous water-based ink highlighters with 3 different line widths (1mm, 2mm, 5mm). Excellent marking on all standard paper types.",
+    "category": "office-supplies",
+    "subcategory": "Highlighters",
+    "price": 1950,
+    "compareAtPrice": 2400,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=900&q=80",
+        "alt": "Faber-Castell Highlighters"
+      }
+    ],
+    "stock": 75,
+    "sku": "AZ-FC-TL10",
+    "tags": [
+      "highlighter",
+      "faber-castell",
+      "textliner",
+      "box"
+    ],
+    "isFeatured": false,
+    "rating": 4.8,
+    "reviewsCount": 38,
+    "brand": "Faber-Castell"
+  },
+  {
+    "_id": "prod-acc-01",
     "name": "Ergonomic Waterproof Student Backpack - 32L Navy Blue",
-    "slug": "ergonomic-waterproof-student-backpack-navy",
-    "description": "Heavy duty multi-pocket school and campus backpack with padded S-curve shoulder straps, breathable back panel, internal laptop sleeve, and rainproof Oxford fabric.",
+    "slug": "ergonomic-waterproof-student-backpack-32l-navy-blue",
+    "description": "Spacious 3-compartment multi-pocket backpack with dedicated padded 15.6\" laptop sleeve, S-curve ergonomic shoulder straps, and rain-repellent fabric.",
     "category": "school-accessories",
-    "subcategory": "Bags",
+    "subcategory": "School Bags",
     "price": 3950,
     "compareAtPrice": 4800,
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=80"
+        "url": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=80",
+        "alt": "Navy School Backpack"
       }
     ],
-    "stock": 45,
+    "stock": 60,
     "sku": "AZ-BAG-32L",
     "tags": [
       "backpack",
       "school bag",
-      "laptop bag",
+      "laptop sleeve",
       "waterproof"
     ],
     "isFeatured": true,
-    "rating": 4.8,
-    "reviewsCount": 33,
-    "badge": "Hot Deal",
-    "brand": "AZIP Genuine"
+    "rating": 4.9,
+    "reviewsCount": 77,
+    "badge": "Top Rated",
+    "brand": "AZIP"
   },
   {
-    "_id": "prod-020",
-    "name": "Stainless Steel Insulated Student Water Bottle (750ml)",
-    "slug": "stainless-steel-insulated-student-water-bottle-750ml",
-    "description": "Double-wall vacuum insulated flask keeping water ice cold for 24 hours or warm for 12 hours. Leak-proof sports cap.",
+    "_id": "prod-acc-02",
+    "name": "Stainless Steel Double-Wall Insulated Student Water Bottle (750ml)",
+    "slug": "stainless-steel-double-wall-insulated-student-water-bottle",
+    "description": "Food-grade 304 stainless steel thermos bottle. Keeps water icy cold for 24 hours or warm for 12 hours. 100% leak-proof lid with carry handle.",
     "category": "school-accessories",
     "subcategory": "Water Bottles",
     "price": 1650,
     "compareAtPrice": 2100,
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=80"
+        "url": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=900&q=80",
+        "alt": "Stainless Steel Water Bottle"
       }
     ],
-    "stock": 75,
-    "sku": "AZ-ACC-BTL",
+    "stock": 95,
+    "sku": "AZ-BTL-750",
     "tags": [
       "water bottle",
       "stainless steel",
-      "flask",
+      "insulated",
+      "thermos"
+    ],
+    "isFeatured": true,
+    "rating": 4.8,
+    "reviewsCount": 53,
+    "badge": "BPA Free",
+    "brand": "AZIP"
+  },
+  {
+    "_id": "prod-acc-03",
+    "name": "Hardtop EVA Embossed 3D Cartoon Pencil Case (Dual Compartment)",
+    "slug": "hardtop-eva-embossed-3d-cartoon-pencil-case",
+    "description": "Shockproof durable EVA hardtop case with mesh pockets, pen organizer loops, and smooth double zipper for organized stationery storage.",
+    "category": "school-accessories",
+    "subcategory": "Pencil Cases",
+    "price": 1150,
+    "compareAtPrice": 1450,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=900&q=80",
+        "alt": "Hardtop Pencil Case"
+      }
+    ],
+    "stock": 80,
+    "sku": "AZ-PC-EVA",
+    "tags": [
+      "pencil case",
+      "hardtop",
+      "pouches",
+      "kids"
+    ],
+    "isFeatured": false,
+    "rating": 4.7,
+    "reviewsCount": 42,
+    "brand": "AZIP"
+  },
+  {
+    "_id": "prod-acc-04",
+    "name": "Leakproof BPA-Free 3-Compartment Student Bento Lunch Box",
+    "slug": "leakproof-bpa-free-3-compartment-student-bento-lunch-box",
+    "description": "Microwave and dishwasher safe food-grade lunch container with silicone seal ring, locking clips, and fork & spoon set stored inside lid.",
+    "category": "school-accessories",
+    "subcategory": "Lunch Boxes",
+    "price": 1450,
+    "compareAtPrice": 1800,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=900&q=80",
+        "alt": "Bento Lunch Box"
+      }
+    ],
+    "stock": 70,
+    "sku": "AZ-LB-BNT",
+    "tags": [
+      "lunch box",
+      "bento box",
+      "bpa free",
       "school"
     ],
     "isFeatured": false,
-    "rating": 4.9,
-    "reviewsCount": 28
+    "rating": 4.8,
+    "reviewsCount": 36,
+    "brand": "AZIP"
   },
   {
-    "_id": "prod-008",
-    "name": "Atlas High Quality A4 Copier Paper (80 GSM / 500 Sheets Box)",
-    "slug": "atlas-a4-copier-paper-80gsm-500-sheets",
-    "description": "Ultra-white 80gsm premium printing and photocopy paper. Jam-free high-speed laser and inkjet compatibility. Perfect for assignments and office reports.",
-    "category": "office-supplies",
-    "subcategory": "Paper",
-    "price": 1850,
-    "compareAtPrice": 2200,
+    "_id": "prod-acc-05",
+    "name": "DSI Kids Ergonomic Orthopedic School Backpack with Rain Cover",
+    "slug": "dsi-kids-ergonomic-orthopedic-school-backpack",
+    "description": "Spine-protecting padded back panel with reflective safety strips, breathable honeycomb mesh, and tuck-away high-visibility waterproof rain cover.",
+    "category": "school-accessories",
+    "subcategory": "School Bags",
+    "price": 4600,
+    "compareAtPrice": 5500,
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=900&q=80"
+        "url": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=80",
+        "alt": "DSI Orthopedic Backpack"
       }
     ],
-    "stock": 300,
-    "sku": "AZ-PPR-A4",
+    "stock": 40,
+    "sku": "AZ-DSI-BPK",
     "tags": [
-      "a4 paper",
-      "photocopy paper",
-      "atlas",
-      "office"
+      "dsi",
+      "orthopedic backpack",
+      "school bag",
+      "ergonomic"
     ],
-    "isFeatured": false,
-    "rating": 4.9,
-    "reviewsCount": 95,
-    "brand": "Atlas"
+    "isFeatured": true,
+    "rating": 5,
+    "reviewsCount": 62,
+    "badge": "Spine Care",
+    "brand": "DSI"
   },
   {
-    "_id": "prod-021",
-    "name": "Kangaro HD-45 Heavy Duty Metal Desk Stapler",
-    "slug": "kangaro-hd-45-heavy-duty-metal-desk-stapler",
-    "description": "All-metal durable construction stapling up to 30 sheets of paper at once. Includes quick loading mechanism.",
-    "category": "office-supplies",
-    "subcategory": "Staplers",
-    "price": 1250,
-    "compareAtPrice": 1550,
+    "_id": "prod-acc-06",
+    "name": "Clear Heavy Duty PVC Book Covering Film Roll (50cm x 10m)",
+    "slug": "clear-heavy-duty-pvc-book-covering-film-roll",
+    "description": "Crystal clear self-adhesive protective laminate roll with grid backing for effortless straight cutting. Protects school textbooks and CR notebooks.",
+    "category": "school-accessories",
+    "subcategory": "Book Protection",
+    "price": 650,
+    "compareAtPrice": 800,
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=900&q=80"
+        "url": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=900&q=80",
+        "alt": "Book Covering Film"
       }
     ],
-    "stock": 60,
-    "sku": "AZ-OFF-KNG",
+    "stock": 130,
+    "sku": "AZ-AT-CVR",
     "tags": [
-      "kangaro",
-      "stapler",
-      "office",
-      "heavy duty"
+      "book cover",
+      "clear roll",
+      "adhesive laminate",
+      "atlas"
     ],
     "isFeatured": false,
     "rating": 4.8,
-    "reviewsCount": 16,
-    "brand": "Kangaro"
+    "reviewsCount": 49,
+    "brand": "Atlas"
   },
   {
-    "_id": "prod-012",
-    "name": "Clear Display Book / Portfolio File 40 Pockets (A4)",
-    "slug": "clear-display-book-40-pockets-a4",
-    "description": "Heavy duty presentation book with 40 clear anti-glare transparent pockets. Spine label insert for organized indexing of certificates.",
+    "_id": "prod-fo-01",
+    "name": "Clear Display Book / Portfolio File 40 Pockets (A4 Refillable)",
+    "slug": "clear-display-book-portfolio-file-40-pockets",
+    "description": "Heavy duty polypropylene cover with anti-static crystal clear pockets. Front spine insert for personalized subject labeling and certificates.",
     "category": "files-organization",
-    "subcategory": "Files",
+    "subcategory": "Display Books",
     "price": 680,
     "compareAtPrice": 850,
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80"
+        "url": "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=900&q=80",
+        "alt": "A4 Display Book"
       }
     ],
-    "stock": 160,
-    "sku": "AZ-FIL-40P",
+    "stock": 110,
+    "sku": "AZ-FL-DSP40",
     "tags": [
-      "file",
       "display book",
-      "folder",
-      "certificates"
+      "clear file",
+      "portfolio",
+      "certificates",
+      "atlas"
     ],
-    "isFeatured": false,
-    "rating": 4.7,
-    "reviewsCount": 22,
+    "isFeatured": true,
+    "rating": 4.9,
+    "reviewsCount": 55,
+    "badge": "Popular",
     "brand": "Atlas"
   },
   {
-    "_id": "prod-022",
-    "name": "Atlas Heavy Duty Box File with Lever Arch Mechanism (A4)",
-    "slug": "atlas-heavy-duty-box-file-lever-arch",
-    "description": "Premium laminated board lever arch box file with metal edge protector and pull ring finger hole for office document archival.",
+    "_id": "prod-fo-02",
+    "name": "Atlas Heavy Duty Box File with Lever Arch Mechanism (A4 3-Inch)",
+    "slug": "atlas-heavy-duty-box-file-lever-arch-mechanism",
+    "description": "Solid reinforced spine with metal finger pull ring, compressor bar clamp, and protective metal shoe edges for maximum filing durability.",
     "category": "files-organization",
     "subcategory": "Box Files",
     "price": 920,
     "compareAtPrice": 1150,
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80"
+        "url": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=900&q=80",
+        "alt": "Atlas Box File"
       }
     ],
-    "stock": 80,
-    "sku": "AZ-FIL-BOX",
+    "stock": 90,
+    "sku": "AZ-FL-BXF",
     "tags": [
       "box file",
       "lever arch",
       "atlas",
-      "organization"
+      "document storage"
     ],
     "isFeatured": false,
-    "rating": 4.9,
-    "reviewsCount": 27,
+    "rating": 4.8,
+    "reviewsCount": 42,
     "brand": "Atlas"
   },
   {
-    "_id": "prod-023",
+    "_id": "prod-fo-03",
+    "name": "Durable Polypropylene Ring Binder File 2-Ring (A4 25mm)",
+    "slug": "durable-polypropylene-ring-binder-file-2-ring",
+    "description": "High capacity O-ring metal binder mechanism with internal pocket for loose sheets and spine label. Waterproof wipe-clean textured cover.",
+    "category": "files-organization",
+    "subcategory": "Ring Binders",
+    "price": 580,
+    "compareAtPrice": 720,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=900&q=80",
+        "alt": "Ring Binder File"
+      }
+    ],
+    "stock": 120,
+    "sku": "AZ-FL-RB25",
+    "tags": [
+      "ring binder",
+      "2 ring file",
+      "subject organizer",
+      "atlas"
+    ],
+    "isFeatured": false,
+    "rating": 4.8,
+    "reviewsCount": 28,
+    "brand": "Atlas"
+  },
+  {
+    "_id": "prod-fo-04",
+    "name": "Expanding Accordion Document Organizer with 12 Indexed Pockets",
+    "slug": "expanding-accordion-document-organizer-12-pockets",
+    "description": "Flexible accordion folder with colorful monthly & alphabetical index tabs. Secure elastic cord closure keeps tax bills, tests & receipts safe.",
+    "category": "files-organization",
+    "subcategory": "Expanding Files",
+    "price": 1350,
+    "compareAtPrice": 1700,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=900&q=80",
+        "alt": "Accordion Expanding File"
+      }
+    ],
+    "stock": 65,
+    "sku": "AZ-FL-EXP12",
+    "tags": [
+      "accordion file",
+      "expanding folder",
+      "12 pockets",
+      "organization"
+    ],
+    "isFeatured": true,
+    "rating": 4.9,
+    "reviewsCount": 39,
+    "badge": "Organizer",
+    "brand": "AZIP"
+  },
+  {
+    "_id": "prod-fo-05",
+    "name": "Zip Mesh Document Pouches Pack of 5 (A4 Assorted Zipper Wallets)",
+    "slug": "zip-mesh-document-pouches-pack-of-5",
+    "description": "Waterproof reinforced grid mesh PVC bags with heavy-duty metal zippers. Translucent design allows instant viewing of examination materials.",
+    "category": "files-organization",
+    "subcategory": "Document Pouches",
+    "price": 750,
+    "compareAtPrice": 950,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=900&q=80",
+        "alt": "Zip Mesh Pouches"
+      }
+    ],
+    "stock": 100,
+    "sku": "AZ-FL-MSH5",
+    "tags": [
+      "zipper pouches",
+      "mesh folder",
+      "exam wallet",
+      "waterproof"
+    ],
+    "isFeatured": false,
+    "rating": 4.7,
+    "reviewsCount": 46,
+    "brand": "AZIP"
+  },
+  {
+    "_id": "prod-fo-06",
+    "name": "Cardboard Document Storage Archive Box with Lid (Heavy Duty Pack of 2)",
+    "slug": "cardboard-document-storage-archive-box-with-lid",
+    "description": "Sturdy corrugated kraft board boxes with double-walled base and die-cut hand holes. Fits up to 5 box files or reams of paperwork per box.",
+    "category": "files-organization",
+    "subcategory": "Archive Boxes",
+    "price": 1400,
+    "compareAtPrice": 1750,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=900&q=80",
+        "alt": "Archive Storage Box"
+      }
+    ],
+    "stock": 50,
+    "sku": "AZ-FL-ARC2",
+    "tags": [
+      "archive box",
+      "document storage",
+      "corrugated box",
+      "kraft"
+    ],
+    "isFeatured": false,
+    "rating": 4.8,
+    "reviewsCount": 21,
+    "brand": "AZIP"
+  },
+  {
+    "_id": "prod-ed-01",
     "name": "Interactive 3D Desktop World Globe Map (20cm Swivel Stand)",
-    "slug": "interactive-3d-desktop-world-globe-map-20cm",
-    "description": "High definition geographical world globe showing countries, capitals, ocean currents, and latitude boundaries on a brushed steel swivel stand.",
+    "slug": "interactive-3d-desktop-world-globe-map",
+    "description": "Accurate up-to-date cartography displaying country borders, capitals, ocean trenches, and mountain topography with smooth 360° meridian swivel.",
     "category": "educational-materials",
     "subcategory": "Globes & Maps",
     "price": 3200,
     "compareAtPrice": 3900,
     "images": [
       {
-        "url": "/products/globe.jpg"
+        "url": "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=900&q=80",
+        "alt": "3D World Globe"
       }
     ],
-    "stock": 35,
-    "sku": "AZ-EDU-GLB",
+    "stock": 50,
+    "sku": "AZ-ED-GLB20",
     "tags": [
       "globe",
       "world map",
       "geography",
-      "educational"
+      "social studies"
     ],
     "isFeatured": true,
-    "rating": 5,
-    "reviewsCount": 38,
-    "badge": "Teacher Pick"
+    "rating": 4.9,
+    "reviewsCount": 48,
+    "badge": "Classroom Choice",
+    "brand": "AZIP"
   },
   {
-    "_id": "prod-024",
+    "_id": "prod-ed-02",
     "name": "Primary Sinhala & English Alphabet Flash Cards Deck (52 Cards)",
     "slug": "primary-sinhala-english-alphabet-flash-cards-deck",
-    "description": "Laminated, tear-resistant learning flash cards with vibrant illustrations for early childhood alphabet and vocabulary recognition.",
+    "description": "Double-sided glossy laminated cards with vibrant illustrations and letter trace paths for early literacy, phonics, and vocabulary building.",
     "category": "educational-materials",
     "subcategory": "Flash Cards",
     "price": 580,
     "compareAtPrice": 720,
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80"
+        "url": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80",
+        "alt": "Alphabet Flashcards"
       }
     ],
-    "stock": 120,
-    "sku": "AZ-EDU-CRD",
+    "stock": 140,
+    "sku": "AZ-ED-FC52",
     "tags": [
-      "flash cards",
+      "flashcards",
       "alphabet",
       "sinhala",
       "english",
-      "primary"
+      "early learning"
     ],
     "isFeatured": false,
     "rating": 4.8,
-    "reviewsCount": 19
+    "reviewsCount": 63,
+    "brand": "AZIP"
   },
   {
-    "_id": "prod-025",
+    "_id": "prod-ed-03",
+    "name": "Human Anatomy Model Skeleton for Biology Study (45cm Assembly Kit)",
+    "slug": "human-anatomy-model-skeleton-for-biology-study",
+    "description": "Detailed articulated skeleton showing all major bones, joints, skull calvarium, and nerve roots. Mounts on stable base stand for classroom biology.",
+    "category": "educational-materials",
+    "subcategory": "Anatomy Models",
+    "price": 4800,
+    "compareAtPrice": 5900,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=900&q=80",
+        "alt": "Anatomy Skeleton Model"
+      }
+    ],
+    "stock": 30,
+    "sku": "AZ-ED-SKL45",
+    "tags": [
+      "skeleton",
+      "anatomy",
+      "biology",
+      "model kit",
+      "science"
+    ],
+    "isFeatured": true,
+    "rating": 5,
+    "reviewsCount": 31,
+    "badge": "STEM Gear",
+    "brand": "AZIP"
+  },
+  {
+    "_id": "prod-ed-05",
+    "name": "Magnetic World Map Puzzle with Flags & Capitals for Kids",
+    "slug": "magnetic-world-map-puzzle-with-flags-capitals",
+    "description": "Large folding magnetic board with 78 magnetic geographical country puzzle pieces showing monuments, animals, and national flags.",
+    "category": "educational-materials",
+    "subcategory": "Puzzles & Games",
+    "price": 1850,
+    "compareAtPrice": 2300,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=900&q=80",
+        "alt": "Magnetic World Puzzle"
+      }
+    ],
+    "stock": 60,
+    "sku": "AZ-ED-MG78",
+    "tags": [
+      "magnetic puzzle",
+      "world map",
+      "flags",
+      "educational toy"
+    ],
+    "isFeatured": false,
+    "rating": 4.9,
+    "reviewsCount": 42,
+    "brand": "AZIP"
+  },
+  {
+    "_id": "prod-ed-06",
+    "name": "Maths Counting Abacus Wooden Frame for Primary Arithmetic",
+    "slug": "maths-counting-abacus-wooden-frame",
+    "description": "Solid pine wood frame with 10 rows of 10 colourful smooth counting beads. Excellent tactile Montessori tool for addition, subtraction & decimals.",
+    "category": "educational-materials",
+    "subcategory": "Maths Aids",
+    "price": 1250,
+    "compareAtPrice": 1600,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=900&q=80",
+        "alt": "Wooden Abacus"
+      }
+    ],
+    "stock": 75,
+    "sku": "AZ-ED-ABC",
+    "tags": [
+      "abacus",
+      "wooden toy",
+      "counting",
+      "arithmetic",
+      "montessori"
+    ],
+    "isFeatured": false,
+    "rating": 4.8,
+    "reviewsCount": 29,
+    "brand": "AZIP"
+  },
+  {
+    "_id": "prod-pk-01",
     "name": "Faber-Castell Jumbo Non-Toxic Wax Crayons (Pack of 24)",
-    "slug": "faber-castell-jumbo-non-toxic-crayons-pack-of-24",
-    "description": "Thick jumbo crayons designed for little hands. Smooth application with non-toxic, washable pigments for kids coloring.",
+    "slug": "faber-castell-jumbo-non-toxic-wax-crayons-pack-of-24",
+    "description": "Extra thick triangular wax crayons designed for toddler hands. Unbreakable, non-toxic, and washable from walls, clothes, and furniture.",
     "category": "preschool-kids",
     "subcategory": "Crayons",
     "price": 780,
     "compareAtPrice": 950,
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=900&q=80"
+        "url": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=900&q=80",
+        "alt": "Jumbo Wax Crayons"
       }
     ],
-    "stock": 110,
-    "sku": "AZ-KID-CRY",
+    "stock": 150,
+    "sku": "AZ-FC-CR24",
     "tags": [
       "crayons",
-      "faber castell",
+      "faber-castell",
       "preschool",
-      "kids",
-      "coloring"
+      "washable",
+      "jumbo"
     ],
     "isFeatured": true,
     "rating": 4.9,
-    "reviewsCount": 43,
+    "reviewsCount": 88,
+    "badge": "Toddler Safe",
     "brand": "Faber-Castell"
   },
   {
-    "_id": "prod-026",
-    "name": "Kids Giant Animals Coloring & Activity Storybook",
-    "slug": "kids-giant-animals-coloring-activity-storybook",
-    "description": "Fun jumbo coloring book featuring wild animals, puzzles, maze games, and alphabet writing exercises for preschoolers.",
+    "_id": "prod-pk-02",
+    "name": "Kids Giant Animals Colouring & Activity Storybook (A4 64 Pages)",
+    "slug": "kids-giant-animals-colouring-activity-storybook",
+    "description": "Bold outline illustrations of wildlife, farm animals, and ocean creatures with dotted trace letters and counting games.",
     "category": "preschool-kids",
-    "subcategory": "Coloring Books",
+    "subcategory": "Colouring Books",
     "price": 480,
     "compareAtPrice": 600,
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=900&q=80"
+        "url": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80",
+        "alt": "Animals Colouring Book"
       }
     ],
-    "stock": 150,
-    "sku": "AZ-KID-CLR",
+    "stock": 180,
+    "sku": "AZ-PK-CB64",
     "tags": [
-      "coloring book",
-      "preschool",
+      "colouring book",
       "kids",
-      "activity"
+      "animals",
+      "preschool"
     ],
     "isFeatured": false,
     "rating": 4.8,
-    "reviewsCount": 25
+    "reviewsCount": 51,
+    "brand": "AZIP"
   },
   {
-    "_id": "prod-027",
-    "name": "100x-400x Beginner Educational Science Microscope Kit",
-    "slug": "100x-400x-beginner-educational-science-microscope-kit",
-    "description": "Precision optical glass lenses, built-in LED light source, prepared biological specimen slides, blank glass slides, tweezers, and protective carrying case.",
+    "_id": "prod-pk-03",
+    "name": "Non-Toxic Play Dough Set with Moulds & Rolling Pin (8 Colors)",
+    "slug": "non-toxic-play-dough-set-with-moulds",
+    "description": "Soft, pliable wheat-flour modelling dough in air-tight tubs with 12 plastic shape cutters, extruder syringe, and rolling pin.",
+    "category": "preschool-kids",
+    "subcategory": "Modelling Clay",
+    "price": 1350,
+    "compareAtPrice": 1700,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=900&q=80",
+        "alt": "Play Dough Set"
+      }
+    ],
+    "stock": 85,
+    "sku": "AZ-PK-DGH8",
+    "tags": [
+      "play dough",
+      "clay",
+      "toddler",
+      "craft",
+      "sensory"
+    ],
+    "isFeatured": true,
+    "rating": 4.9,
+    "reviewsCount": 67,
+    "badge": "100% Non-Toxic",
+    "brand": "AZIP"
+  },
+  {
+    "_id": "prod-pk-04",
+    "name": "Maped Kidi-Cut Safe Plastic Preschool Scissors for Toddlers",
+    "slug": "maped-kidi-cut-safe-plastic-preschool-scissors",
+    "description": "Fiberglass reinforced plastic blades cut paper only — will not cut skin, hair, or clothing. Rounded blunt tips for total preschool safety.",
+    "category": "preschool-kids",
+    "subcategory": "Kids Scissors",
+    "price": 380,
+    "compareAtPrice": 490,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=900&q=80",
+        "alt": "Safe Kids Scissors"
+      }
+    ],
+    "stock": 120,
+    "sku": "AZ-MPD-SC",
+    "tags": [
+      "scissors",
+      "maped",
+      "safety scissors",
+      "toddler"
+    ],
+    "isFeatured": false,
+    "rating": 4.7,
+    "reviewsCount": 34,
+    "brand": "Maped"
+  },
+  {
+    "_id": "prod-pk-05",
+    "name": "Reusable Water Magic Colouring Book with Refillable Water Pen",
+    "slug": "reusable-water-magic-colouring-book",
+    "description": "Mess-free coloring book revealed by clean tap water! Pages dry back to white within 10 minutes, allowing unlimited reuse without ink stains.",
+    "category": "preschool-kids",
+    "subcategory": "Magic Water Books",
+    "price": 620,
+    "compareAtPrice": 780,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80",
+        "alt": "Water Magic Book"
+      }
+    ],
+    "stock": 90,
+    "sku": "AZ-PK-WTR",
+    "tags": [
+      "water magic",
+      "mess free",
+      "coloring",
+      "travel toy"
+    ],
+    "isFeatured": false,
+    "rating": 4.8,
+    "reviewsCount": 43,
+    "brand": "AZIP"
+  },
+  {
+    "_id": "prod-pk-06",
+    "name": "Wooden Alphabet & Numbers Peg Puzzle Board for Toddlers",
+    "slug": "wooden-alphabet-numbers-peg-puzzle-board",
+    "description": "Chunky smooth-edged natural wood puzzle pieces with easy-grasp pegs. Develops hand-eye coordination and letter recognition.",
+    "category": "preschool-kids",
+    "subcategory": "Wooden Toys",
+    "price": 950,
+    "compareAtPrice": 1200,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=900&q=80",
+        "alt": "Wooden Peg Puzzle"
+      }
+    ],
+    "stock": 65,
+    "sku": "AZ-PK-WDN",
+    "tags": [
+      "wooden puzzle",
+      "alphabet peg",
+      "montessori",
+      "toddler"
+    ],
+    "isFeatured": false,
+    "rating": 4.9,
+    "reviewsCount": 52,
+    "brand": "AZIP"
+  },
+  {
+    "_id": "prod-sci-01",
+    "name": "100x-400x Beginner Educational Science Microscope Kit with Slides",
+    "slug": "beginner-educational-science-microscope-kit-with-slides",
+    "description": "Monocular student optical microscope with rotating turret (100x, 200x, 400x magnification), LED top/bottom illumination, and 12 prepared specimen slides.",
     "category": "science-laboratory",
     "subcategory": "Microscopes",
     "price": 6800,
     "compareAtPrice": 8500,
     "images": [
       {
-        "url": "/products/microscope.jpg"
+        "url": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80",
+        "alt": "Science Microscope Kit"
       }
     ],
-    "stock": 25,
-    "sku": "AZ-SCI-MIC",
+    "stock": 40,
+    "sku": "AZ-SCI-MC400",
     "tags": [
       "microscope",
-      "science",
-      "lab",
-      "biology"
+      "science kit",
+      "biology lab",
+      "magnification"
     ],
     "isFeatured": true,
-    "rating": 5,
-    "reviewsCount": 31,
-    "badge": "Lab Master"
+    "rating": 4.9,
+    "reviewsCount": 52,
+    "badge": "STEM Certified",
+    "brand": "AZIP"
   },
   {
-    "_id": "prod-028",
+    "_id": "prod-sci-02",
     "name": "Student Science Laboratory Safety Goggles & White Lab Coat Set",
     "slug": "student-science-laboratory-safety-goggles-lab-coat-set",
-    "description": "Durable white cotton lab coat with front pockets plus shatterproof anti-fog safety goggles for chemistry and biology practicals.",
+    "description": "100% durable cotton breathable laboratory coat with deep front pockets paired with anti-fog splash-resistant chemical safety goggles.",
     "category": "science-laboratory",
-    "subcategory": "Lab Wear",
+    "subcategory": "Lab Safety Gear",
     "price": 2450,
     "compareAtPrice": 2950,
     "images": [
       {
-        "url": "/products/microscope.jpg"
+        "url": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=900&q=80",
+        "alt": "Lab Coat and Goggles"
       }
     ],
     "stock": 65,
-    "sku": "AZ-SCI-COT",
+    "sku": "AZ-SCI-LBC",
     "tags": [
       "lab coat",
-      "goggles",
-      "science",
+      "safety goggles",
+      "chemistry",
+      "science lab"
+    ],
+    "isFeatured": false,
+    "rating": 4.8,
+    "reviewsCount": 38,
+    "brand": "AZIP"
+  },
+  {
+    "_id": "prod-sci-03",
+    "name": "Borosilicate Glass Beakers & Measuring Cylinders Chemistry Set (5 Pcs)",
+    "slug": "borosilicate-glass-beakers-measuring-cylinders-set",
+    "description": "Heat-resistant lab grade borosilicate glass. Includes 100ml, 250ml, 500ml beakers and 50ml, 100ml graduated measuring cylinders with pour spouts.",
+    "category": "science-laboratory",
+    "subcategory": "Glassware",
+    "price": 3200,
+    "compareAtPrice": 3900,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=900&q=80",
+        "alt": "Lab Glassware Set"
+      }
+    ],
+    "stock": 50,
+    "sku": "AZ-SCI-GLS5",
+    "tags": [
+      "beakers",
+      "measuring cylinder",
+      "glassware",
       "chemistry"
+    ],
+    "isFeatured": true,
+    "rating": 4.9,
+    "reviewsCount": 29,
+    "brand": "AZIP"
+  },
+  {
+    "_id": "prod-sci-04",
+    "name": "Laboratory Test Tube Rack with 12 Borosilicate Tubes & Cleaning Brush",
+    "slug": "laboratory-test-tube-rack-with-12-borosilicate-tubes",
+    "description": "Polypropylene 12-hole test tube stand with draining pegs, 12 heat-proof rimless glass test tubes (15x150mm), rubber bungs, and nylon bristle brush.",
+    "category": "science-laboratory",
+    "subcategory": "Test Tubes",
+    "price": 1650,
+    "compareAtPrice": 2100,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=900&q=80",
+        "alt": "Test Tube Rack"
+      }
+    ],
+    "stock": 75,
+    "sku": "AZ-SCI-TT12",
+    "tags": [
+      "test tubes",
+      "tube rack",
+      "chemistry lab",
+      "school lab"
+    ],
+    "isFeatured": false,
+    "rating": 4.7,
+    "reviewsCount": 41,
+    "brand": "AZIP"
+  },
+  {
+    "_id": "prod-sci-05",
+    "name": "Dissection Instrument Kit for O/L & A/L Biology (Stainless Steel 7 Pcs)",
+    "slug": "dissection-instrument-kit-for-biology",
+    "description": "Surgical grade stainless steel instruments in zip leatherette wallet: scalpel with spare blades, dissecting forceps, sharp scissors, and seeker needle.",
+    "category": "science-laboratory",
+    "subcategory": "Dissection Tools",
+    "price": 2850,
+    "compareAtPrice": 3500,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=900&q=80",
+        "alt": "Dissection Tool Kit"
+      }
+    ],
+    "stock": 45,
+    "sku": "AZ-SCI-DS7",
+    "tags": [
+      "dissection kit",
+      "biology tools",
+      "scalpel",
+      "al biology"
     ],
     "isFeatured": false,
     "rating": 4.9,
-    "reviewsCount": 14
+    "reviewsCount": 33,
+    "brand": "AZIP"
   },
   {
-    "_id": "prod-029",
+    "_id": "prod-sci-06",
+    "name": "Digital Pocket Precision Balance Scale (0.01g to 500g Accuracy)",
+    "slug": "digital-pocket-precision-balance-scale",
+    "description": "High-precision strain gauge sensor with backlit LCD, tare function, and stainless steel weighing platform for chemical powder and salt measurement.",
+    "category": "science-laboratory",
+    "subcategory": "Precision Scales",
+    "price": 2250,
+    "compareAtPrice": 2800,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=900&q=80",
+        "alt": "Digital Precision Scale"
+      }
+    ],
+    "stock": 55,
+    "sku": "AZ-SCI-SCL",
+    "tags": [
+      "digital scale",
+      "precision balance",
+      "chemistry scale",
+      "grams"
+    ],
+    "isFeatured": false,
+    "rating": 4.8,
+    "reviewsCount": 26,
+    "brand": "AZIP"
+  },
+  {
+    "_id": "prod-gf-01",
     "name": "Premium Wooden Executive Rollerball Pen in Gift Box",
     "slug": "premium-wooden-executive-rollerball-pen-in-gift-box",
-    "description": "Handcrafted rosewood body with gold-plated accents, smooth black ink rollerball refill, and velvet-lined wooden presentation case.",
+    "description": "Crafted from hand-turned rosewood with 24k gold-plated accents and German ceramic rollerball refill. Housed in a velvet-lined matching wooden case.",
     "category": "gifts-accessories",
     "subcategory": "Executive Pens",
     "price": 1950,
     "compareAtPrice": 2500,
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=900&q=80"
+        "url": "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=900&q=80",
+        "alt": "Executive Wooden Pen"
       }
     ],
-    "stock": 45,
-    "sku": "AZ-GFT-PEN",
+    "stock": 54,
+    "sku": "AZ-GF-WPN",
     "tags": [
-      "executive pen",
-      "gift box",
+      "gift pen",
       "wooden pen",
-      "luxury"
+      "executive",
+      "luxury stationery"
     ],
     "isFeatured": true,
-    "rating": 5,
-    "reviewsCount": 26,
-    "badge": "Gift Choice"
+    "rating": 4.9,
+    "reviewsCount": 54,
+    "badge": "Gift Ready",
+    "brand": "AZIP"
   },
   {
-    "_id": "prod-030",
+    "_id": "prod-gf-02",
     "name": "Decorative Bookmarks & Greeting Cards Value Set (Pack of 10)",
     "slug": "decorative-bookmarks-greeting-cards-value-set",
-    "description": "Assorted aesthetic floral bookmarks with motivational quotes and gold ribbon tassels, plus matching envelope greeting cards.",
+    "description": "Artistic foil-stamped cardstock bookmarks with silky tassels and multipurpose embossed congratulation cards for academic achievements.",
     "category": "gifts-accessories",
-    "subcategory": "Bookmarks",
+    "subcategory": "Bookmarks & Cards",
     "price": 650,
     "compareAtPrice": 850,
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=900&q=80"
+        "url": "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=900&q=80",
+        "alt": "Bookmarks and Cards"
       }
     ],
-    "stock": 90,
-    "sku": "AZ-GFT-BMK",
+    "stock": 120,
+    "sku": "AZ-GF-BM10",
     "tags": [
       "bookmarks",
       "greeting cards",
@@ -857,6 +2097,294 @@
     ],
     "isFeatured": false,
     "rating": 4.8,
-    "reviewsCount": 18
+    "reviewsCount": 46,
+    "brand": "AZIP"
+  },
+  {
+    "_id": "prod-gf-03",
+    "name": "Vintage Handcrafted PU Leather Journal Notebook with Metal Lock (A5)",
+    "slug": "vintage-handcrafted-pu-leather-journal-notebook-with-metal-lock",
+    "description": "Rustic faux leather diary with antique bronze combination lock, 220 lined parchment pages, and built-in pen holder & ribbon bookmark.",
+    "category": "gifts-accessories",
+    "subcategory": "Leather Journals",
+    "price": 2450,
+    "compareAtPrice": 3100,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=900&q=80",
+        "alt": "Vintage Leather Journal"
+      }
+    ],
+    "stock": 45,
+    "sku": "AZ-GF-JRNL",
+    "tags": [
+      "leather journal",
+      "vintage notebook",
+      "diary",
+      "lock"
+    ],
+    "isFeatured": true,
+    "rating": 5,
+    "reviewsCount": 68,
+    "badge": "Popular Gift",
+    "brand": "AZIP"
+  },
+  {
+    "_id": "prod-gf-04",
+    "name": "Parker Jotter Stainless Steel Ballpoint Pen in Luxury Gift Box",
+    "slug": "parker-jotter-stainless-steel-ballpoint-pen",
+    "description": "The iconic Parker Jotter featuring brushed stainless steel barrel, signature arrow pocket clip, and distinctive click button mechanism.",
+    "category": "gifts-accessories",
+    "subcategory": "Executive Pens",
+    "price": 4200,
+    "compareAtPrice": 5200,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=900&q=80",
+        "alt": "Parker Jotter Pen"
+      }
+    ],
+    "stock": 35,
+    "sku": "AZ-PRK-JTR",
+    "tags": [
+      "parker",
+      "jotter",
+      "luxury pen",
+      "gift box"
+    ],
+    "isFeatured": false,
+    "rating": 4.9,
+    "reviewsCount": 51,
+    "brand": "Parker"
+  },
+  {
+    "_id": "prod-gf-05",
+    "name": "Metal Brass Calligraphy Feather Dip Pen Set with 5 Nibs & Ink Bottle",
+    "slug": "calligraphy-feather-dip-pen-set-with-nibs-ink",
+    "description": "Antique quill styling with carved alloy handle, 5 interchangeable stainless steel calligraphy nibs, and 15ml jet black ink bottle.",
+    "category": "gifts-accessories",
+    "subcategory": "Calligraphy Sets",
+    "price": 3100,
+    "compareAtPrice": 3800,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=900&q=80",
+        "alt": "Metal Brass Calligraphy Feather Dip Pen Set with 5 Nibs & Ink Bottle"
+      }
+    ],
+    "stock": 30,
+    "sku": "AZ-GF-CLG",
+    "tags": [
+      "calligraphy",
+      "feather pen",
+      "quill",
+      "ink bottle"
+    ],
+    "isFeatured": false,
+    "rating": 4.8,
+    "reviewsCount": 22,
+    "brand": "AZIP"
+  },
+  {
+    "_id": "prod-gf-06",
+    "name": "Luxury Printed Gift Wrapping Paper Sheets with Satin Ribbons (Set of 6)",
+    "slug": "luxury-printed-gift-wrapping-paper-sheets-with-ribbons",
+    "description": "Thick 100gsm gold-foiled metallic wrapping sheets (50x70cm) with 2 spools of double-sided woven satin gift ribbon.",
+    "category": "gifts-accessories",
+    "subcategory": "Gift Wrap",
+    "price": 550,
+    "compareAtPrice": 700,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=900&q=80",
+        "alt": "Gift Wrapping Sheets"
+      }
+    ],
+    "stock": 80,
+    "sku": "AZ-GF-WRP6",
+    "tags": [
+      "gift wrap",
+      "wrapping paper",
+      "satin ribbon",
+      "gold foil"
+    ],
+    "isFeatured": false,
+    "rating": 4.7,
+    "reviewsCount": 35,
+    "brand": "AZIP"
+  },
+  {
+    "_id": "prod-el-01",
+    "name": "SanDisk Ultra Dual Drive Luxe 64GB Type-C & USB 3.1 Flash Drive",
+    "slug": "sandisk-ultra-dual-drive-luxe-64gb-type-c-usb-3-1",
+    "description": "All-metal 2-in-1 flash drive with reversible USB Type-C and traditional Type-A connectors. High-speed 150MB/s file transfers between phones and laptops.",
+    "category": "electronics",
+    "subcategory": "Storage & USB",
+    "price": 2950,
+    "compareAtPrice": 3600,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1628155930542-3c7a64e2c833?auto=format&fit=crop&w=900&q=80",
+        "alt": "SanDisk Dual Drive"
+      }
+    ],
+    "stock": 70,
+    "sku": "AZ-SD-64DL",
+    "tags": [
+      "sandisk",
+      "usb drive",
+      "type-c",
+      "flash drive",
+      "storage"
+    ],
+    "isFeatured": true,
+    "rating": 4.9,
+    "reviewsCount": 52,
+    "badge": "High Speed",
+    "brand": "SanDisk"
+  },
+  {
+    "_id": "prod-el-02",
+    "name": "Rechargeable Eye-Care LED Student Study Desk Lamp (Touch Dimmable)",
+    "slug": "rechargeable-eye-care-led-student-study-desk-lamp",
+    "description": "Flicker-free natural daylight simulation with 3 colour modes (Warm, Natural, Cool White) and built-in phone stand & pen caddy.",
+    "category": "electronics",
+    "subcategory": "Desk Lamps",
+    "price": 2250,
+    "compareAtPrice": 2800,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=900&q=80",
+        "alt": "Rechargeable Desk Lamp"
+      }
+    ],
+    "stock": 50,
+    "sku": "AZ-EL-LMP",
+    "tags": [
+      "desk lamp",
+      "led",
+      "rechargeable",
+      "study tech"
+    ],
+    "isFeatured": false,
+    "rating": 4.8,
+    "reviewsCount": 50,
+    "brand": "AZIP"
+  },
+  {
+    "_id": "prod-el-03",
+    "name": "Digital Study Countdown Timer & Stopwatch with Loud Alarm for Exams",
+    "slug": "digital-study-countdown-timer-stopwatch",
+    "description": "Large clear digits, magnetic back, retractable tabletop kickstand, and lanyard hole. Essential for timed past paper exam practice.",
+    "category": "electronics",
+    "subcategory": "Timers & Clocks",
+    "price": 1150,
+    "compareAtPrice": 1450,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=900&q=80",
+        "alt": "Digital Exam Timer"
+      }
+    ],
+    "stock": 80,
+    "sku": "AZ-EL-TMR",
+    "tags": [
+      "timer",
+      "stopwatch",
+      "exam practice",
+      "study tool"
+    ],
+    "isFeatured": false,
+    "rating": 4.9,
+    "reviewsCount": 39,
+    "brand": "AZIP"
+  },
+  {
+    "_id": "prod-el-04",
+    "name": "SanDisk Extreme 128GB MicroSDXC Card with SD Adapter (A2 190MB/s)",
+    "slug": "sandisk-extreme-128gb-microsdxc-card-with-adapter",
+    "description": "V30 4K UHD video speed class with A2 app performance. Waterproof, temperature-proof, shock-proof, and X-ray-proof for tablets & laptops.",
+    "category": "electronics",
+    "subcategory": "Memory Cards",
+    "price": 4800,
+    "compareAtPrice": 5900,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1565630916779-e303be97b6f5?auto=format&fit=crop&w=900&q=80",
+        "alt": "SanDisk MicroSD 128GB"
+      }
+    ],
+    "stock": 45,
+    "sku": "AZ-SD-128EXT",
+    "tags": [
+      "sandisk",
+      "microsd",
+      "128gb",
+      "memory card",
+      "tablet"
+    ],
+    "isFeatured": true,
+    "rating": 5,
+    "reviewsCount": 64,
+    "badge": "A2 4K UHD",
+    "brand": "SanDisk"
+  },
+  {
+    "_id": "prod-el-05",
+    "name": "Energizer Rechargeable AA Batteries (Pack of 4 with Fast Wall Charger)",
+    "slug": "energizer-rechargeable-aa-batteries-pack-of-4-with-charger",
+    "description": "Pre-charged 2000mAh NiMH batteries holding charge up to 12 months. Auto-shutoff fast smart charger protects against overcharging.",
+    "category": "electronics",
+    "subcategory": "Batteries & Power",
+    "price": 4600,
+    "compareAtPrice": 5500,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1619725002198-6a689b72f41d?auto=format&fit=crop&w=900&q=80",
+        "alt": "Energizer AA Batteries"
+      }
+    ],
+    "stock": 40,
+    "sku": "AZ-ENG-AA4",
+    "tags": [
+      "energizer",
+      "rechargeable",
+      "batteries",
+      "calculator battery"
+    ],
+    "isFeatured": false,
+    "rating": 4.8,
+    "reviewsCount": 42,
+    "brand": "Energizer"
+  },
+  {
+    "_id": "prod-el-06",
+    "name": "JBL Wave 200TWS True Wireless Earbuds with Deep Bass (Online Classes)",
+    "slug": "jbl-wave-200tws-true-wireless-earbuds",
+    "description": "20 hours of combined playback with dual connect technology and clear microphone for online Zoom lectures and audiobooks.",
+    "category": "electronics",
+    "subcategory": "Audio & Earbuds",
+    "price": 9900,
+    "compareAtPrice": 12500,
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=900&q=80",
+        "alt": "JBL Wireless Earbuds"
+      }
+    ],
+    "stock": 25,
+    "sku": "AZ-JBL-W200",
+    "tags": [
+      "jbl",
+      "earbuds",
+      "wireless",
+      "bluetooth",
+      "online classes"
+    ],
+    "isFeatured": true,
+    "rating": 4.9,
+    "reviewsCount": 57,
+    "badge": "JBL Pure Bass",
+    "brand": "JBL"
   }
 ]

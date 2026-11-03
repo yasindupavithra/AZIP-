@@ -8,7 +8,7 @@ const JWT_SECRET = new TextEncoder().encode(
 
 // Routes that require admin authentication
 const protectedPaths = ['/admin'];
-const protectedApiPaths = ['/api/upload', '/api/analytics'];
+const protectedApiPaths = ['/api/analytics'];
 const publicPaths = ['/admin/login'];
 
 export default async function middleware(request: NextRequest) {
@@ -60,5 +60,5 @@ export default async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/admin/:path*', '/api/upload/:path*', '/api/analytics/:path*', '/api/products/:path*', '/api/orders/:path*'],
+  matcher: ['/admin/:path*', '/api/analytics/:path*', '/api/products/:path*', '/api/orders/:path*'],
 };

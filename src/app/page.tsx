@@ -1,600 +1,1086 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import Link from 'next/link';
 import {
-  ShieldCheck,
-  Truck,
   ArrowRight,
-  Heart,
-  Star,
-  ShoppingCart,
-  Check,
-  Headphones,
-  GraduationCap,
-  Users,
-  ChevronLeft,
-  ChevronRight,
-  Package,
-  Award,
   BookOpen,
+  Calculator,
+  Palette,
+  PenLine,
+  Backpack,
+  Notebook,
+  GraduationCap,
+  Grid2x2,
+  Truck,
+  BadgeCheck,
+  CreditCard,
+  RotateCcw,
+  MessageCircle,
+  ChevronRight,
+  Flame,
+  Sparkles,
+  Search,
+  SlidersHorizontal,
+  Upload,
+  CheckCircle2,
+  ShoppingCart,
+  FolderOpen,
+  FlaskConical,
+  Gift,
+  Cpu,
+  Baby,
+  Star,
+  Clock,
+  ShieldCheck,
 } from 'lucide-react';
 import StoreShell from '@/components/StoreShell';
+import HomeProductCard, { type HomeProduct } from '@/components/home/HomeProductCard';
+import HeroBannerSlider from '@/components/home/HeroBannerSlider';
+import BooklistUploadModal from '@/components/BooklistUploadModal';
+import {
+  INITIAL_CATALOG_PRODUCTS,
+  BACK_TO_SCHOOL_BUNDLES,
+  type CatalogProduct,
+  type SchoolBundleKit,
+} from '@/lib/catalog';
 import { useCartStore } from '@/store/cart';
+import { useLanguage } from '@/lib/languageContext';
 
-const HERO_SLIDES = [
+// ─── 12 CURATED FLASH SALE DEALS ──────────────────────────────
+const FLASH_DEALS: HomeProduct[] = [
   {
-    id: 1,
-    eyebrow: 'AZIP MALL EXCLUSIVE',
-    titleBefore: 'Student Kit',
-    titleAccent: 'Bundles',
-    subtitle: 'Complete packs for Grade 1 to A/L — curated by teachers & parents.',
-    cta: 'Browse Kits',
-    href: '/products',
-    image: '/images/hd/hero/hero-student-kit-banner.jpg',
-  },
-  {
-    id: 2,
-    eyebrow: 'BACK TO SCHOOL · LIMITED OFFER',
-    titleBefore: 'Up to',
-    titleAccent: '25% Off',
-    subtitle: 'School essentials, notebooks and stationery — shop the season deals.',
-    cta: 'Shop Offers',
-    href: '/offers',
-    image: '/images/hd/banners/term-desk-photo.jpg',
-  },
-  {
-    id: 3,
-    eyebrow: 'CALCULATORS & GEOMETRY',
-    titleBefore: 'Casio ClassWiz',
-    titleAccent: 'FX-991CW',
-    subtitle: 'Official scientific calculators and geometry sets for every exam.',
-    cta: 'View Calculators',
-    href: '/products?category=mathematical-instruments',
-    image: '/images/hd/hero/hero-kit.jpg',
-  },
-];
-
-const HERO_TRUST = [
-  { icon: BookOpen, label: 'Quality Products' },
-  { icon: ShieldCheck, label: 'Trusted Brands' },
-  { icon: Truck, label: 'Islandwide Delivery' },
-];
-
-const SHOP_CATEGORIES = [
-  {
-    title: 'School Books',
-    slug: 'school-books',
-    count: '120+',
-    image: '/images/hd/categories/school-books.jpg',
-  },
-  {
-    title: 'CR & Exercise Notebooks',
-    slug: 'exercise-books',
-    count: '85+',
-    image: '/images/hd/categories/exercise-books.jpg',
-  },
-  {
-    title: 'Pens & Writing',
-    slug: 'writing-instruments',
-    count: '200+',
-    image: '/images/hd/categories/pens-writing.jpg',
-  },
-  {
-    title: 'Calculators & Geometry',
-    slug: 'mathematical-instruments',
-    count: '45+',
-    image: '/images/hd/categories/calculators-geometry.jpg',
-  },
-  {
-    title: 'Art Supplies',
-    slug: 'art-craft',
-    count: '90+',
-    image: '/images/hd/categories/art-supplies.jpg',
-  },
-  {
-    title: 'Backpacks & Bags',
-    slug: 'school-accessories',
-    count: '60+',
-    image: '/images/hd/categories/backpacks.jpg',
-  },
-];
-
-const BEST_SELLING_PRODUCTS = [
-  {
-    id: 'mockup-p1',
-    name: 'Atlas Exercise Book (80gsm)',
-    slug: 'atlas-premium-a4-hardcover-cr-notebook',
-    price: 95,
-    rating: 4.8,
-    reviewsCount: 124,
-    badge: 'SALE',
-    badgeColor: '#EF4444',
-    image: '/images/hd/categories/school-books.jpg',
-  },
-  {
-    id: 'mockup-p2',
-    name: 'Pilot G2 Gel Pens (0.7mm)',
-    slug: 'pilot-g2-retractable-gel-pen',
+    id: 'flash-1',
+    name: 'Atlas Single Ruled 80-Page Exercise Books (Pack of 5)',
+    slug: 'atlas-single-ruled-80-page-exercise-books-pack-of-5',
     price: 450,
+    compareAtPrice: 550,
+    rating: 4.9,
+    reviewsCount: 142,
+    stock: 6,
+    brand: 'Atlas',
+    category: 'exercise-books',
+    badge: 'Hot Deal',
+    image: '/images/hd/products/atlas-exercise-book.jpg',
+  },
+  {
+    id: 'flash-2',
+    name: 'Pilot G2 Retractable Gel Pen 0.7mm (Pack of 3)',
+    slug: 'pilot-g2-retractable-gel-pen-0-7mm-pack-of-3-blue-black-red',
+    price: 1350,
+    compareAtPrice: 1600,
     rating: 4.9,
     reviewsCount: 98,
-    badge: 'POPULAR',
-    badgeColor: '#22C55E',
+    stock: 8,
+    brand: 'Pilot',
+    category: 'writing-instruments',
+    badge: 'Best Seller',
     image: '/images/hd/products/pilot-g2-pens.jpg',
   },
   {
-    id: 'mockup-p3',
-    name: 'Casio FX-991CW Scientific Calculator',
+    id: 'flash-3',
+    name: 'Casio FX-991CW ClassWiz Scientific Calculator (Genuine)',
     slug: 'casio-fx-991cw-classwiz-scientific-calculator',
-    price: 4990,
-    rating: 4.8,
-    reviewsCount: 210,
-    badge: 'BESTSELLER',
-    badgeColor: '#F59E0B',
+    price: 8950,
+    compareAtPrice: 10500,
+    rating: 5.0,
+    reviewsCount: 215,
+    stock: 4,
+    brand: 'Casio',
+    category: 'mathematical-instruments',
+    badge: 'Exam Approved',
     image: '/images/hd/products/casio-fx991cw.jpg',
   },
   {
-    id: 'mockup-p4',
-    name: 'Faber-Castell Water Color Set (12 Shades)',
-    slug: 'faber-castell-studio-watercolour-pack',
-    price: 690,
-    rating: 4.7,
-    reviewsCount: 86,
-    badge: 'NEW',
-    badgeColor: '#8B5CF6',
+    id: 'flash-4',
+    name: 'Faber-Castell 24 Watercolour Pencils Set with Free Brush',
+    slug: 'faber-castell-24-watercolour-eco-pencils-set-with-brush',
+    price: 1950,
+    compareAtPrice: 2350,
+    rating: 4.9,
+    reviewsCount: 112,
+    stock: 9,
+    brand: 'Faber-Castell',
+    category: 'art-craft',
+    badge: 'Artist Choice',
     image: '/images/hd/products/faber-castell-water-color.jpg',
   },
   {
-    id: 'mockup-p5',
-    name: 'School Backpack (Blue)',
-    slug: 'ergonomic-school-backpack',
-    price: 2125,
-    compareAtPrice: 2900,
-    rating: 4.6,
-    reviewsCount: 72,
-    badge: 'SALE',
-    badgeColor: '#EF4444',
+    id: 'flash-5',
+    name: 'Ergonomic Waterproof Student School Backpack 32L (Navy)',
+    slug: 'ergonomic-waterproof-student-backpack-32l-navy-blue',
+    price: 4250,
+    compareAtPrice: 5200,
+    rating: 4.9,
+    reviewsCount: 84,
+    stock: 5,
+    brand: 'AZIP Gear',
+    category: 'school-accessories',
+    badge: 'Waterproof',
     image: '/images/hd/products/school-backpack-blue.jpg',
+  },
+  {
+    id: 'flash-6',
+    name: 'Helix Oxford 9-Piece Metal Geometry Precision Box Set',
+    slug: 'helix-oxford-complete-metal-geometry-precision-box-set',
+    price: 1250,
+    compareAtPrice: 1550,
+    rating: 4.9,
+    reviewsCount: 76,
+    stock: 7,
+    brand: 'Helix Oxford',
+    category: 'mathematical-instruments',
+    badge: 'Original Tin',
+    image: '/images/hd/products/geometry-set.jpg',
+  },
+  {
+    id: 'flash-7',
+    name: 'Stabilo Boss Original Pastel Highlighters (Set of 6)',
+    slug: 'stabilo-boss-original-pastel-highlighters-set-of-6-assorted',
+    price: 1650,
+    compareAtPrice: 1950,
+    rating: 4.9,
+    reviewsCount: 91,
+    stock: 11,
+    brand: 'Stabilo',
+    category: 'writing-instruments',
+    badge: 'Pastel Pack',
+    image: '/images/hd/products/highlighters-set.jpg',
+  },
+  {
+    id: 'flash-8',
+    name: 'Atlas CR Hardcover 120-Page A4 Notebook (Pack of 3)',
+    slug: 'atlas-cr-hardcover-120-page-a4-notebook-pack-of-3',
+    price: 1050,
+    compareAtPrice: 1300,
+    rating: 4.8,
+    reviewsCount: 134,
+    stock: 10,
+    brand: 'Atlas',
+    category: 'exercise-books',
+    badge: 'Value Pack',
+    image: '/images/hd/categories/exercise-books.jpg',
+  },
+  {
+    id: 'flash-9',
+    name: 'Stainless Steel Double-Wall Insulated Student Water Bottle',
+    slug: 'stainless-steel-double-wall-insulated-student-water-bottle',
+    price: 1850,
+    compareAtPrice: 2300,
+    rating: 4.8,
+    reviewsCount: 63,
+    stock: 6,
+    brand: 'AZIP',
+    category: 'school-accessories',
+    badge: '24h Cold',
+    image: '/images/hd/products/water-bottle.jpg',
+  },
+  {
+    id: 'flash-10',
+    name: 'Leakproof BPA-Free 3-Compartment Student Bento Lunch Box',
+    slug: 'leakproof-bpa-free-3-compartment-student-bento-lunch-box',
+    price: 1450,
+    compareAtPrice: 1850,
+    rating: 4.8,
+    reviewsCount: 57,
+    stock: 8,
+    brand: 'AZIP',
+    category: 'school-accessories',
+    badge: 'BPA Free',
+    image: '/images/hd/products/lunch-box.jpg',
+  },
+  {
+    id: 'flash-11',
+    name: 'Post-it Super Sticky Notes Cube (400 Neon Sheets)',
+    slug: 'post-it-super-sticky-notes-cube-400-sheets',
+    price: 490,
+    compareAtPrice: 650,
+    rating: 4.8,
+    reviewsCount: 49,
+    stock: 12,
+    brand: '3M Post-it',
+    category: 'office-supplies',
+    badge: 'Study Aid',
+    image: '/images/hd/products/sticky-notes.jpg',
+  },
+  {
+    id: 'flash-12',
+    name: 'Complete Artist Sketching & Drawing Studio Kit (36-Piece)',
+    slug: 'faber-castell-36-watercolour-eco-pencils-set',
+    price: 2950,
+    compareAtPrice: 3600,
+    rating: 4.9,
+    reviewsCount: 78,
+    stock: 5,
+    brand: 'Faber-Castell',
+    category: 'art-craft',
+    badge: 'Pro Kit',
+    image: '/images/hd/products/drawing-kit.jpg',
   },
 ];
 
-const TRUST_ITEMS = [
-  { icon: GraduationCap, title: 'School & College', subtitle: 'From Grade 1 to A/L' },
-  { icon: Users, title: 'Trusted by Parents', subtitle: 'Quality you can count on' },
-  { icon: Truck, title: 'Fast Delivery', subtitle: 'Islandwide coverage' },
-  { icon: Headphones, title: 'Need Help?', subtitle: 'Our support team is here' },
+// ─── VISUAL DEPARTMENT CARDS (TOP BAR) ────────────────────────
+const VISUAL_DEPARTMENTS = [
+  {
+    slug: 'school-books',
+    title: 'School Books',
+    subtitle: 'Grade 1 to A/L',
+    image: '/images/hd/categories/school-books.jpg',
+    accent: 'from-sky-500/10 to-blue-500/5 border-sky-200',
+  },
+  {
+    slug: 'exercise-books',
+    title: 'CR & Exercise Books',
+    subtitle: 'Atlas & Oxford',
+    image: '/images/hd/products/atlas-exercise-book.jpg',
+    accent: 'from-amber-500/10 to-orange-500/5 border-amber-200',
+  },
+  {
+    slug: 'writing-instruments',
+    title: 'Pens & Writing',
+    subtitle: 'Pilot, Stabilo, Atlas',
+    image: '/images/hd/products/pilot-g2-pens.jpg',
+    accent: 'from-cyan-500/10 to-teal-500/5 border-cyan-200',
+  },
+  {
+    slug: 'mathematical-instruments',
+    title: 'Calculators & Math',
+    subtitle: 'Casio & Helix Sets',
+    image: '/images/hd/products/casio-fx991cw.jpg',
+    accent: 'from-indigo-500/10 to-blue-500/5 border-indigo-200',
+  },
+  {
+    slug: 'art-craft',
+    title: 'Art & Craft',
+    subtitle: 'Faber-Castell & Paints',
+    image: '/images/hd/products/faber-castell-water-color.jpg',
+    accent: 'from-rose-500/10 to-pink-500/5 border-rose-200',
+  },
+  {
+    slug: 'school-accessories',
+    title: 'Backpacks & Gear',
+    subtitle: 'Bags, Bottles, Lunch',
+    image: '/images/hd/products/school-backpack-blue.jpg',
+    accent: 'from-emerald-500/10 to-teal-500/5 border-emerald-200',
+  },
+  {
+    slug: 'office-supplies',
+    title: 'Office & Files',
+    subtitle: 'A4 Paper & Binders',
+    image: '/images/hd/products/sticky-notes.jpg',
+    accent: 'from-violet-500/10 to-purple-500/5 border-violet-200',
+  },
+  {
+    slug: 'science-laboratory',
+    title: 'Science & Lab',
+    subtitle: 'Models & Globes',
+    image: '/products/globe.jpg',
+    accent: 'from-teal-500/10 to-cyan-500/5 border-teal-200',
+  },
 ];
 
+// ─── INTERACTIVE CATEGORY FILTER BAR TABS ─────────────────────
+const CATEGORY_BAR_TABS = [
+  { slug: 'all', label: 'All Products', icon: Grid2x2 },
+  { slug: 'school-books', label: 'School Books', icon: GraduationCap },
+  { slug: 'exercise-books', label: 'Exercise & CR Books', icon: Notebook },
+  { slug: 'writing-instruments', label: 'Pens & Writing', icon: PenLine },
+  { slug: 'mathematical-instruments', label: 'Calculators & Math', icon: Calculator },
+  { slug: 'art-craft', label: 'Art & Craft', icon: Palette },
+  { slug: 'school-accessories', label: 'Backpacks & Bags', icon: Backpack },
+  { slug: 'office-supplies', label: 'Office Supplies', icon: FolderOpen },
+  { slug: 'files-organization', label: 'Files & Binders', icon: FolderOpen },
+  { slug: 'books', label: 'General Books', icon: BookOpen },
+  { slug: 'science-laboratory', label: 'Science & Lab', icon: FlaskConical },
+  { slug: 'preschool-kids', label: 'Preschool & Kids', icon: Baby },
+  { slug: 'gifts-accessories', label: 'Gifts & Stationery', icon: Gift },
+  { slug: 'electronics', label: 'Electronics', icon: Cpu },
+];
+
+// Guaranteed local HD image enhancement for categories so every card looks studio-grade
+const LOCAL_CATEGORY_HD_POOL: Record<string, string[]> = {
+  'school-books': [
+    '/images/hd/categories/school-books.jpg',
+    '/images/hd/products/atlas-exercise-book.jpg',
+  ],
+  'exercise-books': [
+    '/images/hd/products/atlas-exercise-book.jpg',
+    '/images/hd/categories/exercise-books.jpg',
+  ],
+  'writing-instruments': [
+    '/images/hd/products/pilot-g2-pens.jpg',
+    '/images/hd/products/highlighters-set.jpg',
+    '/images/hd/categories/pens-writing.jpg',
+  ],
+  'mathematical-instruments': [
+    '/images/hd/products/geometry-set.jpg',
+    '/images/hd/products/casio-fx991cw.jpg',
+    '/images/hd/categories/calculators-geometry.jpg',
+  ],
+  'art-craft': [
+    '/images/hd/products/faber-castell-water-color.jpg',
+    '/images/hd/products/drawing-kit.jpg',
+    '/images/hd/categories/art-supplies.jpg',
+  ],
+  'school-accessories': [
+    '/images/hd/products/school-backpack-blue.jpg',
+    '/images/hd/products/water-bottle.jpg',
+    '/images/hd/products/lunch-box.jpg',
+    '/images/hd/products/school-shoes.jpg',
+  ],
+  'office-supplies': [
+    '/images/hd/products/sticky-notes.jpg',
+    '/images/hd/products/highlighters-set.jpg',
+  ],
+  'files-organization': [
+    '/images/hd/categories/exercise-books.jpg',
+    '/images/hd/products/sticky-notes.jpg',
+  ],
+  'science-laboratory': ['/products/microscope.jpg', '/products/globe.jpg'],
+  'educational-materials': ['/products/globe.jpg', '/images/hd/hero/hero-kit.jpg'],
+  'preschool-kids': [
+    '/images/hd/products/drawing-kit.jpg',
+    '/images/hd/products/faber-castell-water-color.jpg',
+  ],
+  'gifts-accessories': [
+    '/images/hd/products/drawing-kit.jpg',
+    '/images/hd/products/pilot-g2-pens.jpg',
+  ],
+  electronics: ['/images/hd/products/casio-fx991cw.jpg'],
+  books: ['/images/hd/categories/school-books.jpg'],
+};
+
+const WA_URL = `https://wa.me/94112345678?text=${encodeURIComponent(
+  'Hello AZIP! I need help with an order.'
+)}`;
+
+const SECTION = 'w-full max-w-[1440px] mx-auto px-3 sm:px-5 lg:px-8';
+
 export default function HomePage() {
-  const [slide, setSlide] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const [wishlist, setWishlist] = useState<Record<string, boolean>>({});
-  const [addedItems, setAddedItems] = useState<Record<string, boolean>>({});
+  const { t } = useLanguage();
   const addItem = useCartStore((s) => s.addItem);
+  const catalogSectionRef = useRef<HTMLElement>(null);
 
-  const nextSlide = useCallback(() => {
-    setSlide((s) => (s + 1) % HERO_SLIDES.length);
-  }, []);
+  // Live catalog products fetched from /api/products (syncs with Admin Panel!)
+  const [catalogProducts, setCatalogProducts] = useState<CatalogProduct[]>(
+    INITIAL_CATALOG_PRODUCTS
+  );
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [quickFilter, setQuickFilter] = useState<'all' | 'sale' | 'top' | 'under1000'>('all');
+  const [sortBy, setSortBy] = useState<'popular' | 'price-asc' | 'price-desc' | 'discount'>(
+    'popular'
+  );
+  const [searchInCat, setSearchInCat] = useState('');
+  const [visibleCount, setVisibleCount] = useState(18);
+  const [isBooklistOpen, setIsBooklistOpen] = useState(false);
+  const [addedBundleId, setAddedBundleId] = useState<string | null>(null);
 
-  const prevSlide = useCallback(() => {
-    setSlide((s) => (s - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
-  }, []);
+  // Live countdown timer for Flash Sale
+  const [timeLeft, setTimeLeft] = useState({ hours: 5, minutes: 42, seconds: 19 });
 
   useEffect(() => {
-    if (isPaused) return;
-    const t = setInterval(nextSlide, 8000);
-    return () => clearInterval(t);
-  }, [nextSlide, isPaused]);
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => {
+        if (prev.seconds > 0) return { ...prev, seconds: prev.seconds - 1 };
+        if (prev.minutes > 0) return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
+        if (prev.hours > 0) return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
+        return { hours: 5, minutes: 59, seconds: 59 };
+      });
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
-  const toggleWishlist = (id: string) => {
-    setWishlist((prev) => ({ ...prev, [id]: !prev[id] }));
-  };
+  // Fetch live products from API so Admin Panel changes reflect immediately on Homepage
+  useEffect(() => {
+    let active = true;
+    async function loadLiveCatalog() {
+      try {
+        const res = await fetch('/api/products?limit=200', { cache: 'no-store' });
+        if (res.ok) {
+          const data = await res.json();
+          if (active && Array.isArray(data.products) && data.products.length > 0) {
+            setCatalogProducts(data.products);
+          }
+        }
+      } catch {
+        // Fallback to INITIAL_CATALOG_PRODUCTS
+      }
+    }
+    loadLiveCatalog();
+    return () => {
+      active = false;
+    };
+  }, []);
 
-  const handleAddToCart = (product: (typeof BEST_SELLING_PRODUCTS)[0]) => {
-    addItem({
-      id: product.id,
-      name: product.name,
-      price: product.price,
-      image: product.image,
-      stock: 50,
+  // Category counts for the Category Bar
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = { all: catalogProducts.length };
+    for (const p of catalogProducts) {
+      counts[p.category] = (counts[p.category] || 0) + 1;
+    }
+    return counts;
+  }, [catalogProducts]);
+
+  // Convert CatalogProduct to HomeProduct with clean image resolution
+  const mappedProducts: HomeProduct[] = useMemo(() => {
+    return catalogProducts.map((p, idx) => {
+      const rawUrl = p.images?.[0]?.url || '';
+      const pool = LOCAL_CATEGORY_HD_POOL[p.category];
+      // If product has a local image or custom uploaded image, keep it; otherwise assign from crisp HD pool or rawUrl
+      const finalImg =
+        rawUrl.startsWith('/') || rawUrl.startsWith('data:')
+          ? rawUrl
+          : rawUrl || (pool ? pool[idx % pool.length] : '/images/hd/products/atlas-exercise-book.jpg');
+
+      return {
+        id: p._id,
+        name: p.name,
+        slug: p.slug,
+        price: p.price,
+        compareAtPrice: p.compareAtPrice,
+        rating: p.rating || 4.8,
+        reviewsCount: p.reviewsCount || 42,
+        stock: p.stock,
+        brand: p.brand,
+        category: p.category,
+        badge: p.badge,
+        image: finalImg,
+      };
     });
-    setAddedItems((prev) => ({ ...prev, [product.id]: true }));
-    setTimeout(() => {
-      setAddedItems((prev) => ({ ...prev, [product.id]: false }));
-    }, 1800);
+  }, [catalogProducts]);
+
+  // Filtered & Sorted Products for the Interactive Category Bar section
+  const filteredProducts = useMemo(() => {
+    let list = mappedProducts;
+
+    if (selectedCategory !== 'all') {
+      list = list.filter((p) => p.category === selectedCategory);
+    }
+
+    if (searchInCat.trim()) {
+      const q = searchInCat.toLowerCase().trim();
+      list = list.filter(
+        (p) =>
+          p.name.toLowerCase().includes(q) ||
+          (p.brand && p.brand.toLowerCase().includes(q)) ||
+          (p.category && p.category.toLowerCase().includes(q))
+      );
+    }
+
+    if (quickFilter === 'sale') {
+      list = list.filter((p) => p.compareAtPrice && p.compareAtPrice > p.price);
+    } else if (quickFilter === 'top') {
+      list = list.filter((p) => p.rating >= 4.9);
+    } else if (quickFilter === 'under1000') {
+      list = list.filter((p) => p.price <= 1000);
+    }
+
+    const sorted = [...list];
+    if (sortBy === 'price-asc') {
+      sorted.sort((a, b) => a.price - b.price);
+    } else if (sortBy === 'price-desc') {
+      sorted.sort((a, b) => b.price - a.price);
+    } else if (sortBy === 'discount') {
+      sorted.sort((a, b) => {
+        const discA =
+          a.compareAtPrice && a.compareAtPrice > a.price
+            ? (a.compareAtPrice - a.price) / a.compareAtPrice
+            : 0;
+        const discB =
+          b.compareAtPrice && b.compareAtPrice > b.price
+            ? (b.compareAtPrice - b.price) / b.compareAtPrice
+            : 0;
+        return discB - discA;
+      });
+    } else {
+      sorted.sort((a, b) => b.reviewsCount - a.reviewsCount);
+    }
+
+    return sorted;
+  }, [mappedProducts, selectedCategory, searchInCat, quickFilter, sortBy]);
+
+  const handleSelectDepartment = (slug: string) => {
+    setSelectedCategory(slug);
+    setVisibleCount(18);
+    catalogSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
+
+  const handleAddBundle = (bundle: SchoolBundleKit) => {
+    addItem({
+      id: bundle.id,
+      name: bundle.name,
+      price: bundle.price,
+      image: bundle.image,
+      stock: 25,
+    });
+    setAddedBundleId(bundle.id);
+    setTimeout(() => setAddedBundleId(null), 1600);
+  };
+
+  const trust = [
+    { icon: BadgeCheck, title: t('trust.genuine'), sub: '100% Authorized Brands' },
+    { icon: Truck, title: t('trust.delivery'), sub: 'Islandwide Doorstep Delivery' },
+    { icon: CreditCard, title: t('trust.secure'), sub: 'Cash on Delivery & Card' },
+    { icon: RotateCcw, title: t('trust.returns'), sub: '7-Day Easy Replacement' },
+  ];
 
   return (
     <StoreShell>
-      <div className="bg-[#F4F7FC] font-sans pb-16 md:pb-0">
+      <div className="w-full min-h-screen bg-[#F4F6F9] pb-24 md:pb-14">
+        {/* ── 1. HERO CAMPAIGN BANNER SLIDER (Controlled from Admin Panel) ── */}
+        <section className={`${SECTION} pt-4`}>
+          <HeroBannerSlider waUrl={WA_URL} />
+        </section>
 
-        {/* FULL-WIDTH HERO */}
-        <section className="container mx-auto px-3.5 sm:px-4 pt-3 sm:pt-5">
-          <div
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-            className="relative rounded-[20px] sm:rounded-[22px] overflow-hidden min-h-[290px] sm:min-h-[360px] lg:min-h-[400px] shadow-[0_12px_36px_rgba(11,87,208,0.16)] group"
-          >
-            {HERO_SLIDES.map((s, i) => (
-              <div
-                key={s.id}
-                className={`absolute inset-0 transition-opacity duration-700 ease-out ${
-                  i === slide ? 'opacity-100 z-10 visible' : 'opacity-0 z-0 invisible pointer-events-none'
-                }`}
+        {/* ── 2. VISUAL SHOP-BY-DEPARTMENT BAR ── */}
+        <section className={`${SECTION} mt-6`}>
+          <div className="bg-white rounded-2xl border border-slate-200/90 p-4 sm:p-5 shadow-xs">
+            <div className="flex items-center justify-between mb-3.5">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-6 rounded-full bg-[#0096C7]" />
+                <h2 className="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight">
+                  Shop by Department
+                </h2>
+                <span className="hidden sm:inline-block text-xs font-semibold text-slate-400">
+                  • Click any category to filter products below
+                </span>
+              </div>
+              <Link
+                href="/products"
+                className="text-xs sm:text-sm font-bold text-[#0096C7] hover:text-[#00C4D8] flex items-center gap-0.5"
               >
-                <img
-                  src={s.image}
-                  alt={s.titleAccent}
-                  className="absolute inset-0 w-full h-full object-cover object-[75%_center]"
-                />
-                {/* Smooth dark blue gradient overlay to ensure crystal clear readability on left */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#062E69] via-[#094186]/92 via-45% to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#062554]/40 via-transparent to-transparent" />
+                All 14 Categories <ChevronRight size={15} />
+              </Link>
+            </div>
 
-                <div className="relative z-10 h-full flex items-center">
-                  <div className="px-5 sm:px-10 lg:pl-[84px] lg:pr-6 py-7 sm:py-10 max-w-xl">
-                    <p className="text-[10.5px] sm:text-xs font-black tracking-[0.2em] uppercase text-[#38BDF8] mb-1.5 sm:mb-2">
-                      {s.eyebrow}
-                    </p>
-                    <h1 className="text-2xl sm:text-4xl lg:text-[3.25rem] font-black text-white tracking-tight leading-[1.08] mb-2 sm:mb-3">
-                      {s.titleBefore}{' '}
-                      <span className="text-[#38BDF8]">{s.titleAccent}</span>
-                    </h1>
-                    <p className="text-xs sm:text-[15px] text-white/90 font-medium leading-relaxed mb-4 sm:mb-6 max-w-md line-clamp-2 sm:line-clamp-none">
-                      {s.subtitle}
-                    </p>
-
-                    <div className="flex flex-wrap items-center gap-x-4 sm:gap-x-6 gap-y-2 sm:gap-y-3 mb-4 sm:mb-6">
-                      {HERO_TRUST.map((item) => {
-                        const Icon = item.icon;
-                        return (
-                          <div key={item.label} className="flex items-center gap-2 sm:gap-2.5 text-white">
-                            <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg bg-white/12 border border-white/20 flex items-center justify-center shrink-0 shadow-sm">
-                              <Icon size={13} className="text-white sm:hidden" />
-                              <Icon size={16} className="text-white hidden sm:block" />
-                            </div>
-                            <span className="text-[11px] sm:text-[12px] font-semibold leading-tight">{item.label}</span>
-                          </div>
-                        );
-                      })}
+            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2.5 sm:gap-3">
+              {VISUAL_DEPARTMENTS.map((dept) => {
+                const isSelected = selectedCategory === dept.slug;
+                return (
+                  <button
+                    key={dept.slug}
+                    type="button"
+                    onClick={() => handleSelectDepartment(dept.slug)}
+                    className={`group text-left rounded-xl p-2.5 border transition-all cursor-pointer flex flex-col items-center text-center bg-gradient-to-b ${
+                      dept.accent
+                    } ${
+                      isSelected
+                        ? 'ring-2 ring-[#0096C7] border-[#0096C7] shadow-sm scale-[1.02]'
+                        : 'hover:border-[#00C4D8] hover:shadow-sm hover:-translate-y-0.5'
+                    }`}
+                  >
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-white p-2 shadow-xs border border-slate-100 flex items-center justify-center mb-2 overflow-hidden">
+                      <img
+                        src={dept.image}
+                        alt={dept.title}
+                        className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
+                      />
                     </div>
+                    <div className="text-xs font-extrabold text-slate-800 group-hover:text-[#0096C7] leading-tight line-clamp-1">
+                      {dept.title}
+                    </div>
+                    <div className="text-[10px] font-medium text-slate-500 mt-0.5 line-clamp-1">
+                      {dept.subtitle}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </section>
 
-                    <Link
-                      href={s.href}
-                      className="inline-flex items-center gap-2 px-5 sm:px-7 py-2.5 sm:py-3 bg-[#0066FF] hover:bg-[#0052CC] text-white font-bold text-xs sm:text-sm rounded-full shadow-lg shadow-blue-900/30 transition-all hover:-translate-y-0.5"
-                    >
-                      {s.cta}
-                      <ArrowRight size={15} />
-                    </Link>
+        {/* ── 3. FLASH SALE / DAILY SUPER DEALS (WITH LIVE COUNTDOWN) ── */}
+        <section className={`${SECTION} mt-7`}>
+          <div className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-xs">
+            {/* Daraz-style Flash Sale Header Bar */}
+            <div
+              className="px-4 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-3 border-b border-slate-100"
+              style={{
+                background: 'linear-gradient(90deg, #FFF7ED 0%, #FFF1F2 50%, #F0F9FF 100%)',
+              }}
+            >
+              <div className="flex flex-wrap items-center gap-3 sm:gap-5">
+                <div className="flex items-center gap-2">
+                  <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-orange-500 to-rose-600 text-white flex items-center justify-center shadow-xs">
+                    <Flame size={18} className="fill-white" />
+                  </span>
+                  <div>
+                    <h2 className="text-base sm:text-xl font-black text-slate-900 tracking-tight uppercase">
+                      {t('flash.title')}
+                    </h2>
                   </div>
                 </div>
 
-                {/* Better Learning Brighter Future Cursive Script in Top-Right */}
-                <div
-                  className="hidden lg:block absolute top-8 right-12 z-20 text-right pointer-events-none select-none"
-                  style={{ fontFamily: "'Dancing Script', cursive" }}
-                >
-                  <p className="text-white text-[2rem] font-bold leading-[1.05] drop-shadow-md">
-                    Better
-                  </p>
-                  <p className="text-white text-[2rem] font-bold leading-[1.05] drop-shadow-md">
-                    Learning
-                  </p>
-                  <p className="text-[#38BDF8] text-[2rem] font-bold leading-[1.05] drop-shadow-md">
-                    Brighter
-                  </p>
-                  <p className="text-[#38BDF8] text-[2rem] font-bold leading-[1.05] drop-shadow-md">
-                    Future
-                  </p>
+                <span className="hidden sm:inline-flex items-center gap-1.5 text-xs font-extrabold text-orange-600 bg-orange-100/80 border border-orange-200 px-2.5 py-1 rounded-full">
+                  <Sparkles size={12} /> ON SALE NOW
+                </span>
+
+                {/* Live Countdown Clock */}
+                <div className="flex items-center gap-1.5 text-xs font-bold text-slate-600">
+                  <Clock size={14} className="text-rose-600" />
+                  <span className="hidden md:inline">Ending in:</span>
+                  <div className="flex items-center gap-1">
+                    <span className="bg-slate-900 text-white font-black text-xs px-2 py-1 rounded-md min-w-[28px] text-center">
+                      {String(timeLeft.hours).padStart(2, '0')}h
+                    </span>
+                    <span className="text-slate-900 font-black">:</span>
+                    <span className="bg-slate-900 text-white font-black text-xs px-2 py-1 rounded-md min-w-[28px] text-center">
+                      {String(timeLeft.minutes).padStart(2, '0')}m
+                    </span>
+                    <span className="text-slate-900 font-black">:</span>
+                    <span className="bg-rose-600 text-white font-black text-xs px-2 py-1 rounded-md min-w-[28px] text-center">
+                      {String(timeLeft.seconds).padStart(2, '0')}s
+                    </span>
+                  </div>
                 </div>
               </div>
-            ))}
 
-            <button
-              type="button"
-              onClick={prevSlide}
-              className="hidden sm:flex absolute left-3.5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/35 hover:bg-black/55 text-white items-center justify-center border border-white/20 backdrop-blur-sm cursor-pointer transition-all"
-              aria-label="Previous slide"
-            >
-              <ChevronLeft size={22} />
-            </button>
-            <button
-              type="button"
-              onClick={nextSlide}
-              className="hidden sm:flex absolute right-3.5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/35 hover:bg-black/55 text-white items-center justify-center border border-white/20 backdrop-blur-sm cursor-pointer transition-all"
-              aria-label="Next slide"
-            >
-              <ChevronRight size={22} />
-            </button>
+              <Link
+                href="/offers"
+                className="px-4 py-1.5 rounded-lg border-2 border-[#FF5500] text-[#FF5500] hover:bg-[#FF5500] hover:text-white text-xs sm:text-sm font-extrabold transition-colors flex items-center gap-1"
+              >
+                SHOP ALL DEALS <ChevronRight size={15} />
+              </Link>
+            </div>
 
-            <div className="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5">
-              {HERO_SLIDES.map((_, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  onClick={() => setSlide(i)}
-                  className={`h-1.5 rounded-full transition-all border-none cursor-pointer ${
-                    i === slide ? 'w-6 bg-white' : 'w-1.5 bg-white/45 hover:bg-white/70'
-                  }`}
-                  aria-label={`Go to slide ${i + 1}`}
-                />
+            {/* 12 Flash Sale Products Grid */}
+            <div className="p-4 sm:p-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3.5">
+              {FLASH_DEALS.map((p) => (
+                <HomeProductCard key={p.id} product={p} isFlashDeal />
               ))}
             </div>
           </div>
         </section>
 
-        {/* SEASONAL FEST BANNER */}
-        <section className="container mx-auto px-3.5 sm:px-4 mt-3 sm:mt-3.5">
-          <Link
-            href="/offers"
-            className="relative block rounded-[18px] sm:rounded-[20px] overflow-hidden min-h-[82px] sm:min-h-[100px] group shadow-[0_8px_24px_rgba(255,138,0,0.22)]"
-          >
-            {/* Rich warm orange-gold gradient */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#FFB800] via-[#FF8A00] to-[#E65100]" />
-
-            {/* Faint line doodles in background */}
-            <div className="pointer-events-none absolute inset-0 overflow-hidden select-none">
-              {/* Airplane */}
-              <svg
-                className="absolute right-52 top-3 text-white/30 w-12 h-12 -rotate-12"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-              >
-                <path d="M22 2L11 13" />
-                <path d="M22 2L15 22L11 13L2 9L22 2Z" />
-              </svg>
-              {/* Star Badge */}
-              <svg
-                className="absolute right-36 top-5 text-white/25 w-9 h-9"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-              >
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-              {/* Ticket Voucher */}
-              <svg
-                className="absolute right-20 bottom-3 text-white/25 w-11 h-9 rotate-12"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-              >
-                <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v2z" />
-              </svg>
-            </div>
-
-            <div className="relative z-10 flex items-center justify-between gap-3 sm:gap-4 px-3.5 sm:px-6 py-2.5 sm:py-3 h-full">
-              <div className="flex items-center gap-3 sm:gap-5 min-w-0">
-                <div className="flex items-center -space-x-2 shrink-0">
-                  {[
-                    '/images/hd/categories/school-books.jpg',
-                    '/images/hd/products/pilot-g2-pens.jpg',
-                    '/images/hd/products/school-backpack-blue.jpg',
-                  ].map((src, idx) => (
-                    <div
-                      key={idx}
-                      className="w-9 h-9 sm:w-15 sm:h-15 rounded-full border-2 sm:border-[3px] border-white bg-white shadow-md overflow-hidden flex items-center justify-center p-0.5 sm:p-1"
-                    >
-                      <img src={src} alt="" className="w-full h-full object-contain" />
-                    </div>
-                  ))}
-                </div>
-                <div className="min-w-0">
-                  <p className="text-[9.5px] sm:text-[11px] font-black uppercase tracking-[0.18em] sm:tracking-[0.2em] text-white/95 mb-0.5">
-                    Live Now · Seasonal Sale
-                  </p>
-                  <h2 className="text-[13px] sm:text-2xl lg:text-[1.65rem] font-black text-white tracking-tight leading-tight truncate sm:whitespace-normal">
-                    Back to School Fest — Up to 25% Off
-                  </h2>
-                  <p className="text-xs sm:text-[13px] text-white/90 font-semibold tracking-wide mt-0.5 hidden sm:block">
-                    Books · Stationery · Bags · Calculators
-                  </p>
-                </div>
-              </div>
-
-              {/* Crimson Circular SHOP NOW button with shopping cart icon */}
-              <div className="shrink-0 flex items-center">
-                <div className="w-[52px] h-[52px] sm:w-[76px] sm:h-[76px] rounded-full bg-[#E11D48] hover:bg-[#BE123C] text-white flex items-center justify-center gap-1 shadow-lg shadow-red-900/25 transition-transform group-hover:scale-105 cursor-pointer">
-                  <ShoppingCart size={13} className="text-white shrink-0 sm:hidden" strokeWidth={2.2} />
-                  <ShoppingCart size={17} className="text-white shrink-0 hidden sm:block -ml-0.5" strokeWidth={2.2} />
-                  <span className="font-black text-[9px] sm:text-[11px] leading-[1.05] sm:leading-tight uppercase tracking-tight text-left">
-                    SHOP<br />NOW
-                  </span>
-                </div>
-              </div>
-            </div>
-          </Link>
-        </section>
-
-        {/* BEST SELLING */}
-        <section className="container mx-auto px-4 mt-8 sm:mt-10 pb-2">
-          <div className="flex items-end justify-between gap-4 mb-5">
-            <div>
-              <p className="text-[11px] font-black tracking-[0.2em] text-[#0066FF] uppercase mb-1">
-                Top Picks
-              </p>
-              <h2 className="text-[1.5rem] sm:text-[1.75rem] font-black text-[#0F172A] tracking-tight">
-                Best Selling Items
-              </h2>
-            </div>
-            <Link
-              href="/products"
-              className="inline-flex items-center gap-1 text-sm font-bold text-[#0066FF] hover:text-[#0052CC]"
+        {/* ── 4. MID-PAGE DUAL PROMOTIONAL CAMPAIGN BANNERS ── */}
+        <section className={`${SECTION} mt-7`}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            {/* Left Promo Banner: Back-to-School Complete Grade Packs */}
+            <div
+              className="relative rounded-2xl overflow-hidden p-5 sm:p-7 text-white shadow-md flex flex-col sm:flex-row items-center justify-between gap-5"
+              style={{
+                background: 'linear-gradient(135deg, #002888 0%, #0057FF 52%, #00B4D8 100%)',
+              }}
             >
-              View All <ArrowRight size={14} />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
-            {BEST_SELLING_PRODUCTS.map((prod) => {
-              const isWished = wishlist[prod.id];
-              const isAdded = addedItems[prod.id];
-
-              return (
-                <div
-                  key={prod.id}
-                  className="group bg-white rounded-2xl border border-slate-100 shadow-[0_4px_16px_rgba(15,23,42,0.04)] hover:shadow-[0_14px_32px_rgba(15,23,42,0.09)] hover:-translate-y-1 transition-all overflow-hidden flex flex-col"
+              <div
+                className="absolute inset-0 pointer-events-none opacity-25"
+                style={{
+                  backgroundImage:
+                    'repeating-conic-gradient(from 0deg at 75% 50%, rgba(255,255,255,0.22) 0deg 8deg, transparent 8deg 18deg)',
+                }}
+              />
+              <div className="relative z-10 flex-1 space-y-2 text-center sm:text-left">
+                <span className="inline-block bg-amber-300 text-slate-950 text-[11px] font-black uppercase px-3 py-1 rounded-full shadow-xs">
+                  GRADE 1 TO A/L SYLLABUS
+                </span>
+                <h3
+                  className="text-2xl sm:text-3xl font-black uppercase leading-tight tracking-tight"
+                  style={{ fontFamily: 'Outfit, sans-serif' }}
                 >
-                  <div className="relative bg-white pt-3 px-3 pb-1">
-                    <span
-                      style={{ backgroundColor: prod.badgeColor }}
-                      className="absolute top-2.5 left-2.5 z-10 px-2 py-[2px] rounded-full text-[9px] font-black uppercase tracking-wider text-white shadow-sm"
-                    >
-                      {prod.badge}
-                    </span>
-                    <button
-                      type="button"
-                      onClick={() => toggleWishlist(prod.id)}
-                      className="absolute top-3 right-3 z-10 w-7 h-7 rounded-full bg-white shadow-sm border border-slate-100 flex items-center justify-center text-slate-300 hover:text-red-500 cursor-pointer transition-colors"
-                      aria-label="Wishlist"
-                    >
-                      <Heart size={14} className={isWished ? 'fill-red-500 text-red-500' : ''} />
-                    </button>
-                    <Link
-                      href={`/products/${prod.slug}`}
-                      className="block h-[132px] w-full flex items-center justify-center"
-                    >
-                      <img
-                        src={prod.image}
-                        alt={prod.name}
-                        className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </Link>
-                  </div>
-
-                  <div className="p-3.5 pt-2 flex flex-col flex-1">
-                    <Link
-                      href={`/products/${prod.slug}`}
-                      className="text-[13px] font-bold text-slate-800 hover:text-[#0066FF] line-clamp-1 leading-snug"
-                    >
-                      {prod.name}
-                    </Link>
-
-                    <div className="flex items-center gap-1 mt-1.5 text-[11px] text-slate-500">
-                      <div className="flex items-center gap-0.5">
-                        {[1, 2, 3, 4, 5].map((s) => (
-                          <Star
-                            key={s}
-                            size={11}
-                            className={
-                              s <= Math.round(prod.rating)
-                                ? 'fill-amber-400 text-amber-400'
-                                : 'fill-slate-200 text-slate-200'
-                            }
-                          />
-                        ))}
-                      </div>
-                      <span className="font-semibold text-slate-600">
-                        {prod.rating} ({prod.reviewsCount})
-                      </span>
-                    </div>
-
-                    <div className="flex items-baseline gap-1.5 mt-2">
-                      <span className="text-[17px] font-black text-[#0066FF]">
-                        Rs. {prod.price.toLocaleString()}
-                      </span>
-                      {'compareAtPrice' in prod &&
-                        prod.compareAtPrice &&
-                        prod.compareAtPrice > prod.price && (
-                          <span className="text-[11px] text-slate-400 line-through font-medium">
-                            Rs. {prod.compareAtPrice.toLocaleString()}
-                          </span>
-                        )}
-                    </div>
-
-                    <button
-                      type="button"
-                      onClick={() => handleAddToCart(prod)}
-                      className={`w-full mt-3 py-2.5 px-3 rounded-full text-[12px] font-bold flex items-center justify-center gap-2 border-none cursor-pointer transition-all shadow-sm ${
-                        isAdded
-                          ? 'bg-emerald-600 text-white shadow-emerald-500/20'
-                          : 'bg-[#0066FF] hover:bg-[#0052CC] text-white shadow-blue-500/20 active:scale-[0.98]'
-                      }`}
-                    >
-                      {isAdded ? (
-                        <>
-                          <Check size={14} strokeWidth={2.5} /> Added!
-                        </>
-                      ) : (
-                        <>
-                          <ShoppingCart size={14} strokeWidth={2.2} /> Add to Cart
-                        </>
-                      )}
-                    </button>
-                  </div>
+                  BACK TO SCHOOL MASTER PACKS
+                </h3>
+                <p className="text-xs sm:text-sm text-sky-100 font-medium max-w-md">
+                  Complete CR Book sets, Geometry boxes & Pilot pens bundled with up to 40% student discount.
+                </p>
+                <div className="pt-2 flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
+                  <button
+                    type="button"
+                    onClick={() => handleSelectDepartment('exercise-books')}
+                    className="px-5 py-2 rounded-full bg-white text-[#002888] font-extrabold text-xs uppercase shadow-md hover:scale-105 transition-transform cursor-pointer border-none"
+                  >
+                    Explore Notebooks
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setIsBooklistOpen(true)}
+                    className="px-4 py-2 rounded-full bg-amber-400 text-slate-950 font-extrabold text-xs uppercase shadow-md hover:bg-amber-300 transition-colors cursor-pointer border-none flex items-center gap-1.5"
+                  >
+                    <Upload size={13} /> Upload Booklist
+                  </button>
                 </div>
-              );
-            })}
-          </div>
-        </section>
+              </div>
 
-        {/* CATEGORIES */}
-        <section id="categories" className="container mx-auto px-4 mt-10 sm:mt-12 scroll-mt-24">
-          <div className="flex items-end justify-between gap-4 mb-5">
-            <div>
-              <p className="text-[11px] font-extrabold tracking-[0.16em] text-[#2B6BFF] uppercase mb-1">
-                Shop by Category
-              </p>
-              <h2 className="text-[1.45rem] sm:text-[1.7rem] font-black text-[#0F172A] tracking-tight">
-                Find What You Need
-              </h2>
-            </div>
-            <Link
-              href="/products"
-              className="hidden sm:inline-flex items-center gap-1 text-sm font-bold text-[#2B6BFF] hover:text-[#1B4FBF]"
-            >
-              View All <ArrowRight size={14} />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-            {SHOP_CATEGORIES.map((cat) => (
-              <Link
-                key={cat.slug}
-                href={`/products?category=${cat.slug}`}
-                className="group bg-white rounded-2xl border border-slate-100 shadow-[0_4px_16px_rgba(15,23,42,0.04)] hover:shadow-md hover:-translate-y-0.5 transition-all p-3.5 flex flex-col"
-              >
-                <div className="aspect-square rounded-xl bg-[#F4F7FB] flex items-center justify-center mb-3 overflow-hidden">
+              {/* Floating Product Duo */}
+              <div className="relative z-10 flex items-center gap-2 shrink-0">
+                <div className="w-24 h-28 sm:w-28 sm:h-32 bg-white rounded-xl p-2 shadow-xl -rotate-6 flex items-center justify-center">
                   <img
-                    src={cat.image}
-                    alt={cat.title}
-                    className="max-h-[80%] max-w-[80%] object-contain group-hover:scale-110 transition-transform duration-500"
+                    src="/images/hd/products/atlas-exercise-book.jpg"
+                    alt="Atlas Exercise Book"
+                    className="max-w-full max-h-full object-contain"
                   />
                 </div>
-                <h3 className="text-[12px] font-bold text-slate-800 group-hover:text-[#2B6BFF] leading-snug min-h-[32px]">
-                  {cat.title}
-                </h3>
-                <div className="mt-2 flex items-center justify-between">
-                  <span className="text-[10px] font-semibold text-slate-400">{cat.count} Products</span>
-                  <span className="w-6 h-6 rounded-full bg-[#2B6BFF] text-white flex items-center justify-center">
-                    <ArrowRight size={12} />
-                  </span>
+                <div className="w-28 h-32 sm:w-32 sm:h-36 bg-white rounded-xl p-2.5 shadow-2xl rotate-3 flex items-center justify-center">
+                  <img
+                    src="/images/hd/products/school-backpack-blue.jpg"
+                    alt="School Backpack"
+                    className="max-w-full max-h-full object-contain"
+                  />
                 </div>
-              </Link>
-            ))}
+              </div>
+            </div>
+
+            {/* Right Promo Banner: Genuine Brand Mall Fiesta */}
+            <div
+              className="relative rounded-2xl overflow-hidden p-5 sm:p-7 text-white shadow-md flex flex-col sm:flex-row items-center justify-between gap-5"
+              style={{
+                background: 'linear-gradient(135deg, #7F1D1D 0%, #DC2626 48%, #F97316 100%)',
+              }}
+            >
+              <div
+                className="absolute inset-0 pointer-events-none opacity-25"
+                style={{
+                  backgroundImage:
+                    'repeating-conic-gradient(from 0deg at 75% 50%, rgba(255,230,130,0.25) 0deg 8deg, transparent 8deg 18deg)',
+                }}
+              />
+              <div className="relative z-10 flex-1 space-y-2 text-center sm:text-left">
+                <span className="inline-block bg-white text-rose-700 text-[11px] font-black uppercase px-3 py-1 rounded-full shadow-xs">
+                  100% OFFICIAL WARRANTY
+                </span>
+                <h3
+                  className="text-2xl sm:text-3xl font-black uppercase leading-tight tracking-tight"
+                  style={{ fontFamily: 'Outfit, sans-serif' }}
+                >
+                  ART & CALCULATOR BRAND MALL
+                </h3>
+                <p className="text-xs sm:text-sm text-orange-100 font-medium max-w-md">
+                  Original Casio ClassWiz FX-991CW, Faber-Castell Studio Art Kits & Stabilo Pastel Highlighters.
+                </p>
+                <div className="pt-2 flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
+                  <button
+                    type="button"
+                    onClick={() => handleSelectDepartment('mathematical-instruments')}
+                    className="px-5 py-2 rounded-full bg-yellow-300 text-rose-950 font-extrabold text-xs uppercase shadow-md hover:scale-105 transition-transform cursor-pointer border-none"
+                  >
+                    Shop Calculators
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleSelectDepartment('art-craft')}
+                    className="px-4 py-2 rounded-full bg-white/20 hover:bg-white/30 text-white font-extrabold text-xs uppercase border border-white/40 transition-colors cursor-pointer"
+                  >
+                    Art & Craft Deals
+                  </button>
+                </div>
+              </div>
+
+              {/* Floating Product Duo */}
+              <div className="relative z-10 flex items-center gap-2 shrink-0">
+                <div className="w-24 h-28 sm:w-28 sm:h-32 bg-white rounded-xl p-2 shadow-xl -rotate-6 flex items-center justify-center">
+                  <img
+                    src="/images/hd/products/faber-castell-water-color.jpg"
+                    alt="Faber-Castell Watercolors"
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </div>
+                <div className="w-28 h-32 sm:w-32 sm:h-36 bg-white rounded-xl p-2.5 shadow-2xl rotate-3 flex items-center justify-center">
+                  <img
+                    src="/images/hd/products/casio-fx991cw.jpg"
+                    alt="Casio FX-991CW"
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* TRUST BAR */}
-        <section className="mt-10 sm:mt-12 bg-white border-y border-slate-100">
-          <div className="container mx-auto px-4 py-7 sm:py-8">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-              {TRUST_ITEMS.map((item) => {
-                const Icon = item.icon;
+        {/* ── 5. DEDICATED INTERACTIVE CATEGORY SELECTION BAR & LIVE PRODUCT CATALOG ── */}
+        <section ref={catalogSectionRef} className={`${SECTION} mt-8 scroll-mt-24`}>
+          <div className="bg-white rounded-2xl border border-slate-200/90 shadow-xs overflow-hidden">
+            {/* Section Title Header */}
+            <div className="px-4 sm:px-6 pt-5 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100">
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-6 rounded-full bg-gradient-to-b from-[#00C4D8] to-[#0096C7]" />
+                  <h2 className="text-lg sm:text-2xl font-black text-slate-900 tracking-tight">
+                    Browse Products by Category
+                  </h2>
+                  <span className="bg-sky-50 text-[#0096C7] border border-sky-200 text-xs font-extrabold px-2.5 py-0.5 rounded-full">
+                    {filteredProducts.length} Items
+                  </span>
+                </div>
+                <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
+                  Select any category tab below to filter books, stationery, calculators & school supplies
+                </p>
+              </div>
+
+              {/* Search within Category */}
+              <div className="relative w-full sm:w-72">
+                <Search
+                  size={16}
+                  className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"
+                />
+                <input
+                  type="text"
+                  value={searchInCat}
+                  onChange={(e) => {
+                    setSearchInCat(e.target.value);
+                    setVisibleCount(18);
+                  }}
+                  placeholder="Quick search in catalog..."
+                  className="w-full pl-9 pr-4 py-2 text-xs sm:text-sm rounded-xl bg-slate-50 border border-slate-200 focus:border-[#0096C7] focus:bg-white focus:outline-none font-medium text-slate-800"
+                />
+              </div>
+            </div>
+
+            {/* ── DEDICATED CATEGORY SELECTION BAR (Sticky/Scrollable Pills) ── */}
+            <div className="bg-slate-50/90 border-b border-slate-200 px-3 sm:px-6 py-3">
+              <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+                {CATEGORY_BAR_TABS.map((tab) => {
+                  const Icon = tab.icon;
+                  const count = categoryCounts[tab.slug] || 0;
+                  const active = selectedCategory === tab.slug;
+                  return (
+                    <button
+                      key={tab.slug}
+                      type="button"
+                      onClick={() => {
+                        setSelectedCategory(tab.slug);
+                        setVisibleCount(18);
+                      }}
+                      className={`group flex items-center gap-2 px-3.5 py-2.5 rounded-xl text-xs sm:text-[13px] font-bold whitespace-nowrap transition-all cursor-pointer shrink-0 border ${
+                        active
+                          ? 'bg-gradient-to-r from-[#0096C7] to-[#00C4D8] text-white border-[#0096C7] shadow-sm scale-[1.02]'
+                          : 'bg-white text-slate-700 border-slate-200/90 hover:border-[#00C4D8] hover:text-[#0096C7]'
+                      }`}
+                    >
+                      <Icon
+                        size={15}
+                        className={
+                          active ? 'text-white' : 'text-[#0096C7] group-hover:scale-110 transition-transform'
+                        }
+                      />
+                      <span>{tab.label}</span>
+                      <span
+                        className={`text-[10px] font-extrabold px-1.5 py-0.5 rounded-full ${
+                          active
+                            ? 'bg-white/25 text-white'
+                            : 'bg-slate-100 text-slate-500 group-hover:bg-sky-50 group-hover:text-[#0096C7]'
+                        }`}
+                      >
+                        {count}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Sub-Filter & Sort Toolbar */}
+              <div className="mt-3 pt-2.5 border-t border-slate-200/70 flex flex-wrap items-center justify-between gap-2">
+                {/* Quick Filter Pills */}
+                <div className="flex flex-wrap items-center gap-1.5">
+                  <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mr-1 flex items-center gap-1">
+                    <SlidersHorizontal size={12} /> Filter:
+                  </span>
+                  {[
+                    { id: 'all', label: 'All Items' },
+                    { id: 'sale', label: '🔥 Discounted Deals' },
+                    { id: 'top', label: '⭐ 4.9+ Top Rated' },
+                    { id: 'under1000', label: '💰 Under Rs. 1,000' },
+                  ].map((f) => (
+                    <button
+                      key={f.id}
+                      type="button"
+                      onClick={() => {
+                        setQuickFilter(f.id as typeof quickFilter);
+                        setVisibleCount(18);
+                      }}
+                      className={`px-3 py-1 rounded-lg text-xs font-bold transition-colors cursor-pointer border ${
+                        quickFilter === f.id
+                          ? 'bg-slate-900 text-white border-slate-900'
+                          : 'bg-white text-slate-600 border-slate-200 hover:border-slate-300'
+                      }`}
+                    >
+                      {f.label}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Sort Dropdown */}
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-semibold text-slate-500">Sort by:</span>
+                  <select
+                    value={sortBy}
+                    onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
+                    className="bg-white border border-slate-200 rounded-lg px-2.5 py-1 text-xs font-bold text-slate-800 focus:outline-none focus:border-[#0096C7]"
+                  >
+                    <option value="popular">Most Popular</option>
+                    <option value="discount">Biggest Discount %</option>
+                    <option value="price-asc">Price: Low to High</option>
+                    <option value="price-desc">Price: High to Low</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            {/* ── LIVE PRODUCT GRID ── */}
+            <div className="p-4 sm:p-6">
+              {filteredProducts.length > 0 ? (
+                <>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3.5">
+                    {filteredProducts.slice(0, visibleCount).map((product) => (
+                      <HomeProductCard key={product.id} product={product} />
+                    ))}
+                  </div>
+
+                  {/* Load More / View All Footer */}
+                  <div className="mt-7 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div className="text-xs sm:text-sm font-medium text-slate-500">
+                      Showing{' '}
+                      <span className="font-bold text-slate-900">
+                        {Math.min(visibleCount, filteredProducts.length)}
+                      </span>{' '}
+                      of <span className="font-bold text-slate-900">{filteredProducts.length}</span>{' '}
+                      products in{' '}
+                      <span className="font-bold text-[#0096C7]">
+                        {CATEGORY_BAR_TABS.find((c) => c.slug === selectedCategory)?.label ||
+                          'All Categories'}
+                      </span>
+                    </div>
+
+                    <div className="flex items-center gap-3">
+                      {visibleCount < filteredProducts.length && (
+                        <button
+                          type="button"
+                          onClick={() => setVisibleCount((prev) => prev + 18)}
+                          className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#0096C7] to-[#00C4D8] hover:from-[#007EA7] hover:to-[#0096C7] text-white text-xs sm:text-sm font-extrabold shadow-sm cursor-pointer border-none transition-all"
+                        >
+                          Load More Products (+{Math.min(18, filteredProducts.length - visibleCount)})
+                        </button>
+                      )}
+                      <Link
+                        href={
+                          selectedCategory === 'all'
+                            ? '/products'
+                            : `/products?category=${selectedCategory}`
+                        }
+                        className="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs sm:text-sm font-bold flex items-center gap-1.5 transition-colors"
+                      >
+                        Open Full Filter Page <ArrowRight size={15} />
+                      </Link>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <div className="py-12 text-center space-y-3">
+                  <p className="text-base font-bold text-slate-700">
+                    No matching products found in this filter.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSelectedCategory('all');
+                      setQuickFilter('all');
+                      setSearchInCat('');
+                    }}
+                    className="px-4 py-2 rounded-lg bg-[#0096C7] text-white text-xs font-bold cursor-pointer border-none"
+                  >
+                    Reset Category Filters
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* ── 6. CURATED BACK-TO-SCHOOL MASTER BUNDLES ── */}
+        <section className={`${SECTION} mt-8`}>
+          <div className="bg-white rounded-2xl border border-slate-200/90 p-4 sm:p-6 shadow-xs">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-5">
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-6 rounded-full bg-amber-500" />
+                  <h2 className="text-lg sm:text-xl font-black text-slate-900 tracking-tight">
+                    All-in-One School Grade Bundles
+                  </h2>
+                </div>
+                <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
+                  Ready-made student value packs with extra bundle savings — add the entire pack in one click
+                </p>
+              </div>
+              <Link
+                href="/offers"
+                className="text-xs sm:text-sm font-bold text-[#0096C7] hover:text-[#00C4D8] flex items-center gap-0.5"
+              >
+                View All Bundles <ChevronRight size={16} />
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+              {BACK_TO_SCHOOL_BUNDLES.map((bundle, idx) => {
+                const bundleImages = [
+                  '/images/hd/products/atlas-exercise-book.jpg',
+                  '/images/hd/products/casio-fx991cw.jpg',
+                  '/images/hd/products/faber-castell-water-color.jpg',
+                ];
+                const isAdded = addedBundleId === bundle.id;
                 return (
-                  <div key={item.title} className="flex items-center gap-3">
-                    <div className="w-11 h-11 rounded-xl bg-[#E8F0FF] text-[#2B6BFF] flex items-center justify-center shrink-0">
-                      <Icon size={20} />
-                    </div>
+                  <div
+                    key={bundle.id}
+                    className="rounded-xl border border-slate-200 hover:border-[#00C4D8] bg-gradient-to-b from-slate-50/70 to-white p-4 sm:p-5 flex flex-col justify-between transition-all hover:shadow-md"
+                  >
                     <div>
-                      <div className="text-sm font-bold text-slate-900 leading-tight">{item.title}</div>
-                      <div className="text-[12px] text-slate-500 font-medium">{item.subtitle}</div>
+                      <div className="flex items-center justify-between gap-2 mb-3">
+                        <span className="bg-amber-100 text-amber-800 border border-amber-200 text-[11px] font-extrabold px-2.5 py-0.5 rounded-full">
+                          {bundle.gradeBadge}
+                        </span>
+                        <span className="bg-rose-500 text-white text-[11px] font-extrabold px-2.5 py-0.5 rounded-full">
+                          SAVE {bundle.savingsPercentage}%
+                        </span>
+                      </div>
+
+                      <div className="flex items-center gap-3.5 mb-3">
+                        <div className="w-20 h-20 rounded-xl bg-white border border-slate-200 p-2 shrink-0 flex items-center justify-center">
+                          <img
+                            src={bundleImages[idx % bundleImages.length]}
+                            alt={bundle.name}
+                            className="max-w-full max-h-full object-contain"
+                          />
+                        </div>
+                        <div>
+                          <h3 className="text-sm sm:text-base font-extrabold text-slate-900 leading-snug">
+                            {bundle.name}
+                          </h3>
+                          <div className="flex items-baseline gap-2 mt-1">
+                            <span className="text-lg font-black text-[#E11D48]">
+                              Rs. {bundle.price.toLocaleString()}
+                            </span>
+                            <span className="text-xs text-slate-400 line-through font-medium">
+                              Rs. {bundle.originalPrice.toLocaleString()}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <ul className="space-y-1.5 border-t border-slate-100 pt-3 mb-4">
+                        {bundle.itemsIncluded.slice(0, 4).map((item) => (
+                          <li
+                            key={item}
+                            className="flex items-start gap-2 text-xs text-slate-600 font-medium"
+                          >
+                            <CheckCircle2
+                              size={14}
+                              className="text-emerald-600 shrink-0 mt-0.5"
+                            />
+                            <span className="line-clamp-1">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
+
+                    <button
+                      type="button"
+                      onClick={() => handleAddBundle(bundle)}
+                      className={`w-full py-2.5 rounded-xl font-extrabold text-xs uppercase tracking-wide flex items-center justify-center gap-2 transition-all cursor-pointer border-none ${
+                        isAdded
+                          ? 'bg-emerald-600 text-white'
+                          : 'bg-slate-900 hover:bg-[#0096C7] text-white'
+                      }`}
+                    >
+                      <ShoppingCart size={15} />
+                      {isAdded ? 'Bundle Added to Cart!' : 'Add Full Bundle to Cart'}
+                    </button>
                   </div>
                 );
               })}
@@ -602,36 +1088,78 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* NEW TERM BANNER */}
-        <section className="container mx-auto px-4 py-8 sm:py-10">
-          <div className="relative rounded-2xl overflow-hidden bg-gradient-to-r from-[#1B4FBF] to-[#2B6BFF] min-h-[180px] flex items-center shadow-lg shadow-blue-500/15">
-            <div className="relative z-10 p-6 sm:p-9 max-w-md space-y-2">
-              <p className="text-[11px] font-extrabold tracking-[0.16em] text-blue-100 uppercase">
-                Special Offers
-              </p>
-              <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight">
-                Get Ready for the New Term!
+        {/* ── 7. SCHOOL BOOKLIST CONCIERGE BANNER ── */}
+        <section className={`${SECTION} mt-8`}>
+          <div
+            className="rounded-2xl p-5 sm:p-8 text-white shadow-md flex flex-col lg:flex-row items-center justify-between gap-6"
+            style={{
+              background: 'linear-gradient(120deg, #0F172A 0%, #0E7490 60%, #00B4D8 100%)',
+            }}
+          >
+            <div className="space-y-2 text-center lg:text-left max-w-2xl">
+              <div className="inline-flex items-center gap-1.5 bg-cyan-400/20 border border-cyan-300/40 text-cyan-200 text-xs font-extrabold px-3 py-1 rounded-full">
+                <ShieldCheck size={14} /> HASSLE-FREE PARENT CONCIERGE
+              </div>
+              <h2 className="text-xl sm:text-3xl font-black tracking-tight">
+                Have a School Booklist? Send Us a Photo!
               </h2>
-              <p className="text-sm text-blue-100 font-medium">
-                Shop now and save on your favourite school supplies.
+              <p className="text-xs sm:text-sm text-cyan-100 leading-relaxed">
+                Don&apos;t waste hours searching item by item. Upload a photo or PDF of your school&apos;s booklist and our team will pack every genuine book, CR notebook & stationery item and deliver straight to your home.
               </p>
-              <Link
-                href="/offers"
-                className="inline-flex items-center gap-2 mt-2 px-5 py-2.5 bg-white text-[#2B6BFF] font-bold text-sm rounded-full hover:bg-blue-50 transition-colors"
-              >
-                Explore Offers <ArrowRight size={14} />
-              </Link>
             </div>
-            <div className="absolute right-0 top-0 bottom-0 w-[45%] hidden md:block">
-              <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#1B4FBF] to-transparent z-10" />
-              <img
-                src="/images/hd/banners/term-desk-photo.jpg"
-                alt="New term desk"
-                className="h-full w-full object-cover"
-              />
+
+            <div className="flex flex-wrap items-center justify-center gap-3 shrink-0">
+              <button
+                type="button"
+                onClick={() => setIsBooklistOpen(true)}
+                className="px-6 py-3 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs sm:text-sm flex items-center gap-2 shadow-lg cursor-pointer border-none transition-transform hover:scale-105"
+              >
+                <Upload size={16} /> Upload Booklist Now
+              </button>
+              <a
+                href={WA_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-5 py-3 rounded-xl bg-[#25D366] hover:bg-[#1EBE57] text-white font-black text-xs sm:text-sm flex items-center gap-2 shadow-lg transition-transform hover:scale-105"
+              >
+                <MessageCircle size={16} /> Send via WhatsApp
+              </a>
             </div>
           </div>
         </section>
+
+        {/* ── 8. TRUST STRIP ── */}
+        <section className={`${SECTION} mt-8`}>
+          <div className="bg-white rounded-2xl border border-slate-200 grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-slate-100 shadow-xs overflow-hidden">
+            {trust.map(({ icon: Icon, title, sub }) => (
+              <div key={title} className="flex items-center gap-3 px-4 sm:px-6 py-4 sm:py-5">
+                <div className="w-10 h-10 rounded-xl bg-sky-50 text-[#0096C7] flex items-center justify-center shrink-0">
+                  <Icon size={20} />
+                </div>
+                <div>
+                  <div className="text-xs sm:text-sm font-extrabold text-slate-800">{title}</div>
+                  <div className="text-[11px] text-slate-500 font-medium">{sub}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── FLOATING WHATSAPP ── */}
+        <a
+          href={WA_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Chat on WhatsApp"
+          className="fixed bottom-20 md:bottom-6 right-4 z-50 w-12 h-12 rounded-full flex items-center justify-center bg-[#25D366] hover:bg-[#20BA5A] text-white shadow-lg transition-transform hover:scale-105"
+        >
+          <MessageCircle size={22} />
+        </a>
+
+        <BooklistUploadModal
+          isOpen={isBooklistOpen}
+          onClose={() => setIsBooklistOpen(false)}
+        />
       </div>
     </StoreShell>
   );

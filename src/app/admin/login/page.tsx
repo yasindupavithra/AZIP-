@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import AzipLogo from '@/components/brand/AzipLogo';
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -39,11 +40,7 @@ export default function AdminLoginPage() {
         {/* Logo and Header */}
         <div className="text-center mb-8">
           <Link href="/" className="inline-block mb-4">
-            <img
-              src="/azip-logo.png"
-              alt="AZIP .store"
-              className="h-12 w-auto mx-auto object-contain drop-shadow-xs"
-            />
+            <AzipLogo className="h-12 w-auto mx-auto drop-shadow-xs" />
           </Link>
           <h1 className="text-2xl font-black text-gray-900 font-['Outfit']">Admin Portal</h1>
           <p className="text-xs font-semibold text-gray-500 mt-1">

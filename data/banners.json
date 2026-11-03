@@ -1,52 +1,82 @@
 [
   {
     "_id": "banner-1",
-    "title": "Vibrant Art & School Supplies",
-    "subtitle": "Atlas, Pilot gel pens, geometry sets & watercolor sketchbooks.",
-    "badge": "Complete Stationery Sets",
-    "image": "/hero/slide1.jpg",
-    "linkUrl": "/products",
+    "title": "HOT DEALS",
+    "subtitle": "Too Hot to Last. Best Prices on School Kits.",
+    "badge": "11.11 SHOPPING FEST",
+    "discountText": "65%",
+    "ctaText": "Add to Cart",
+    "bgTheme": "orange",
+    "displayMode": "daraz-stage",
+    "image": "/images/hd/products/school-backpack-blue.jpg",
+    "secondaryImages": [
+      "/images/hd/products/atlas-exercise-book.jpg",
+      "/images/hd/products/water-bottle.jpg"
+    ],
+    "linkUrl": "/offers",
     "isActive": true,
-    "order": 1
+    "order": 1,
+    "startDate": "",
+    "endDate": ""
   },
   {
     "_id": "banner-2",
-    "title": "Grade Textbooks & CR Books",
-    "subtitle": "High-grade 80gsm paper CR books from Grade 1 to A/L.",
-    "badge": "School Education",
-    "image": "/hero/slide2.jpg",
-    "linkUrl": "/products?category=exercise-books",
+    "title": "11.11 TECH ZONE",
+    "subtitle": "Real Deals on Casio Calculators & Study Gear",
+    "badge": "11.11 SHOPPING FEST",
+    "discountText": "50%",
+    "ctaText": "Add to Cart",
+    "bgTheme": "blue",
+    "displayMode": "daraz-stage",
+    "image": "/images/hd/products/casio-fx991cw.jpg",
+    "secondaryImages": [
+      "/images/hd/products/geometry-set.jpg",
+      "/images/hd/products/pilot-g2-pens.jpg"
+    ],
+    "linkUrl": "/products?category=mathematical-instruments",
     "isActive": true,
-    "order": 2
+    "order": 2,
+    "startDate": "",
+    "endDate": ""
   },
   {
     "_id": "banner-3",
-    "title": "Faber-Castell & Mont Marte",
-    "subtitle": "Watercolour pencils, acrylic paints, brushes & drawing pads.",
-    "badge": "Artist Studio Corner",
-    "image": "/hero/slide3.jpg",
+    "title": "STATIONERY FIESTA",
+    "subtitle": "Write More. Spend Less on Genuine Brands.",
+    "badge": "11.11 SHOPPING FEST",
+    "discountText": "65%",
+    "ctaText": "Add to Cart",
+    "bgTheme": "red",
+    "displayMode": "daraz-stage",
+    "image": "/images/hd/products/faber-castell-water-color.jpg",
+    "secondaryImages": [
+      "/images/hd/products/highlighters-set.jpg",
+      "/images/hd/products/drawing-kit.jpg"
+    ],
     "linkUrl": "/products?category=art-craft",
     "isActive": true,
-    "order": 3
+    "order": 3,
+    "startDate": "",
+    "endDate": ""
   },
   {
     "_id": "banner-4",
-    "title": "Casio Scientific Calculators",
-    "subtitle": "Authentic FX-991CW ClassWiz with 3-year warranty & USB drives.",
-    "badge": "Exam Approved Tech",
-    "image": "/hero/slide4.jpg",
-    "linkUrl": "/products?category=mathematical-instruments",
+    "title": "BOOKS & LIFESTYLE",
+    "subtitle": "Student Saver Deals on CR Books & Lunch Boxes",
+    "badge": "11.11 SHOPPING FEST",
+    "discountText": "45%",
+    "ctaText": "Shop Now",
+    "bgTheme": "teal",
+    "displayMode": "daraz-stage",
+    "image": "/images/hd/products/atlas-exercise-book.jpg",
+    "secondaryImages": [
+      "/images/hd/products/lunch-box.jpg",
+      "/images/hd/products/sticky-notes.jpg"
+    ],
+    "linkUrl": "/products?category=exercise-books",
     "isActive": true,
-    "order": 4
-  },
-  {
-    "_id": "banner-5",
-    "title": "Ergonomic School Backpacks",
-    "subtitle": "Waterproof multi-pocket backpacks & essential student gear.",
-    "badge": "Backpacks & Gear",
-    "image": "/hero/slide5.jpg",
-    "linkUrl": "/products?category=school-accessories",
-    "isActive": true,
-    "order": 5
+    "order": 4,
+    "startDate": "",
+    "endDate": ""
   }
 ]

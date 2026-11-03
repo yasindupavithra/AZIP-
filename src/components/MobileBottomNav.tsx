@@ -43,7 +43,7 @@ export default function MobileBottomNav() {
               href={item.href}
               className={`flex flex-col items-center justify-center py-1 px-3 rounded-xl transition-all ${
                 isActive
-                  ? 'text-[#0066FF] font-bold'
+                  ? 'text-[#008D9B] font-bold'
                   : 'text-slate-500 hover:text-slate-900 font-medium'
               }`}
             >
@@ -62,7 +62,7 @@ export default function MobileBottomNav() {
           <div className="relative">
             <ShoppingCart size={20} strokeWidth={1.8} />
             {cartCount > 0 && (
-              <span className="absolute -top-1.5 -right-2.5 min-w-[16px] h-[16px] px-1 rounded-full bg-[#0066FF] text-white text-[9px] font-black flex items-center justify-center shadow-sm">
+              <span className="absolute -top-1.5 -right-2.5 min-w-[16px] h-[16px] px-1 rounded-full bg-[#00C4D8] text-white text-[9px] font-black flex items-center justify-center shadow-sm">
                 {cartCount}
               </span>
             )}
@@ -75,7 +75,7 @@ export default function MobileBottomNav() {
           href="/faq"
           className={`flex flex-col items-center justify-center py-1 px-3 rounded-xl transition-all ${
             pathname === '/faq'
-              ? 'text-[#0066FF] font-bold'
+              ? 'text-[#008D9B] font-bold'
               : 'text-slate-500 hover:text-slate-900 font-medium'
           }`}
         >

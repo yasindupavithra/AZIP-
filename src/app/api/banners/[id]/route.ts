@@ -8,16 +8,20 @@ export async function PUT(request: Request, context: { params: Promise<{ id: str
   try {
     const body = await request.json();
 
+    const local = updateLocalBanner(id, body);
+
     try {
       await connectToDatabase();
-      const updated = await HeroBanner.findByIdAndUpdate(id, body, { new: true });
-      updateLocalBanner(id, body);
-      if (updated) return NextResponse.json({ banner: updated });
-    } catch (dbErr) {
-      console.warn('MongoDB banner update failed, updating local fallback:', dbErr);
+      if (/^[0-9a-fA-F]{24}$/.test(id)) {
+        const updated = await HeroBanner.findByIdAndUpdate(id, body, { new: true });
+        if (updated && !local) {
+          return NextResponse.json({ banner: updated });
+        }
+      }
+    } catch {
+      // Local store already updated
     }
 
-    const local = updateLocalBanner(id, body);
     if (local) return NextResponse.json({ banner: local });
     return NextResponse.json({ error: 'Banner not found' }, { status: 404 });
   } catch (err: any) {
@@ -32,16 +36,17 @@ export async function PATCH(request: Request, context: { params: Promise<{ id: s
 export async function DELETE(request: Request, context: { params: Promise<{ id: string }> }) {
   const { id } = await context.params;
   try {
+    deleteLocalBanner(id);
+
     try {
       await connectToDatabase();
-      await HeroBanner.findByIdAndDelete(id);
-      deleteLocalBanner(id);
-      return NextResponse.json({ success: true });
-    } catch (dbErr) {
-      console.warn('MongoDB banner delete failed, deleting local fallback:', dbErr);
+      if (/^[0-9a-fA-F]{24}$/.test(id)) {
+        await HeroBanner.findByIdAndDelete(id);
+      }
+    } catch {
+      // Local store already updated
     }
 
-    const success = deleteLocalBanner(id);
     return NextResponse.json({ success: true });
   } catch (err: any) {
     return NextResponse.json({ error: err.message || 'Failed to delete banner' }, { status: 500 });
