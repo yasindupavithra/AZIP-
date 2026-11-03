@@ -17,7 +17,7 @@ export type ProductCategory =
   | 'electronics';
 
 export interface IProduct extends Document {
-  vendor: mongoose.Types.ObjectId;
+  vendor?: mongoose.Types.ObjectId;
   name: string;
   slug: string;
   description: string;
@@ -27,12 +27,19 @@ export interface IProduct extends Document {
   compareAtPrice: number;
   images: Array<{
     url: string;
-    publicId: string;
-    alt: string;
+    publicId?: string;
+    alt?: string;
   }>;
   stock: number;
   sku: string;
   tags: string[];
+  brand?: string;
+  badge?: string;
+  rating?: number;
+  reviewsCount?: number;
+  grade?: string;
+  language?: string;
+  rulingType?: string;
   specifications: Map<string, string>;
   isActive: boolean;
   isFeatured: boolean;
@@ -42,7 +49,7 @@ export interface IProduct extends Document {
 
 const ProductSchema = new Schema<IProduct>(
   {
-    vendor: { type: Schema.Types.ObjectId, ref: 'Vendor', required: true },
+    vendor: { type: Schema.Types.ObjectId, ref: 'Vendor', required: false },
     name: { type: String, required: true, trim: true },
     slug: { type: String, required: true, unique: true, lowercase: true },
     description: { type: String, default: '' },
@@ -79,6 +86,13 @@ const ProductSchema = new Schema<IProduct>(
     stock: { type: Number, required: true, default: 0, min: 0 },
     sku: { type: String, default: '' },
     tags: [{ type: String }],
+    brand: { type: String, default: 'Atlas' },
+    badge: { type: String, default: '' },
+    rating: { type: Number, default: 4.9 },
+    reviewsCount: { type: Number, default: 45 },
+    grade: { type: String, default: '' },
+    language: { type: String, default: '' },
+    rulingType: { type: String, default: '' },
     specifications: {
       type: Map,
       of: String,

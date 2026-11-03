@@ -279,15 +279,28 @@ export const RULING_TYPES_LIST = [
 
 export const BRANDS_LIST = [
   'Atlas',
+  'Richard',
+  'Promate',
+  'Rathna',
+  'Sarasavi Publishers',
+  'MD Gunasena',
+  'Master Guide',
+  'Susara Publishers',
+  'Samudra Book Publishers',
+  'NIE Sri Lanka',
+  'DSI Samson',
   'Casio',
   'Pilot',
   'Faber-Castell',
-  'Oxford',
-  'Mont Marte',
   'Stabilo',
+  'Nataraj',
+  'Maped',
+  'Double A',
+  'Kangaroo',
   'SanDisk',
-  'Helix Oxford',
-  'Mango'
+  'Logitech',
+  'Parker',
+  'Orange Electric'
 ];
 
 export interface SchoolBundleKit {
@@ -310,7 +323,7 @@ export const BACK_TO_SCHOOL_BUNDLES: SchoolBundleKit[] = [
     price: 6450,
     originalPrice: 7900,
     savingsPercentage: 18,
-    image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80',
+    image: '/images/hd/products/atlas-exercise-book.jpg',
     description: 'Complete all-in-one stationery set for junior secondary students containing CR books, Pilot gel pens, geometry kit, and drawing supplies.',
     itemsIncluded: [
       '4x Atlas A4 CR Hardcover 200-Page Single Ruled Books',
@@ -328,7 +341,7 @@ export const BACK_TO_SCHOOL_BUNDLES: SchoolBundleKit[] = [
     price: 13950,
     originalPrice: 16500,
     savingsPercentage: 15,
-    image: 'https://images.unsplash.com/photo-1611125832047-1d7ad1e8e48f?auto=format&fit=crop&w=800&q=80',
+    image: '/images/hd/products/casio-fx991cw.jpg',
     description: 'Specially assembled kit for Advanced Level Physical & Biological Science students. Includes Casio scientific calculator and heavy duty CR books.',
     itemsIncluded: [
       '1x Casio FX-991CW ClassWiz Scientific Calculator (3-Year Warranty)',
@@ -345,7 +358,7 @@ export const BACK_TO_SCHOOL_BUNDLES: SchoolBundleKit[] = [
     price: 3450,
     originalPrice: 4200,
     savingsPercentage: 18,
-    image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80',
+    image: '/images/hd/products/faber-castell-water-color.jpg',
     description: 'Fun, safe, non-toxic art and craft essentials to spark creativity for primary school students in Grades 1 to 5.',
     itemsIncluded: [
       '1x Faber-Castell 24 Watercolour Eco Pencils with Brush',
@@ -379,20 +392,20 @@ export const CATEGORY_LABELS: Record<string, string> = Object.fromEntries(
 );
 
 export const CATEGORY_IMAGES: Record<string, string> = {
-  books: '/images/hd/categories/school-books.jpg',
-  'school-books': '/images/hd/categories/school-books.jpg',
-  'exercise-books': '/images/hd/categories/exercise-books.jpg',
-  'writing-instruments': '/images/hd/categories/pens-writing.jpg',
-  'mathematical-instruments': '/images/hd/categories/calculators-geometry.jpg',
-  'art-craft': '/images/hd/categories/art-supplies.jpg',
-  'office-supplies': 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=1400&q=90',
-  'school-accessories': '/images/hd/categories/backpacks.jpg',
-  'files-organization': 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=90',
-  'educational-materials': '/images/hd/hero/hero-kit.jpg',
-  'preschool-kids': '/images/hd/categories/art-supplies.jpg',
-  'science-laboratory': '/images/hd/products/casio-fx991cw.jpg',
-  'gifts-accessories': 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1400&q=90',
-  electronics: '/images/hd/products/casio-fx991cw.jpg',
+  books: '/images/hd/products/sl-dictionary-novels.jpg',
+  'school-books': '/images/hd/products/sl-textbooks-stack.jpg',
+  'exercise-books': '/images/hd/products/atlas-exercise-book.jpg',
+  'writing-instruments': '/images/hd/products/sl-writing-pens-pencils.jpg',
+  'mathematical-instruments': '/images/hd/products/geometry-set.jpg',
+  'art-craft': '/images/hd/products/sl-art-pencils-paints.jpg',
+  'office-supplies': '/images/hd/products/sl-office-paper-stapler.jpg',
+  'school-accessories': '/images/hd/products/school-backpack-blue.jpg',
+  'files-organization': '/images/hd/products/sl-files-binders.jpg',
+  'educational-materials': '/products/globe.jpg',
+  'preschool-kids': '/images/hd/products/sl-preschool-crayons-clay.jpg',
+  'science-laboratory': '/products/microscope.jpg',
+  'gifts-accessories': '/images/hd/products/sl-executive-gift-pen.jpg',
+  electronics: '/images/hd/products/sl-electronics-study.jpg',
 };
 
 export const INITIAL_CATALOG_PRODUCTS: CatalogProduct[] = ALL_EXPANDED_PRODUCTS as CatalogProduct[];

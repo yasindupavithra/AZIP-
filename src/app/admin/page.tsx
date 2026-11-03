@@ -65,15 +65,22 @@ interface HeroBannerItem {
 }
 
 const PRESET_IMAGES = [
-  { label: 'Exercise Book', url: '/images/hd/products/atlas-exercise-book.jpg' },
-  { label: 'Gel Pens', url: '/images/hd/products/pilot-g2-pens.jpg' },
-  { label: 'Calculator', url: '/images/hd/products/casio-fx991cw.jpg' },
-  { label: 'Water Colors', url: '/images/hd/products/faber-castell-water-color.jpg' },
-  { label: 'Backpack', url: '/images/hd/products/school-backpack-blue.jpg' },
-  { label: 'Geometry Set', url: '/images/hd/products/geometry-set.jpg' },
-  { label: 'Highlighters', url: '/images/hd/products/highlighters-set.jpg' },
-  { label: 'Water Bottle', url: '/images/hd/products/water-bottle.jpg' },
-  { label: 'Lunch Box', url: '/images/hd/products/lunch-box.jpg' },
+  { label: 'School Books', url: '/images/hd/products/sl-textbooks-stack.jpg' },
+  { label: 'Scholarship', url: '/images/hd/products/sl-scholarship-workbooks.jpg' },
+  { label: 'Dictionary/Novels', url: '/images/hd/products/sl-dictionary-novels.jpg' },
+  { label: 'Atlas CR Book', url: '/images/hd/products/atlas-exercise-book.jpg' },
+  { label: 'Pens & 2B Set', url: '/images/hd/products/sl-writing-pens-pencils.jpg' },
+  { label: 'Pilot Gel Pens', url: '/images/hd/products/pilot-g2-pens.jpg' },
+  { label: 'Casio FX-991CW', url: '/images/hd/products/casio-fx991cw.jpg' },
+  { label: 'Geometry Box', url: '/images/hd/products/geometry-set.jpg' },
+  { label: 'Art & Paints', url: '/images/hd/products/sl-art-pencils-paints.jpg' },
+  { label: 'A4 Paper & Stapler', url: '/images/hd/products/sl-office-paper-stapler.jpg' },
+  { label: 'Files & Binders', url: '/images/hd/products/sl-files-binders.jpg' },
+  { label: 'School Backpack', url: '/images/hd/products/school-backpack-blue.jpg' },
+  { label: 'Preschool Set', url: '/images/hd/products/sl-preschool-crayons-clay.jpg' },
+  { label: 'Microscope Lab', url: '/products/microscope.jpg' },
+  { label: 'Gift Pen Box', url: '/images/hd/products/sl-executive-gift-pen.jpg' },
+  { label: 'Electronics', url: '/images/hd/products/sl-electronics-study.jpg' },
 ];
 
 const PRESET_BANNER_IMAGES = [

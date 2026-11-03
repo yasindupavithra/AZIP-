@@ -19,7 +19,7 @@ export async function GET(request: Request) {
     const sort = searchParams.get('sort') || 'createdAt';
     const order = searchParams.get('order') || 'desc';
     const page = parseInt(searchParams.get('page') || '1');
-    const limit = parseInt(searchParams.get('limit') || '50');
+    const limit = parseInt(searchParams.get('limit') || '200');
     const featured = searchParams.get('featured');
 
     let dbProducts: any[] = [];

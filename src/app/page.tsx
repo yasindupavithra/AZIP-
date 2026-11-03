@@ -282,45 +282,55 @@ const VISUAL_DEPARTMENTS = [
 // ─── INTERACTIVE CATEGORY FILTER BAR TABS ─────────────────────
 const CATEGORY_BAR_TABS = [
   { slug: 'all', label: 'All Products', icon: Grid2x2 },
-  { slug: 'school-books', label: 'School Books', icon: GraduationCap },
-  { slug: 'exercise-books', label: 'Exercise & CR Books', icon: Notebook },
-  { slug: 'writing-instruments', label: 'Pens & Writing', icon: PenLine },
-  { slug: 'mathematical-instruments', label: 'Calculators & Math', icon: Calculator },
-  { slug: 'art-craft', label: 'Art & Craft', icon: Palette },
-  { slug: 'school-accessories', label: 'Backpacks & Bags', icon: Backpack },
-  { slug: 'office-supplies', label: 'Office Supplies', icon: FolderOpen },
-  { slug: 'files-organization', label: 'Files & Binders', icon: FolderOpen },
   { slug: 'books', label: 'General Books', icon: BookOpen },
-  { slug: 'science-laboratory', label: 'Science & Lab', icon: FlaskConical },
+  { slug: 'school-books', label: 'School Books', icon: GraduationCap },
+  { slug: 'exercise-books', label: 'Exercise Books', icon: Notebook },
+  { slug: 'writing-instruments', label: 'Writing Instruments', icon: PenLine },
+  { slug: 'mathematical-instruments', label: 'Mathematical Instruments', icon: Calculator },
+  { slug: 'art-craft', label: 'Art & Craft', icon: Palette },
+  { slug: 'office-supplies', label: 'Office Supplies', icon: FolderOpen },
+  { slug: 'school-accessories', label: 'School Accessories', icon: Backpack },
+  { slug: 'files-organization', label: 'Files & Organization', icon: FolderOpen },
+  { slug: 'educational-materials', label: 'Educational Materials', icon: Sparkles },
   { slug: 'preschool-kids', label: 'Preschool & Kids', icon: Baby },
-  { slug: 'gifts-accessories', label: 'Gifts & Stationery', icon: Gift },
+  { slug: 'science-laboratory', label: 'Science & Laboratory', icon: FlaskConical },
+  { slug: 'gifts-accessories', label: 'Gifts & Accessories', icon: Gift },
   { slug: 'electronics', label: 'Electronics', icon: Cpu },
 ];
 
 // Guaranteed local HD image enhancement for categories so every card looks studio-grade
 const LOCAL_CATEGORY_HD_POOL: Record<string, string[]> = {
+  books: [
+    '/images/hd/products/sl-dictionary-novels.jpg',
+    '/images/cat_books_4k.jpg',
+  ],
   'school-books': [
-    '/images/hd/categories/school-books.jpg',
-    '/images/hd/products/atlas-exercise-book.jpg',
+    '/images/hd/products/sl-textbooks-stack.jpg',
+    '/images/hd/products/sl-scholarship-workbooks.jpg',
   ],
   'exercise-books': [
     '/images/hd/products/atlas-exercise-book.jpg',
-    '/images/hd/categories/exercise-books.jpg',
+    '/images/v2/cr-notebooks.jpg',
+    '/images/v2/exercise-books-stack.jpg',
   ],
   'writing-instruments': [
+    '/images/hd/products/sl-writing-pens-pencils.jpg',
     '/images/hd/products/pilot-g2-pens.jpg',
     '/images/hd/products/highlighters-set.jpg',
-    '/images/hd/categories/pens-writing.jpg',
   ],
   'mathematical-instruments': [
     '/images/hd/products/geometry-set.jpg',
     '/images/hd/products/casio-fx991cw.jpg',
-    '/images/hd/categories/calculators-geometry.jpg',
   ],
   'art-craft': [
+    '/images/hd/products/sl-art-pencils-paints.jpg',
     '/images/hd/products/faber-castell-water-color.jpg',
     '/images/hd/products/drawing-kit.jpg',
-    '/images/hd/categories/art-supplies.jpg',
+  ],
+  'office-supplies': [
+    '/images/hd/products/sl-office-paper-stapler.jpg',
+    '/images/hd/products/sticky-notes.jpg',
+    '/images/hd/products/sl-button-folders-organizer.jpg',
   ],
   'school-accessories': [
     '/images/hd/products/school-backpack-blue.jpg',
@@ -328,26 +338,27 @@ const LOCAL_CATEGORY_HD_POOL: Record<string, string[]> = {
     '/images/hd/products/lunch-box.jpg',
     '/images/hd/products/school-shoes.jpg',
   ],
-  'office-supplies': [
-    '/images/hd/products/sticky-notes.jpg',
-    '/images/hd/products/highlighters-set.jpg',
-  ],
   'files-organization': [
-    '/images/hd/categories/exercise-books.jpg',
-    '/images/hd/products/sticky-notes.jpg',
+    '/images/hd/products/sl-files-binders.jpg',
+    '/images/hd/products/sl-button-folders-organizer.jpg',
+  ],
+  'educational-materials': [
+    '/products/globe.jpg',
+    '/images/hd/products/sl-scholarship-workbooks.jpg',
+  ],
+  'preschool-kids': [
+    '/images/hd/products/sl-preschool-crayons-clay.jpg',
+    '/images/hd/products/sl-scholarship-workbooks.jpg',
   ],
   'science-laboratory': ['/products/microscope.jpg', '/products/globe.jpg'],
-  'educational-materials': ['/products/globe.jpg', '/images/hd/hero/hero-kit.jpg'],
-  'preschool-kids': [
-    '/images/hd/products/drawing-kit.jpg',
-    '/images/hd/products/faber-castell-water-color.jpg',
-  ],
   'gifts-accessories': [
-    '/images/hd/products/drawing-kit.jpg',
-    '/images/hd/products/pilot-g2-pens.jpg',
+    '/images/hd/products/sl-executive-gift-pen.jpg',
+    '/images/cat_gifts_4k.jpg',
   ],
-  electronics: ['/images/hd/products/casio-fx991cw.jpg'],
-  books: ['/images/hd/categories/school-books.jpg'],
+  electronics: [
+    '/images/hd/products/sl-electronics-study.jpg',
+    '/images/hd/products/casio-fx991cw.jpg',
+  ],
 };
 
 const WA_URL = `https://wa.me/94112345678?text=${encodeURIComponent(
