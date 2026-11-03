@@ -12,7 +12,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-dictionary-novels.jpg",
-        "alt": "Madol Doova (මඩොල් දූව) — Martin Wickramasinghe Classic Sinhala Novel"
+        "alt": "Madol Doova (මඩොල් දූව) — Martin Wickramasinghe Classic Sinhala Novel - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-dictionary-novels-view2-angle.jpg",
+        "alt": "Madol Doova (මඩොල් දූව) — Martin Wickramasinghe Classic Sinhala Novel - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-dictionary-novels-view3-detail.jpg",
+        "alt": "Madol Doova (මඩොල් දූව) — Martin Wickramasinghe Classic Sinhala Novel - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-dictionary-novels-view4-overhead.jpg",
+        "alt": "Madol Doova (මඩොල් දූව) — Martin Wickramasinghe Classic Sinhala Novel - Studio Overview Presentation"
       }
     ],
     "stock": 45,
@@ -31,7 +43,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Sarasavi Publishers",
     "grade": "",
     "language": "Sinhala",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-dictionary-novels.jpg"
   },
   {
     "_id": "prod-bk-02",
@@ -45,7 +58,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/cat_books_4k.jpg",
-        "alt": "Gamperaliya (ගම්පෙරළිය) — Martin Wickramasinghe Literary Masterpiece"
+        "alt": "Gamperaliya (ගම්පෙරළිය) — Martin Wickramasinghe Literary Masterpiece - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/cat_books_4k-view2-angle.jpg",
+        "alt": "Gamperaliya (ගම්පෙරළිය) — Martin Wickramasinghe Literary Masterpiece - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/cat_books_4k-view3-detail.jpg",
+        "alt": "Gamperaliya (ගම්පෙරළිය) — Martin Wickramasinghe Literary Masterpiece - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/cat_books_4k-view4-overhead.jpg",
+        "alt": "Gamperaliya (ගම්පෙරළිය) — Martin Wickramasinghe Literary Masterpiece - Studio Overview Presentation"
       }
     ],
     "stock": 58,
@@ -63,7 +88,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Sarasavi Publishers",
     "grade": "",
     "language": "Sinhala",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/cat_books_4k.jpg"
   },
   {
     "_id": "prod-bk-03",
@@ -77,7 +103,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-dictionary-novels.jpg",
-        "alt": "Malalasekera English–Sinhala Dictionary (Hardcover Revised Edition)"
+        "alt": "Malalasekera English–Sinhala Dictionary (Hardcover Revised Edition) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-dictionary-novels-view2-angle.jpg",
+        "alt": "Malalasekera English–Sinhala Dictionary (Hardcover Revised Edition) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-dictionary-novels-view3-detail.jpg",
+        "alt": "Malalasekera English–Sinhala Dictionary (Hardcover Revised Edition) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-dictionary-novels-view4-overhead.jpg",
+        "alt": "Malalasekera English–Sinhala Dictionary (Hardcover Revised Edition) - Studio Overview Presentation"
       }
     ],
     "stock": 71,
@@ -96,7 +134,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "MD Gunasena",
     "grade": "",
     "language": "Sinhala",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-dictionary-novels.jpg"
   },
   {
     "_id": "prod-bk-04",
@@ -110,7 +149,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-dictionary-novels.jpg",
-        "alt": "Oxford English–Sinhala–Tamil Trilingual Student Dictionary"
+        "alt": "Oxford English–Sinhala–Tamil Trilingual Student Dictionary - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-dictionary-novels-view2-angle.jpg",
+        "alt": "Oxford English–Sinhala–Tamil Trilingual Student Dictionary - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-dictionary-novels-view3-detail.jpg",
+        "alt": "Oxford English–Sinhala–Tamil Trilingual Student Dictionary - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-dictionary-novels-view4-overhead.jpg",
+        "alt": "Oxford English–Sinhala–Tamil Trilingual Student Dictionary - Studio Overview Presentation"
       }
     ],
     "stock": 84,
@@ -129,7 +180,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Oxford",
     "grade": "",
     "language": "English",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-dictionary-novels.jpg"
   },
   {
     "_id": "prod-bk-05",
@@ -143,7 +195,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/cat_books_4k.jpg",
-        "alt": "Viragaya (විරාගය) — Martin Wickramasinghe Sinhala Novel"
+        "alt": "Viragaya (විරාගය) — Martin Wickramasinghe Sinhala Novel - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/cat_books_4k-view2-angle.jpg",
+        "alt": "Viragaya (විරාගය) — Martin Wickramasinghe Sinhala Novel - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/cat_books_4k-view3-detail.jpg",
+        "alt": "Viragaya (විරාගය) — Martin Wickramasinghe Sinhala Novel - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/cat_books_4k-view4-overhead.jpg",
+        "alt": "Viragaya (විරාගය) — Martin Wickramasinghe Sinhala Novel - Studio Overview Presentation"
       }
     ],
     "stock": 97,
@@ -161,7 +225,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Sarasavi Publishers",
     "grade": "",
     "language": "Sinhala",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/cat_books_4k.jpg"
   },
   {
     "_id": "prod-bk-06",
@@ -175,7 +240,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-dictionary-novels.jpg",
-        "alt": "Amba Yahaluwo (අඹ යහළුවෝ) — T.B. Ilangaratne Youth Novel"
+        "alt": "Amba Yahaluwo (අඹ යහළුවෝ) — T.B. Ilangaratne Youth Novel - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-dictionary-novels-view2-angle.jpg",
+        "alt": "Amba Yahaluwo (අඹ යහළුවෝ) — T.B. Ilangaratne Youth Novel - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-dictionary-novels-view3-detail.jpg",
+        "alt": "Amba Yahaluwo (අඹ යහළුවෝ) — T.B. Ilangaratne Youth Novel - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-dictionary-novels-view4-overhead.jpg",
+        "alt": "Amba Yahaluwo (අඹ යහළුවෝ) — T.B. Ilangaratne Youth Novel - Studio Overview Presentation"
       }
     ],
     "stock": 110,
@@ -193,7 +270,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Godage Publishers",
     "grade": "",
     "language": "Sinhala",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-dictionary-novels.jpg"
   },
   {
     "_id": "prod-bk-07",
@@ -207,7 +285,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/cat_books_4k.jpg",
-        "alt": "Hath Pana (හත් පණ) & Magul Kama — Kumaratunga Munidasa Story Collection"
+        "alt": "Hath Pana (හත් පණ) & Magul Kama — Kumaratunga Munidasa Story Collection - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/cat_books_4k-view2-angle.jpg",
+        "alt": "Hath Pana (හත් පණ) & Magul Kama — Kumaratunga Munidasa Story Collection - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/cat_books_4k-view3-detail.jpg",
+        "alt": "Hath Pana (හත් පණ) & Magul Kama — Kumaratunga Munidasa Story Collection - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/cat_books_4k-view4-overhead.jpg",
+        "alt": "Hath Pana (හත් පණ) & Magul Kama — Kumaratunga Munidasa Story Collection - Studio Overview Presentation"
       }
     ],
     "stock": 123,
@@ -225,7 +315,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "MD Gunasena",
     "grade": "",
     "language": "Sinhala",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/cat_books_4k.jpg"
   },
   {
     "_id": "prod-bk-08",
@@ -239,7 +330,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-dictionary-novels.jpg",
-        "alt": "Practical Spoken English & Modern Grammar for Sri Lankan Learners"
+        "alt": "Practical Spoken English & Modern Grammar for Sri Lankan Learners - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-dictionary-novels-view2-angle.jpg",
+        "alt": "Practical Spoken English & Modern Grammar for Sri Lankan Learners - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-dictionary-novels-view3-detail.jpg",
+        "alt": "Practical Spoken English & Modern Grammar for Sri Lankan Learners - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-dictionary-novels-view4-overhead.jpg",
+        "alt": "Practical Spoken English & Modern Grammar for Sri Lankan Learners - Studio Overview Presentation"
       }
     ],
     "stock": 136,
@@ -257,7 +360,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Vijitha Yapa",
     "grade": "",
     "language": "English",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-dictionary-novels.jpg"
   },
   {
     "_id": "prod-bk-09",
@@ -271,7 +375,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/cat_books_4k.jpg",
-        "alt": "Senkottan (සෙංකොට්ටන්) — Mahinda Prasad Masimbula Award-Winning Novel"
+        "alt": "Senkottan (සෙංකොට්ටන්) — Mahinda Prasad Masimbula Award-Winning Novel - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/cat_books_4k-view2-angle.jpg",
+        "alt": "Senkottan (සෙංකොට්ටන්) — Mahinda Prasad Masimbula Award-Winning Novel - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/cat_books_4k-view3-detail.jpg",
+        "alt": "Senkottan (සෙංකොට්ටන්) — Mahinda Prasad Masimbula Award-Winning Novel - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/cat_books_4k-view4-overhead.jpg",
+        "alt": "Senkottan (සෙංකොට්ටන්) — Mahinda Prasad Masimbula Award-Winning Novel - Studio Overview Presentation"
       }
     ],
     "stock": 149,
@@ -288,7 +404,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Santhawa Publications",
     "grade": "",
     "language": "Sinhala",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/cat_books_4k.jpg"
   },
   {
     "_id": "prod-bk-10",
@@ -302,7 +419,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-dictionary-novels.jpg",
-        "alt": "General Knowledge & Sri Lanka Current Affairs Compendium (සාමාන්‍ය දැනීම)"
+        "alt": "General Knowledge & Sri Lanka Current Affairs Compendium (සාමාන්‍ය දැනීම) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-dictionary-novels-view2-angle.jpg",
+        "alt": "General Knowledge & Sri Lanka Current Affairs Compendium (සාමාන්‍ය දැනීම) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-dictionary-novels-view3-detail.jpg",
+        "alt": "General Knowledge & Sri Lanka Current Affairs Compendium (සාමාන්‍ය දැනීම) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-dictionary-novels-view4-overhead.jpg",
+        "alt": "General Knowledge & Sri Lanka Current Affairs Compendium (සාමාන්‍ය දැනීම) - Studio Overview Presentation"
       }
     ],
     "stock": 52,
@@ -320,7 +449,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Master Guide",
     "grade": "",
     "language": "Sinhala",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-dictionary-novels.jpg"
   },
   {
     "_id": "prod-sb-01",
@@ -334,7 +464,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-scholarship-workbooks.jpg",
-        "alt": "Grade 5 Scholarship Past Papers & Model Exams Master Pack (ශිෂ්‍යත්ව පසුගිය ප්‍රශN පත්‍ර)"
+        "alt": "Grade 5 Scholarship Past Papers & Model Exams Master Pack (ශිෂ්‍යත්ව පසුගිය ප්‍රශN පත්‍ර) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-scholarship-workbooks-view2-angle.jpg",
+        "alt": "Grade 5 Scholarship Past Papers & Model Exams Master Pack (ශිෂ්‍යත්ව පසුගිය ප්‍රශN පත්‍ර) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-scholarship-workbooks-view3-detail.jpg",
+        "alt": "Grade 5 Scholarship Past Papers & Model Exams Master Pack (ශිෂ්‍යත්ව පසුගිය ප්‍රශN පත්‍ර) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-scholarship-workbooks-view4-overhead.jpg",
+        "alt": "Grade 5 Scholarship Past Papers & Model Exams Master Pack (ශිෂ්‍යත්ව පසුගිය ප්‍රශN පත්‍ර) - Studio Overview Presentation"
       }
     ],
     "stock": 45,
@@ -353,7 +495,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Master Guide",
     "grade": "Grade 1-5",
     "language": "Sinhala",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-scholarship-workbooks.jpg"
   },
   {
     "_id": "prod-sb-02",
@@ -367,7 +510,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-textbooks-stack.jpg",
-        "alt": "G.C.E. O/L Mathematics 10-Year Past Papers & Marking Scheme (සා.පෙළ ගණිතය)"
+        "alt": "G.C.E. O/L Mathematics 10-Year Past Papers & Marking Scheme (සා.පෙළ ගණිතය) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-textbooks-stack-view2-angle.jpg",
+        "alt": "G.C.E. O/L Mathematics 10-Year Past Papers & Marking Scheme (සා.පෙළ ගණිතය) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-textbooks-stack-view3-detail.jpg",
+        "alt": "G.C.E. O/L Mathematics 10-Year Past Papers & Marking Scheme (සා.පෙළ ගණිතය) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-textbooks-stack-view4-overhead.jpg",
+        "alt": "G.C.E. O/L Mathematics 10-Year Past Papers & Marking Scheme (සා.පෙළ ගණිතය) - Studio Overview Presentation"
       }
     ],
     "stock": 58,
@@ -386,7 +541,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Master Guide",
     "grade": "Grade 10-11 (O/L)",
     "language": "Sinhala",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-textbooks-stack.jpg"
   },
   {
     "_id": "prod-sb-03",
@@ -400,7 +556,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-textbooks-stack.jpg",
-        "alt": "G.C.E. O/L Science Past Papers & Structured Essay Guide (සා.පෙළ විද්‍යාව)"
+        "alt": "G.C.E. O/L Science Past Papers & Structured Essay Guide (සා.පෙළ විද්‍යාව) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-textbooks-stack-view2-angle.jpg",
+        "alt": "G.C.E. O/L Science Past Papers & Structured Essay Guide (සා.පෙළ විද්‍යාව) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-textbooks-stack-view3-detail.jpg",
+        "alt": "G.C.E. O/L Science Past Papers & Structured Essay Guide (සා.පෙළ විද්‍යාව) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-textbooks-stack-view4-overhead.jpg",
+        "alt": "G.C.E. O/L Science Past Papers & Structured Essay Guide (සා.පෙළ විද්‍යාව) - Studio Overview Presentation"
       }
     ],
     "stock": 71,
@@ -419,7 +587,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Susara Publishers",
     "grade": "Grade 10-11 (O/L)",
     "language": "Sinhala",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-textbooks-stack.jpg"
   },
   {
     "_id": "prod-sb-04",
@@ -433,7 +602,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-textbooks-stack.jpg",
-        "alt": "G.C.E. O/L Sinhala Language & Literature Complete Guide (සිංහල භාෂාව හා සාහිත්‍යය)"
+        "alt": "G.C.E. O/L Sinhala Language & Literature Complete Guide (සිංහල භාෂාව හා සාහිත්‍යය) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-textbooks-stack-view2-angle.jpg",
+        "alt": "G.C.E. O/L Sinhala Language & Literature Complete Guide (සිංහල භාෂාව හා සාහිත්‍යය) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-textbooks-stack-view3-detail.jpg",
+        "alt": "G.C.E. O/L Sinhala Language & Literature Complete Guide (සිංහල භාෂාව හා සාහිත්‍යය) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-textbooks-stack-view4-overhead.jpg",
+        "alt": "G.C.E. O/L Sinhala Language & Literature Complete Guide (සිංහල භාෂාව හා සාහිත්‍යය) - Studio Overview Presentation"
       }
     ],
     "stock": 84,
@@ -451,7 +632,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Samudra Book Publishers",
     "grade": "Grade 10-11 (O/L)",
     "language": "Sinhala",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-textbooks-stack.jpg"
   },
   {
     "_id": "prod-sb-05",
@@ -465,7 +647,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-textbooks-stack.jpg",
-        "alt": "G.C.E. A/L Combined Mathematics (Pure & Applied) NIE Resource Book"
+        "alt": "G.C.E. A/L Combined Mathematics (Pure & Applied) NIE Resource Book - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-textbooks-stack-view2-angle.jpg",
+        "alt": "G.C.E. A/L Combined Mathematics (Pure & Applied) NIE Resource Book - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-textbooks-stack-view3-detail.jpg",
+        "alt": "G.C.E. A/L Combined Mathematics (Pure & Applied) NIE Resource Book - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-textbooks-stack-view4-overhead.jpg",
+        "alt": "G.C.E. A/L Combined Mathematics (Pure & Applied) NIE Resource Book - Studio Overview Presentation"
       }
     ],
     "stock": 97,
@@ -483,7 +677,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "NIE Sri Lanka",
     "grade": "Grade 12-13 (A/L)",
     "language": "English",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-textbooks-stack.jpg"
   },
   {
     "_id": "prod-sb-06",
@@ -497,7 +692,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-textbooks-stack.jpg",
-        "alt": "G.C.E. A/L Physics New Syllabus Resource Book & Classified Past Papers (භෞතික විද්‍යාව)"
+        "alt": "G.C.E. A/L Physics New Syllabus Resource Book & Classified Past Papers (භෞතික විද්‍යාව) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-textbooks-stack-view2-angle.jpg",
+        "alt": "G.C.E. A/L Physics New Syllabus Resource Book & Classified Past Papers (භෞතික විද්‍යාව) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-textbooks-stack-view3-detail.jpg",
+        "alt": "G.C.E. A/L Physics New Syllabus Resource Book & Classified Past Papers (භෞතික විද්‍යාව) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-textbooks-stack-view4-overhead.jpg",
+        "alt": "G.C.E. A/L Physics New Syllabus Resource Book & Classified Past Papers (භෞතික විද්‍යාව) - Studio Overview Presentation"
       }
     ],
     "stock": 110,
@@ -515,7 +722,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Master Guide",
     "grade": "Grade 12-13 (A/L)",
     "language": "Sinhala",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-textbooks-stack.jpg"
   },
   {
     "_id": "prod-sb-07",
@@ -529,7 +737,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-textbooks-stack.jpg",
-        "alt": "G.C.E. A/L Biology Official Resource Book & Practical Guide (ජීව විද්‍යාව)"
+        "alt": "G.C.E. A/L Biology Official Resource Book & Practical Guide (ජීව විද්‍යාව) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-textbooks-stack-view2-angle.jpg",
+        "alt": "G.C.E. A/L Biology Official Resource Book & Practical Guide (ජීව විද්‍යාව) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-textbooks-stack-view3-detail.jpg",
+        "alt": "G.C.E. A/L Biology Official Resource Book & Practical Guide (ජීව විද්‍යාව) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-textbooks-stack-view4-overhead.jpg",
+        "alt": "G.C.E. A/L Biology Official Resource Book & Practical Guide (ජීව විද්‍යාව) - Studio Overview Presentation"
       }
     ],
     "stock": 123,
@@ -546,7 +766,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "NIE Sri Lanka",
     "grade": "Grade 12-13 (A/L)",
     "language": "Sinhala",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-textbooks-stack.jpg"
   },
   {
     "_id": "prod-sb-08",
@@ -560,7 +781,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-textbooks-stack.jpg",
-        "alt": "G.C.E. A/L Chemistry Organic, Inorganic & Physical Revision Master Book"
+        "alt": "G.C.E. A/L Chemistry Organic, Inorganic & Physical Revision Master Book - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-textbooks-stack-view2-angle.jpg",
+        "alt": "G.C.E. A/L Chemistry Organic, Inorganic & Physical Revision Master Book - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-textbooks-stack-view3-detail.jpg",
+        "alt": "G.C.E. A/L Chemistry Organic, Inorganic & Physical Revision Master Book - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-textbooks-stack-view4-overhead.jpg",
+        "alt": "G.C.E. A/L Chemistry Organic, Inorganic & Physical Revision Master Book - Studio Overview Presentation"
       }
     ],
     "stock": 136,
@@ -578,7 +811,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Susara Publishers",
     "grade": "Grade 12-13 (A/L)",
     "language": "English",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-textbooks-stack.jpg"
   },
   {
     "_id": "prod-sb-09",
@@ -592,7 +826,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-scholarship-workbooks.jpg",
-        "alt": "Grade 6–9 Mathematics & Science Western Province Term Test Papers Pack"
+        "alt": "Grade 6–9 Mathematics & Science Western Province Term Test Papers Pack - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-scholarship-workbooks-view2-angle.jpg",
+        "alt": "Grade 6–9 Mathematics & Science Western Province Term Test Papers Pack - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-scholarship-workbooks-view3-detail.jpg",
+        "alt": "Grade 6–9 Mathematics & Science Western Province Term Test Papers Pack - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-scholarship-workbooks-view4-overhead.jpg",
+        "alt": "Grade 6–9 Mathematics & Science Western Province Term Test Papers Pack - Studio Overview Presentation"
       }
     ],
     "stock": 149,
@@ -610,7 +856,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Master Guide",
     "grade": "Grade 6-9",
     "language": "English",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-scholarship-workbooks.jpg"
   },
   {
     "_id": "prod-sb-10",
@@ -624,7 +871,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-scholarship-workbooks.jpg",
-        "alt": "Grade 1–5 Primary Mathematics & Parisaraya (පරිසරය) Skill Building Workbook"
+        "alt": "Grade 1–5 Primary Mathematics & Parisaraya (පරිසරය) Skill Building Workbook - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-scholarship-workbooks-view2-angle.jpg",
+        "alt": "Grade 1–5 Primary Mathematics & Parisaraya (පරිසරය) Skill Building Workbook - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-scholarship-workbooks-view3-detail.jpg",
+        "alt": "Grade 1–5 Primary Mathematics & Parisaraya (පරිසරය) Skill Building Workbook - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-scholarship-workbooks-view4-overhead.jpg",
+        "alt": "Grade 1–5 Primary Mathematics & Parisaraya (පරිසරය) Skill Building Workbook - Studio Overview Presentation"
       }
     ],
     "stock": 52,
@@ -642,7 +901,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "MD Gunasena",
     "grade": "Grade 1-5",
     "language": "Sinhala",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-scholarship-workbooks.jpg"
   },
   {
     "_id": "prod-ex-01",
@@ -656,7 +916,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/atlas-exercise-book.jpg",
-        "alt": "Atlas A4 Hardcover CR Book — 200 Pages Single Ruled (70 GSM)"
+        "alt": "Atlas A4 Hardcover CR Book — 200 Pages Single Ruled (70 GSM) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/atlas-exercise-book-view2-angle.jpg",
+        "alt": "Atlas A4 Hardcover CR Book — 200 Pages Single Ruled (70 GSM) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/atlas-exercise-book-view3-detail.jpg",
+        "alt": "Atlas A4 Hardcover CR Book — 200 Pages Single Ruled (70 GSM) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/atlas-exercise-book-view4-overhead.jpg",
+        "alt": "Atlas A4 Hardcover CR Book — 200 Pages Single Ruled (70 GSM) - Studio Overview Presentation"
       }
     ],
     "stock": 45,
@@ -675,7 +947,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Atlas",
     "grade": "",
     "language": "",
-    "rulingType": "CR Hardcover"
+    "rulingType": "CR Hardcover",
+    "image": "/images/hd/products/atlas-exercise-book.jpg"
   },
   {
     "_id": "prod-ex-02",
@@ -689,7 +962,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/v2/cr-notebooks.jpg",
-        "alt": "Atlas A4 Hardcover CR Book — 120 Pages Single Ruled (Value Pack of 3)"
+        "alt": "Atlas A4 Hardcover CR Book — 120 Pages Single Ruled (Value Pack of 3) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/cr-notebooks-view2-angle.jpg",
+        "alt": "Atlas A4 Hardcover CR Book — 120 Pages Single Ruled (Value Pack of 3) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/cr-notebooks-view3-detail.jpg",
+        "alt": "Atlas A4 Hardcover CR Book — 120 Pages Single Ruled (Value Pack of 3) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/cr-notebooks-view4-overhead.jpg",
+        "alt": "Atlas A4 Hardcover CR Book — 120 Pages Single Ruled (Value Pack of 3) - Studio Overview Presentation"
       }
     ],
     "stock": 58,
@@ -707,7 +992,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Atlas",
     "grade": "",
     "language": "",
-    "rulingType": "CR Hardcover"
+    "rulingType": "CR Hardcover",
+    "image": "/images/v2/cr-notebooks.jpg"
   },
   {
     "_id": "prod-ex-03",
@@ -721,7 +1007,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/v2/exercise-books-stack.jpg",
-        "alt": "Atlas Single Ruled 80-Page School Exercise Books (Bundle of 10)"
+        "alt": "Atlas Single Ruled 80-Page School Exercise Books (Bundle of 10) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/exercise-books-stack-view2-angle.jpg",
+        "alt": "Atlas Single Ruled 80-Page School Exercise Books (Bundle of 10) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/exercise-books-stack-view3-detail.jpg",
+        "alt": "Atlas Single Ruled 80-Page School Exercise Books (Bundle of 10) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/exercise-books-stack-view4-overhead.jpg",
+        "alt": "Atlas Single Ruled 80-Page School Exercise Books (Bundle of 10) - Studio Overview Presentation"
       }
     ],
     "stock": 71,
@@ -740,7 +1038,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Atlas",
     "grade": "",
     "language": "",
-    "rulingType": "Single Ruled"
+    "rulingType": "Single Ruled",
+    "image": "/images/v2/exercise-books-stack.jpg"
   },
   {
     "_id": "prod-ex-04",
@@ -754,7 +1053,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/v2/exercise-books-stack.jpg",
-        "alt": "Atlas Square Ruled (1/2 Inch Kotu Rul) Primary Maths Exercise Books — 80p (Pack of 5)"
+        "alt": "Atlas Square Ruled (1/2 Inch Kotu Rul) Primary Maths Exercise Books — 80p (Pack of 5) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/exercise-books-stack-view2-angle.jpg",
+        "alt": "Atlas Square Ruled (1/2 Inch Kotu Rul) Primary Maths Exercise Books — 80p (Pack of 5) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/exercise-books-stack-view3-detail.jpg",
+        "alt": "Atlas Square Ruled (1/2 Inch Kotu Rul) Primary Maths Exercise Books — 80p (Pack of 5) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/exercise-books-stack-view4-overhead.jpg",
+        "alt": "Atlas Square Ruled (1/2 Inch Kotu Rul) Primary Maths Exercise Books — 80p (Pack of 5) - Studio Overview Presentation"
       }
     ],
     "stock": 84,
@@ -773,7 +1084,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Atlas",
     "grade": "",
     "language": "",
-    "rulingType": "Square Grid"
+    "rulingType": "Square Grid",
+    "image": "/images/v2/exercise-books-stack.jpg"
   },
   {
     "_id": "prod-ex-05",
@@ -787,7 +1099,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/v2/cr-notebooks.jpg",
-        "alt": "Promate A4 Premium Hardcover CR Book — 160 Pages Single Ruled (80 GSM)"
+        "alt": "Promate A4 Premium Hardcover CR Book — 160 Pages Single Ruled (80 GSM) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/cr-notebooks-view2-angle.jpg",
+        "alt": "Promate A4 Premium Hardcover CR Book — 160 Pages Single Ruled (80 GSM) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/cr-notebooks-view3-detail.jpg",
+        "alt": "Promate A4 Premium Hardcover CR Book — 160 Pages Single Ruled (80 GSM) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/cr-notebooks-view4-overhead.jpg",
+        "alt": "Promate A4 Premium Hardcover CR Book — 160 Pages Single Ruled (80 GSM) - Studio Overview Presentation"
       }
     ],
     "stock": 97,
@@ -806,7 +1130,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Promate",
     "grade": "",
     "language": "",
-    "rulingType": "CR Hardcover"
+    "rulingType": "CR Hardcover",
+    "image": "/images/v2/cr-notebooks.jpg"
   },
   {
     "_id": "prod-ex-06",
@@ -820,7 +1145,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/atlas-exercise-book.jpg",
-        "alt": "Promate A4 Spiral Wirebound Lecture Notebook — 200 Pages Micro-Perforated"
+        "alt": "Promate A4 Spiral Wirebound Lecture Notebook — 200 Pages Micro-Perforated - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/atlas-exercise-book-view2-angle.jpg",
+        "alt": "Promate A4 Spiral Wirebound Lecture Notebook — 200 Pages Micro-Perforated - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/atlas-exercise-book-view3-detail.jpg",
+        "alt": "Promate A4 Spiral Wirebound Lecture Notebook — 200 Pages Micro-Perforated - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/atlas-exercise-book-view4-overhead.jpg",
+        "alt": "Promate A4 Spiral Wirebound Lecture Notebook — 200 Pages Micro-Perforated - Studio Overview Presentation"
       }
     ],
     "stock": 110,
@@ -838,7 +1175,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Promate",
     "grade": "",
     "language": "",
-    "rulingType": "Single Ruled"
+    "rulingType": "Single Ruled",
+    "image": "/images/hd/products/atlas-exercise-book.jpg"
   },
   {
     "_id": "prod-ex-07",
@@ -852,7 +1190,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/v2/cr-notebooks.jpg",
-        "alt": "Richard A4 Hardcover CR Book — 400 Pages Heavy-Duty Jumbo Register"
+        "alt": "Richard A4 Hardcover CR Book — 400 Pages Heavy-Duty Jumbo Register - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/cr-notebooks-view2-angle.jpg",
+        "alt": "Richard A4 Hardcover CR Book — 400 Pages Heavy-Duty Jumbo Register - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/cr-notebooks-view3-detail.jpg",
+        "alt": "Richard A4 Hardcover CR Book — 400 Pages Heavy-Duty Jumbo Register - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/cr-notebooks-view4-overhead.jpg",
+        "alt": "Richard A4 Hardcover CR Book — 400 Pages Heavy-Duty Jumbo Register - Studio Overview Presentation"
       }
     ],
     "stock": 123,
@@ -870,7 +1220,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Richard",
     "grade": "",
     "language": "",
-    "rulingType": "CR Hardcover"
+    "rulingType": "CR Hardcover",
+    "image": "/images/v2/cr-notebooks.jpg"
   },
   {
     "_id": "prod-ex-08",
@@ -884,7 +1235,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/atlas-exercise-book.jpg",
-        "alt": "Atlas A4 Science Practical Lab Record Book — 120 Pages (Ruled + Graph)"
+        "alt": "Atlas A4 Science Practical Lab Record Book — 120 Pages (Ruled + Graph) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/atlas-exercise-book-view2-angle.jpg",
+        "alt": "Atlas A4 Science Practical Lab Record Book — 120 Pages (Ruled + Graph) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/atlas-exercise-book-view3-detail.jpg",
+        "alt": "Atlas A4 Science Practical Lab Record Book — 120 Pages (Ruled + Graph) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/atlas-exercise-book-view4-overhead.jpg",
+        "alt": "Atlas A4 Science Practical Lab Record Book — 120 Pages (Ruled + Graph) - Studio Overview Presentation"
       }
     ],
     "stock": 136,
@@ -902,7 +1265,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Atlas",
     "grade": "",
     "language": "",
-    "rulingType": "Practical"
+    "rulingType": "Practical",
+    "image": "/images/hd/products/atlas-exercise-book.jpg"
   },
   {
     "_id": "prod-ex-09",
@@ -916,7 +1280,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/v2/exercise-books-stack.jpg",
-        "alt": "Rathna Single Ruled 120-Page School Exercise Books (Value Pack of 6)"
+        "alt": "Rathna Single Ruled 120-Page School Exercise Books (Value Pack of 6) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/exercise-books-stack-view2-angle.jpg",
+        "alt": "Rathna Single Ruled 120-Page School Exercise Books (Value Pack of 6) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/exercise-books-stack-view3-detail.jpg",
+        "alt": "Rathna Single Ruled 120-Page School Exercise Books (Value Pack of 6) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/exercise-books-stack-view4-overhead.jpg",
+        "alt": "Rathna Single Ruled 120-Page School Exercise Books (Value Pack of 6) - Studio Overview Presentation"
       }
     ],
     "stock": 149,
@@ -934,7 +1310,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Rathna",
     "grade": "",
     "language": "",
-    "rulingType": "Single Ruled"
+    "rulingType": "Single Ruled",
+    "image": "/images/v2/exercise-books-stack.jpg"
   },
   {
     "_id": "prod-ex-10",
@@ -948,7 +1325,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/v2/exercise-books-stack.jpg",
-        "alt": "Promate A4 Blank / Unruled Botany & Drawing Exercise Book — 80 Pages (Pack of 3)"
+        "alt": "Promate A4 Blank / Unruled Botany & Drawing Exercise Book — 80 Pages (Pack of 3) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/exercise-books-stack-view2-angle.jpg",
+        "alt": "Promate A4 Blank / Unruled Botany & Drawing Exercise Book — 80 Pages (Pack of 3) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/exercise-books-stack-view3-detail.jpg",
+        "alt": "Promate A4 Blank / Unruled Botany & Drawing Exercise Book — 80 Pages (Pack of 3) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/exercise-books-stack-view4-overhead.jpg",
+        "alt": "Promate A4 Blank / Unruled Botany & Drawing Exercise Book — 80 Pages (Pack of 3) - Studio Overview Presentation"
       }
     ],
     "stock": 52,
@@ -966,7 +1355,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Promate",
     "grade": "",
     "language": "",
-    "rulingType": "Blank / Plain"
+    "rulingType": "Blank / Plain",
+    "image": "/images/v2/exercise-books-stack.jpg"
   },
   {
     "_id": "prod-wr-01",
@@ -980,7 +1370,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-writing-pens-pencils.jpg",
-        "alt": "Atlas Chooty Ballpoint Pens — 0.7mm Smooth Blue (Wholesale Box of 50 Pens)"
+        "alt": "Atlas Chooty Ballpoint Pens — 0.7mm Smooth Blue (Wholesale Box of 50 Pens) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-writing-pens-pencils-view2-angle.jpg",
+        "alt": "Atlas Chooty Ballpoint Pens — 0.7mm Smooth Blue (Wholesale Box of 50 Pens) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-writing-pens-pencils-view3-detail.jpg",
+        "alt": "Atlas Chooty Ballpoint Pens — 0.7mm Smooth Blue (Wholesale Box of 50 Pens) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-writing-pens-pencils-view4-overhead.jpg",
+        "alt": "Atlas Chooty Ballpoint Pens — 0.7mm Smooth Blue (Wholesale Box of 50 Pens) - Studio Overview Presentation"
       }
     ],
     "stock": 45,
@@ -998,7 +1400,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Atlas",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-writing-pens-pencils.jpg"
   },
   {
     "_id": "prod-wr-02",
@@ -1012,7 +1415,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-writing-pens-pencils.jpg",
-        "alt": "Atlas Chooty Ballpoint Pens Assorted Pack — Blue, Black & Red (Pack of 10)"
+        "alt": "Atlas Chooty Ballpoint Pens Assorted Pack — Blue, Black & Red (Pack of 10) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-writing-pens-pencils-view2-angle.jpg",
+        "alt": "Atlas Chooty Ballpoint Pens Assorted Pack — Blue, Black & Red (Pack of 10) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-writing-pens-pencils-view3-detail.jpg",
+        "alt": "Atlas Chooty Ballpoint Pens Assorted Pack — Blue, Black & Red (Pack of 10) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-writing-pens-pencils-view4-overhead.jpg",
+        "alt": "Atlas Chooty Ballpoint Pens Assorted Pack — Blue, Black & Red (Pack of 10) - Studio Overview Presentation"
       }
     ],
     "stock": 58,
@@ -1029,7 +1444,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Atlas",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-writing-pens-pencils.jpg"
   },
   {
     "_id": "prod-wr-03",
@@ -1043,7 +1459,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/pilot-g2-pens.jpg",
-        "alt": "Atlas Max Butter Gel Pens — 0.6mm Ultra-Smooth Waterproof Ink (Pack of 5)"
+        "alt": "Atlas Max Butter Gel Pens — 0.6mm Ultra-Smooth Waterproof Ink (Pack of 5) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/pilot-g2-pens-view2-angle.jpg",
+        "alt": "Atlas Max Butter Gel Pens — 0.6mm Ultra-Smooth Waterproof Ink (Pack of 5) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/pilot-g2-pens-view3-detail.jpg",
+        "alt": "Atlas Max Butter Gel Pens — 0.6mm Ultra-Smooth Waterproof Ink (Pack of 5) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/pilot-g2-pens-view4-overhead.jpg",
+        "alt": "Atlas Max Butter Gel Pens — 0.6mm Ultra-Smooth Waterproof Ink (Pack of 5) - Studio Overview Presentation"
       }
     ],
     "stock": 71,
@@ -1061,7 +1489,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Atlas",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/pilot-g2-pens.jpg"
   },
   {
     "_id": "prod-wr-04",
@@ -1075,7 +1504,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/pilot-g2-pens.jpg",
-        "alt": "Pilot G2 0.7mm Retractable Gel Ink Rollerball Pens (Set of 4 — Black, Blue, Red, Green)"
+        "alt": "Pilot G2 0.7mm Retractable Gel Ink Rollerball Pens (Set of 4 — Black, Blue, Red, Green) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/pilot-g2-pens-view2-angle.jpg",
+        "alt": "Pilot G2 0.7mm Retractable Gel Ink Rollerball Pens (Set of 4 — Black, Blue, Red, Green) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/pilot-g2-pens-view3-detail.jpg",
+        "alt": "Pilot G2 0.7mm Retractable Gel Ink Rollerball Pens (Set of 4 — Black, Blue, Red, Green) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/pilot-g2-pens-view4-overhead.jpg",
+        "alt": "Pilot G2 0.7mm Retractable Gel Ink Rollerball Pens (Set of 4 — Black, Blue, Red, Green) - Studio Overview Presentation"
       }
     ],
     "stock": 84,
@@ -1093,7 +1534,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Pilot",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/pilot-g2-pens.jpg"
   },
   {
     "_id": "prod-wr-05",
@@ -1107,7 +1549,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/highlighters-set.jpg",
-        "alt": "Stabilo Boss Original Pastel & Neon Chisel Highlighters (Set of 6)"
+        "alt": "Stabilo Boss Original Pastel & Neon Chisel Highlighters (Set of 6) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/highlighters-set-view2-angle.jpg",
+        "alt": "Stabilo Boss Original Pastel & Neon Chisel Highlighters (Set of 6) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/highlighters-set-view3-detail.jpg",
+        "alt": "Stabilo Boss Original Pastel & Neon Chisel Highlighters (Set of 6) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/highlighters-set-view4-overhead.jpg",
+        "alt": "Stabilo Boss Original Pastel & Neon Chisel Highlighters (Set of 6) - Studio Overview Presentation"
       }
     ],
     "stock": 97,
@@ -1125,7 +1579,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Stabilo",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/highlighters-set.jpg"
   },
   {
     "_id": "prod-wr-06",
@@ -1139,7 +1594,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-writing-pens-pencils.jpg",
-        "alt": "Nataraj 621 2B Exam Dark Graphite Pencils Box (10 Pencils + Eraser & Sharpener)"
+        "alt": "Nataraj 621 2B Exam Dark Graphite Pencils Box (10 Pencils + Eraser & Sharpener) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-writing-pens-pencils-view2-angle.jpg",
+        "alt": "Nataraj 621 2B Exam Dark Graphite Pencils Box (10 Pencils + Eraser & Sharpener) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-writing-pens-pencils-view3-detail.jpg",
+        "alt": "Nataraj 621 2B Exam Dark Graphite Pencils Box (10 Pencils + Eraser & Sharpener) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-writing-pens-pencils-view4-overhead.jpg",
+        "alt": "Nataraj 621 2B Exam Dark Graphite Pencils Box (10 Pencils + Eraser & Sharpener) - Studio Overview Presentation"
       }
     ],
     "stock": 110,
@@ -1157,7 +1624,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Nataraj",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-writing-pens-pencils.jpg"
   },
   {
     "_id": "prod-wr-07",
@@ -1171,7 +1639,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-writing-pens-pencils.jpg",
-        "alt": "Staedtler Mars Lumograph 2B Exam & Technical Drawing Pencils (Box of 12)"
+        "alt": "Staedtler Mars Lumograph 2B Exam & Technical Drawing Pencils (Box of 12) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-writing-pens-pencils-view2-angle.jpg",
+        "alt": "Staedtler Mars Lumograph 2B Exam & Technical Drawing Pencils (Box of 12) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-writing-pens-pencils-view3-detail.jpg",
+        "alt": "Staedtler Mars Lumograph 2B Exam & Technical Drawing Pencils (Box of 12) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-writing-pens-pencils-view4-overhead.jpg",
+        "alt": "Staedtler Mars Lumograph 2B Exam & Technical Drawing Pencils (Box of 12) - Studio Overview Presentation"
       }
     ],
     "stock": 123,
@@ -1189,7 +1669,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Staedtler",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-writing-pens-pencils.jpg"
   },
   {
     "_id": "prod-wr-08",
@@ -1203,7 +1684,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-writing-pens-pencils.jpg",
-        "alt": "Pentel Hi-Polymer Dust-Free White Exam Erasers + Metal Double Sharpener Set"
+        "alt": "Pentel Hi-Polymer Dust-Free White Exam Erasers + Metal Double Sharpener Set - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-writing-pens-pencils-view2-angle.jpg",
+        "alt": "Pentel Hi-Polymer Dust-Free White Exam Erasers + Metal Double Sharpener Set - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-writing-pens-pencils-view3-detail.jpg",
+        "alt": "Pentel Hi-Polymer Dust-Free White Exam Erasers + Metal Double Sharpener Set - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-writing-pens-pencils-view4-overhead.jpg",
+        "alt": "Pentel Hi-Polymer Dust-Free White Exam Erasers + Metal Double Sharpener Set - Studio Overview Presentation"
       }
     ],
     "stock": 136,
@@ -1221,7 +1714,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Pentel",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-writing-pens-pencils.jpg"
   },
   {
     "_id": "prod-wr-09",
@@ -1235,7 +1729,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/highlighters-set.jpg",
-        "alt": "Atlas Refillable Whiteboard Markers Bullet Tip (Set of 4 — Black, Blue, Red, Green)"
+        "alt": "Atlas Refillable Whiteboard Markers Bullet Tip (Set of 4 — Black, Blue, Red, Green) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/highlighters-set-view2-angle.jpg",
+        "alt": "Atlas Refillable Whiteboard Markers Bullet Tip (Set of 4 — Black, Blue, Red, Green) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/highlighters-set-view3-detail.jpg",
+        "alt": "Atlas Refillable Whiteboard Markers Bullet Tip (Set of 4 — Black, Blue, Red, Green) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/highlighters-set-view4-overhead.jpg",
+        "alt": "Atlas Refillable Whiteboard Markers Bullet Tip (Set of 4 — Black, Blue, Red, Green) - Studio Overview Presentation"
       }
     ],
     "stock": 149,
@@ -1253,7 +1759,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Atlas",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/highlighters-set.jpg"
   },
   {
     "_id": "prod-wr-10",
@@ -1267,7 +1774,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/pilot-g2-pens.jpg",
-        "alt": "Maped Instant-Dry Correction Tape Roller 5mm × 8m (Twin Pack)"
+        "alt": "Maped Instant-Dry Correction Tape Roller 5mm × 8m (Twin Pack) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/pilot-g2-pens-view2-angle.jpg",
+        "alt": "Maped Instant-Dry Correction Tape Roller 5mm × 8m (Twin Pack) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/pilot-g2-pens-view3-detail.jpg",
+        "alt": "Maped Instant-Dry Correction Tape Roller 5mm × 8m (Twin Pack) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/pilot-g2-pens-view4-overhead.jpg",
+        "alt": "Maped Instant-Dry Correction Tape Roller 5mm × 8m (Twin Pack) - Studio Overview Presentation"
       }
     ],
     "stock": 52,
@@ -1285,7 +1804,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Maped",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/pilot-g2-pens.jpg"
   },
   {
     "_id": "prod-mt-01",
@@ -1299,7 +1819,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/geometry-set.jpg",
-        "alt": "Atlas Stainless Steel Mathematical Geometry Box (Complete 9-Piece Tin Set)"
+        "alt": "Atlas Stainless Steel Mathematical Geometry Box (Complete 9-Piece Tin Set) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/geometry-set-view2-angle.jpg",
+        "alt": "Atlas Stainless Steel Mathematical Geometry Box (Complete 9-Piece Tin Set) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/geometry-set-view3-detail.jpg",
+        "alt": "Atlas Stainless Steel Mathematical Geometry Box (Complete 9-Piece Tin Set) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/geometry-set-view4-overhead.jpg",
+        "alt": "Atlas Stainless Steel Mathematical Geometry Box (Complete 9-Piece Tin Set) - Studio Overview Presentation"
       }
     ],
     "stock": 45,
@@ -1316,7 +1848,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Atlas",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/geometry-set.jpg"
   },
   {
     "_id": "prod-mt-02",
@@ -1330,7 +1863,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/geometry-set.jpg",
-        "alt": "Helix Oxford Original 9-Piece Metal Mathematical Instrument Tin Set"
+        "alt": "Helix Oxford Original 9-Piece Metal Mathematical Instrument Tin Set - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/geometry-set-view2-angle.jpg",
+        "alt": "Helix Oxford Original 9-Piece Metal Mathematical Instrument Tin Set - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/geometry-set-view3-detail.jpg",
+        "alt": "Helix Oxford Original 9-Piece Metal Mathematical Instrument Tin Set - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/geometry-set-view4-overhead.jpg",
+        "alt": "Helix Oxford Original 9-Piece Metal Mathematical Instrument Tin Set - Studio Overview Presentation"
       }
     ],
     "stock": 58,
@@ -1348,7 +1893,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Helix Oxford",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/geometry-set.jpg"
   },
   {
     "_id": "prod-mt-03",
@@ -1362,7 +1908,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/geometry-set.jpg",
-        "alt": "Maped Study Metal Compass with Universal Pencil Holder & Lead Box"
+        "alt": "Maped Study Metal Compass with Universal Pencil Holder & Lead Box - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/geometry-set-view2-angle.jpg",
+        "alt": "Maped Study Metal Compass with Universal Pencil Holder & Lead Box - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/geometry-set-view3-detail.jpg",
+        "alt": "Maped Study Metal Compass with Universal Pencil Holder & Lead Box - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/geometry-set-view4-overhead.jpg",
+        "alt": "Maped Study Metal Compass with Universal Pencil Holder & Lead Box - Studio Overview Presentation"
       }
     ],
     "stock": 71,
@@ -1380,7 +1938,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Maped",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/geometry-set.jpg"
   },
   {
     "_id": "prod-mt-04",
@@ -1394,7 +1953,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/casio-fx991cw.jpg",
-        "alt": "Casio FX-991CW ClassWiz High-Resolution Scientific Calculator (540+ Functions)"
+        "alt": "Casio FX-991CW ClassWiz High-Resolution Scientific Calculator (540+ Functions) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/casio-fx991cw-view2-angle.jpg",
+        "alt": "Casio FX-991CW ClassWiz High-Resolution Scientific Calculator (540+ Functions) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/casio-fx991cw-view3-detail.jpg",
+        "alt": "Casio FX-991CW ClassWiz High-Resolution Scientific Calculator (540+ Functions) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/casio-fx991cw-view4-overhead.jpg",
+        "alt": "Casio FX-991CW ClassWiz High-Resolution Scientific Calculator (540+ Functions) - Studio Overview Presentation"
       }
     ],
     "stock": 84,
@@ -1412,7 +1983,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Casio",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/casio-fx991cw.jpg"
   },
   {
     "_id": "prod-mt-05",
@@ -1426,7 +1998,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/casio-fx991cw.jpg",
-        "alt": "Casio FX-82MS 2nd Edition Non-Programmable Scientific Calculator (240 Functions)"
+        "alt": "Casio FX-82MS 2nd Edition Non-Programmable Scientific Calculator (240 Functions) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/casio-fx991cw-view2-angle.jpg",
+        "alt": "Casio FX-82MS 2nd Edition Non-Programmable Scientific Calculator (240 Functions) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/casio-fx991cw-view3-detail.jpg",
+        "alt": "Casio FX-82MS 2nd Edition Non-Programmable Scientific Calculator (240 Functions) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/casio-fx991cw-view4-overhead.jpg",
+        "alt": "Casio FX-82MS 2nd Edition Non-Programmable Scientific Calculator (240 Functions) - Studio Overview Presentation"
       }
     ],
     "stock": 97,
@@ -1444,7 +2028,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Casio",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/casio-fx991cw.jpg"
   },
   {
     "_id": "prod-mt-06",
@@ -1458,7 +2043,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/geometry-set.jpg",
-        "alt": "Atlas Shatterproof 30cm (12-Inch) Clear Acrylic Scale Rulers (Pack of 3)"
+        "alt": "Atlas Shatterproof 30cm (12-Inch) Clear Acrylic Scale Rulers (Pack of 3) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/geometry-set-view2-angle.jpg",
+        "alt": "Atlas Shatterproof 30cm (12-Inch) Clear Acrylic Scale Rulers (Pack of 3) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/geometry-set-view3-detail.jpg",
+        "alt": "Atlas Shatterproof 30cm (12-Inch) Clear Acrylic Scale Rulers (Pack of 3) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/geometry-set-view4-overhead.jpg",
+        "alt": "Atlas Shatterproof 30cm (12-Inch) Clear Acrylic Scale Rulers (Pack of 3) - Studio Overview Presentation"
       }
     ],
     "stock": 110,
@@ -1476,7 +2073,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Atlas",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/geometry-set.jpg"
   },
   {
     "_id": "prod-mt-07",
@@ -1490,7 +2088,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/geometry-set.jpg",
-        "alt": "Richard 30cm Stainless Steel Precision Engineering & Technical Scale Ruler"
+        "alt": "Richard 30cm Stainless Steel Precision Engineering & Technical Scale Ruler - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/geometry-set-view2-angle.jpg",
+        "alt": "Richard 30cm Stainless Steel Precision Engineering & Technical Scale Ruler - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/geometry-set-view3-detail.jpg",
+        "alt": "Richard 30cm Stainless Steel Precision Engineering & Technical Scale Ruler - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/geometry-set-view4-overhead.jpg",
+        "alt": "Richard 30cm Stainless Steel Precision Engineering & Technical Scale Ruler - Studio Overview Presentation"
       }
     ],
     "stock": 123,
@@ -1508,7 +2118,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Richard",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/geometry-set.jpg"
   },
   {
     "_id": "prod-mt-08",
@@ -1522,7 +2133,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/geometry-set.jpg",
-        "alt": "360° Full-Circle & 180° Semi-Circle Protractor & Set Squares Drafting Kit"
+        "alt": "360° Full-Circle & 180° Semi-Circle Protractor & Set Squares Drafting Kit - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/geometry-set-view2-angle.jpg",
+        "alt": "360° Full-Circle & 180° Semi-Circle Protractor & Set Squares Drafting Kit - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/geometry-set-view3-detail.jpg",
+        "alt": "360° Full-Circle & 180° Semi-Circle Protractor & Set Squares Drafting Kit - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/geometry-set-view4-overhead.jpg",
+        "alt": "360° Full-Circle & 180° Semi-Circle Protractor & Set Squares Drafting Kit - Studio Overview Presentation"
       }
     ],
     "stock": 136,
@@ -1540,7 +2163,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Maped",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/geometry-set.jpg"
   },
   {
     "_id": "prod-mt-09",
@@ -1554,7 +2178,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/atlas-exercise-book.jpg",
-        "alt": "Promate A4 Millimeter Calibration Graph Paper Pad (50 Sheets)"
+        "alt": "Promate A4 Millimeter Calibration Graph Paper Pad (50 Sheets) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/atlas-exercise-book-view2-angle.jpg",
+        "alt": "Promate A4 Millimeter Calibration Graph Paper Pad (50 Sheets) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/atlas-exercise-book-view3-detail.jpg",
+        "alt": "Promate A4 Millimeter Calibration Graph Paper Pad (50 Sheets) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/atlas-exercise-book-view4-overhead.jpg",
+        "alt": "Promate A4 Millimeter Calibration Graph Paper Pad (50 Sheets) - Studio Overview Presentation"
       }
     ],
     "stock": 149,
@@ -1572,7 +2208,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Promate",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/atlas-exercise-book.jpg"
   },
   {
     "_id": "prod-mt-10",
@@ -1586,7 +2223,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/casio-fx991cw.jpg",
-        "alt": "Casio FX-991ES Plus 2nd Edition Natural-V.P.A.M. Scientific Calculator"
+        "alt": "Casio FX-991ES Plus 2nd Edition Natural-V.P.A.M. Scientific Calculator - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/casio-fx991cw-view2-angle.jpg",
+        "alt": "Casio FX-991ES Plus 2nd Edition Natural-V.P.A.M. Scientific Calculator - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/casio-fx991cw-view3-detail.jpg",
+        "alt": "Casio FX-991ES Plus 2nd Edition Natural-V.P.A.M. Scientific Calculator - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/casio-fx991cw-view4-overhead.jpg",
+        "alt": "Casio FX-991ES Plus 2nd Edition Natural-V.P.A.M. Scientific Calculator - Studio Overview Presentation"
       }
     ],
     "stock": 52,
@@ -1603,7 +2252,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Casio",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/casio-fx991cw.jpg"
   },
   {
     "_id": "prod-ac-01",
@@ -1617,7 +2267,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-art-pencils-paints.jpg",
-        "alt": "Atlas 24 Bright Colour Pencils Full-Length Hexagonal Tin Set"
+        "alt": "Atlas 24 Bright Colour Pencils Full-Length Hexagonal Tin Set - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-art-pencils-paints-view2-angle.jpg",
+        "alt": "Atlas 24 Bright Colour Pencils Full-Length Hexagonal Tin Set - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-art-pencils-paints-view3-detail.jpg",
+        "alt": "Atlas 24 Bright Colour Pencils Full-Length Hexagonal Tin Set - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-art-pencils-paints-view4-overhead.jpg",
+        "alt": "Atlas 24 Bright Colour Pencils Full-Length Hexagonal Tin Set - Studio Overview Presentation"
       }
     ],
     "stock": 45,
@@ -1635,7 +2297,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Atlas",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-art-pencils-paints.jpg"
   },
   {
     "_id": "prod-ac-02",
@@ -1649,7 +2312,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/faber-castell-water-color.jpg",
-        "alt": "Faber-Castell 12 Water Colour Cakes Palette with Artist Brush"
+        "alt": "Faber-Castell 12 Water Colour Cakes Palette with Artist Brush - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/faber-castell-water-color-view2-angle.jpg",
+        "alt": "Faber-Castell 12 Water Colour Cakes Palette with Artist Brush - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/faber-castell-water-color-view3-detail.jpg",
+        "alt": "Faber-Castell 12 Water Colour Cakes Palette with Artist Brush - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/faber-castell-water-color-view4-overhead.jpg",
+        "alt": "Faber-Castell 12 Water Colour Cakes Palette with Artist Brush - Studio Overview Presentation"
       }
     ],
     "stock": 58,
@@ -1667,7 +2342,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Faber-Castell",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/faber-castell-water-color.jpg"
   },
   {
     "_id": "prod-ac-03",
@@ -1681,7 +2357,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/drawing-kit.jpg",
-        "alt": "Deluxe 68-Piece Wooden Case Student Art, Sketch & Painting Studio Kit"
+        "alt": "Deluxe 68-Piece Wooden Case Student Art, Sketch & Painting Studio Kit - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/drawing-kit-view2-angle.jpg",
+        "alt": "Deluxe 68-Piece Wooden Case Student Art, Sketch & Painting Studio Kit - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/drawing-kit-view3-detail.jpg",
+        "alt": "Deluxe 68-Piece Wooden Case Student Art, Sketch & Painting Studio Kit - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/drawing-kit-view4-overhead.jpg",
+        "alt": "Deluxe 68-Piece Wooden Case Student Art, Sketch & Painting Studio Kit - Studio Overview Presentation"
       }
     ],
     "stock": 71,
@@ -1699,7 +2387,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Mont Marte",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/drawing-kit.jpg"
   },
   {
     "_id": "prod-ac-04",
@@ -1713,7 +2402,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-art-pencils-paints.jpg",
-        "alt": "Faber-Castell 24 Classic Watercolour EcoPencils with Free Brush"
+        "alt": "Faber-Castell 24 Classic Watercolour EcoPencils with Free Brush - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-art-pencils-paints-view2-angle.jpg",
+        "alt": "Faber-Castell 24 Classic Watercolour EcoPencils with Free Brush - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-art-pencils-paints-view3-detail.jpg",
+        "alt": "Faber-Castell 24 Classic Watercolour EcoPencils with Free Brush - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-art-pencils-paints-view4-overhead.jpg",
+        "alt": "Faber-Castell 24 Classic Watercolour EcoPencils with Free Brush - Studio Overview Presentation"
       }
     ],
     "stock": 84,
@@ -1730,7 +2431,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Faber-Castell",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-art-pencils-paints.jpg"
   },
   {
     "_id": "prod-ac-05",
@@ -1744,7 +2446,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-art-pencils-paints.jpg",
-        "alt": "Mont Marte 12-Tube Acrylic & Poster Paint Set (12ml Vibrant Colours)"
+        "alt": "Mont Marte 12-Tube Acrylic & Poster Paint Set (12ml Vibrant Colours) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-art-pencils-paints-view2-angle.jpg",
+        "alt": "Mont Marte 12-Tube Acrylic & Poster Paint Set (12ml Vibrant Colours) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-art-pencils-paints-view3-detail.jpg",
+        "alt": "Mont Marte 12-Tube Acrylic & Poster Paint Set (12ml Vibrant Colours) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-art-pencils-paints-view4-overhead.jpg",
+        "alt": "Mont Marte 12-Tube Acrylic & Poster Paint Set (12ml Vibrant Colours) - Studio Overview Presentation"
       }
     ],
     "stock": 97,
@@ -1762,7 +2476,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Mont Marte",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-art-pencils-paints.jpg"
   },
   {
     "_id": "prod-ac-06",
@@ -1776,7 +2491,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/atlas-exercise-book.jpg",
-        "alt": "Promate A3 Thick 150GSM Cartridge Drawing & Sketch Pad (40 Sheets)"
+        "alt": "Promate A3 Thick 150GSM Cartridge Drawing & Sketch Pad (40 Sheets) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/atlas-exercise-book-view2-angle.jpg",
+        "alt": "Promate A3 Thick 150GSM Cartridge Drawing & Sketch Pad (40 Sheets) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/atlas-exercise-book-view3-detail.jpg",
+        "alt": "Promate A3 Thick 150GSM Cartridge Drawing & Sketch Pad (40 Sheets) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/atlas-exercise-book-view4-overhead.jpg",
+        "alt": "Promate A3 Thick 150GSM Cartridge Drawing & Sketch Pad (40 Sheets) - Studio Overview Presentation"
       }
     ],
     "stock": 110,
@@ -1794,7 +2521,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Promate",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/atlas-exercise-book.jpg"
   },
   {
     "_id": "prod-ac-07",
@@ -1808,7 +2536,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-art-pencils-paints.jpg",
-        "alt": "Atlas Non-Toxic White Craft Glue Bottle (100ml) + 21g PVP Glue Stick Duo"
+        "alt": "Atlas Non-Toxic White Craft Glue Bottle (100ml) + 21g PVP Glue Stick Duo - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-art-pencils-paints-view2-angle.jpg",
+        "alt": "Atlas Non-Toxic White Craft Glue Bottle (100ml) + 21g PVP Glue Stick Duo - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-art-pencils-paints-view3-detail.jpg",
+        "alt": "Atlas Non-Toxic White Craft Glue Bottle (100ml) + 21g PVP Glue Stick Duo - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-art-pencils-paints-view4-overhead.jpg",
+        "alt": "Atlas Non-Toxic White Craft Glue Bottle (100ml) + 21g PVP Glue Stick Duo - Studio Overview Presentation"
       }
     ],
     "stock": 123,
@@ -1826,7 +2566,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Atlas",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-art-pencils-paints.jpg"
   },
   {
     "_id": "prod-ac-08",
@@ -1840,7 +2581,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/drawing-kit.jpg",
-        "alt": "Pentel Arts Oil Pastels 25 Brilliant Shades Blending Box"
+        "alt": "Pentel Arts Oil Pastels 25 Brilliant Shades Blending Box - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/drawing-kit-view2-angle.jpg",
+        "alt": "Pentel Arts Oil Pastels 25 Brilliant Shades Blending Box - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/drawing-kit-view3-detail.jpg",
+        "alt": "Pentel Arts Oil Pastels 25 Brilliant Shades Blending Box - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/drawing-kit-view4-overhead.jpg",
+        "alt": "Pentel Arts Oil Pastels 25 Brilliant Shades Blending Box - Studio Overview Presentation"
       }
     ],
     "stock": 136,
@@ -1858,7 +2611,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Pentel",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/drawing-kit.jpg"
   },
   {
     "_id": "prod-ac-09",
@@ -1872,7 +2626,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-art-pencils-paints.jpg",
-        "alt": "Artist Taklon Round & Flat Paint Brush Set (10 Assorted Sizes)"
+        "alt": "Artist Taklon Round & Flat Paint Brush Set (10 Assorted Sizes) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-art-pencils-paints-view2-angle.jpg",
+        "alt": "Artist Taklon Round & Flat Paint Brush Set (10 Assorted Sizes) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-art-pencils-paints-view3-detail.jpg",
+        "alt": "Artist Taklon Round & Flat Paint Brush Set (10 Assorted Sizes) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-art-pencils-paints-view4-overhead.jpg",
+        "alt": "Artist Taklon Round & Flat Paint Brush Set (10 Assorted Sizes) - Studio Overview Presentation"
       }
     ],
     "stock": 149,
@@ -1889,7 +2655,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Mont Marte",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-art-pencils-paints.jpg"
   },
   {
     "_id": "prod-ac-10",
@@ -1903,7 +2670,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sticky-notes.jpg",
-        "alt": "A4 Double-Sided Vivid Coloured Craft & Origami Paper Pack (100 Sheets — 10 Colours)"
+        "alt": "A4 Double-Sided Vivid Coloured Craft & Origami Paper Pack (100 Sheets — 10 Colours) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sticky-notes-view2-angle.jpg",
+        "alt": "A4 Double-Sided Vivid Coloured Craft & Origami Paper Pack (100 Sheets — 10 Colours) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sticky-notes-view3-detail.jpg",
+        "alt": "A4 Double-Sided Vivid Coloured Craft & Origami Paper Pack (100 Sheets — 10 Colours) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sticky-notes-view4-overhead.jpg",
+        "alt": "A4 Double-Sided Vivid Coloured Craft & Origami Paper Pack (100 Sheets — 10 Colours) - Studio Overview Presentation"
       }
     ],
     "stock": 52,
@@ -1921,7 +2700,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Richard",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sticky-notes.jpg"
   },
   {
     "_id": "prod-of-01",
@@ -1935,7 +2715,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-office-paper-stapler.jpg",
-        "alt": "Double A Premium A4 80GSM Multipurpose Copy Paper Ream (500 Sheets)"
+        "alt": "Double A Premium A4 80GSM Multipurpose Copy Paper Ream (500 Sheets) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-office-paper-stapler-view2-angle.jpg",
+        "alt": "Double A Premium A4 80GSM Multipurpose Copy Paper Ream (500 Sheets) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-office-paper-stapler-view3-detail.jpg",
+        "alt": "Double A Premium A4 80GSM Multipurpose Copy Paper Ream (500 Sheets) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-office-paper-stapler-view4-overhead.jpg",
+        "alt": "Double A Premium A4 80GSM Multipurpose Copy Paper Ream (500 Sheets) - Studio Overview Presentation"
       }
     ],
     "stock": 45,
@@ -1954,7 +2746,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Double A",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-office-paper-stapler.jpg"
   },
   {
     "_id": "prod-of-02",
@@ -1968,7 +2761,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-office-paper-stapler.jpg",
-        "alt": "Atlas A4 80GSM High-Brightness Laser & Inkjet Paper Ream (500 Sheets)"
+        "alt": "Atlas A4 80GSM High-Brightness Laser & Inkjet Paper Ream (500 Sheets) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-office-paper-stapler-view2-angle.jpg",
+        "alt": "Atlas A4 80GSM High-Brightness Laser & Inkjet Paper Ream (500 Sheets) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-office-paper-stapler-view3-detail.jpg",
+        "alt": "Atlas A4 80GSM High-Brightness Laser & Inkjet Paper Ream (500 Sheets) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-office-paper-stapler-view4-overhead.jpg",
+        "alt": "Atlas A4 80GSM High-Brightness Laser & Inkjet Paper Ream (500 Sheets) - Studio Overview Presentation"
       }
     ],
     "stock": 58,
@@ -1986,7 +2791,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Atlas",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-office-paper-stapler.jpg"
   },
   {
     "_id": "prod-of-03",
@@ -2000,7 +2806,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-office-paper-stapler.jpg",
-        "alt": "Kangaroo HD-10D All-Metal Office Stapler + 2 Boxes of No.10 Staples"
+        "alt": "Kangaroo HD-10D All-Metal Office Stapler + 2 Boxes of No.10 Staples - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-office-paper-stapler-view2-angle.jpg",
+        "alt": "Kangaroo HD-10D All-Metal Office Stapler + 2 Boxes of No.10 Staples - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-office-paper-stapler-view3-detail.jpg",
+        "alt": "Kangaroo HD-10D All-Metal Office Stapler + 2 Boxes of No.10 Staples - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-office-paper-stapler-view4-overhead.jpg",
+        "alt": "Kangaroo HD-10D All-Metal Office Stapler + 2 Boxes of No.10 Staples - Studio Overview Presentation"
       }
     ],
     "stock": 71,
@@ -2018,7 +2836,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Kangaroo",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-office-paper-stapler.jpg"
   },
   {
     "_id": "prod-of-04",
@@ -2032,7 +2851,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-office-paper-stapler.jpg",
-        "alt": "Kangaroo DP-480 Two-Hole Metal Paper Puncher with Centering Guide Bar"
+        "alt": "Kangaroo DP-480 Two-Hole Metal Paper Puncher with Centering Guide Bar - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-office-paper-stapler-view2-angle.jpg",
+        "alt": "Kangaroo DP-480 Two-Hole Metal Paper Puncher with Centering Guide Bar - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-office-paper-stapler-view3-detail.jpg",
+        "alt": "Kangaroo DP-480 Two-Hole Metal Paper Puncher with Centering Guide Bar - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-office-paper-stapler-view4-overhead.jpg",
+        "alt": "Kangaroo DP-480 Two-Hole Metal Paper Puncher with Centering Guide Bar - Studio Overview Presentation"
       }
     ],
     "stock": 84,
@@ -2050,7 +2881,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Kangaroo",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-office-paper-stapler.jpg"
   },
   {
     "_id": "prod-of-05",
@@ -2064,7 +2896,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sticky-notes.jpg",
-        "alt": "Pastel Sticky Notes Memo Cube 3×3 Inch (500 Self-Adhesive Sheets)"
+        "alt": "Pastel Sticky Notes Memo Cube 3×3 Inch (500 Self-Adhesive Sheets) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sticky-notes-view2-angle.jpg",
+        "alt": "Pastel Sticky Notes Memo Cube 3×3 Inch (500 Self-Adhesive Sheets) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sticky-notes-view3-detail.jpg",
+        "alt": "Pastel Sticky Notes Memo Cube 3×3 Inch (500 Self-Adhesive Sheets) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sticky-notes-view4-overhead.jpg",
+        "alt": "Pastel Sticky Notes Memo Cube 3×3 Inch (500 Self-Adhesive Sheets) - Studio Overview Presentation"
       }
     ],
     "stock": 97,
@@ -2082,7 +2926,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Atlas",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sticky-notes.jpg"
   },
   {
     "_id": "prod-of-06",
@@ -2096,7 +2941,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-office-paper-stapler.jpg",
-        "alt": "Tempered Steel Black Foldback Binder Clips Assorted Tub (36 Pieces)"
+        "alt": "Tempered Steel Black Foldback Binder Clips Assorted Tub (36 Pieces) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-office-paper-stapler-view2-angle.jpg",
+        "alt": "Tempered Steel Black Foldback Binder Clips Assorted Tub (36 Pieces) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-office-paper-stapler-view3-detail.jpg",
+        "alt": "Tempered Steel Black Foldback Binder Clips Assorted Tub (36 Pieces) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-office-paper-stapler-view4-overhead.jpg",
+        "alt": "Tempered Steel Black Foldback Binder Clips Assorted Tub (36 Pieces) - Studio Overview Presentation"
       }
     ],
     "stock": 110,
@@ -2114,7 +2971,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Deli",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-office-paper-stapler.jpg"
   },
   {
     "_id": "prod-of-07",
@@ -2128,7 +2986,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-button-folders-organizer.jpg",
-        "alt": "Black Wire Mesh Executive Desktop Pen, Marker & Scissors Organizer Cup"
+        "alt": "Black Wire Mesh Executive Desktop Pen, Marker & Scissors Organizer Cup - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-button-folders-organizer-view2-angle.jpg",
+        "alt": "Black Wire Mesh Executive Desktop Pen, Marker & Scissors Organizer Cup - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-button-folders-organizer-view3-detail.jpg",
+        "alt": "Black Wire Mesh Executive Desktop Pen, Marker & Scissors Organizer Cup - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-button-folders-organizer-view4-overhead.jpg",
+        "alt": "Black Wire Mesh Executive Desktop Pen, Marker & Scissors Organizer Cup - Studio Overview Presentation"
       }
     ],
     "stock": 123,
@@ -2146,7 +3016,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Deli",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-button-folders-organizer.jpg"
   },
   {
     "_id": "prod-of-08",
@@ -2160,7 +3031,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-office-paper-stapler.jpg",
-        "alt": "Heavy-Duty Clear Cellotape Dispenser + 3 Rolls Transparent Tape Set"
+        "alt": "Heavy-Duty Clear Cellotape Dispenser + 3 Rolls Transparent Tape Set - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-office-paper-stapler-view2-angle.jpg",
+        "alt": "Heavy-Duty Clear Cellotape Dispenser + 3 Rolls Transparent Tape Set - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-office-paper-stapler-view3-detail.jpg",
+        "alt": "Heavy-Duty Clear Cellotape Dispenser + 3 Rolls Transparent Tape Set - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-office-paper-stapler-view4-overhead.jpg",
+        "alt": "Heavy-Duty Clear Cellotape Dispenser + 3 Rolls Transparent Tape Set - Studio Overview Presentation"
       }
     ],
     "stock": 136,
@@ -2178,7 +3061,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Atlas",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-office-paper-stapler.jpg"
   },
   {
     "_id": "prod-of-09",
@@ -2192,7 +3076,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sticky-notes.jpg",
-        "alt": "Neon Page Marker Index Flags & Arrow Tabs Dispenser (200 Flags)"
+        "alt": "Neon Page Marker Index Flags & Arrow Tabs Dispenser (200 Flags) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sticky-notes-view2-angle.jpg",
+        "alt": "Neon Page Marker Index Flags & Arrow Tabs Dispenser (200 Flags) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sticky-notes-view3-detail.jpg",
+        "alt": "Neon Page Marker Index Flags & Arrow Tabs Dispenser (200 Flags) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sticky-notes-view4-overhead.jpg",
+        "alt": "Neon Page Marker Index Flags & Arrow Tabs Dispenser (200 Flags) - Studio Overview Presentation"
       }
     ],
     "stock": 149,
@@ -2210,7 +3106,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Promate",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sticky-notes.jpg"
   },
   {
     "_id": "prod-of-10",
@@ -2224,7 +3121,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/casio-fx991cw.jpg",
-        "alt": "Casio MJ-120D 150-Step Check & Correct 12-Digit Office Tax Calculator"
+        "alt": "Casio MJ-120D 150-Step Check & Correct 12-Digit Office Tax Calculator - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/casio-fx991cw-view2-angle.jpg",
+        "alt": "Casio MJ-120D 150-Step Check & Correct 12-Digit Office Tax Calculator - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/casio-fx991cw-view3-detail.jpg",
+        "alt": "Casio MJ-120D 150-Step Check & Correct 12-Digit Office Tax Calculator - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/casio-fx991cw-view4-overhead.jpg",
+        "alt": "Casio MJ-120D 150-Step Check & Correct 12-Digit Office Tax Calculator - Studio Overview Presentation"
       }
     ],
     "stock": 52,
@@ -2242,7 +3151,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Casio",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/casio-fx991cw.jpg"
   },
   {
     "_id": "prod-sa-01",
@@ -2256,7 +3166,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/school-backpack-blue.jpg",
-        "alt": "DSI Samson Waterproof Ergonomic Student School Backpack (Navy Blue — 30L)"
+        "alt": "DSI Samson Waterproof Ergonomic Student School Backpack (Navy Blue — 30L) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/school-backpack-blue-view2-angle.jpg",
+        "alt": "DSI Samson Waterproof Ergonomic Student School Backpack (Navy Blue — 30L) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/school-backpack-blue-view3-detail.jpg",
+        "alt": "DSI Samson Waterproof Ergonomic Student School Backpack (Navy Blue — 30L) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/school-backpack-blue-view4-overhead.jpg",
+        "alt": "DSI Samson Waterproof Ergonomic Student School Backpack (Navy Blue — 30L) - Studio Overview Presentation"
       }
     ],
     "stock": 45,
@@ -2274,7 +3196,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "DSI Samson",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/school-backpack-blue.jpg"
   },
   {
     "_id": "prod-sa-02",
@@ -2288,7 +3211,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/water-bottle.jpg",
-        "alt": "Atlas BPA-Free Stainless Steel Insulated School Water Bottle (750ml)"
+        "alt": "Atlas BPA-Free Stainless Steel Insulated School Water Bottle (750ml) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/water-bottle-view2-angle.jpg",
+        "alt": "Atlas BPA-Free Stainless Steel Insulated School Water Bottle (750ml) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/water-bottle-view3-detail.jpg",
+        "alt": "Atlas BPA-Free Stainless Steel Insulated School Water Bottle (750ml) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/water-bottle-view4-overhead.jpg",
+        "alt": "Atlas BPA-Free Stainless Steel Insulated School Water Bottle (750ml) - Studio Overview Presentation"
       }
     ],
     "stock": 58,
@@ -2306,7 +3241,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Atlas",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/water-bottle.jpg"
   },
   {
     "_id": "prod-sa-03",
@@ -2320,7 +3256,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/lunch-box.jpg",
-        "alt": "Atlas Airtight 3-Compartment BPA-Free Student School Lunch Box"
+        "alt": "Atlas Airtight 3-Compartment BPA-Free Student School Lunch Box - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/lunch-box-view2-angle.jpg",
+        "alt": "Atlas Airtight 3-Compartment BPA-Free Student School Lunch Box - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/lunch-box-view3-detail.jpg",
+        "alt": "Atlas Airtight 3-Compartment BPA-Free Student School Lunch Box - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/lunch-box-view4-overhead.jpg",
+        "alt": "Atlas Airtight 3-Compartment BPA-Free Student School Lunch Box - Studio Overview Presentation"
       }
     ],
     "stock": 71,
@@ -2338,7 +3286,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Atlas",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/lunch-box.jpg"
   },
   {
     "_id": "prod-sa-04",
@@ -2352,7 +3301,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/school-shoes.jpg",
-        "alt": "DSI Samson Breathable Student School Athletic & P.T. Shoes"
+        "alt": "DSI Samson Breathable Student School Athletic & P.T. Shoes - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/school-shoes-view2-angle.jpg",
+        "alt": "DSI Samson Breathable Student School Athletic & P.T. Shoes - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/school-shoes-view3-detail.jpg",
+        "alt": "DSI Samson Breathable Student School Athletic & P.T. Shoes - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/school-shoes-view4-overhead.jpg",
+        "alt": "DSI Samson Breathable Student School Athletic & P.T. Shoes - Studio Overview Presentation"
       }
     ],
     "stock": 84,
@@ -2370,7 +3331,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "DSI Samson",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/school-shoes.jpg"
   },
   {
     "_id": "prod-sa-05",
@@ -2384,7 +3346,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/school-backpack-blue.jpg",
-        "alt": "Promate Multi-Compartment Zippered Canvas Pencil Case & Stationery Pouch"
+        "alt": "Promate Multi-Compartment Zippered Canvas Pencil Case & Stationery Pouch - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/school-backpack-blue-view2-angle.jpg",
+        "alt": "Promate Multi-Compartment Zippered Canvas Pencil Case & Stationery Pouch - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/school-backpack-blue-view3-detail.jpg",
+        "alt": "Promate Multi-Compartment Zippered Canvas Pencil Case & Stationery Pouch - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/school-backpack-blue-view4-overhead.jpg",
+        "alt": "Promate Multi-Compartment Zippered Canvas Pencil Case & Stationery Pouch - Studio Overview Presentation"
       }
     ],
     "stock": 97,
@@ -2402,7 +3376,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Promate",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/school-backpack-blue.jpg"
   },
   {
     "_id": "prod-sa-06",
@@ -2416,7 +3391,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-files-binders.jpg",
-        "alt": "Atlas Pre-Cut Transparent PVC Book Covers for CR & Exercise Books (Pack of 20)"
+        "alt": "Atlas Pre-Cut Transparent PVC Book Covers for CR & Exercise Books (Pack of 20) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-files-binders-view2-angle.jpg",
+        "alt": "Atlas Pre-Cut Transparent PVC Book Covers for CR & Exercise Books (Pack of 20) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-files-binders-view3-detail.jpg",
+        "alt": "Atlas Pre-Cut Transparent PVC Book Covers for CR & Exercise Books (Pack of 20) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-files-binders-view4-overhead.jpg",
+        "alt": "Atlas Pre-Cut Transparent PVC Book Covers for CR & Exercise Books (Pack of 20) - Studio Overview Presentation"
       }
     ],
     "stock": 110,
@@ -2434,7 +3421,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Atlas",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-files-binders.jpg"
   },
   {
     "_id": "prod-sa-07",
@@ -2448,7 +3436,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/school-backpack-blue.jpg",
-        "alt": "DSI Student Waterproof Hooded Raincoat with School Bag Expansion Gusset"
+        "alt": "DSI Student Waterproof Hooded Raincoat with School Bag Expansion Gusset - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/school-backpack-blue-view2-angle.jpg",
+        "alt": "DSI Student Waterproof Hooded Raincoat with School Bag Expansion Gusset - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/school-backpack-blue-view3-detail.jpg",
+        "alt": "DSI Student Waterproof Hooded Raincoat with School Bag Expansion Gusset - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/school-backpack-blue-view4-overhead.jpg",
+        "alt": "DSI Student Waterproof Hooded Raincoat with School Bag Expansion Gusset - Studio Overview Presentation"
       }
     ],
     "stock": 123,
@@ -2466,7 +3466,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "DSI Samson",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/school-backpack-blue.jpg"
   },
   {
     "_id": "prod-sa-08",
@@ -2480,7 +3481,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-button-folders-organizer.jpg",
-        "alt": "Richard A4 Hardboard & Clear Acrylic Exam Clipboard with Metric Ruler Edge"
+        "alt": "Richard A4 Hardboard & Clear Acrylic Exam Clipboard with Metric Ruler Edge - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-button-folders-organizer-view2-angle.jpg",
+        "alt": "Richard A4 Hardboard & Clear Acrylic Exam Clipboard with Metric Ruler Edge - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-button-folders-organizer-view3-detail.jpg",
+        "alt": "Richard A4 Hardboard & Clear Acrylic Exam Clipboard with Metric Ruler Edge - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-button-folders-organizer-view4-overhead.jpg",
+        "alt": "Richard A4 Hardboard & Clear Acrylic Exam Clipboard with Metric Ruler Edge - Studio Overview Presentation"
       }
     ],
     "stock": 136,
@@ -2498,7 +3511,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Richard",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-button-folders-organizer.jpg"
   },
   {
     "_id": "prod-sa-09",
@@ -2512,7 +3526,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-scholarship-workbooks.jpg",
-        "alt": "Printed School Book Name Sticker Labels (Sinhala & English — Pack of 60)"
+        "alt": "Printed School Book Name Sticker Labels (Sinhala & English — Pack of 60) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-scholarship-workbooks-view2-angle.jpg",
+        "alt": "Printed School Book Name Sticker Labels (Sinhala & English — Pack of 60) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-scholarship-workbooks-view3-detail.jpg",
+        "alt": "Printed School Book Name Sticker Labels (Sinhala & English — Pack of 60) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-scholarship-workbooks-view4-overhead.jpg",
+        "alt": "Printed School Book Name Sticker Labels (Sinhala & English — Pack of 60) - Studio Overview Presentation"
       }
     ],
     "stock": 149,
@@ -2530,7 +3556,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Atlas",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-scholarship-workbooks.jpg"
   },
   {
     "_id": "prod-sa-10",
@@ -2544,7 +3571,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/school-shoes.jpg",
-        "alt": "DSI Pure Cotton White School Socks — Breathable Crew Length (Pack of 3 Pairs)"
+        "alt": "DSI Pure Cotton White School Socks — Breathable Crew Length (Pack of 3 Pairs) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/school-shoes-view2-angle.jpg",
+        "alt": "DSI Pure Cotton White School Socks — Breathable Crew Length (Pack of 3 Pairs) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/school-shoes-view3-detail.jpg",
+        "alt": "DSI Pure Cotton White School Socks — Breathable Crew Length (Pack of 3 Pairs) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/school-shoes-view4-overhead.jpg",
+        "alt": "DSI Pure Cotton White School Socks — Breathable Crew Length (Pack of 3 Pairs) - Studio Overview Presentation"
       }
     ],
     "stock": 52,
@@ -2562,7 +3601,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "DSI Samson",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/school-shoes.jpg"
   },
   {
     "_id": "prod-fo-01",
@@ -2576,7 +3616,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-files-binders.jpg",
-        "alt": "Richard A4 Clear Book Display File — 40 Transparent Pockets (Royal Blue)"
+        "alt": "Richard A4 Clear Book Display File — 40 Transparent Pockets (Royal Blue) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-files-binders-view2-angle.jpg",
+        "alt": "Richard A4 Clear Book Display File — 40 Transparent Pockets (Royal Blue) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-files-binders-view3-detail.jpg",
+        "alt": "Richard A4 Clear Book Display File — 40 Transparent Pockets (Royal Blue) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-files-binders-view4-overhead.jpg",
+        "alt": "Richard A4 Clear Book Display File — 40 Transparent Pockets (Royal Blue) - Studio Overview Presentation"
       }
     ],
     "stock": 45,
@@ -2594,7 +3646,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Richard",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-files-binders.jpg"
   },
   {
     "_id": "prod-fo-02",
@@ -2608,7 +3661,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-files-binders.jpg",
-        "alt": "Atlas A4 Clear Book Portfolio Display File — 60 Pockets (Ocean Teal)"
+        "alt": "Atlas A4 Clear Book Portfolio Display File — 60 Pockets (Ocean Teal) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-files-binders-view2-angle.jpg",
+        "alt": "Atlas A4 Clear Book Portfolio Display File — 60 Pockets (Ocean Teal) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-files-binders-view3-detail.jpg",
+        "alt": "Atlas A4 Clear Book Portfolio Display File — 60 Pockets (Ocean Teal) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-files-binders-view4-overhead.jpg",
+        "alt": "Atlas A4 Clear Book Portfolio Display File — 60 Pockets (Ocean Teal) - Studio Overview Presentation"
       }
     ],
     "stock": 58,
@@ -2626,7 +3691,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Atlas",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-files-binders.jpg"
   },
   {
     "_id": "prod-fo-03",
@@ -2640,7 +3706,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-files-binders.jpg",
-        "alt": "Richard Heavy-Duty A4 Lever Arch Box File with Metal Index Clip (Navy Spine)"
+        "alt": "Richard Heavy-Duty A4 Lever Arch Box File with Metal Index Clip (Navy Spine) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-files-binders-view2-angle.jpg",
+        "alt": "Richard Heavy-Duty A4 Lever Arch Box File with Metal Index Clip (Navy Spine) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-files-binders-view3-detail.jpg",
+        "alt": "Richard Heavy-Duty A4 Lever Arch Box File with Metal Index Clip (Navy Spine) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-files-binders-view4-overhead.jpg",
+        "alt": "Richard Heavy-Duty A4 Lever Arch Box File with Metal Index Clip (Navy Spine) - Studio Overview Presentation"
       }
     ],
     "stock": 71,
@@ -2658,7 +3736,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Richard",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-files-binders.jpg"
   },
   {
     "_id": "prod-fo-04",
@@ -2672,7 +3751,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-button-folders-organizer.jpg",
-        "alt": "Translucent A4 Snap-Button Plastic Envelope Folders (Set of 5 Assorted Colours)"
+        "alt": "Translucent A4 Snap-Button Plastic Envelope Folders (Set of 5 Assorted Colours) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-button-folders-organizer-view2-angle.jpg",
+        "alt": "Translucent A4 Snap-Button Plastic Envelope Folders (Set of 5 Assorted Colours) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-button-folders-organizer-view3-detail.jpg",
+        "alt": "Translucent A4 Snap-Button Plastic Envelope Folders (Set of 5 Assorted Colours) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-button-folders-organizer-view4-overhead.jpg",
+        "alt": "Translucent A4 Snap-Button Plastic Envelope Folders (Set of 5 Assorted Colours) - Studio Overview Presentation"
       }
     ],
     "stock": 84,
@@ -2690,7 +3781,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Atlas",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-button-folders-organizer.jpg"
   },
   {
     "_id": "prod-fo-05",
@@ -2704,7 +3796,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-files-binders.jpg",
-        "alt": "Richard A4 2-Ring Hardcover PVC Presentation Ring Binder File"
+        "alt": "Richard A4 2-Ring Hardcover PVC Presentation Ring Binder File - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-files-binders-view2-angle.jpg",
+        "alt": "Richard A4 2-Ring Hardcover PVC Presentation Ring Binder File - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-files-binders-view3-detail.jpg",
+        "alt": "Richard A4 2-Ring Hardcover PVC Presentation Ring Binder File - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-files-binders-view4-overhead.jpg",
+        "alt": "Richard A4 2-Ring Hardcover PVC Presentation Ring Binder File - Studio Overview Presentation"
       }
     ],
     "stock": 97,
@@ -2722,7 +3826,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Richard",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-files-binders.jpg"
   },
   {
     "_id": "prod-fo-06",
@@ -2736,7 +3841,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-files-binders.jpg",
-        "alt": "12-Pocket A4 Expanding Accordion Document Organizer Case with Handle"
+        "alt": "12-Pocket A4 Expanding Accordion Document Organizer Case with Handle - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-files-binders-view2-angle.jpg",
+        "alt": "12-Pocket A4 Expanding Accordion Document Organizer Case with Handle - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-files-binders-view3-detail.jpg",
+        "alt": "12-Pocket A4 Expanding Accordion Document Organizer Case with Handle - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-files-binders-view4-overhead.jpg",
+        "alt": "12-Pocket A4 Expanding Accordion Document Organizer Case with Handle - Studio Overview Presentation"
       }
     ],
     "stock": 110,
@@ -2754,7 +3871,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Deli",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-files-binders.jpg"
   },
   {
     "_id": "prod-fo-07",
@@ -2768,7 +3886,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-button-folders-organizer.jpg",
-        "alt": "Atlas A4 L-Shape Transparent Document Sleeves (Value Pack of 25)"
+        "alt": "Atlas A4 L-Shape Transparent Document Sleeves (Value Pack of 25) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-button-folders-organizer-view2-angle.jpg",
+        "alt": "Atlas A4 L-Shape Transparent Document Sleeves (Value Pack of 25) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-button-folders-organizer-view3-detail.jpg",
+        "alt": "Atlas A4 L-Shape Transparent Document Sleeves (Value Pack of 25) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-button-folders-organizer-view4-overhead.jpg",
+        "alt": "Atlas A4 L-Shape Transparent Document Sleeves (Value Pack of 25) - Studio Overview Presentation"
       }
     ],
     "stock": 123,
@@ -2786,7 +3916,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Atlas",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-button-folders-organizer.jpg"
   },
   {
     "_id": "prod-fo-08",
@@ -2800,7 +3931,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-files-binders.jpg",
-        "alt": "Richard Plastic Spring Clip & Cobra File Folders for School Projects (Pack of 6)"
+        "alt": "Richard Plastic Spring Clip & Cobra File Folders for School Projects (Pack of 6) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-files-binders-view2-angle.jpg",
+        "alt": "Richard Plastic Spring Clip & Cobra File Folders for School Projects (Pack of 6) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-files-binders-view3-detail.jpg",
+        "alt": "Richard Plastic Spring Clip & Cobra File Folders for School Projects (Pack of 6) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-files-binders-view4-overhead.jpg",
+        "alt": "Richard Plastic Spring Clip & Cobra File Folders for School Projects (Pack of 6) - Studio Overview Presentation"
       }
     ],
     "stock": 136,
@@ -2818,7 +3961,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Richard",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-files-binders.jpg"
   },
   {
     "_id": "prod-fo-09",
@@ -2832,7 +3976,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-button-folders-organizer.jpg",
-        "alt": "Waterproof Zippered Mesh A4 Exam & Stationery Document Bag (Set of 3)"
+        "alt": "Waterproof Zippered Mesh A4 Exam & Stationery Document Bag (Set of 3) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-button-folders-organizer-view2-angle.jpg",
+        "alt": "Waterproof Zippered Mesh A4 Exam & Stationery Document Bag (Set of 3) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-button-folders-organizer-view3-detail.jpg",
+        "alt": "Waterproof Zippered Mesh A4 Exam & Stationery Document Bag (Set of 3) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-button-folders-organizer-view4-overhead.jpg",
+        "alt": "Waterproof Zippered Mesh A4 Exam & Stationery Document Bag (Set of 3) - Studio Overview Presentation"
       }
     ],
     "stock": 149,
@@ -2850,7 +4006,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Deli",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-button-folders-organizer.jpg"
   },
   {
     "_id": "prod-fo-10",
@@ -2864,7 +4021,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-button-folders-organizer.jpg",
-        "alt": "3-Tier Stackable Desktop A4 Document & Letter Filing Tray"
+        "alt": "3-Tier Stackable Desktop A4 Document & Letter Filing Tray - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-button-folders-organizer-view2-angle.jpg",
+        "alt": "3-Tier Stackable Desktop A4 Document & Letter Filing Tray - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-button-folders-organizer-view3-detail.jpg",
+        "alt": "3-Tier Stackable Desktop A4 Document & Letter Filing Tray - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-button-folders-organizer-view4-overhead.jpg",
+        "alt": "3-Tier Stackable Desktop A4 Document & Letter Filing Tray - Studio Overview Presentation"
       }
     ],
     "stock": 52,
@@ -2882,7 +4051,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Phoenix",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-button-folders-organizer.jpg"
   },
   {
     "_id": "prod-ed-01",
@@ -2896,7 +4066,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/products/globe.jpg",
-        "alt": "25cm Political & Geographical World Desktop Globe on Stainless Steel Arc Stand"
+        "alt": "25cm Political & Geographical World Desktop Globe on Stainless Steel Arc Stand - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/globe-view2-angle.jpg",
+        "alt": "25cm Political & Geographical World Desktop Globe on Stainless Steel Arc Stand - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/globe-view3-detail.jpg",
+        "alt": "25cm Political & Geographical World Desktop Globe on Stainless Steel Arc Stand - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/globe-view4-overhead.jpg",
+        "alt": "25cm Political & Geographical World Desktop Globe on Stainless Steel Arc Stand - Studio Overview Presentation"
       }
     ],
     "stock": 45,
@@ -2914,7 +4096,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "AZIP Edu",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/products/globe.jpg"
   },
   {
     "_id": "prod-ed-02",
@@ -2928,7 +4111,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-scholarship-workbooks.jpg",
-        "alt": "Laminated Sri Lanka Administrative Districts, Rivers & Physical Wall Map (Sinhala & English)"
+        "alt": "Laminated Sri Lanka Administrative Districts, Rivers & Physical Wall Map (Sinhala & English) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-scholarship-workbooks-view2-angle.jpg",
+        "alt": "Laminated Sri Lanka Administrative Districts, Rivers & Physical Wall Map (Sinhala & English) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-scholarship-workbooks-view3-detail.jpg",
+        "alt": "Laminated Sri Lanka Administrative Districts, Rivers & Physical Wall Map (Sinhala & English) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-scholarship-workbooks-view4-overhead.jpg",
+        "alt": "Laminated Sri Lanka Administrative Districts, Rivers & Physical Wall Map (Sinhala & English) - Studio Overview Presentation"
       }
     ],
     "stock": 58,
@@ -2946,7 +4141,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "MD Gunasena",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-scholarship-workbooks.jpg"
   },
   {
     "_id": "prod-ed-03",
@@ -2960,7 +4156,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-textbooks-stack.jpg",
-        "alt": "IUPAC Periodic Table of Elements Laminated Classroom Wall Chart (70cm × 100cm)"
+        "alt": "IUPAC Periodic Table of Elements Laminated Classroom Wall Chart (70cm × 100cm) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-textbooks-stack-view2-angle.jpg",
+        "alt": "IUPAC Periodic Table of Elements Laminated Classroom Wall Chart (70cm × 100cm) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-textbooks-stack-view3-detail.jpg",
+        "alt": "IUPAC Periodic Table of Elements Laminated Classroom Wall Chart (70cm × 100cm) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-textbooks-stack-view4-overhead.jpg",
+        "alt": "IUPAC Periodic Table of Elements Laminated Classroom Wall Chart (70cm × 100cm) - Studio Overview Presentation"
       }
     ],
     "stock": 71,
@@ -2978,7 +4186,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Susara Publishers",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-textbooks-stack.jpg"
   },
   {
     "_id": "prod-ed-04",
@@ -2992,7 +4201,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-preschool-crayons-clay.jpg",
-        "alt": "17-Rod Traditional Soroban & Primary Mathematics Counting Abacus Frame"
+        "alt": "17-Rod Traditional Soroban & Primary Mathematics Counting Abacus Frame - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-preschool-crayons-clay-view2-angle.jpg",
+        "alt": "17-Rod Traditional Soroban & Primary Mathematics Counting Abacus Frame - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-preschool-crayons-clay-view3-detail.jpg",
+        "alt": "17-Rod Traditional Soroban & Primary Mathematics Counting Abacus Frame - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-preschool-crayons-clay-view4-overhead.jpg",
+        "alt": "17-Rod Traditional Soroban & Primary Mathematics Counting Abacus Frame - Studio Overview Presentation"
       }
     ],
     "stock": 84,
@@ -3010,7 +4231,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "AZIP Edu",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-preschool-crayons-clay.jpg"
   },
   {
     "_id": "prod-ed-05",
@@ -3024,7 +4246,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-scholarship-workbooks.jpg",
-        "alt": "Bilingual Multiplication Tables, Fractions & Geometry Formulas Flash Cards Set"
+        "alt": "Bilingual Multiplication Tables, Fractions & Geometry Formulas Flash Cards Set - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-scholarship-workbooks-view2-angle.jpg",
+        "alt": "Bilingual Multiplication Tables, Fractions & Geometry Formulas Flash Cards Set - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-scholarship-workbooks-view3-detail.jpg",
+        "alt": "Bilingual Multiplication Tables, Fractions & Geometry Formulas Flash Cards Set - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-scholarship-workbooks-view4-overhead.jpg",
+        "alt": "Bilingual Multiplication Tables, Fractions & Geometry Formulas Flash Cards Set - Studio Overview Presentation"
       }
     ],
     "stock": 97,
@@ -3042,7 +4276,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Master Guide",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-scholarship-workbooks.jpg"
   },
   {
     "_id": "prod-ed-06",
@@ -3056,7 +4291,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/geometry-set.jpg",
-        "alt": "3D Geometric Solids (Cube, Cylinder, Cone, Pyramid, Prism) Classroom Kit (12 Pcs)"
+        "alt": "3D Geometric Solids (Cube, Cylinder, Cone, Pyramid, Prism) Classroom Kit (12 Pcs) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/geometry-set-view2-angle.jpg",
+        "alt": "3D Geometric Solids (Cube, Cylinder, Cone, Pyramid, Prism) Classroom Kit (12 Pcs) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/geometry-set-view3-detail.jpg",
+        "alt": "3D Geometric Solids (Cube, Cylinder, Cone, Pyramid, Prism) Classroom Kit (12 Pcs) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/geometry-set-view4-overhead.jpg",
+        "alt": "3D Geometric Solids (Cube, Cylinder, Cone, Pyramid, Prism) Classroom Kit (12 Pcs) - Studio Overview Presentation"
       }
     ],
     "stock": 110,
@@ -3073,7 +4320,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "AZIP Edu",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/geometry-set.jpg"
   },
   {
     "_id": "prod-ed-07",
@@ -3087,7 +4335,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/products/microscope.jpg",
-        "alt": "Human Skeleton, Digestive & Circulatory System Laminated Biology Wall Charts (Set of 3)"
+        "alt": "Human Skeleton, Digestive & Circulatory System Laminated Biology Wall Charts (Set of 3) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/microscope-view2-angle.jpg",
+        "alt": "Human Skeleton, Digestive & Circulatory System Laminated Biology Wall Charts (Set of 3) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/microscope-view3-detail.jpg",
+        "alt": "Human Skeleton, Digestive & Circulatory System Laminated Biology Wall Charts (Set of 3) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/microscope-view4-overhead.jpg",
+        "alt": "Human Skeleton, Digestive & Circulatory System Laminated Biology Wall Charts (Set of 3) - Studio Overview Presentation"
       }
     ],
     "stock": 123,
@@ -3104,7 +4364,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "MD Gunasena",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/products/microscope.jpg"
   },
   {
     "_id": "prod-ed-08",
@@ -3118,7 +4379,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-preschool-crayons-clay.jpg",
-        "alt": "Sinhala, Tamil & English Trilingual Picture Vocabulary Flash Cards (100 Cards)"
+        "alt": "Sinhala, Tamil & English Trilingual Picture Vocabulary Flash Cards (100 Cards) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-preschool-crayons-clay-view2-angle.jpg",
+        "alt": "Sinhala, Tamil & English Trilingual Picture Vocabulary Flash Cards (100 Cards) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-preschool-crayons-clay-view3-detail.jpg",
+        "alt": "Sinhala, Tamil & English Trilingual Picture Vocabulary Flash Cards (100 Cards) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-preschool-crayons-clay-view4-overhead.jpg",
+        "alt": "Sinhala, Tamil & English Trilingual Picture Vocabulary Flash Cards (100 Cards) - Studio Overview Presentation"
       }
     ],
     "stock": 136,
@@ -3135,7 +4408,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Sarasavi Publishers",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-preschool-crayons-clay.jpg"
   },
   {
     "_id": "prod-ed-09",
@@ -3149,7 +4423,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/products/globe.jpg",
-        "alt": "Solar System & 8 Planets 3D Rotating Classroom Astronomy Model Kit"
+        "alt": "Solar System & 8 Planets 3D Rotating Classroom Astronomy Model Kit - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/globe-view2-angle.jpg",
+        "alt": "Solar System & 8 Planets 3D Rotating Classroom Astronomy Model Kit - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/globe-view3-detail.jpg",
+        "alt": "Solar System & 8 Planets 3D Rotating Classroom Astronomy Model Kit - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/globe-view4-overhead.jpg",
+        "alt": "Solar System & 8 Planets 3D Rotating Classroom Astronomy Model Kit - Studio Overview Presentation"
       }
     ],
     "stock": 149,
@@ -3167,7 +4453,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "AZIP Edu",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/products/globe.jpg"
   },
   {
     "_id": "prod-ed-10",
@@ -3181,7 +4468,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-office-paper-stapler.jpg",
-        "alt": "Magnetic Dry-Erase Study Whiteboard (60cm × 45cm) with Aluminum Frame, Markers & Duster"
+        "alt": "Magnetic Dry-Erase Study Whiteboard (60cm × 45cm) with Aluminum Frame, Markers & Duster - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-office-paper-stapler-view2-angle.jpg",
+        "alt": "Magnetic Dry-Erase Study Whiteboard (60cm × 45cm) with Aluminum Frame, Markers & Duster - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-office-paper-stapler-view3-detail.jpg",
+        "alt": "Magnetic Dry-Erase Study Whiteboard (60cm × 45cm) with Aluminum Frame, Markers & Duster - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-office-paper-stapler-view4-overhead.jpg",
+        "alt": "Magnetic Dry-Erase Study Whiteboard (60cm × 45cm) with Aluminum Frame, Markers & Duster - Studio Overview Presentation"
       }
     ],
     "stock": 52,
@@ -3199,7 +4498,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Atlas",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-office-paper-stapler.jpg"
   },
   {
     "_id": "prod-pk-01",
@@ -3213,7 +4513,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-preschool-crayons-clay.jpg",
-        "alt": "Atlas Chooty 24 Jumbo Non-Toxic Wax Crayons Box for Preschoolers"
+        "alt": "Atlas Chooty 24 Jumbo Non-Toxic Wax Crayons Box for Preschoolers - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-preschool-crayons-clay-view2-angle.jpg",
+        "alt": "Atlas Chooty 24 Jumbo Non-Toxic Wax Crayons Box for Preschoolers - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-preschool-crayons-clay-view3-detail.jpg",
+        "alt": "Atlas Chooty 24 Jumbo Non-Toxic Wax Crayons Box for Preschoolers - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-preschool-crayons-clay-view4-overhead.jpg",
+        "alt": "Atlas Chooty 24 Jumbo Non-Toxic Wax Crayons Box for Preschoolers - Studio Overview Presentation"
       }
     ],
     "stock": 45,
@@ -3231,7 +4543,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Atlas",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-preschool-crayons-clay.jpg"
   },
   {
     "_id": "prod-pk-02",
@@ -3245,7 +4558,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-preschool-crayons-clay.jpg",
-        "alt": "Non-Toxic Colourful Modeling Play Dough / Clay Tubs (Set of 6 Vibrant Colours)"
+        "alt": "Non-Toxic Colourful Modeling Play Dough / Clay Tubs (Set of 6 Vibrant Colours) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-preschool-crayons-clay-view2-angle.jpg",
+        "alt": "Non-Toxic Colourful Modeling Play Dough / Clay Tubs (Set of 6 Vibrant Colours) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-preschool-crayons-clay-view3-detail.jpg",
+        "alt": "Non-Toxic Colourful Modeling Play Dough / Clay Tubs (Set of 6 Vibrant Colours) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-preschool-crayons-clay-view4-overhead.jpg",
+        "alt": "Non-Toxic Colourful Modeling Play Dough / Clay Tubs (Set of 6 Vibrant Colours) - Studio Overview Presentation"
       }
     ],
     "stock": 58,
@@ -3263,7 +4588,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Atlas",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-preschool-crayons-clay.jpg"
   },
   {
     "_id": "prod-pk-03",
@@ -3277,7 +4603,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-preschool-crayons-clay.jpg",
-        "alt": "Wooden ABC English & Sinhala Akuru (සිංහල හෝඩිය) Peg Puzzle Boards Duo"
+        "alt": "Wooden ABC English & Sinhala Akuru (සිංහල හෝඩිය) Peg Puzzle Boards Duo - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-preschool-crayons-clay-view2-angle.jpg",
+        "alt": "Wooden ABC English & Sinhala Akuru (සිංහල හෝඩිය) Peg Puzzle Boards Duo - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-preschool-crayons-clay-view3-detail.jpg",
+        "alt": "Wooden ABC English & Sinhala Akuru (සිංහල හෝඩිය) Peg Puzzle Boards Duo - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-preschool-crayons-clay-view4-overhead.jpg",
+        "alt": "Wooden ABC English & Sinhala Akuru (සිංහල හෝඩිය) Peg Puzzle Boards Duo - Studio Overview Presentation"
       }
     ],
     "stock": 71,
@@ -3295,7 +4633,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "MD Gunasena",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-preschool-crayons-clay.jpg"
   },
   {
     "_id": "prod-pk-04",
@@ -3309,7 +4648,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-scholarship-workbooks.jpg",
-        "alt": "My First Big Book of Alphabet, Numbers & Animals Colouring Pack (Set of 3 Books)"
+        "alt": "My First Big Book of Alphabet, Numbers & Animals Colouring Pack (Set of 3 Books) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-scholarship-workbooks-view2-angle.jpg",
+        "alt": "My First Big Book of Alphabet, Numbers & Animals Colouring Pack (Set of 3 Books) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-scholarship-workbooks-view3-detail.jpg",
+        "alt": "My First Big Book of Alphabet, Numbers & Animals Colouring Pack (Set of 3 Books) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-scholarship-workbooks-view4-overhead.jpg",
+        "alt": "My First Big Book of Alphabet, Numbers & Animals Colouring Pack (Set of 3 Books) - Studio Overview Presentation"
       }
     ],
     "stock": 84,
@@ -3326,7 +4677,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Sarasavi Publishers",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-scholarship-workbooks.jpg"
   },
   {
     "_id": "prod-pk-05",
@@ -3340,7 +4692,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/faber-castell-water-color.jpg",
-        "alt": "Faber-Castell Washable Non-Toxic Kids Finger & Poster Paint Tubs (6 Colours)"
+        "alt": "Faber-Castell Washable Non-Toxic Kids Finger & Poster Paint Tubs (6 Colours) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/faber-castell-water-color-view2-angle.jpg",
+        "alt": "Faber-Castell Washable Non-Toxic Kids Finger & Poster Paint Tubs (6 Colours) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/faber-castell-water-color-view3-detail.jpg",
+        "alt": "Faber-Castell Washable Non-Toxic Kids Finger & Poster Paint Tubs (6 Colours) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/faber-castell-water-color-view4-overhead.jpg",
+        "alt": "Faber-Castell Washable Non-Toxic Kids Finger & Poster Paint Tubs (6 Colours) - Studio Overview Presentation"
       }
     ],
     "stock": 97,
@@ -3358,7 +4722,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Faber-Castell",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/faber-castell-water-color.jpg"
   },
   {
     "_id": "prod-pk-06",
@@ -3372,7 +4737,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-art-pencils-paints.jpg",
-        "alt": "Maped Kidikut Safety Fiberglass-Blade Craft Scissors for Preschool Kids (2 Pack)"
+        "alt": "Maped Kidikut Safety Fiberglass-Blade Craft Scissors for Preschool Kids (2 Pack) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-art-pencils-paints-view2-angle.jpg",
+        "alt": "Maped Kidikut Safety Fiberglass-Blade Craft Scissors for Preschool Kids (2 Pack) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-art-pencils-paints-view3-detail.jpg",
+        "alt": "Maped Kidikut Safety Fiberglass-Blade Craft Scissors for Preschool Kids (2 Pack) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-art-pencils-paints-view4-overhead.jpg",
+        "alt": "Maped Kidikut Safety Fiberglass-Blade Craft Scissors for Preschool Kids (2 Pack) - Studio Overview Presentation"
       }
     ],
     "stock": 110,
@@ -3389,7 +4766,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Maped",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-art-pencils-paints.jpg"
   },
   {
     "_id": "prod-pk-07",
@@ -3403,7 +4781,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-scholarship-workbooks.jpg",
-        "alt": "Wipe-Clean Pen Control, Letters & Numbers Tracing Workbook with Dry-Erase Marker"
+        "alt": "Wipe-Clean Pen Control, Letters & Numbers Tracing Workbook with Dry-Erase Marker - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-scholarship-workbooks-view2-angle.jpg",
+        "alt": "Wipe-Clean Pen Control, Letters & Numbers Tracing Workbook with Dry-Erase Marker - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-scholarship-workbooks-view3-detail.jpg",
+        "alt": "Wipe-Clean Pen Control, Letters & Numbers Tracing Workbook with Dry-Erase Marker - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-scholarship-workbooks-view4-overhead.jpg",
+        "alt": "Wipe-Clean Pen Control, Letters & Numbers Tracing Workbook with Dry-Erase Marker - Studio Overview Presentation"
       }
     ],
     "stock": 123,
@@ -3421,7 +4811,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "MD Gunasena",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-scholarship-workbooks.jpg"
   },
   {
     "_id": "prod-pk-08",
@@ -3435,7 +4826,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-preschool-crayons-clay.jpg",
-        "alt": "Wooden Counting Sticks, Number Tiles & Montessori Arithmetic Learning Box"
+        "alt": "Wooden Counting Sticks, Number Tiles & Montessori Arithmetic Learning Box - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-preschool-crayons-clay-view2-angle.jpg",
+        "alt": "Wooden Counting Sticks, Number Tiles & Montessori Arithmetic Learning Box - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-preschool-crayons-clay-view3-detail.jpg",
+        "alt": "Wooden Counting Sticks, Number Tiles & Montessori Arithmetic Learning Box - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-preschool-crayons-clay-view4-overhead.jpg",
+        "alt": "Wooden Counting Sticks, Number Tiles & Montessori Arithmetic Learning Box - Studio Overview Presentation"
       }
     ],
     "stock": 136,
@@ -3452,7 +4855,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "AZIP Edu",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-preschool-crayons-clay.jpg"
   },
   {
     "_id": "prod-pk-09",
@@ -3466,7 +4870,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/lunch-box.jpg",
-        "alt": "3D Embossed Hardtop EVA Kids Cartoon Pencil Box with Mesh Compartments"
+        "alt": "3D Embossed Hardtop EVA Kids Cartoon Pencil Box with Mesh Compartments - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/lunch-box-view2-angle.jpg",
+        "alt": "3D Embossed Hardtop EVA Kids Cartoon Pencil Box with Mesh Compartments - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/lunch-box-view3-detail.jpg",
+        "alt": "3D Embossed Hardtop EVA Kids Cartoon Pencil Box with Mesh Compartments - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/lunch-box-view4-overhead.jpg",
+        "alt": "3D Embossed Hardtop EVA Kids Cartoon Pencil Box with Mesh Compartments - Studio Overview Presentation"
       }
     ],
     "stock": 149,
@@ -3483,7 +4899,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Atlas",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/lunch-box.jpg"
   },
   {
     "_id": "prod-pk-10",
@@ -3497,7 +4914,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/drawing-kit.jpg",
-        "alt": "Preschool Kids Waterproof Art Apron Smock & Non-Spill Paint Water Cups Set"
+        "alt": "Preschool Kids Waterproof Art Apron Smock & Non-Spill Paint Water Cups Set - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/drawing-kit-view2-angle.jpg",
+        "alt": "Preschool Kids Waterproof Art Apron Smock & Non-Spill Paint Water Cups Set - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/drawing-kit-view3-detail.jpg",
+        "alt": "Preschool Kids Waterproof Art Apron Smock & Non-Spill Paint Water Cups Set - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/drawing-kit-view4-overhead.jpg",
+        "alt": "Preschool Kids Waterproof Art Apron Smock & Non-Spill Paint Water Cups Set - Studio Overview Presentation"
       }
     ],
     "stock": 52,
@@ -3514,7 +4943,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Mont Marte",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/drawing-kit.jpg"
   },
   {
     "_id": "prod-sl-01",
@@ -3528,7 +4958,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/products/microscope.jpg",
-        "alt": "Student Compound Biological Microscope Kit (100x–1200x) with Prepared Slides & Goggles"
+        "alt": "Student Compound Biological Microscope Kit (100x–1200x) with Prepared Slides & Goggles - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/microscope-view2-angle.jpg",
+        "alt": "Student Compound Biological Microscope Kit (100x–1200x) with Prepared Slides & Goggles - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/microscope-view3-detail.jpg",
+        "alt": "Student Compound Biological Microscope Kit (100x–1200x) with Prepared Slides & Goggles - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/microscope-view4-overhead.jpg",
+        "alt": "Student Compound Biological Microscope Kit (100x–1200x) with Prepared Slides & Goggles - Studio Overview Presentation"
       }
     ],
     "stock": 45,
@@ -3546,7 +4988,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "AZIP Lab",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/products/microscope.jpg"
   },
   {
     "_id": "prod-sl-02",
@@ -3560,7 +5003,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/products/microscope.jpg",
-        "alt": "Borosilicate 3.3 Glass Beaker & Conical Flask Laboratory Set (50ml, 100ml, 250ml)"
+        "alt": "Borosilicate 3.3 Glass Beaker & Conical Flask Laboratory Set (50ml, 100ml, 250ml) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/microscope-view2-angle.jpg",
+        "alt": "Borosilicate 3.3 Glass Beaker & Conical Flask Laboratory Set (50ml, 100ml, 250ml) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/microscope-view3-detail.jpg",
+        "alt": "Borosilicate 3.3 Glass Beaker & Conical Flask Laboratory Set (50ml, 100ml, 250ml) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/microscope-view4-overhead.jpg",
+        "alt": "Borosilicate 3.3 Glass Beaker & Conical Flask Laboratory Set (50ml, 100ml, 250ml) - Studio Overview Presentation"
       }
     ],
     "stock": 58,
@@ -3578,7 +5033,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Borosil",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/products/microscope.jpg"
   },
   {
     "_id": "prod-sl-03",
@@ -3592,7 +5048,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/geometry-set.jpg",
-        "alt": "A/L Biology Stainless Steel Dissecting Instrument Kit (12-Piece Canvas Roll)"
+        "alt": "A/L Biology Stainless Steel Dissecting Instrument Kit (12-Piece Canvas Roll) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/geometry-set-view2-angle.jpg",
+        "alt": "A/L Biology Stainless Steel Dissecting Instrument Kit (12-Piece Canvas Roll) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/geometry-set-view3-detail.jpg",
+        "alt": "A/L Biology Stainless Steel Dissecting Instrument Kit (12-Piece Canvas Roll) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/geometry-set-view4-overhead.jpg",
+        "alt": "A/L Biology Stainless Steel Dissecting Instrument Kit (12-Piece Canvas Roll) - Studio Overview Presentation"
       }
     ],
     "stock": 71,
@@ -3610,7 +5078,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "AZIP Lab",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/geometry-set.jpg"
   },
   {
     "_id": "prod-sl-04",
@@ -3624,7 +5093,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/products/globe.jpg",
-        "alt": "Organic & Inorganic Chemistry 3D Molecular Model Ball-and-Stick Kit (240 Pieces)"
+        "alt": "Organic & Inorganic Chemistry 3D Molecular Model Ball-and-Stick Kit (240 Pieces) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/globe-view2-angle.jpg",
+        "alt": "Organic & Inorganic Chemistry 3D Molecular Model Ball-and-Stick Kit (240 Pieces) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/globe-view3-detail.jpg",
+        "alt": "Organic & Inorganic Chemistry 3D Molecular Model Ball-and-Stick Kit (240 Pieces) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/globe-view4-overhead.jpg",
+        "alt": "Organic & Inorganic Chemistry 3D Molecular Model Ball-and-Stick Kit (240 Pieces) - Studio Overview Presentation"
       }
     ],
     "stock": 84,
@@ -3641,7 +5122,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "AZIP Lab",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/products/globe.jpg"
   },
   {
     "_id": "prod-sl-05",
@@ -3655,7 +5137,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/products/microscope.jpg",
-        "alt": "Physics Optics Experiment Kit — Equilateral Glass Prism, Lenses & Concave/Convex Mirrors"
+        "alt": "Physics Optics Experiment Kit — Equilateral Glass Prism, Lenses & Concave/Convex Mirrors - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/microscope-view2-angle.jpg",
+        "alt": "Physics Optics Experiment Kit — Equilateral Glass Prism, Lenses & Concave/Convex Mirrors - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/microscope-view3-detail.jpg",
+        "alt": "Physics Optics Experiment Kit — Equilateral Glass Prism, Lenses & Concave/Convex Mirrors - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/microscope-view4-overhead.jpg",
+        "alt": "Physics Optics Experiment Kit — Equilateral Glass Prism, Lenses & Concave/Convex Mirrors - Studio Overview Presentation"
       }
     ],
     "stock": 97,
@@ -3673,7 +5167,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "AZIP Lab",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/products/microscope.jpg"
   },
   {
     "_id": "prod-sl-06",
@@ -3687,7 +5182,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/products/microscope.jpg",
-        "alt": "Litmus Blue/Red & Universal pH 1–14 Indicator Test Strips (4 Vials — 400 Strips)"
+        "alt": "Litmus Blue/Red & Universal pH 1–14 Indicator Test Strips (4 Vials — 400 Strips) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/microscope-view2-angle.jpg",
+        "alt": "Litmus Blue/Red & Universal pH 1–14 Indicator Test Strips (4 Vials — 400 Strips) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/microscope-view3-detail.jpg",
+        "alt": "Litmus Blue/Red & Universal pH 1–14 Indicator Test Strips (4 Vials — 400 Strips) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/microscope-view4-overhead.jpg",
+        "alt": "Litmus Blue/Red & Universal pH 1–14 Indicator Test Strips (4 Vials — 400 Strips) - Studio Overview Presentation"
       }
     ],
     "stock": 110,
@@ -3705,7 +5212,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Whatman",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/products/microscope.jpg"
   },
   {
     "_id": "prod-sl-07",
@@ -3719,7 +5227,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/products/microscope.jpg",
-        "alt": "Polypropylene Test Tube Rack with 12 Borosilicate Glass Test Tubes & Brass Holder"
+        "alt": "Polypropylene Test Tube Rack with 12 Borosilicate Glass Test Tubes & Brass Holder - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/microscope-view2-angle.jpg",
+        "alt": "Polypropylene Test Tube Rack with 12 Borosilicate Glass Test Tubes & Brass Holder - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/microscope-view3-detail.jpg",
+        "alt": "Polypropylene Test Tube Rack with 12 Borosilicate Glass Test Tubes & Brass Holder - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/microscope-view4-overhead.jpg",
+        "alt": "Polypropylene Test Tube Rack with 12 Borosilicate Glass Test Tubes & Brass Holder - Studio Overview Presentation"
       }
     ],
     "stock": 123,
@@ -3737,7 +5257,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Borosil",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/products/microscope.jpg"
   },
   {
     "_id": "prod-sl-08",
@@ -3751,7 +5272,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/products/globe.jpg",
-        "alt": "3D Detachable Human Torso Anatomical Model (28cm — 15 Removable Organs)"
+        "alt": "3D Detachable Human Torso Anatomical Model (28cm — 15 Removable Organs) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/globe-view2-angle.jpg",
+        "alt": "3D Detachable Human Torso Anatomical Model (28cm — 15 Removable Organs) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/globe-view3-detail.jpg",
+        "alt": "3D Detachable Human Torso Anatomical Model (28cm — 15 Removable Organs) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/globe-view4-overhead.jpg",
+        "alt": "3D Detachable Human Torso Anatomical Model (28cm — 15 Removable Organs) - Studio Overview Presentation"
       }
     ],
     "stock": 136,
@@ -3768,7 +5301,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "AZIP Lab",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/products/globe.jpg"
   },
   {
     "_id": "prod-sl-09",
@@ -3782,7 +5316,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/casio-fx991cw.jpg",
-        "alt": "Digital Pocket Laboratory & Chemical Weighing Scale (0.01g Precision up to 500g)"
+        "alt": "Digital Pocket Laboratory & Chemical Weighing Scale (0.01g Precision up to 500g) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/casio-fx991cw-view2-angle.jpg",
+        "alt": "Digital Pocket Laboratory & Chemical Weighing Scale (0.01g Precision up to 500g) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/casio-fx991cw-view3-detail.jpg",
+        "alt": "Digital Pocket Laboratory & Chemical Weighing Scale (0.01g Precision up to 500g) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/casio-fx991cw-view4-overhead.jpg",
+        "alt": "Digital Pocket Laboratory & Chemical Weighing Scale (0.01g Precision up to 500g) - Studio Overview Presentation"
       }
     ],
     "stock": 149,
@@ -3800,7 +5346,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "AZIP Lab",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/casio-fx991cw.jpg"
   },
   {
     "_id": "prod-sl-10",
@@ -3814,7 +5361,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/products/microscope.jpg",
-        "alt": "Anti-Fog Polycarbonate Lab Safety Goggles & 100% Cotton White Student Lab Coat"
+        "alt": "Anti-Fog Polycarbonate Lab Safety Goggles & 100% Cotton White Student Lab Coat - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/microscope-view2-angle.jpg",
+        "alt": "Anti-Fog Polycarbonate Lab Safety Goggles & 100% Cotton White Student Lab Coat - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/microscope-view3-detail.jpg",
+        "alt": "Anti-Fog Polycarbonate Lab Safety Goggles & 100% Cotton White Student Lab Coat - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/microscope-view4-overhead.jpg",
+        "alt": "Anti-Fog Polycarbonate Lab Safety Goggles & 100% Cotton White Student Lab Coat - Studio Overview Presentation"
       }
     ],
     "stock": 52,
@@ -3831,7 +5390,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "AZIP Lab",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/products/microscope.jpg"
   },
   {
     "_id": "prod-gf-01",
@@ -3845,7 +5405,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-executive-gift-pen.jpg",
-        "alt": "Montague Matte-Black & Chrome Executive Rollerball Pen in Luxury Velvet Gift Box"
+        "alt": "Montague Matte-Black & Chrome Executive Rollerball Pen in Luxury Velvet Gift Box - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-executive-gift-pen-view2-angle.jpg",
+        "alt": "Montague Matte-Black & Chrome Executive Rollerball Pen in Luxury Velvet Gift Box - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-executive-gift-pen-view3-detail.jpg",
+        "alt": "Montague Matte-Black & Chrome Executive Rollerball Pen in Luxury Velvet Gift Box - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-executive-gift-pen-view4-overhead.jpg",
+        "alt": "Montague Matte-Black & Chrome Executive Rollerball Pen in Luxury Velvet Gift Box - Studio Overview Presentation"
       }
     ],
     "stock": 45,
@@ -3863,7 +5435,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Montague",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-executive-gift-pen.jpg"
   },
   {
     "_id": "prod-gf-02",
@@ -3877,7 +5450,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-executive-gift-pen.jpg",
-        "alt": "Executive Leatherette A5 Hardcover Journal, Pen & Desk Tray Corporate Gift Set"
+        "alt": "Executive Leatherette A5 Hardcover Journal, Pen & Desk Tray Corporate Gift Set - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-executive-gift-pen-view2-angle.jpg",
+        "alt": "Executive Leatherette A5 Hardcover Journal, Pen & Desk Tray Corporate Gift Set - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-executive-gift-pen-view3-detail.jpg",
+        "alt": "Executive Leatherette A5 Hardcover Journal, Pen & Desk Tray Corporate Gift Set - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-executive-gift-pen-view4-overhead.jpg",
+        "alt": "Executive Leatherette A5 Hardcover Journal, Pen & Desk Tray Corporate Gift Set - Studio Overview Presentation"
       }
     ],
     "stock": 58,
@@ -3894,7 +5479,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Promate",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-executive-gift-pen.jpg"
   },
   {
     "_id": "prod-gf-03",
@@ -3908,7 +5494,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-executive-gift-pen.jpg",
-        "alt": "Parker Jotter Stainless Steel Chrome Trim Ballpoint Pen (Official Gift Box)"
+        "alt": "Parker Jotter Stainless Steel Chrome Trim Ballpoint Pen (Official Gift Box) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-executive-gift-pen-view2-angle.jpg",
+        "alt": "Parker Jotter Stainless Steel Chrome Trim Ballpoint Pen (Official Gift Box) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-executive-gift-pen-view3-detail.jpg",
+        "alt": "Parker Jotter Stainless Steel Chrome Trim Ballpoint Pen (Official Gift Box) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-executive-gift-pen-view4-overhead.jpg",
+        "alt": "Parker Jotter Stainless Steel Chrome Trim Ballpoint Pen (Official Gift Box) - Studio Overview Presentation"
       }
     ],
     "stock": 71,
@@ -3926,7 +5524,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Parker",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-executive-gift-pen.jpg"
   },
   {
     "_id": "prod-gf-04",
@@ -3940,7 +5539,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/drawing-kit.jpg",
-        "alt": "Deluxe Wooden Case Artist Sketching & Watercolour Studio Gift Edition"
+        "alt": "Deluxe Wooden Case Artist Sketching & Watercolour Studio Gift Edition - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/drawing-kit-view2-angle.jpg",
+        "alt": "Deluxe Wooden Case Artist Sketching & Watercolour Studio Gift Edition - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/drawing-kit-view3-detail.jpg",
+        "alt": "Deluxe Wooden Case Artist Sketching & Watercolour Studio Gift Edition - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/drawing-kit-view4-overhead.jpg",
+        "alt": "Deluxe Wooden Case Artist Sketching & Watercolour Studio Gift Edition - Studio Overview Presentation"
       }
     ],
     "stock": 84,
@@ -3958,7 +5569,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Faber-Castell",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/drawing-kit.jpg"
   },
   {
     "_id": "prod-gf-05",
@@ -3972,7 +5584,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/cat_gifts_4k.jpg",
-        "alt": "Luxury Kraft Gift Boxes with Satin Ribbon Bows & Gift Tags (Set of 4 Nested Sizes)"
+        "alt": "Luxury Kraft Gift Boxes with Satin Ribbon Bows & Gift Tags (Set of 4 Nested Sizes) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/cat_gifts_4k-view2-angle.jpg",
+        "alt": "Luxury Kraft Gift Boxes with Satin Ribbon Bows & Gift Tags (Set of 4 Nested Sizes) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/cat_gifts_4k-view3-detail.jpg",
+        "alt": "Luxury Kraft Gift Boxes with Satin Ribbon Bows & Gift Tags (Set of 4 Nested Sizes) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/cat_gifts_4k-view4-overhead.jpg",
+        "alt": "Luxury Kraft Gift Boxes with Satin Ribbon Bows & Gift Tags (Set of 4 Nested Sizes) - Studio Overview Presentation"
       }
     ],
     "stock": 97,
@@ -3990,7 +5614,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Richard",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/cat_gifts_4k.jpg"
   },
   {
     "_id": "prod-gf-06",
@@ -4004,7 +5629,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/cat_gifts_4k.jpg",
-        "alt": "Festive & Birthday Metallic Foil Gift Wrapping Paper Rolls (Pack of 10 Sheets)"
+        "alt": "Festive & Birthday Metallic Foil Gift Wrapping Paper Rolls (Pack of 10 Sheets) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/cat_gifts_4k-view2-angle.jpg",
+        "alt": "Festive & Birthday Metallic Foil Gift Wrapping Paper Rolls (Pack of 10 Sheets) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/cat_gifts_4k-view3-detail.jpg",
+        "alt": "Festive & Birthday Metallic Foil Gift Wrapping Paper Rolls (Pack of 10 Sheets) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/cat_gifts_4k-view4-overhead.jpg",
+        "alt": "Festive & Birthday Metallic Foil Gift Wrapping Paper Rolls (Pack of 10 Sheets) - Studio Overview Presentation"
       }
     ],
     "stock": 110,
@@ -4021,7 +5658,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Richard",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/cat_gifts_4k.jpg"
   },
   {
     "_id": "prod-gf-07",
@@ -4035,7 +5673,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-dictionary-novels.jpg",
-        "alt": "Handcrafted Sri Lankan Brass & Batik Tassel Bookmarks (Gift Pack of 4)"
+        "alt": "Handcrafted Sri Lankan Brass & Batik Tassel Bookmarks (Gift Pack of 4) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-dictionary-novels-view2-angle.jpg",
+        "alt": "Handcrafted Sri Lankan Brass & Batik Tassel Bookmarks (Gift Pack of 4) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-dictionary-novels-view3-detail.jpg",
+        "alt": "Handcrafted Sri Lankan Brass & Batik Tassel Bookmarks (Gift Pack of 4) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-dictionary-novels-view4-overhead.jpg",
+        "alt": "Handcrafted Sri Lankan Brass & Batik Tassel Bookmarks (Gift Pack of 4) - Studio Overview Presentation"
       }
     ],
     "stock": 123,
@@ -4053,7 +5703,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Sarasavi Publishers",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-dictionary-novels.jpg"
   },
   {
     "_id": "prod-gf-08",
@@ -4067,7 +5718,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/cat_gifts_4k.jpg",
-        "alt": "Assorted Birthday, Prize Giving & Best Wishes Greeting Cards with Envelopes (Pack of 8)"
+        "alt": "Assorted Birthday, Prize Giving & Best Wishes Greeting Cards with Envelopes (Pack of 8) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/cat_gifts_4k-view2-angle.jpg",
+        "alt": "Assorted Birthday, Prize Giving & Best Wishes Greeting Cards with Envelopes (Pack of 8) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/cat_gifts_4k-view3-detail.jpg",
+        "alt": "Assorted Birthday, Prize Giving & Best Wishes Greeting Cards with Envelopes (Pack of 8) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/cat_gifts_4k-view4-overhead.jpg",
+        "alt": "Assorted Birthday, Prize Giving & Best Wishes Greeting Cards with Envelopes (Pack of 8) - Studio Overview Presentation"
       }
     ],
     "stock": 136,
@@ -4084,7 +5747,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Sarasavi Publishers",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/cat_gifts_4k.jpg"
   },
   {
     "_id": "prod-gf-09",
@@ -4098,7 +5762,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-executive-gift-pen.jpg",
-        "alt": "2026 Executive Academic Planner & Daily Organizer Diary (A5 Hardcover)"
+        "alt": "2026 Executive Academic Planner & Daily Organizer Diary (A5 Hardcover) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-executive-gift-pen-view2-angle.jpg",
+        "alt": "2026 Executive Academic Planner & Daily Organizer Diary (A5 Hardcover) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-executive-gift-pen-view3-detail.jpg",
+        "alt": "2026 Executive Academic Planner & Daily Organizer Diary (A5 Hardcover) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-executive-gift-pen-view4-overhead.jpg",
+        "alt": "2026 Executive Academic Planner & Daily Organizer Diary (A5 Hardcover) - Studio Overview Presentation"
       }
     ],
     "stock": 149,
@@ -4116,7 +5792,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Atlas",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-executive-gift-pen.jpg"
   },
   {
     "_id": "prod-gf-10",
@@ -4130,7 +5807,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-textbooks-stack.jpg",
-        "alt": "Adjustable Metal Ergonomic Book Reading Stand & Textbook Holder"
+        "alt": "Adjustable Metal Ergonomic Book Reading Stand & Textbook Holder - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-textbooks-stack-view2-angle.jpg",
+        "alt": "Adjustable Metal Ergonomic Book Reading Stand & Textbook Holder - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-textbooks-stack-view3-detail.jpg",
+        "alt": "Adjustable Metal Ergonomic Book Reading Stand & Textbook Holder - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-textbooks-stack-view4-overhead.jpg",
+        "alt": "Adjustable Metal Ergonomic Book Reading Stand & Textbook Holder - Studio Overview Presentation"
       }
     ],
     "stock": 52,
@@ -4148,7 +5837,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Deli",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-textbooks-stack.jpg"
   },
   {
     "_id": "prod-el-01",
@@ -4162,7 +5852,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/casio-fx991cw.jpg",
-        "alt": "Casio FX-991CW ClassWiz Advanced Scientific Calculator (3-Year Official Warranty)"
+        "alt": "Casio FX-991CW ClassWiz Advanced Scientific Calculator (3-Year Official Warranty) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/casio-fx991cw-view2-angle.jpg",
+        "alt": "Casio FX-991CW ClassWiz Advanced Scientific Calculator (3-Year Official Warranty) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/casio-fx991cw-view3-detail.jpg",
+        "alt": "Casio FX-991CW ClassWiz Advanced Scientific Calculator (3-Year Official Warranty) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/casio-fx991cw-view4-overhead.jpg",
+        "alt": "Casio FX-991CW ClassWiz Advanced Scientific Calculator (3-Year Official Warranty) - Studio Overview Presentation"
       }
     ],
     "stock": 45,
@@ -4180,7 +5882,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Casio",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/casio-fx991cw.jpg"
   },
   {
     "_id": "prod-el-02",
@@ -4194,7 +5897,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-electronics-study.jpg",
-        "alt": "SanDisk Ultra Dual Drive Go 64GB USB Type-C & USB 3.2 High-Speed Flash Drive"
+        "alt": "SanDisk Ultra Dual Drive Go 64GB USB Type-C & USB 3.2 High-Speed Flash Drive - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-electronics-study-view2-angle.jpg",
+        "alt": "SanDisk Ultra Dual Drive Go 64GB USB Type-C & USB 3.2 High-Speed Flash Drive - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-electronics-study-view3-detail.jpg",
+        "alt": "SanDisk Ultra Dual Drive Go 64GB USB Type-C & USB 3.2 High-Speed Flash Drive - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-electronics-study-view4-overhead.jpg",
+        "alt": "SanDisk Ultra Dual Drive Go 64GB USB Type-C & USB 3.2 High-Speed Flash Drive - Studio Overview Presentation"
       }
     ],
     "stock": 58,
@@ -4212,7 +5927,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "SanDisk",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-electronics-study.jpg"
   },
   {
     "_id": "prod-el-03",
@@ -4226,7 +5942,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-electronics-study.jpg",
-        "alt": "Rechargeable Touch-Control LED Eye-Care Student Study Desk Lamp (3 Colour Modes)"
+        "alt": "Rechargeable Touch-Control LED Eye-Care Student Study Desk Lamp (3 Colour Modes) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-electronics-study-view2-angle.jpg",
+        "alt": "Rechargeable Touch-Control LED Eye-Care Student Study Desk Lamp (3 Colour Modes) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-electronics-study-view3-detail.jpg",
+        "alt": "Rechargeable Touch-Control LED Eye-Care Student Study Desk Lamp (3 Colour Modes) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-electronics-study-view4-overhead.jpg",
+        "alt": "Rechargeable Touch-Control LED Eye-Care Student Study Desk Lamp (3 Colour Modes) - Studio Overview Presentation"
       }
     ],
     "stock": 71,
@@ -4244,7 +5972,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Baseus",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-electronics-study.jpg"
   },
   {
     "_id": "prod-el-04",
@@ -4258,7 +5987,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-electronics-study.jpg",
-        "alt": "Over-Ear Noise-Isolating Student Study & Online Tuition Headphones with Microphone"
+        "alt": "Over-Ear Noise-Isolating Student Study & Online Tuition Headphones with Microphone - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-electronics-study-view2-angle.jpg",
+        "alt": "Over-Ear Noise-Isolating Student Study & Online Tuition Headphones with Microphone - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-electronics-study-view3-detail.jpg",
+        "alt": "Over-Ear Noise-Isolating Student Study & Online Tuition Headphones with Microphone - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-electronics-study-view4-overhead.jpg",
+        "alt": "Over-Ear Noise-Isolating Student Study & Online Tuition Headphones with Microphone - Studio Overview Presentation"
       }
     ],
     "stock": 84,
@@ -4276,7 +6017,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Logitech",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-electronics-study.jpg"
   },
   {
     "_id": "prod-el-05",
@@ -4290,7 +6032,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-electronics-study.jpg",
-        "alt": "SanDisk Cruzer Blade 32GB USB 2.0 Compact Pen Drive for School IT Projects"
+        "alt": "SanDisk Cruzer Blade 32GB USB 2.0 Compact Pen Drive for School IT Projects - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-electronics-study-view2-angle.jpg",
+        "alt": "SanDisk Cruzer Blade 32GB USB 2.0 Compact Pen Drive for School IT Projects - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-electronics-study-view3-detail.jpg",
+        "alt": "SanDisk Cruzer Blade 32GB USB 2.0 Compact Pen Drive for School IT Projects - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-electronics-study-view4-overhead.jpg",
+        "alt": "SanDisk Cruzer Blade 32GB USB 2.0 Compact Pen Drive for School IT Projects - Studio Overview Presentation"
       }
     ],
     "stock": 97,
@@ -4307,7 +6061,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "SanDisk",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-electronics-study.jpg"
   },
   {
     "_id": "prod-el-06",
@@ -4321,7 +6076,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-electronics-study.jpg",
-        "alt": "Logitech M185 Wireless 2.4GHz Optical Mouse with Nano USB Receiver"
+        "alt": "Logitech M185 Wireless 2.4GHz Optical Mouse with Nano USB Receiver - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-electronics-study-view2-angle.jpg",
+        "alt": "Logitech M185 Wireless 2.4GHz Optical Mouse with Nano USB Receiver - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-electronics-study-view3-detail.jpg",
+        "alt": "Logitech M185 Wireless 2.4GHz Optical Mouse with Nano USB Receiver - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-electronics-study-view4-overhead.jpg",
+        "alt": "Logitech M185 Wireless 2.4GHz Optical Mouse with Nano USB Receiver - Studio Overview Presentation"
       }
     ],
     "stock": 110,
@@ -4338,7 +6105,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Logitech",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-electronics-study.jpg"
   },
   {
     "_id": "prod-el-07",
@@ -4352,7 +6120,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/casio-fx991cw.jpg",
-        "alt": "Casio DJ-120D Plus 12-Digit 300-Step Check & Correct Desktop Calculator"
+        "alt": "Casio DJ-120D Plus 12-Digit 300-Step Check & Correct Desktop Calculator - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/casio-fx991cw-view2-angle.jpg",
+        "alt": "Casio DJ-120D Plus 12-Digit 300-Step Check & Correct Desktop Calculator - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/casio-fx991cw-view3-detail.jpg",
+        "alt": "Casio DJ-120D Plus 12-Digit 300-Step Check & Correct Desktop Calculator - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/casio-fx991cw-view4-overhead.jpg",
+        "alt": "Casio DJ-120D Plus 12-Digit 300-Step Check & Correct Desktop Calculator - Studio Overview Presentation"
       }
     ],
     "stock": 123,
@@ -4369,7 +6149,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Casio",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/casio-fx991cw.jpg"
   },
   {
     "_id": "prod-el-08",
@@ -4383,7 +6164,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-electronics-study.jpg",
-        "alt": "10,000mAh Fast-Charging Slim Portable Power Bank (Dual USB + Type-C PD)"
+        "alt": "10,000mAh Fast-Charging Slim Portable Power Bank (Dual USB + Type-C PD) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-electronics-study-view2-angle.jpg",
+        "alt": "10,000mAh Fast-Charging Slim Portable Power Bank (Dual USB + Type-C PD) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-electronics-study-view3-detail.jpg",
+        "alt": "10,000mAh Fast-Charging Slim Portable Power Bank (Dual USB + Type-C PD) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-electronics-study-view4-overhead.jpg",
+        "alt": "10,000mAh Fast-Charging Slim Portable Power Bank (Dual USB + Type-C PD) - Studio Overview Presentation"
       }
     ],
     "stock": 136,
@@ -4401,7 +6194,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Anker",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-electronics-study.jpg"
   },
   {
     "_id": "prod-el-09",
@@ -4415,7 +6209,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/casio-fx991cw.jpg",
-        "alt": "10-Inch LCD Digital Writing & Rough-Work eWriter Tablet with Stylus & Lock Key"
+        "alt": "10-Inch LCD Digital Writing & Rough-Work eWriter Tablet with Stylus & Lock Key - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/casio-fx991cw-view2-angle.jpg",
+        "alt": "10-Inch LCD Digital Writing & Rough-Work eWriter Tablet with Stylus & Lock Key - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/casio-fx991cw-view3-detail.jpg",
+        "alt": "10-Inch LCD Digital Writing & Rough-Work eWriter Tablet with Stylus & Lock Key - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/casio-fx991cw-view4-overhead.jpg",
+        "alt": "10-Inch LCD Digital Writing & Rough-Work eWriter Tablet with Stylus & Lock Key - Studio Overview Presentation"
       }
     ],
     "stock": 149,
@@ -4433,7 +6239,8 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Deli",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/casio-fx991cw.jpg"
   },
   {
     "_id": "prod-el-10",
@@ -4447,7 +6254,19 @@ export const ALL_EXPANDED_PRODUCTS = [
     "images": [
       {
         "url": "/images/hd/products/sl-electronics-study.jpg",
-        "alt": "Orange Electric 4-Way Universal Surge Protector Power Strip with 3 USB Ports (2m Cord)"
+        "alt": "Orange Electric 4-Way Universal Surge Protector Power Strip with 3 USB Ports (2m Cord) - Front Studio View"
+      },
+      {
+        "url": "/images/gallery/sl-electronics-study-view2-angle.jpg",
+        "alt": "Orange Electric 4-Way Universal Surge Protector Power Strip with 3 USB Ports (2m Cord) - Side Angle View"
+      },
+      {
+        "url": "/images/gallery/sl-electronics-study-view3-detail.jpg",
+        "alt": "Orange Electric 4-Way Universal Surge Protector Power Strip with 3 USB Ports (2m Cord) - Macro Detail Inspection"
+      },
+      {
+        "url": "/images/gallery/sl-electronics-study-view4-overhead.jpg",
+        "alt": "Orange Electric 4-Way Universal Surge Protector Power Strip with 3 USB Ports (2m Cord) - Studio Overview Presentation"
       }
     ],
     "stock": 52,
@@ -4465,6 +6284,9 @@ export const ALL_EXPANDED_PRODUCTS = [
     "brand": "Orange Electric",
     "grade": "",
     "language": "",
-    "rulingType": ""
+    "rulingType": "",
+    "image": "/images/hd/products/sl-electronics-study.jpg"
   }
 ];
+
+export const INITIAL_CATALOG_PRODUCTS = ALL_EXPANDED_PRODUCTS;

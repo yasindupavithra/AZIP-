@@ -169,21 +169,29 @@ export default function ProductImageZoom({
         <div className="flex items-center gap-2.5 overflow-x-auto py-1 scrollbar-none flex-1">
           {imageList.map((imgUrl, index) => {
             const isSelected = index === activeIndex;
+            const viewLabels = [
+              'Front View',
+              'Angle View',
+              'Detail View',
+              'Overview',
+            ];
+            const label = viewLabels[index] || `View ${index + 1}`;
             return (
               <button
                 key={index}
                 type="button"
                 onMouseEnter={() => setActiveIndex(index)}
                 onClick={() => setActiveIndex(index)}
+                title={`${productName} — ${label}`}
                 className={`relative w-16 h-16 sm:w-18 sm:h-18 rounded-none overflow-hidden border-2 bg-white p-1 transition-all shrink-0 cursor-pointer ${
                   isSelected
-                    ? 'border-[#0066FF] shadow-md ring-2 ring-[#0066FF]/20 scale-102'
-                    : 'border-gray-200 hover:border-gray-400 opacity-75 hover:opacity-100'
+                    ? 'border-[#0066FF] shadow-md ring-2 ring-[#0066FF]/25 scale-102'
+                    : 'border-gray-200 hover:border-gray-400 opacity-80 hover:opacity-100'
                 }`}
               >
                 <img
                   src={imgUrl}
-                  alt={`Product view ${index + 1}`}
+                  alt={`${productName} - ${label}`}
                   className="w-full h-full object-contain"
                 />
               </button>

@@ -246,7 +246,7 @@ export default function HomePage() {
     'popular'
   );
   const [searchInCat, setSearchInCat] = useState('');
-  const [visibleCount, setVisibleCount] = useState(18);
+  const [visibleCount, setVisibleCount] = useState(12);
   const [isBooklistOpen, setIsBooklistOpen] = useState(false);
   const [addedBundleId, setAddedBundleId] = useState<string | null>(null);
 
@@ -376,7 +376,7 @@ export default function HomePage() {
 
   const handleSelectDepartment = (slug: string) => {
     setSelectedCategory(slug);
-    setVisibleCount(18);
+    setVisibleCount(12);
     catalogSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
@@ -519,7 +519,7 @@ export default function HomePage() {
             </div>
 
             {/* 12 Flash Sale Products Grid */}
-            <div className="p-4 sm:p-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3.5">
+            <div className="p-4 sm:p-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
               {FLASH_DEALS.map((p) => (
                 <HomeProductCard key={p.id} product={p} isFlashDeal />
               ))}
@@ -691,7 +691,7 @@ export default function HomePage() {
                   value={searchInCat}
                   onChange={(e) => {
                     setSearchInCat(e.target.value);
-                    setVisibleCount(18);
+                    setVisibleCount(12);
                   }}
                   placeholder="Quick search in catalog..."
                   className="w-full pl-9 pr-4 py-2 text-xs sm:text-sm rounded-none bg-slate-50 border border-slate-200 focus:border-[#0096C7] focus:bg-white focus:outline-none font-medium text-slate-800"
@@ -712,7 +712,7 @@ export default function HomePage() {
                       type="button"
                       onClick={() => {
                         setSelectedCategory(tab.slug);
-                        setVisibleCount(18);
+                        setVisibleCount(12);
                       }}
                       className={`group flex items-center gap-2 px-3.5 py-2.5 rounded-none text-xs sm:text-[13px] font-bold whitespace-nowrap transition-all cursor-pointer shrink-0 border ${
                         active
@@ -759,7 +759,7 @@ export default function HomePage() {
                       type="button"
                       onClick={() => {
                         setQuickFilter(f.id as typeof quickFilter);
-                        setVisibleCount(18);
+                        setVisibleCount(12);
                       }}
                       className={`px-3 py-1 rounded-none text-xs font-bold transition-colors cursor-pointer border ${
                         quickFilter === f.id
@@ -793,7 +793,7 @@ export default function HomePage() {
             <div className="p-4 sm:p-6">
               {filteredProducts.length > 0 ? (
                 <>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3.5">
+                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
                     {filteredProducts.slice(0, visibleCount).map((product) => (
                       <HomeProductCard key={product.id} product={product} />
                     ))}
@@ -818,10 +818,10 @@ export default function HomePage() {
                       {visibleCount < filteredProducts.length && (
                         <button
                           type="button"
-                          onClick={() => setVisibleCount((prev) => prev + 18)}
+                          onClick={() => setVisibleCount((prev) => prev + 12)}
                           className="px-6 py-2.5 rounded-none bg-gradient-to-r from-[#0096C7] to-[#00C4D8] hover:from-[#007EA7] hover:to-[#0096C7] text-white text-xs sm:text-sm font-extrabold shadow-sm cursor-pointer border-none transition-all"
                         >
-                          Load More Products (+{Math.min(18, filteredProducts.length - visibleCount)})
+                          Load More Products (+{Math.min(12, filteredProducts.length - visibleCount)})
                         </button>
                       )}
                       <Link

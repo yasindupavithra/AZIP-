@@ -123,7 +123,7 @@ export default function ProductDetailPage() {
     fetchProduct();
   }, [slug]);
 
-  // Multi-angle realistic gallery generator for authentic Daraz-style thumbnail strip
+  // 4 authentic angle gallery views of the EXACT same product (never mixes other products)
   const galleryImages = useMemo(() => {
     if (!product) return [];
 
@@ -131,92 +131,20 @@ export default function ProductDetailPage() {
       return product.images;
     }
 
-    const primary = (product.images && product.images[0]?.url) || getCategoryImage(product.category);
+    const primary =
+      (product.images && product.images[0]?.url) ||
+      (product as any).image ||
+      getCategoryImage(product.category);
 
-    const categoryAngles: Record<string, string[]> = {
-      'school-books': [
-        '/images/hd/products/sl-textbooks-stack.jpg',
-        '/images/hd/products/sl-scholarship-workbooks.jpg',
-        '/images/hd/products/atlas-exercise-book.jpg',
-      ],
-      'exercise-books': [
-        '/images/hd/products/atlas-exercise-book.jpg',
-        '/images/v2/cr-notebooks.jpg',
-        '/images/v2/exercise-books-stack.jpg',
-      ],
-      'writing-instruments': [
-        '/images/hd/products/sl-writing-pens-pencils.jpg',
-        '/images/hd/products/pilot-g2-pens.jpg',
-        '/images/hd/products/highlighters-set.jpg',
-      ],
-      'mathematical-instruments': [
-        '/images/hd/products/geometry-set.jpg',
-        '/images/hd/products/casio-fx991cw.jpg',
-        '/images/hd/products/atlas-exercise-book.jpg',
-      ],
-      'art-craft': [
-        '/images/hd/products/sl-art-pencils-paints.jpg',
-        '/images/hd/products/faber-castell-water-color.jpg',
-        '/images/hd/products/drawing-kit.jpg',
-      ],
-      books: [
-        '/images/hd/products/sl-dictionary-novels.jpg',
-        '/images/cat_books_4k.jpg',
-        '/images/hd/products/sl-textbooks-stack.jpg',
-      ],
-      'office-supplies': [
-        '/images/hd/products/sl-office-paper-stapler.jpg',
-        '/images/hd/products/sticky-notes.jpg',
-        '/images/hd/products/sl-button-folders-organizer.jpg',
-      ],
-      'school-accessories': [
-        '/images/hd/products/school-backpack-blue.jpg',
-        '/images/hd/products/water-bottle.jpg',
-        '/images/hd/products/lunch-box.jpg',
-      ],
-      'files-organization': [
-        '/images/hd/products/sl-files-binders.jpg',
-        '/images/hd/products/sl-button-folders-organizer.jpg',
-        '/images/hd/products/sl-office-paper-stapler.jpg',
-      ],
-      'educational-materials': [
-        '/products/globe.jpg',
-        '/images/hd/products/sl-scholarship-workbooks.jpg',
-        '/images/hd/products/sl-textbooks-stack.jpg',
-      ],
-      'preschool-kids': [
-        '/images/hd/products/sl-preschool-crayons-clay.jpg',
-        '/images/hd/products/sl-scholarship-workbooks.jpg',
-        '/images/hd/products/faber-castell-water-color.jpg',
-      ],
-      'science-laboratory': [
-        '/products/microscope.jpg',
-        '/products/globe.jpg',
-        '/images/hd/products/casio-fx991cw.jpg',
-      ],
-      'gifts-accessories': [
-        '/images/hd/products/sl-executive-gift-pen.jpg',
-        '/images/cat_gifts_4k.jpg',
-        '/images/hd/products/drawing-kit.jpg',
-      ],
-      electronics: [
-        '/images/hd/products/sl-electronics-study.jpg',
-        '/images/hd/products/casio-fx991cw.jpg',
-        '/images/hd/products/geometry-set.jpg',
-      ],
-    };
-
-    const extras = categoryAngles[product.category] || [
-      '/images/hd/products/atlas-exercise-book.jpg',
-      '/images/hd/products/pilot-g2-pens.jpg',
-      '/images/hd/products/geometry-set.jpg',
-    ];
+    // Extract base filename without extension to point to this product's exact 4 views
+    const baseMatch = primary.match(/\/([^\/?#]+)\.[a-zA-Z0-9]+$/);
+    const baseName = baseMatch ? baseMatch[1] : 'atlas-exercise-book';
 
     return [
-      { url: primary, alt: `${product.name} - Front View` },
-      { url: extras[0], alt: `${product.name} - Studio View 2` },
-      { url: extras[1], alt: `${product.name} - Studio View 3` },
-      { url: extras[2], alt: `${product.name} - Studio View 4` },
+      { url: primary, alt: `${product.name} - Front Studio View` },
+      { url: `/images/gallery/${baseName}-view2-angle.jpg`, alt: `${product.name} - Side Angle View` },
+      { url: `/images/gallery/${baseName}-view3-detail.jpg`, alt: `${product.name} - Macro Detail Inspection` },
+      { url: `/images/gallery/${baseName}-view4-overhead.jpg`, alt: `${product.name} - Studio Overview Presentation` },
     ];
   }, [product]);
 
