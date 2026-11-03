@@ -392,7 +392,7 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
                   {extraImgs[0] && (
                     <Link
                       href={slide.linkUrl || '/offers'}
-                      className="hidden sm:flex w-28 h-32 lg:w-32 lg:h-36 bg-white rounded-none p-2 shadow-[0_14px_28px_rgba(0,0,0,0.35)] items-center justify-center -rotate-3 hover:rotate-0 hover:scale-105 transition-all"
+                      className="hidden sm:flex w-28 h-32 lg:w-32 lg:h-36 bg-white rounded-none p-2 shadow-[0_14px_28px_rgba(0,0,0,0.35)] items-center justify-center hover:scale-105 transition-all"
                     >
                       <img
                         src={extraImgs[0]}
@@ -418,7 +418,7 @@ export default function HeroBannerSlider({ waUrl }: { waUrl: string }) {
                   {extraImgs[1] && (
                     <Link
                       href={slide.linkUrl || '/offers'}
-                      className="hidden xl:flex w-28 h-32 bg-white rounded-none p-2 shadow-[0_14px_28px_rgba(0,0,0,0.35)] items-center justify-center rotate-3 hover:rotate-0 hover:scale-105 transition-all"
+                      className="hidden xl:flex w-28 h-32 bg-white rounded-none p-2 shadow-[0_14px_28px_rgba(0,0,0,0.35)] items-center justify-center hover:scale-105 transition-all"
                     >
                       <img
                         src={extraImgs[1]}

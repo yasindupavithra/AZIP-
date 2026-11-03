@@ -20,6 +20,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <style
+          dangerouslySetInnerHTML={{
+            __html: '*, *::before, *::after { border-radius: 0px !important; }',
+          }}
+        />
+      </head>
       <body>
         <LanguageProvider>
           {children}

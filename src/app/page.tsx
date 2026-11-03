@@ -702,14 +702,14 @@ export default function HomePage() {
 
               {/* Floating Product Duo */}
               <div className="relative z-10 flex items-center gap-2 shrink-0">
-                <div className="w-24 h-28 sm:w-28 sm:h-32 bg-white rounded-none p-2 shadow-xl -rotate-6 flex items-center justify-center">
+                <div className="w-24 h-28 sm:w-28 sm:h-32 bg-white rounded-none p-2 shadow-xl flex items-center justify-center">
                   <img
                     src="/images/hd/products/atlas-exercise-book.jpg"
                     alt="Atlas Exercise Book"
                     className="max-w-full max-h-full object-contain"
                   />
                 </div>
-                <div className="w-28 h-32 sm:w-32 sm:h-36 bg-white rounded-none p-2.5 shadow-2xl rotate-3 flex items-center justify-center">
+                <div className="w-28 h-32 sm:w-32 sm:h-36 bg-white rounded-none p-2.5 shadow-2xl flex items-center justify-center">
                   <img
                     src="/images/hd/products/school-backpack-blue.jpg"
                     alt="School Backpack"
@@ -766,14 +766,14 @@ export default function HomePage() {
 
               {/* Floating Product Duo */}
               <div className="relative z-10 flex items-center gap-2 shrink-0">
-                <div className="w-24 h-28 sm:w-28 sm:h-32 bg-white rounded-none p-2 shadow-xl -rotate-6 flex items-center justify-center">
+                <div className="w-24 h-28 sm:w-28 sm:h-32 bg-white rounded-none p-2 shadow-xl flex items-center justify-center">
                   <img
                     src="/images/hd/products/faber-castell-water-color.jpg"
                     alt="Faber-Castell Watercolors"
                     className="max-w-full max-h-full object-contain"
                   />
                 </div>
-                <div className="w-28 h-32 sm:w-32 sm:h-36 bg-white rounded-none p-2.5 shadow-2xl rotate-3 flex items-center justify-center">
+                <div className="w-28 h-32 sm:w-32 sm:h-36 bg-white rounded-none p-2.5 shadow-2xl flex items-center justify-center">
                   <img
                     src="/images/hd/products/casio-fx991cw.jpg"
                     alt="Casio FX-991CW"
