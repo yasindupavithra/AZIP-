@@ -90,56 +90,48 @@ const VISUAL_DEPARTMENTS = [
     title: 'School Books',
     subtitle: 'Grade 1 to A/L',
     image: '/images/hd/categories/school-books.jpg',
-    accent: 'from-sky-500/10 to-blue-500/5 border-sky-200',
   },
   {
     slug: 'exercise-books',
     title: 'CR & Exercise Books',
     subtitle: 'Atlas & Oxford',
     image: '/images/hd/products/atlas-exercise-book.jpg',
-    accent: 'from-amber-500/10 to-orange-500/5 border-amber-200',
   },
   {
     slug: 'writing-instruments',
     title: 'Pens & Writing',
     subtitle: 'Pilot, Stabilo, Atlas',
     image: '/images/hd/products/pilot-g2-pens.jpg',
-    accent: 'from-cyan-500/10 to-teal-500/5 border-cyan-200',
   },
   {
     slug: 'mathematical-instruments',
     title: 'Calculators & Math',
     subtitle: 'Casio & Helix Sets',
     image: '/images/hd/products/casio-fx991cw.jpg',
-    accent: 'from-indigo-500/10 to-blue-500/5 border-indigo-200',
   },
   {
     slug: 'art-craft',
     title: 'Art & Craft',
     subtitle: 'Faber-Castell & Paints',
     image: '/images/hd/products/faber-castell-water-color.jpg',
-    accent: 'from-rose-500/10 to-pink-500/5 border-rose-200',
   },
   {
     slug: 'school-accessories',
     title: 'Backpacks & Gear',
     subtitle: 'Bags, Bottles, Lunch',
     image: '/images/hd/products/school-backpack-blue.jpg',
-    accent: 'from-emerald-500/10 to-teal-500/5 border-emerald-200',
   },
   {
     slug: 'office-supplies',
     title: 'Office & Files',
     subtitle: 'A4 Paper & Binders',
     image: '/images/hd/products/sticky-notes.jpg',
-    accent: 'from-violet-500/10 to-purple-500/5 border-violet-200',
   },
   {
     slug: 'science-laboratory',
     title: 'Science & Lab',
     subtitle: 'Models & Globes',
     image: '/products/globe.jpg',
-    accent: 'from-teal-500/10 to-cyan-500/5 border-teal-200',
   },
 ];
 
@@ -375,7 +367,7 @@ export default function HomePage() {
   }, [mappedProducts, selectedCategory, searchInCat, quickFilter, sortBy]);
 
   const handleSelectDepartment = (slug: string) => {
-    setSelectedCategory(slug);
+    setSelectedCategory((prev) => (prev === slug ? 'all' : slug));
     setVisibleCount(12);
     catalogSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
@@ -407,25 +399,36 @@ export default function HomePage() {
           <HeroBannerSlider waUrl={WA_URL} />
         </section>
 
-        {/* ── 2. VISUAL SHOP-BY-DEPARTMENT BAR ── */}
+        {/* ── 2. VISUAL SHOP-BY-DEPARTMENT BAR (AZIP Signature Blue & Cyan Theme) ── */}
         <section className={`${SECTION} mt-6`}>
           <div className="bg-white rounded-none border border-slate-200/90 p-4 sm:p-5 shadow-xs">
-            <div className="flex items-center justify-between mb-3.5">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-6 rounded-none bg-[#0096C7]" />
-                <h2 className="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight">
+            <div className="flex flex-wrap items-center justify-between gap-2.5 mb-4">
+              <div className="flex items-center gap-2.5">
+                <span className="w-1.5 h-6 rounded-none bg-gradient-to-b from-[#0038A8] to-[#00C4D8]" />
+                <h2 className="text-base sm:text-lg font-black text-[#041E42] tracking-tight font-['Outfit']">
                   Shop by Department
                 </h2>
                 <span className="hidden sm:inline-block text-xs font-semibold text-slate-400">
                   • Click any category to filter products below
                 </span>
               </div>
-              <Link
-                href="/products"
-                className="text-xs sm:text-sm font-bold text-[#0096C7] hover:text-[#00C4D8] flex items-center gap-0.5"
-              >
-                All 14 Categories <ChevronRight size={15} />
-              </Link>
+              <div className="flex items-center gap-3">
+                {selectedCategory !== 'all' && (
+                  <button
+                    type="button"
+                    onClick={() => setSelectedCategory('all')}
+                    className="text-xs font-bold text-rose-600 hover:text-rose-700 bg-rose-50 hover:bg-rose-100 px-2.5 py-1 rounded-none border border-rose-200 transition-colors cursor-pointer"
+                  >
+                    ✕ Reset Filter
+                  </button>
+                )}
+                <Link
+                  href="/products"
+                  className="text-xs sm:text-sm font-bold text-[#0077B6] hover:text-[#00C4D8] flex items-center gap-0.5 transition-colors"
+                >
+                  All 14 Categories <ChevronRight size={15} />
+                </Link>
+              </div>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2.5 sm:gap-3">
@@ -436,27 +439,64 @@ export default function HomePage() {
                     key={dept.slug}
                     type="button"
                     onClick={() => handleSelectDepartment(dept.slug)}
-                    className={`group text-left rounded-none p-2.5 border transition-all cursor-pointer flex flex-col items-center text-center bg-gradient-to-b ${
-                      dept.accent
-                    } ${
+                    className={`group relative text-left rounded-none p-3 border transition-all duration-200 cursor-pointer flex flex-col items-center text-center ${
                       isSelected
-                        ? 'ring-2 ring-[#0096C7] border-[#0096C7] shadow-sm scale-[1.02]'
-                        : 'hover:border-[#00C4D8] hover:shadow-sm hover:-translate-y-0.5'
+                        ? 'bg-[#041E42] border-[#00C4D8] text-white shadow-md ring-2 ring-[#00C4D8]/30 -translate-y-0.5'
+                        : 'bg-white hover:bg-gradient-to-b hover:from-white hover:to-[#F0F9FF] border-slate-200/90 hover:border-[#00C4D8] hover:shadow-md hover:-translate-y-0.5'
                     }`}
                   >
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-none bg-white p-2 shadow-xs border border-slate-100 flex items-center justify-center mb-2 overflow-hidden">
+                    {/* Top brand line indicator on hover or selected */}
+                    <span
+                      className={`absolute top-0 left-0 right-0 h-[2px] transition-all ${
+                        isSelected
+                          ? 'bg-[#00E5FF]'
+                          : 'bg-transparent group-hover:bg-[#00C4D8]'
+                      }`}
+                    />
+
+                    {/* Image Showcase Stage - Clean studio container matched to brand */}
+                    <div
+                      className={`w-16 h-16 sm:w-20 sm:h-20 rounded-none flex items-center justify-center mb-2.5 p-2 transition-all overflow-hidden ${
+                        isSelected
+                          ? 'bg-white/10 border border-white/20'
+                          : 'bg-slate-50 group-hover:bg-[#E0F7FA]/50 border border-slate-100 group-hover:border-[#00C4D8]/40'
+                      }`}
+                    >
                       <img
                         src={dept.image}
                         alt={dept.title}
-                        className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
+                        className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-xs"
                       />
                     </div>
-                    <div className="text-xs font-extrabold text-slate-800 group-hover:text-[#0096C7] leading-tight line-clamp-1">
+
+                    {/* Title */}
+                    <div
+                      className={`text-xs font-black leading-tight line-clamp-1 transition-colors ${
+                        isSelected
+                          ? 'text-white'
+                          : 'text-slate-800 group-hover:text-[#0077B6]'
+                      }`}
+                    >
                       {dept.title}
                     </div>
-                    <div className="text-[10px] font-medium text-slate-500 mt-0.5 line-clamp-1">
+
+                    {/* Subtitle / Brands */}
+                    <div
+                      className={`text-[10px] font-semibold mt-0.5 line-clamp-1 transition-colors ${
+                        isSelected
+                          ? 'text-[#00E5FF]'
+                          : 'text-slate-400 group-hover:text-slate-600'
+                      }`}
+                    >
                       {dept.subtitle}
                     </div>
+
+                    {/* Active Pill Badge when Selected */}
+                    {isSelected && (
+                      <span className="mt-1.5 inline-flex items-center gap-1 text-[9px] font-black uppercase tracking-wider bg-[#00E5FF] text-[#041E42] px-2 py-0.5 rounded-none">
+                        Active ✓
+                      </span>
+                    )}
                   </button>
                 );
               })}
