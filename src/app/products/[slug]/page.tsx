@@ -136,6 +136,16 @@ export default function ProductDetailPage() {
       (product as any).image ||
       getCategoryImage(product.category);
 
+    // If image is an uploaded data URL, duplicate it cleanly across views
+    if (primary.startsWith('data:')) {
+      return [
+        { url: primary, alt: `${product.name} - Front View` },
+        { url: primary, alt: `${product.name} - Studio View 2` },
+        { url: primary, alt: `${product.name} - Detail View 3` },
+        { url: primary, alt: `${product.name} - Overview 4` },
+      ];
+    }
+
     // Extract base filename without extension to point to this product's exact 4 views
     const baseMatch = primary.match(/\/([^\/?#]+)\.[a-zA-Z0-9]+$/);
     const baseName = baseMatch ? baseMatch[1] : 'atlas-exercise-book';

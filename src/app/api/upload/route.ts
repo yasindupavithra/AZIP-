@@ -132,7 +132,7 @@ export async function POST(request: Request) {
       }
     }
 
-    // 6. Local Storage Fallback (for local development or when Cloudinary is unavailable)
+    // 6. Local Storage Fallback with Graceful Serverless Data URL Fallback
     if (!uploadedUrl) {
       try {
         const uploadDir = path.join(process.cwd(), 'public', 'uploads');
@@ -145,14 +145,29 @@ export async function POST(request: Request) {
         publicId = fileName;
         isLocal = true;
       } catch (fsErr: any) {
-        console.error('Local storage write error:', fsErr);
-        return NextResponse.json(
-          {
-            error:
-              'Storage error: Unable to save file. If running in production (e.g. Vercel), Cloudinary environment variables must be configured.',
-          },
-          { status: 500 }
+        console.warn(
+          'Local disk write failed (expected on read-only serverless e.g. Vercel), falling back to optimized inline Data URL:',
+          fsErr?.message
         );
+        try {
+          if (mimeType.startsWith('image/')) {
+            const sharp = (await import('sharp')).default;
+            const optimized = await sharp(buffer)
+              .resize(1200, 1200, { fit: 'inside', withoutEnlargement: true })
+              .webp({ quality: 80 })
+              .toBuffer();
+            uploadedUrl = `data:image/webp;base64,${optimized.toString('base64')}`;
+          } else {
+            uploadedUrl = `data:${mimeType || 'application/octet-stream'};base64,${buffer.toString('base64')}`;
+          }
+          publicId = fileName;
+          isLocal = false;
+        } catch (dataUrlErr: any) {
+          console.error('Data URL fallback error:', dataUrlErr);
+          uploadedUrl = `data:${mimeType || 'image/jpeg'};base64,${buffer.toString('base64')}`;
+          publicId = fileName;
+          isLocal = false;
+        }
       }
     }
 
